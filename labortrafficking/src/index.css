@@ -325,6 +325,7 @@ body {
   margin: 0 !important;
   padding: 0;
   background-color: #14558f;
+  border-bottom: 2px solid #11416D;
   padding: 0px 50px;
   position: relative;
   height: 75px;
@@ -610,11 +611,18 @@ input[type=checkbox]:checked ~ #menu{
     -o-transition: 0s;
 }
 
+.prepareLink{
+  color : #14558f;
+  font-weight : bold;
+  text-decoration : underline;
+}
+
 .button4{
   display: block;
+  position: relative;
   width: 100%;
-  background-color: #11416D;
-  border: 2px solid #AEAEAE;
+  background-color: #14558f;
+  border: 2px solid #11416D;
   font-size: 28px;
   color: #fff;
   padding: 14px;

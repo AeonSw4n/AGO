@@ -54,7 +54,7 @@ function Quiz(props) {
                 onChange={props.onAnswerSelected}
               />
               <label htmlFor={"Maybe_" + props.questionId}>
-                Maybe
+                I don’t know
               </label>
             </li>
 

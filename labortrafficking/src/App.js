@@ -489,9 +489,19 @@ class App extends Component {
       </picture>
       <div class="buttonContainer hidden-md hidden-lg">
         <button class="button4" onClick={this._onPrepareClick}><h1>Prepare</h1><p>Tips for interviewing victims</p></button>
-        <button class="button4" onClick={this._onAssessClick}><h1>Assess</h1><p>Is my case trafficking?</p></button>
-        <button class="button4" onClick={this._onReportClick}><h1>Resources</h1><p>Victim services and referral options</p></button>
-        <button class="button4" onClick={this._onMassClick}><h1>Mass Statute</h1><p>Link to MA.gov to view statute</p></button>
+        <button class="button4" onClick={this._onAssessClick}><h1>Assess</h1><p>Is this case trafficking?</p></button>
+        <button class="button4">
+          <div onClick={this._onReportClick} style={{position: "absolute", left : "0", top : "0", width: "100%", height: "100%"}}></div>
+          <h1>Resources</h1>
+          <p>
+            <span style={{textDecoration : "underline"}}>Report</span>&nbsp;and&nbsp;
+            <span style={{textDecoration : "underline", position : "relative"}}>
+              <div onClick={this._onResourcesClick} style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div>
+              Victim Services
+            </span>
+          </p>
+        </button>
+        <button class="button4" onClick={this._onMassClick}><h1>Massachusetts Law</h1><p>View the Massachusetts human trafficking law</p></button>
       </div>
       </div>
     );
@@ -651,7 +661,7 @@ class App extends Component {
         </div>
 
         <div className="prep1 resourcesContent">
-          <QuestionBox title={<h1>Tip 1: Develop trust.</h1>} html={(
+          <QuestionBox title={<h1>Tip 1: Develop trust</h1>} html={(
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
                 <h1 style={{fontWeight:"bold", marginBottom: "5px"}}>Confidentiality limitations</h1>
@@ -673,7 +683,7 @@ class App extends Component {
             )} />
           )} />
 
-          <QuestionBox title={<h1>Tip 2: Engage in safety planning.</h1>} html={(
+          <QuestionBox title={<h1>Tip 2: Engage in safety planning</h1>} html={(
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
                 <h1 style={{fontWeight:"bold", marginBottom: "5px"}}>Safety planning is very important</h1>
@@ -682,7 +692,7 @@ class App extends Component {
                     <h2 style={{fontWeight:"normal"}}>Ask about the victim’s immediate safety and take appropriate steps to ensure safety both before and after interviewing.</h2>
                   </li>
                   <li>
-                    <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>Involve a victim advocate in the process as soon as possible. Click here (link to safety planning information at page 17) for a list of questions to consider when thinking about safety planning.</h2>
+                    <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>Involve a victim advocate in the process as soon as possible. <span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(1)}}>Click here for a list of questions to consider when thinking about safety planning.</span></h2>
                   </li>
                 </ul>
                 <h1 style={{fontWeight:"bold", marginBottom: "5px"}}>Remember</h1>
@@ -694,8 +704,8 @@ class App extends Component {
                     <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>The victim may need to work to continue to repay debt and/or to support family members here or abroad.</h2>
                   </li>
                 </ul>
-                <h2 style={{fontWeight:"normal"}}>Some undocumented victims may be eligible for work authorization. Click here (link to immigration options at page 14) to learn more about immigration relief.</h2>
-                <h2 style={{fontWeight:"normal"}}>Make referrals to organizations that can assist with safety planning. Click here (link to victim services at page 8) to learn about available victim services.</h2>
+                <h2 style={{fontWeight:"normal"}}>Some undocumented victims may be eligible for work authorization. <span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(2)}}>Click here to learn more about immigration relief.</span></h2>
+                <h2 style={{fontWeight:"normal"}}>Make referrals to organizations that can assist with safety planning. <span class="prepareLink" onClick={this._onResourcesClick}>Click here to learn about available victim services.</span></h2>
               </div>
             )} />
           )} />
@@ -704,9 +714,9 @@ class App extends Component {
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
                 <h2 style={{fontWeight:"normal"}}>Undocumented victims are particularly at risk for human trafficking and may fear engaging with law enforcement.</h2>
-                <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>Immigration threats are often used as a means of power and control over the victim. If the victim is undocumented or if you are unsure of the victim’s immigration status, make a referral immediately to an experienced immigration attorney. <span style={{"color" : "#14558f", "font-weight" : "bold"}}>See Resources for a list of local immigration legal services providers.</span></h2>
-                <h2 style={{fontWeight:"normal"}}><span style={{"color" : "#14558f", "font-weight" : "bold"}}>Learn more about immigration options for undocumented victims</span></h2>
-                <h2 style={{fontWeight:"normal"}}><span style={{"color" : "#14558f", "font-weight" : "bold"}}>Learn more about pro bono immigration legal services for victims</span></h2>
+                <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>Immigration threats are often used as a means of power and control over the victim. If the victim is undocumented or if you are unsure of the victim’s immigration status, make a referral immediately to an experienced immigration attorney. <span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(2)}}>Click here for a list of local immigration legal services providers.</span></h2>
+                <h2 style={{fontWeight:"normal"}}><span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(2)}}>Learn more about immigration options for undocumented victims</span></h2>
+                <h2 style={{fontWeight:"normal"}}><span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(2)}}>Learn more about pro bono immigration legal services for victims</span></h2>
               </div>
             )} />
           )} />
@@ -719,17 +729,17 @@ class App extends Component {
                 <h2 style={{fontWeight:"normal"}}>In-person interpretation is preferable.</h2>
                 <h2 style={{fontWeight:"normal"}}>Before the interview, screen your interpreter to make sure he or she is not involved in the case and does not have connections to the suspect. Often, ethnic communities can be small, and it is essential that the interpreter has no relationship with the suspect and understands the importance of confidentiality.</h2>
                 <h2 style={{fontWeight:"normal"}}>Understand that there may be stigma and subtle cultural considerations that can affect the victim’s disclosures to interpreters. For example, a victim may not feel comfortable disclosing about a sexual assault in front of someone from his or her same ethnicity fearing stigma or blame.</h2>
-                <h2 style={{fontWeight:"bold"}}>Having a trained interpreter is essential when working with victims with limited English proficiency. <span style={{"color" : "#14558f", "font-weight" : "bold"}}>See Resources for a list of available interpreter services</span></h2>
+                <h2 style={{fontWeight:"bold"}}>Having a trained interpreter is essential when working with victims with limited English proficiency.</h2>
               </div>
             )} />
           )} />
 
-          <QuestionBox title={<h1>Tip 5: Make referrals to appropriate victim services as soon as possible.</h1>} html={(
+          <QuestionBox title={<h1>Tip 5: Make referrals to appropriate victim services as soon as possible</h1>} html={(
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
                 <h1 style={{fontWeight:"bold"}}>Make appropriate referrals to victim services </h1>
-                <h2 style={{fontWeight:"normal"}}>The first priority is ensuring that the victim’s basic needs are met. This includes access to safe housing, mental health services, medical services, and food. <span style={{"color" : "#14558f", "font-weight" : "bold"}}>See Resources to learn more about available victim services.</span></h2>
-                <h2 style={{fontWeight:"normal"}}> It is important to refer the victim to an attorney as soon as possible to ensure that he or she can learn about his or her rights. A victim of labor trafficking may be eligible for certain protections under law, such as victim compensation, criminal restitution, immigration relief, and civil remedies. <span style={{"color" : "#14558f", "font-weight" : "bold"}}>See Resources to learn more about available legal services and how to make referral.</span></h2>
+                <h2 style={{fontWeight:"normal"}}>The first priority is ensuring that the victim’s basic needs are met. This includes access to safe housing, mental health services, medical services, and food. <span class="prepareLink" onClick={this._onResourcesClick}>Click here to learn more about available victim services.</span></h2>
+                <h2 style={{fontWeight:"normal"}}> It is important to refer the victim to an attorney as soon as possible to ensure that he or she can learn about his or her rights. A victim of labor trafficking may be eligible for certain protections under law, such as victim compensation, criminal restitution, immigration relief, and civil remedies. <span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(3)}}>Click here to learn more about available legal services and how to make referral.</span></h2>
               </div>
             )} />
           )} />
@@ -740,17 +750,17 @@ class App extends Component {
                 <h2 style={{fontWeight:"normal"}}>At the outset, allowing the victim to tell as much or as little of his/her experience as he or she is comfortable is key in building trust and a successful investigation.</h2>
                 <h2 style={{fontWeight:"bold"}}>Asking open-ended questions is important to build trust.</h2>
                 <h2 style={{fontWeight:"normal"}}>It is important to understand how trauma can affect a victim’s disclosure and how to respond when the signs of trauma present themselves in an interview. Trauma can make victims reluctant to disclose and may affect their memory of an event, causing them to disclose their stories in a non-linear or inconsistent manner. It is important to allow for multiple interviews to help the victim fully disclose the traumatic event and to understand that there may be inconsistencies that emerge in early interviews.</h2>
-                <h2>If interviewing a child victim, find your local Children’s Advocacy Center. <span style={{"color" : "#14558f", "font-weight" : "bold"}}>See Resources for a list of victim services.</span></h2>
+                <h2>If interviewing a child victim, find your local Children’s Advocacy Center. <span class="prepareLink" onClick={this._onResourcesClick}>Click here for a list of victim services.</span></h2>
               </div>
             )} />
           )} />
 
-          <QuestionBox title={<h1>Tip 7: Educate yourself about trauma.</h1>} html={(
+          <QuestionBox title={<h1>Tip 7: Educate yourself about trauma</h1>} html={(
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
                 <h2 style={{fontWeight:"normal"}}>Approach the interview in a trauma-informed manner. It is important to understand how trauma can affect a victim’s disclosure and how to respond when the signs of trauma present themselves in an interview.</h2>
                 <h2 style={{fontWeight:"normal"}}> Often, victims may suffer from post-traumatic stress disorder, depression, and/or other mental health conditions. For this reason, they may have difficulty telling you about key parts of their story. Trauma can make victims reluctant to disclose and may affect their memory of an event, causing them to disclose their stories in a non-linear or inconsistent manner. Facts may emerge over time, and it may be important to engage in multiple interviews or ask for the assistance of a forensic interviewer, when appropriate.</h2>
-                <h2 style={{fontWeight:"normal"}}>Explore whether the victim has mental health supports in place at the outset and if not, make appropriate referrals to ensure the victim has support throughout the process. <span style={{"color" : "#14558f", "font-weight" : "bold"}}>See Resources for a list of victim services.</span></h2>
+                <h2 style={{fontWeight:"normal"}}>Explore whether the victim has mental health supports in place at the outset and if not, make appropriate referrals to ensure the victim has support throughout the process. <span class="prepareLink" onClick={this._onResourcesClick}>Click here for a list of victim services.</span></h2>
                 <h2 style={{fontWeight:"bold"}}>If a child (any victim under 18) is involved, mandated reporters must file a 51A report with the Massachusetts Department of Children and Families (DCF), which will report the situation to the local District Attorney’s Office. By law, DCF will work to establish a multidisciplinary team to provide comprehensive, tailored services to the child victim.</h2>
                 <ul style={{"list-style-type": "disc", "padding-left": "16px", "margin": "0px", "font-size": "13px"}}>
                   <li>
@@ -765,7 +775,7 @@ class App extends Component {
             )} />
           )} />
 
-          <QuestionBox title={<h1>Tip 8: Educate yourself about the culture.</h1>} html={(
+          <QuestionBox title={<h1>Tip 8: Educate yourself about the culture</h1>} html={(
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
                 <h1 style={{fontWeight:"bold"}}>Culture can play an important role in how a victim engages in the interview process.</h1>
@@ -815,7 +825,7 @@ class App extends Component {
       <div style={this.state.disclaimer ? {display : "block"} : {display : "none"}}>
         <div class="App" >
           <p class="pageTitle">Assess</p>
-          <p class="Head">Is my case trafficking?</p>
+          <p class="Head">Is this case trafficking?</p>
           <p class="HomeHead1">These questions can help determine if your case may meets the definition of trafficking under Massachusetts law.</p>
         </div>
         <div class="AssesmentContent">
@@ -856,6 +866,9 @@ class App extends Component {
   }
 
   renderResources() {
+    let blueBoxContainer = "prepareBlueBoxContainer";
+    let blueBox = "prepareBlueBox";
+
     function menuClass(id){
       return ("lis new-lis resources-lis "+((id==this.state.resourcesPage)?"resources-lis-active":""));
     }
@@ -875,281 +888,395 @@ class App extends Component {
           </div>
         </div>
         <div class="resourcesContent">
-          <div name="Emergency" style={{display: (this.state.resourcesPage==0)?"block":"none"}}>
-            <NormalText html={(
-              <div>
-                <h1>Emergency Victim Services</h1>
-              </div>
-            )} />
-            <BlueBox html={(
-              <div>
-                <h1 style={{fontWeight:"bold"}}>National Human Trafficking Resource Center</h1>
-                <h2><span style={{fontWeight:"normal"}}>Call the Fair Labor Hotline at: <span style={{textDecoration : "underline"}}>1-888-373-7888</span></span></h2>
-                <h2><span style={{fontWeight:"normal"}}>Text "BEFREE" to: <span style={{textDecoration : "underline"}}>233733</span></span></h2>
-                <h2><span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="https://humantraffickinghotline.org/chat">Click here to access live chat</a></span></h2>
-                <h2><span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="mailto:help@humantraffickinghotline.org%20?subject=MA%20Labor%20Trafficking%20Case">Click here to email the hotline</a></span></h2>
-                <h2 style={{fontWeight:"normal"}}>For resources available in your geographic area to assist labor trafficking victims, please contact the National Human Trafficking Resource Center (NHTRC) Hotline. NHTRC connects victims and survivors of human trafficking with support and services.</h2>
-                <h2 style={{fontWeight:"normal"}}>The hotline is open 24 hours a day, 7 days a week and has resources available in more than 200 languages.</h2>
-              </div>
-            )} />
-            <BlueBox html={(
-              <div>
-                <h1 style={{fontWeight:"bold"}}>Emergency Shelter</h1>
-                <h2 style={{fontWeight:"normal"}}>Contact the National Human Trafficking Resource Center Hotline at <span style={{fontWeight:"bold"}}>1-888-373-788</span> for emergency shelter options</h2>
-                <h2 style={{fontWeight:"normal"}}>Trafficking-specific Shelter Options. Listed below are organizations that place priority on housing for survivors of human trafficking:</h2>
-                <h2 style={{fontWeight:"normal"}}> Amirah (North Shore, sex trafficking): <span style={{fontWeight:"bold"}}>(781) 462-1758</span></h2>
-                <h2 style={{fontWeight:"normal"}}> Bhakita House (Greater Boston, labor and sex trafficking): <span style={{fontWeight:"bold"}}>(781) 321-0499</span></h2>
-                <h2 style={{fontWeight:"normal"}}> EVA Center (Sex trafficking, Greater Boston): <span style={{fontWeight:"bold"}}>(617) 799-2133</span></h2>
-                <h2 style={{fontWeight:"normal"}}> RIA House (Sex trafficking, Central Massachusetts): <span style={{fontWeight:"bold"}}>info@riahouse.org </span></h2>
-                <h2 style={{fontWeight:"normal"}}><span style={{fontWeight:"bold"}}>Domestic Violence Shelter:</span> Some domestic violence shelters may house victims of labor trafficking. Click <a href="https://www.mass.gov/service-details/domestic-violence-programs">here</a> for a complete list of shelters in Massachusetts. To determine if a shelter space is available, victims can contact the Safelink state-wide hotline at <span style={{fontWeight : "bold"}}>877-785-2020</span> (toll-free), <span style={{fontWeight : "bold"}}>877-521-2601</span> (TTY).</h2>
-              </div>
-            )} />
-            <BlueBox html={(
-              <div>
-                <h1 style={{fontWeight:"bold"}}>Food</h1>
-                <h2 style={{fontWeight:"normal"}}>Please click <a href="https://www.foodpantries.org/st/massachusetts">here</a> for information about food pantries in Massachusetts.</h2>
-              </div>
-            )} />
-          </div>
-
-          <div name="Safety" style={{display: (this.state.resourcesPage==1)?"block":"none"}}>
-            <NormalText html={(
-              <div>
-                <h1>Safety planning is essential.</h1>
-                <h2 style={{fontWeight:"normal"}}>It is essential that victims consult with an experienced immigration attorney about available options and understand the risks of pursuing immigration relief. Below is a list of potential immigration remedies that are commonly available to victims of crime. This list is not exhaustive, and it is important that every victim be screened individually for eligibility.</h2>
-                <h2 style={{fontWeight:"normal"}}>It may also be appropriate to ask additional questions to determine the level of risk. Below are a few helpful questions:</h2>
-              </div>
-            )} />
-            <YellowBox html={(
-              <div>
-                <h2 style={{color: "#11416D"}}>Are you safe?</h2>
-                <h2 style={{color: "#11416D"}}>What are you afraid will happen?</h2>
-                <h2 style={{color: "#11416D"}}>Have you ever been threatened?</h2>
-                <h2 style={{color: "#11416D"}}>Do you owe a debt to anyone?</h2>
-                <h2 style={{color: "#11416D"}}>Are you afraid of deportation?</h2>
-                <h2 style={{color: "#11416D"}}>What do you think would happen if the subject knew that you had spoken with us?</h2>
-                <h2 style={{color: "#11416D"}}>Do you feel like you need to work? If so, why?</h2>
-                <h2 style={{color: "#11416D"}}>What would happen if you did not work?</h2>
-              </div>
-            )} />
-            <NormalText html={(
-              <div>
-                <h2 style={{fontWeight:"normal"}}>Victims should play a primary role in safety planning, and safety plans must take into consideration the victim’s unique circumstances, past trauma history, mental health needs, potential need to generate income, and educational needs. Plans must be made on a case-by-case basis tailored to the victim’s needs. In particular, many victims are exploited because they need to generate income to assist their family. It is essential for investigators to address the victim’s concerns about financially supporting family members. Otherwise, the victim may remain at risk to future victimization.</h2>
-              </div>
-            )} />
-          </div>
-
-          <div name="Immigration" style={{display: (this.state.resourcesPage==2)?"block":"none"}}>
-            <NormalText html={(
-              <div>
-                <h1>Immigration Needs for Victims</h1>
-                <h2 style={{fontWeight:"normal"}}>In cases involving noncitizen victims, refer the victim immediately to an experienced immigration attorney to screen for immigration relief and any time-sensitive deadlines. Immigrant victims may be eligible for special forms of immigration relief, such as a T or U visa, based on their status as a victim of human trafficking. Click here to learn more about immigration protections for victims of trafficking.</h2>
-                <h2 style={{fontWeight:"bold"}}>These organizations provide specialized legal services to trafficking survivors:</h2>
-              </div>
-            )} />
-            <BlueBox html={(
-              <div>
-                <h2 style={{fontWeight:"normal"}}>Worcester, MA</h2>
-                <h1 style={{fontWeight:"bold"}}>Ascentria Care Alliance</h1>
-                <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(774) 243-3041</span></h2>
-                <h2 style={{fontWeight:"normal"}}>Emergency Cell:<span style={{textDecoration : "underline"}}>(774) 437-3237</span></h2>
-                <h2 style={{fontWeight:"bold"}}>Geographic Limitations:</h2>
-                <h2 style={{fontWeight:"normal"}}>Can accept cases involving Central Massachusetts residents under 187.5% of the poverty guidelines.</h2>
-              </div>
-            )} />
-            <BlueBox html={(
-              <div>
-                <h2 style={{fontWeight:"normal"}}>Boston, MA</h2>
-                <h1 style={{fontWeight:"bold"}}>Boston University School of Law Immigrants’ Rights and Human Trafficking Program</h1>
-                <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(617) 353-2807</span></h2>
-                <h2 style={{fontWeight:"normal"}}>Email:<span style={{textDecoration : "underline"}}>Jadahl@bu.edu</span></h2>
-                <h2 style={{fontWeight:"bold"}}>Geographic Limitations:</h2>
-                <h2 style={{fontWeight:"normal"}}>Can accept cases involving Massachusetts residents under 187.5% of the poverty guidelines.</h2>
-              </div>
-            )} />
-            <NormalText html={(
-              <div>
-                <h2 style={{fontWeight:"bold"}}>The following organizations provide general immigration legal services to income-eligible Massachusetts residents:</h2>
-              </div>
-            )} />
-            <BlueBox html={(
-              <div>
-                <h2 style={{fontWeight:"normal"}}>275 West Broadway, South Boston, MA 02127</h2>
-                <h1 style={{fontWeight:"bold"}}>Catholic Charities Refugee and Immigration Services</h1>
-                <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(617) 464-8100</span></h2>
-                <h2 style={{fontWeight:"normal"}}>Fax:<span style={{textDecoration : "underline"}}>(617) 464-8150</span></h2>
-                <ul>
-                  <li>
-                    <h2 style={{fontWeight:"normal"}}>Legal Clinic for advice, referral and forms assistance.</h2>
-                  </li>
-                  <li>
-                    <h2 style={{fontWeight:"normal"}}>Family reunification visas.</h2>
-                  </li>
-                  <li>
-                    <h2 style={{fontWeight:"normal"}}>Immigrant victims of domestic violence and U Visas.</h2>
-                  </li>
-                  <li>
-                    <h2 style={{fontWeight:"normal"}}>Special Immigrant Juveniles.</h2>
-                  </li>
-                  <li>
-                    <h2 style={{fontWeight:"normal"}}>Immigrant victims of human trafficking.</h2>
-                  </li>
-                  <li>
-                    <h2 style={{fontWeight:"normal"}}>Nominal fees charged for representation.</h2>
-                  </li>
-                  <li>
-                    <h2 style={{fontWeight:"normal"}}>Representation dependent upon income.</h2>
-                  </li>
-                </ul>
-              </div>
-            )} />
-            <BlueBox html={(
-              <div>
-                <h2 style={{fontWeight:"normal"}}>405 Main Street, 4th Floor, Worcester, MA 01608</h2>
-                <h1 style={{fontWeight:"bold"}}>Centralwest Justice Center</h1>
-                <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(508) 752-3718</span></h2>
-                <h2 style={{fontWeight:"normal"}}>Fax:<span style={{textDecoration : "underline"}}>(508) 752-5918</span></h2>
-                <br />
-                <h2 style={{fontWeight:"normal"}}>One Monarch Place, Springfield, MA 01144</h2>
-                <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(413) 781-7814</span></h2>
-                <h2 style={{fontWeight:"normal"}}>Fax:<span style={{textDecoration : "underline"}}>(413) 746-3221</span></h2>
-                <ul>
-                  <li>
-                    <h2 style={{fontWeight:"normal"}}>Free representation to noncitizens seeking humanitarian immigration relief, including asylum, relief under the Violence Against Women Act, Special Immigrant Juvenile Status, U visas for crime victims, and T visas for trafficking victims.</h2>
-                  </li>
-                  <li>
-                    <h2 style={{fontWeight:"normal"}}>Services available only to low-income residents of Central and Western Massachusetts (Berkshire, Franklin, Hampden, Hampshire, and Worcester Counties).</h2>
-                  </li>
-                </ul>
-              </div>
-            )} />
-            <BlueBox html={(
-              <div>
-                <h2 style={{fontWeight:"normal"}}>98 North Washington Street, Suite 106, Boston, MA 02114</h2>
-                <h1 style={{fontWeight:"bold"}}>Political Asylum/Immigration Representation Project (PAIR)</h1>
-                <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(617) 742-9296</span></h2>
-                <h2 style={{fontWeight:"normal"}}>Fax:<span style={{textDecoration : "underline"}}>(617) 742-9385</span></h2>
-                <ul>
-                  <li>
-                    <h2 style={{fontWeight:"normal"}}>Represents asylum applicants.</h2>
-                  </li>
-                  <li>
-                    <h2 style={{fontWeight:"normal"}}>Represents detained persons on a limited basis.</h2>
-                  </li>
-                  <li>
-                    <h2 style={{fontWeight:"normal"}}>Conducts Know Your Rights presentation for persons detained in the Suffolk County House of Corrections, the Bristol County Jail & House of Corrections, and Plymouth County Correctional Facility.</h2>
-                  </li>
-                  <li>
-                    <h2 style={{fontWeight:"normal"}}>Conducts phone intake for detainees and families of detainees from 1-3 pm, M-Th. Clients must meet low-income guidelines for representation.</h2>
-                  </li>
-                </ul>
-              </div>
-            )} />
-            <BlueBox html={(
-              <div>
-                <h2 style={{fontWeight:"normal"}}>47 Thorndike Street Suite SB-LL-1 Cambridge, MA 02141</h2>
-                <h1 style={{fontWeight:"bold"}}>Community Legal Services Counseling Center</h1>
-                <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(617) 661-1010</span></h2>
-                <h2 style={{fontWeight:"normal"}}>Fax:<span style={{textDecoration : "underline"}}>(617) 661-1011</span></h2>
-                <ul>
-                  <li>
-                    <h2 style={{fontWeight:"normal"}}>Represents noncitizens in asylum proceedings and victims of domestic violence seeking lawful permanent residence.</h2>
-                  </li>
-                </ul>
-              </div>
-            )} />
-            <BlueBox html={(
-              <div>
-                <h2 style={{fontWeight:"normal"}}>Boston Office c/o Nutter McClennen & Fish LLP Seaport West, 155 Seaport Blvd, 5th Floor Boston, MA 02210</h2>
-                <h1 style={{fontWeight:"bold"}}>Kids in Need of Defense (KIND)</h1>
-                <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(617) 207-4138</span></h2>
-                <ul>
-                  <li>
-                    <h2 style={{fontWeight:"normal"}}>Serves victims under age 18 only</h2>
-                  </li>
-                </ul>
-              </div>
-            )} />
-            <BlueBox html={(
-              <div>
-                <h2 style={{fontWeight:"normal"}}>197 Friend Street Boston, MA 02114</h2>
-                <h1 style={{fontWeight:"bold"}}>Greater Boston Legal Services</h1>
-                <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(617) 371-1234</span></h2>
-                <ul>
-                  <li>
-                    <h2 style={{fontWeight:"normal"}}>Represents noncitizens in Asylum proceedings.</h2>
-                  </li>
-                  <li>
-                    <h2 style={{fontWeight:"normal"}}>Representation dependent upon noncitizens meeting income guidelines.</h2>
-                  </li>
-                  <li>
-                    <h2 style={{fontWeight:"normal"}}>Walk in services 9:30 am - 3 pm (Mon. - Thurs).</h2>
-                  </li>
-                </ul>
-              </div>
-            )} />
-            <BlueBox html={(
-          <div>
-            <h2 style={{fontWeight:"normal"}}>333 Faunce Corner Road North Dartmouth, MA 02747</h2>
-            <h1 style={{fontWeight:"bold"}}>University of Massachusetts School of Law Dartmouth Immigration Law Clinic</h1>
-            <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(508) 985-1174</span></h2>
-            <h2 style={{fontWeight:"normal"}}>Fax:<span style={{textDecoration : "underline"}}>(508) 985-1136</span></h2>
-            <ul>
-              <li>
-                <h2 style={{fontWeight:"normal"}}>Eligibility is based on income. Interpreters provided upon request. Inquiries are accepted by telephone or mail.</h2>
-              </li>
-              <li>
-                <h2 style={{fontWeight:"normal"}}>Limited representation is available during May to August.</h2>
-              </li>
-            </ul>
-          </div>
-        )} />
-            <NormalText html={(
-              <div>
-                <h1>Immigration Protection for Immigrant Victims of Human Trafficking</h1>
-                <h2 style={{fontWeight:"normal"}}>In cases involving noncitizen victims, refer the victim immediately to an experienced immigration attorney to screen for immigration relief and any time-sensitive deadlines. Immigrant victims may be eligible for special forms of immigration relief, such as a T or U visa, based on their status as a victim of human trafficking. Click here to learn more about immigration protections for victims of trafficking.</h2>
-                <h2 style={{fontWeight:"bold"}}>These organizations provide specialized legal services to trafficking survivors:</h2>
-              </div>
-            )} />
-          </div>
-
-          <div name="Legal" style={{display: (this.state.resourcesPage==3)?"block":"none"}}>
-            <NormalText html={(
-              <div>
-                <h1>Victim Rights Legal Services</h1>
-                <h2 style={{fontWeight:"normal"}}>The following organizations provide specialized legal services to victims:</h2>
-              </div>
-            )} />
-            <BlueBox html={(
-              <div>
-                <h1 style={{fontWeight:"normal"}}>Boston, MA</h1>
-                <h1><a href="https://www.bu.edu/law/current-students/jd-student-resources/experiential-learning/clinics/immigrants-rights-human-trafficking-clinic/" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Boston University School of Law Immigrants’ Rights and Human Trafficking Program</a></h1>
-                <h2><span style={{fontWeight:"bold"}}>Tel.:</span> (617) 353-2807</h2>
-                <h2><span style={{fontWeight:"bold"}}>Email:</span>Jadahl@bu.edu</h2>
-              </div>
-            )} />
-            <BlueBox html={(
-              <div>
-                <h1 style={{fontWeight:"normal"}}>State-wide</h1>
-                <h1><a href="https://massclavc.org/" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Civil Legal Aid for Victims of Crime Attorneys</a></h1>
-                <h2><span style={{fontWeight:"bold"}}>Tel.:</span> 617-367-8544</h2>
-              </div>
-            )} />
-            <BlueBox html={(
-              <div>
-                <h1 style={{fontWeight:"normal"}}>Boston, MA</h1>
-                <h1><a href="https://www.victimrights.org/" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Victim Rights Law Center</a></h1>
-                <h2><span style={{fontWeight:"bold"}}>Tel.:</span> (617) 399-6720</h2>
-                <h2 style={{fontWeight:"normal"}}>Limitations: Can only accept cases involving victims of sexual assault.</h2>
-              </div>
-            )} />
-            <NormalText html={(
-              <div>
-                <h2>Victim Compensation:</h2>
-                <h2 style={{fontWeight:"normal"}}>ictims of labor trafficking may also be eligible for victim compensation. To apply for compensation, the victim should complete the application <a href="https://www.mass.gov/files/documents/2018/11/13/victim-comp-app.pdf" style={{fontWeight:"bold", color:"#11416D" , textDecoration:"underline"}}>here</a> or contact the <a href="https://www.mass.gov/massachusetts-victims-of-violent-crime-compensation" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Massachusetts Office of Victim Assistance</a> at 844-878-MOVA (6682).</h2>
-              </div>
-            )} />
-          </div>
+          {(()=>{
+            if(this.state.resourcesPage==0)
+              return (
+                <div name="Emergency" style={{display: (this.state.resourcesPage==0)?"block":"none"}}>
+                  <NormalText html={(
+                    <div>
+                      <h1>Emergency Victim Services</h1>
+                    </div>
+                  )} />
+                  <BlueBox html={(
+                    <div>
+                      <h1 style={{fontWeight:"bold"}}>National Human Trafficking Resource Center</h1>
+                      <h2><span style={{fontWeight:"normal"}}>Call the Fair Labor Hotline at: <span style={{textDecoration : "underline"}}>1-888-373-7888</span></span></h2>
+                      <h2><span style={{fontWeight:"normal"}}>Text "BEFREE" to: <span style={{textDecoration : "underline"}}>233733</span></span></h2>
+                      <h2><span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="https://humantraffickinghotline.org/chat">Click here to access live chat</a></span></h2>
+                      <h2><span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="mailto:help@humantraffickinghotline.org%20?subject=MA%20Labor%20Trafficking%20Case">Click here to email the hotline</a></span></h2>
+                      <h2 style={{fontWeight:"normal"}}>For resources available in your geographic area to assist labor trafficking victims, please contact the National Human Trafficking Resource Center (NHTRC) Hotline. NHTRC connects victims and survivors of human trafficking with support and services.</h2>
+                      <h2 style={{fontWeight:"normal"}}>The hotline is open 24 hours a day, 7 days a week and has resources available in more than 200 languages.</h2>
+                    </div>
+                  )} />
+                  <BlueBox html={(
+                    <div>
+                      <h1 style={{fontWeight:"bold"}}>Emergency Shelter</h1>
+                      <h2 style={{fontWeight:"normal"}}>Contact the National Human Trafficking Resource Center Hotline at <span style={{fontWeight:"bold"}}>1-888-373-788</span> for emergency shelter options</h2>
+                      <h2 style={{fontWeight:"normal"}}>Trafficking-specific Shelter Options. Listed below are organizations that place priority on housing for survivors of human trafficking:</h2>
+                      <h2 style={{fontWeight:"normal"}}> Amirah (North Shore, sex trafficking): <span style={{fontWeight:"bold"}}>(781) 462-1758</span></h2>
+                      <h2 style={{fontWeight:"normal"}}> Bhakita House (Greater Boston, labor and sex trafficking): <span style={{fontWeight:"bold"}}>(781) 321-0499</span></h2>
+                      <h2 style={{fontWeight:"normal"}}> EVA Center (Sex trafficking, Greater Boston): <span style={{fontWeight:"bold"}}>(617) 799-2133</span></h2>
+                      <h2 style={{fontWeight:"normal"}}> RIA House (Sex trafficking, Central Massachusetts): <span style={{fontWeight:"bold"}}>info@riahouse.org </span></h2>
+                      <h2 style={{fontWeight:"normal"}}><span style={{fontWeight:"bold"}}>Domestic Violence Shelter:</span> Some domestic violence shelters may house victims of labor trafficking. Click <a href="https://www.mass.gov/service-details/domestic-violence-programs">here</a> for a complete list of shelters in Massachusetts. To determine if a shelter space is available, victims can contact the Safelink state-wide hotline at <span style={{fontWeight : "bold"}}>877-785-2020</span> (toll-free), <span style={{fontWeight : "bold"}}>877-521-2601</span> (TTY).</h2>
+                    </div>
+                  )} />
+                  <BlueBox html={(
+                    <div>
+                      <h1 style={{fontWeight:"bold"}}>Food</h1>
+                      <h2 style={{fontWeight:"normal"}}>Please click <a href="https://www.foodpantries.org/st/massachusetts">here</a> for information about food pantries in Massachusetts.</h2>
+                    </div>
+                  )} />
+                </div>
+              );
+          })()}
+          {(()=>{
+            if(this.state.resourcesPage==1)
+              return (
+                <div name="Safety" style={{display: (this.state.resourcesPage==1)?"block":"none"}}>
+                  <NormalText html={(
+                    <div>
+                      <h1>Safety planning is essential.</h1>
+                      <h2 style={{fontWeight:"normal"}}>It is important to engage in trauma-informed safety planning with the victim to ensure that the victim is safe throughout the investigation. At the earliest stage possible, it is recommended that you get a victim advocate involved and make appropriate referrals to victim services agencies that can assist with safety planning.</h2>
+                      <h2 style={{fontWeight:"normal"}}>In addition, it may be appropriate to ask additional questions to determine the level of risk. This may involve asking any of the following questions:</h2>
+                    </div>
+                  )} />
+                  <YellowBox html={(
+                    <div>
+                      <h2 style={{color: "#11416D"}}>Are you safe?</h2>
+                      <h2 style={{color: "#11416D"}}>What are you afraid will happen?</h2>
+                      <h2 style={{color: "#11416D"}}>Have you ever been threatened?</h2>
+                      <h2 style={{color: "#11416D"}}>Do you owe a debt to anyone?</h2>
+                      <h2 style={{color: "#11416D"}}>Are you afraid of deportation?</h2>
+                      <h2 style={{color: "#11416D"}}>What do you think would happen if the subject knew that you had spoken with us?</h2>
+                      <h2 style={{color: "#11416D"}}>Do you feel like you need to work? If so, why?</h2>
+                      <h2 style={{color: "#11416D"}}>What would happen if you did not work?</h2>
+                    </div>
+                  )} />
+                  <NormalText html={(
+                    <div>
+                      <h2 style={{fontWeight:"normal"}}>Victims should play a primary role in safety planning, and safety plans must take into consideration the victim’s unique circumstances, past trauma history, mental health needs, potential need to generate income, and educational needs. Plans must be made on a case-by-case basis tailored to the victim’s needs. In particular, many victims are exploited because they need to generate income to assist their family. It is essential for investigators to address the victim’s concerns about financially supporting family members. Otherwise, the victim may remain at risk to future victimization.</h2>
+                    </div>
+                  )} />
+                </div>
+              );
+          })()}
+          {(()=>{
+            if(this.state.resourcesPage==2)
+              return (
+                <div name="Immigration" style={{display: (this.state.resourcesPage==2)?"block":"none"}}>
+                  <NormalText html={(
+                    <div>
+                      <h1>Immigration Needs for Victims</h1>
+                      <h2 style={{fontWeight:"normal"}}>In cases involving noncitizen victims, refer the victim immediately to an experienced immigration attorney to screen for immigration relief and any time-sensitive deadlines. Immigrant victims may be eligible for special forms of immigration relief, such as a T or U visa, based on their status as a victim of human trafficking. Click here to learn more about immigration protections for victims of trafficking.</h2>
+                    </div>
+                  )} />
+                  <NormalText html={(
+                    <div>
+                      <h1>Immigration Protection for Immigrant Victims of Human Trafficking</h1>
+                      <h2 style={{fontWeight:"normal"}}>What immigration avenues exist for undocumented victims?</h2>
+                      <h2 style={{fontWeight:"normal"}}>Undocumented victims are especially vulnerable to human trafficking. Certain immigration options are available to victims that may allow them to apply for work authorization and permission to remain in the United States. It is essential that victims consult with an experienced immigration attorney about available options and understand the risks of pursuing immigration relief. Below is a list of potential immigration remedies commonly available to victims of crime and a description of how an investigator can assist in providing certification that the victim was helpful in the investigation. This list is not exhaustive, and it is important that every victim be screened individually by an experienced immigration attorney for eligibility.”</h2>
+                    </div>
+                  )} />
+                  <QuestionBox title={<h1>T Nonimmigrant Status (“T visa”)</h1>} html={(
+                    <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
+                      <div>
+                        <h2 style={{fontWeight:"bold"}}>What is T nonimmigrant status?</h2>
+                        <h2 style={{fontWeight:"normal"}}>T nonimmigrant status is a form of immigration status for victims of severe forms of trafficking in persons under federal law. T nonimmigrant status provides the victim with immigration status for four years, ability to work legally, and eligibility to apply for certain derivative family members and permanent residency. In addition, victims may be able to access public benefits, including refugee cash assistance and food stamps. Please note that victims are not eligible for employment authorization until the application is approved.</h2>
+                        <h2 style={{fontWeight:"bold"}}>Who is eligible?</h2>
+                        <h2 style={{fontWeight:"normal"}}>This benefit is only available to victims who meet the federal definition of a victim of a severe form of human trafficking, which is defined as:</h2>
+                        <ul>
+                          <li>
+                            <h2 style={{fontWeight:"normal"}}>Sex trafficking in which a commercial sex act is induced by force, fraud, or coercion, or in which the person induced to perform such act has not attained 18 years of age.</h2>
+                          </li>
+                          <li>
+                            <h2 style={{fontWeight:"normal"}}>Labor or services, through the use of force, fraud, or coercion for the purpose of subjection to involuntary servitude, peonage, debt bondage, or slavery.</h2>
+                          </li>
+                        </ul>
+                        <h2 style={{fontWeight:"normal"}}>The victim must also show that he or she:</h2>
+                        <ul>
+                          <li>
+                            <h2 style={{fontWeight:"normal"}}>Is a victim of a severe form of human trafficking.</h2>
+                          </li>
+                          <li>
+                            <h2 style={{fontWeight:"normal"}}>Is physically present in the United States on account of trafficking.</h2>
+                          </li>
+                          <li>
+                            <h2 style={{fontWeight:"normal"}}>Has complied with any reasonable request by federal, state, or local law enforcement agency to assist in the investigation or prosecution of such trafficking (unless unable to cooperate due to psychological trauma or the victim is under 18 years old).</h2>
+                          </li>
+                          <li>
+                            <h2 style={{fontWeight:"normal"}}>Would suffer extreme hardship involving unusual and severe harm upon removal (i.e., deportation).</h2>
+                          </li>
+                        </ul>
+                        <h2 style={{fontWeight:"bold"}}>What is T visa certification?</h2>
+                        <h2 style={{fontWeight:"normal"}}>To apply for T nonimmigrant status, U.S. Citizenship and Immigration Services asks for the victim to submit a certification form from a qualifying government agency confirming that the applicant was a victim of a severe form of human trafficking and responded to a reasonable request for assistance from law enforcement. The certification form is known as Form I-914, Supplement B, Declaration of Law Enforcement Officer for Victim of Trafficking in Persons.</h2>
+                        <h2 style={{fontWeight:"bold"}}>What is the role of the investigator?</h2>
+                        <h2 style={{fontWeight:"normal"}}>Investigators can play an important role by completing the certification form (Form I-914, Supplement B) to confirm the status of the victim and his or her role in the investigation. This certification does not provide immigration status but assists the victim to prove to U.S. Citizenship and Immigration Services that he or she meets the requirements to qualify for T nonimmigrant status.</h2>
+                        <h2 style={{fontWeight:"bold"}}>Who can complete the T visa certification?</h2>
+                        <h2 style={{fontWeight:"normal"}}>The certification form (Form I-914, Supplement B) can be completed by any government agency that has responsibility for the detection, investigation, and/or prosecution of severe forms of human trafficking in Persons. </h2>
+                      </div>
+                    )} />
+                  )} />
+                  <QuestionBox title={<h1>U Nonimmigrant Status (“U visa”)</h1>} html={(
+                    <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
+                      <div>
+                        <h2 style={{fontWeight:"bold"}}>What is U nonimmigrant status?</h2>
+                        <h2 style={{fontWeight:"normal"}}>U nonimmigrant status is a form of immigration status for victims of violent crime, including victims of human trafficking under state or federal law. U nonimmigrant status provides the victim with immigration status for four years and eligibility to apply for certain derivative family members and eventual permanent residency. Please note that victims are not eligible for employment authorization until the application is approved, and current processing times are very long.</h2>
+                        <h2 style={{fontWeight:"bold"}}>Who is eligible?</h2>
+                        <h2 style={{fontWeight:"normal"}}>A victim may be eligible for U nonimmigrant status if he or she:</h2>
+                        <ul>
+                          <li>
+                            <h2 style={{fontWeight:"normal"}}>Has suffered substantial physical or mental abuse as a result of having been a victim of a qualifying crime, including human trafficking, involuntary servitude, peonage, and slave trade, or substantially similar criminal activity.</h2>
+                          </li>
+                          <li>
+                            <h2 style={{fontWeight:"normal"}}>Possesses information about the criminal activit.</h2>
+                          </li>
+                          <li>
+                            <h2 style={{fontWeight:"normal"}}>Has been helpful, is being helpful, or is likely to be helpful to a Federal, State, or local law enforcement official, to a Federal, State, or local prosecutor, to a Federal or State judge, to United States Citizenship and Immigration Services, or to other Federal, State, or local authorities investigating or prosecuting the criminal activity</h2>
+                          </li>
+                          <li>
+                            <h2 style={{fontWeight:"normal"}}>The criminal activity violated the laws of the United States or occurred in the United States (including in Indian country and military institutions) or the territories and possessions of the United States.</h2>
+                          </li>
+                        </ul>
+                        <h2 style={{fontWeight:"bold"}}>What is U visa certification?</h2>
+                        <h2 style={{fontWeight:"normal"}}>To qualify, a victim must obtain a U Nonimmigrant Status Certification (Form I-918, Supplement B) from a qualifying government agency, confirming that he or she was a victim and was, is, or will be helpful in the investigation.</h2>
+                        <h2 style={{fontWeight:"bold"}}>What is the role of the investigator?</h2>
+                        <h2 style={{fontWeight:"normal"}}>nvestigators can play an important role to assist the victim to obtain immigration status by completing a U visa certification (Form I-918, Supplement B), confirming the status of the victim and his or her role in the investigation. Such a certification does not provide immigration status but assists the victim to prove to U.S. Citizenship and Immigration Services that he or she meets the requirements to qualify for immigration status.</h2>
+                        <h2 style={{fontWeight:"bold"}}>Who can complete the U visa certification?</h2>
+                        <h2 style={{fontWeight:"normal"}}>The certification form (Form I-918, Supplement B) can be completed by any government agency that has responsibility for the detection, investigation, or prosecution of a qualifying crime or criminal activity.</h2>
+                      </div>
+                    )} />
+                  )} />
+                  <QuestionBox title={<h1>Continued Presence</h1>} html={(
+                    <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
+                      <div>
+                        <h2 style={{fontWeight:"bold"}}>What is Continued Presence?</h2>
+                        <h2 style={{fontWeight:"normal"}}>Continued Presence is a short-term form of immigration relief provided to individuals identified as victims of human trafficking in a potential criminal investigation. The application for Continued Presence must be submitted by federal law enforcement. However, local and state investigators can play an important role by coordinating with a federal law enforcement agency to submit an application. This is generally the fastest way to ensure that the victim has access to employment authorization and access to important government benefits. This benefit provides access to work authorization for two years, and it is renewable subject to law enforcement approval. The victim also may qualify for certain public benefits.</h2>
+                        <h2 style={{fontWeight:"bold"}}>What is the role of the investigator?</h2>
+                        <h2 style={{fontWeight:"normal"}}>To assist a victim to apply for Continued Presence, contact a federal law enforcement agency with the authority to submit an application.</h2>
+                      </div>
+                    )} />
+                  )} />
+                  <QuestionBox title={<h1>Other Options to Cosider</h1>} html={(
+                    <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
+                      <div>
+                        <h2 style={{fontWeight:"normal"}}>There are various other immigration options for which victims may qualify, including asylum, relief under the Violence Against Women Act, and Special Immigrant Juvenile Status, among others. For this reason, it is strongly recommended that a victim consult with an experienced immigration attorney as early as possible in the process.</h2>
+                      </div>
+                    )} />
+                  )} />
+                  <NormalText html={(
+                    <div>
+                      <h2 style={{fontWeight:"bold"}}>These organizations provide specialized legal services to trafficking survivors:</h2>
+                    </div>
+                  )} />
+                  <BlueBox html={(
+                    <div>
+                      <h2 style={{fontWeight:"normal"}}>Worcester, MA</h2>
+                      <h1 style={{fontWeight:"bold"}}>Ascentria Care Alliance</h1>
+                      <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(774) 243-3041</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Emergency Cell:<span style={{textDecoration : "underline"}}>(774) 437-3237</span></h2>
+                      <h2 style={{fontWeight:"bold"}}>Geographic Limitations:</h2>
+                      <h2 style={{fontWeight:"normal"}}>Can accept cases involving Central Massachusetts residents under 187.5% of the poverty guidelines.</h2>
+                    </div>
+                  )} />
+                  <BlueBox html={(
+                    <div>
+                      <h2 style={{fontWeight:"normal"}}>Boston, MA</h2>
+                      <h1 style={{fontWeight:"bold"}}>Boston University School of Law Immigrants’ Rights and Human Trafficking Program</h1>
+                      <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(617) 353-2807</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Email:<span style={{textDecoration : "underline"}}>Jadahl@bu.edu</span></h2>
+                      <h2 style={{fontWeight:"bold"}}>Geographic Limitations:</h2>
+                      <h2 style={{fontWeight:"normal"}}>Can accept cases involving Massachusetts residents under 187.5% of the poverty guidelines.</h2>
+                    </div>
+                  )} />
+                  <NormalText html={(
+                    <div>
+                      <h2 style={{fontWeight:"bold"}}>The following organizations provide general immigration legal services to income-eligible Massachusetts residents:</h2>
+                    </div>
+                  )} />
+                  <BlueBox html={(
+                    <div>
+                      <h2 style={{fontWeight:"normal"}}>275 West Broadway, South Boston, MA 02127</h2>
+                      <h1 style={{fontWeight:"bold"}}>Catholic Charities Refugee and Immigration Services</h1>
+                      <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(617) 464-8100</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Fax:<span style={{textDecoration : "underline"}}>(617) 464-8150</span></h2>
+                      <ul>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}>Legal Clinic for advice, referral and forms assistance.</h2>
+                        </li>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}>Family reunification visas.</h2>
+                        </li>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}>Immigrant victims of domestic violence and U Visas.</h2>
+                        </li>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}>Special Immigrant Juveniles.</h2>
+                        </li>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}>Immigrant victims of human trafficking.</h2>
+                        </li>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}>Nominal fees charged for representation.</h2>
+                        </li>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}>Representation dependent upon income.</h2>
+                        </li>
+                      </ul>
+                    </div>
+                  )} />
+                  <BlueBox html={(
+                    <div>
+                      <h2 style={{fontWeight:"normal"}}>405 Main Street, 4th Floor, Worcester, MA 01608</h2>
+                      <h1 style={{fontWeight:"bold"}}>Centralwest Justice Center</h1>
+                      <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(508) 752-3718</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Fax:<span style={{textDecoration : "underline"}}>(508) 752-5918</span></h2>
+                      <br />
+                      <h2 style={{fontWeight:"normal"}}>One Monarch Place, Springfield, MA 01144</h2>
+                      <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(413) 781-7814</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Fax:<span style={{textDecoration : "underline"}}>(413) 746-3221</span></h2>
+                      <ul>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}>Free representation to noncitizens seeking humanitarian immigration relief, including asylum, relief under the Violence Against Women Act, Special Immigrant Juvenile Status, U visas for crime victims, and T visas for trafficking victims.</h2>
+                        </li>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}>Services available only to low-income residents of Central and Western Massachusetts (Berkshire, Franklin, Hampden, Hampshire, and Worcester Counties).</h2>
+                        </li>
+                      </ul>
+                    </div>
+                  )} />
+                  <BlueBox html={(
+                    <div>
+                      <h2 style={{fontWeight:"normal"}}>98 North Washington Street, Suite 106, Boston, MA 02114</h2>
+                      <h1 style={{fontWeight:"bold"}}>Political Asylum/Immigration Representation Project (PAIR)</h1>
+                      <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(617) 742-9296</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Fax:<span style={{textDecoration : "underline"}}>(617) 742-9385</span></h2>
+                      <ul>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}>Represents asylum applicants.</h2>
+                        </li>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}>Represents detained persons on a limited basis.</h2>
+                        </li>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}>Conducts Know Your Rights presentation for persons detained in the Suffolk County House of Corrections, the Bristol County Jail & House of Corrections, and Plymouth County Correctional Facility.</h2>
+                        </li>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}>Conducts phone intake for detainees and families of detainees from 1-3 pm, M-Th. Clients must meet low-income guidelines for representation.</h2>
+                        </li>
+                      </ul>
+                    </div>
+                  )} />
+                  <BlueBox html={(
+                    <div>
+                      <h2 style={{fontWeight:"normal"}}>47 Thorndike Street Suite SB-LL-1 Cambridge, MA 02141</h2>
+                      <h1 style={{fontWeight:"bold"}}>Community Legal Services Counseling Center</h1>
+                      <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(617) 661-1010</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Fax:<span style={{textDecoration : "underline"}}>(617) 661-1011</span></h2>
+                      <ul>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}>Represents noncitizens in asylum proceedings and victims of domestic violence seeking lawful permanent residence.</h2>
+                        </li>
+                      </ul>
+                    </div>
+                  )} />
+                  <BlueBox html={(
+                    <div>
+                      <h2 style={{fontWeight:"normal"}}>Boston Office c/o Nutter McClennen & Fish LLP Seaport West, 155 Seaport Blvd, 5th Floor Boston, MA 02210</h2>
+                      <h1 style={{fontWeight:"bold"}}>Kids in Need of Defense (KIND)</h1>
+                      <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(617) 207-4138</span></h2>
+                      <ul>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}>Serves victims under age 18 only</h2>
+                        </li>
+                      </ul>
+                    </div>
+                  )} />
+                  <BlueBox html={(
+                    <div>
+                      <h2 style={{fontWeight:"normal"}}>197 Friend Street Boston, MA 02114</h2>
+                      <h1 style={{fontWeight:"bold"}}>Greater Boston Legal Services</h1>
+                      <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(617) 371-1234</span></h2>
+                      <ul>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}>Represents noncitizens in Asylum proceedings.</h2>
+                        </li>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}>Representation dependent upon noncitizens meeting income guidelines.</h2>
+                        </li>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}>Walk in services 9:30 am - 3 pm (Mon. - Thurs).</h2>
+                        </li>
+                      </ul>
+                    </div>
+                  )} />
+                  <BlueBox html={(
+                    <div>
+                      <h2 style={{fontWeight:"normal"}}>333 Faunce Corner Road North Dartmouth, MA 02747</h2>
+                      <h1 style={{fontWeight:"bold"}}>University of Massachusetts School of Law Dartmouth Immigration Law Clinic</h1>
+                      <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(508) 985-1174</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Fax:<span style={{textDecoration : "underline"}}>(508) 985-1136</span></h2>
+                      <ul>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}>Eligibility is based on income. Interpreters provided upon request. Inquiries are accepted by telephone or mail.</h2>
+                        </li>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}>Limited representation is available during May to August.</h2>
+                        </li>
+                      </ul>
+                    </div>
+                  )} />
+                  <NormalText html={(
+                    <div>
+                      <h1>Immigration Protection for Immigrant Victims of Human Trafficking</h1>
+                      <h2 style={{fontWeight:"normal"}}>In cases involving noncitizen victims, refer the victim immediately to an experienced immigration attorney to screen for immigration relief and any time-sensitive deadlines. Immigrant victims may be eligible for special forms of immigration relief, such as a T or U visa, based on their status as a victim of human trafficking. Click here to learn more about immigration protections for victims of trafficking.</h2>
+                      <h2 style={{fontWeight:"bold"}}>These organizations provide specialized legal services to trafficking survivors:</h2>
+                    </div>
+                  )} />
+                </div>
+              );
+          })()}
+          {(()=>{
+            if(this.state.resourcesPage==3)
+              return (
+                <div name="Legal" style={{display: (this.state.resourcesPage==3)?"block":"none"}}>
+                  <NormalText html={(
+                    <div>
+                      <h1>Victim Rights Legal Services</h1>
+                      <h2 style={{fontWeight:"normal"}}>The following organizations provide specialized legal services to victims:</h2>
+                    </div>
+                  )} />
+                  <BlueBox html={(
+                    <div>
+                      <h1 style={{fontWeight:"normal"}}>Boston, MA</h1>
+                      <h1><a href="https://www.bu.edu/law/current-students/jd-student-resources/experiential-learning/clinics/immigrants-rights-human-trafficking-clinic/" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Boston University School of Law Immigrants’ Rights and Human Trafficking Program</a></h1>
+                      <h2><span style={{fontWeight:"bold"}}>Tel.:</span> (617) 353-2807</h2>
+                      <h2><span style={{fontWeight:"bold"}}>Email:</span>Jadahl@bu.edu</h2>
+                    </div>
+                  )} />
+                  <BlueBox html={(
+                    <div>
+                      <h1 style={{fontWeight:"normal"}}>State-wide</h1>
+                      <h1><a href="https://massclavc.org/" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Civil Legal Aid for Victims of Crime Attorneys</a></h1>
+                      <h2><span style={{fontWeight:"bold"}}>Tel.:</span> 617-367-8544</h2>
+                    </div>
+                  )} />
+                  <BlueBox html={(
+                    <div>
+                      <h1 style={{fontWeight:"normal"}}>Boston, MA</h1>
+                      <h1><a href="https://www.victimrights.org/" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Victim Rights Law Center</a></h1>
+                      <h2><span style={{fontWeight:"bold"}}>Tel.:</span> (617) 399-6720</h2>
+                      <h2 style={{fontWeight:"normal"}}>Limitations: Can only accept cases involving victims of sexual assault.</h2>
+                    </div>
+                  )} />
+                  <NormalText html={(
+                    <div>
+                      <h2>Victim Compensation:</h2>
+                      <h2 style={{fontWeight:"normal"}}>ictims of labor trafficking may also be eligible for victim compensation. To apply for compensation, the victim should complete the application <a href="https://www.mass.gov/files/documents/2018/11/13/victim-comp-app.pdf" style={{fontWeight:"bold", color:"#11416D" , textDecoration:"underline"}}>here</a> or contact the <a href="https://www.mass.gov/massachusetts-victims-of-violent-crime-compensation" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Massachusetts Office of Victim Assistance</a> at 844-878-MOVA (6682).</h2>
+                    </div>
+                  )} />
+                </div>
+              );
+          })()}
         </div>
       </div>
     );
@@ -1255,8 +1382,8 @@ class App extends Component {
     return (
       <div>
         <div style={{borderBottom : "1px solid #EAEAEA"}} className="App">
-          <p class="pageTitle">Mass Statute</p>
-          <p class="Head" style={{paddingBottom: "15px"}}>Massachusetts Law</p>
+          <p class="pageTitle">Resources</p>
+          <p class="Head" style={{paddingBottom: "15px"}}>Report</p>
         </div>
         <div style={{backgroundColor : "#fff", paddingTop: "20px"}}>
           <NormalText html={(
@@ -1366,7 +1493,7 @@ class App extends Component {
             <p style={this.state.page == 6?{textDecoration : "underline"}:{}}>Victim Services</p>
           </li>
         </ul>
-        <div class="lis new-lis"><a class={this.state.page == 7? ("active") : ("")} onClick= {this._onMassClick}>Mass Statute</a></div>
+        <div class="lis new-lis"><a class={this.state.page == 7? ("active") : ("")} onClick= {this._onMassClick}>MA Law</a></div>
       </div>
     );
   }
@@ -1389,7 +1516,7 @@ class App extends Component {
           <div class="topRowContainer row">
           <div class="topRow col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <img src={logo} className="topDivHL" alt="logo" />
-          <h3 class ="topDivH"> Mass.gov </h3>
+          <h3 class ="topDivH"><a href="https://www.mass.gov/" style={{color : "inherit"}}>Mass.gov </a></h3>
           </div>
 
           <div class="topRow1 col-xs-6 col-sm-6 col-md-9 col-lg-9">
