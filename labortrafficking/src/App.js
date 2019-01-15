@@ -834,25 +834,26 @@ class App extends Component {
             <p class="regularText" style={{"fontWeight" : "bold", "textDecoration" : "underline"}}>Or click here to download the questions</p>
           </div>
           <br />
-          <button class="AssessmentButton" onClick={this.sHarmQuizFunc} >
-            <AssessmentBox title={"Serious Harm"} content={"Causes or threatens to cause serious harm to any person"} />
-          </button>
-          <button class="AssessmentButton" onClick={this.restraintQuizFunc} >
-            <AssessmentBox title={"Physical Restraint"} content={"Physically restrains or threatens to physically restrain another person"} />
-          </button>
-          <button class="AssessmentButton" onClick={this.abuseQuizFunc} >
-            <AssessmentBox title={"Abuse of the Law"} content={"Abuses or threatens to abuse the law or legal process"} />
-          </button>
-          <button class="AssessmentButton" onClick={this.identitydocQuizFunc} >
-            <AssessmentBox title={"Identity Documents"} content={"Knowingly destroys, conceals, removes, confiscates or possesses any actual or purported passport or other immigration document, or any other actual or purported government identification document, of another person"} />
-          </button>
-          <button class="AssessmentButton" onClick={this.extortionQuizFunc} >
-            <AssessmentBox title={"Extortion"} content={"Engages in extortion under Massachusetts law"} />
-          </button>
-          <button class="AssessmentButton" onClick={this.fharmQuizFunc} >
-            <AssessmentBox title={"Financial Harm"} content={"Causes or threatens to cause financial harm to any person"} />
-          </button>
-
+          <div>
+            <button class="AssessmentButton" onClick={this.sHarmQuizFunc} >
+              <AssessmentBox title={"Serious Harm"} content={"Causes or threatens to cause serious harm to any person"} />
+            </button>
+            <button class="AssessmentButton" onClick={this.restraintQuizFunc} >
+              <AssessmentBox title={"Physical Restraint"} content={"Physically restrains or threatens to physically restrain another person"} />
+            </button>
+            <button class="AssessmentButton" onClick={this.abuseQuizFunc} >
+              <AssessmentBox title={"Abuse of the Law"} content={"Abuses or threatens to abuse the law or legal process"} />
+            </button>
+            <button class="AssessmentButton" onClick={this.identitydocQuizFunc} >
+              <AssessmentBox title={"Identity Documents"} content={"Knowingly destroys, conceals, removes, confiscates or possesses any actual or purported passport or other immigration document, or any other actual or purported government identification document, of another person"} />
+            </button>
+            <button class="AssessmentButton" onClick={this.extortionQuizFunc} >
+              <AssessmentBox title={"Extortion"} content={"Engages in extortion under Massachusetts law"} />
+            </button>
+            <button class="AssessmentButton" onClick={this.fharmQuizFunc} >
+              <AssessmentBox title={"Financial Harm"} content={"Causes or threatens to cause financial harm to any person"} />
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -967,7 +968,7 @@ class App extends Component {
                   <NormalText html={(
                     <div>
                       <h1>Immigration Needs for Victims</h1>
-                      <h2 style={{fontWeight:"normal"}}>In cases involving noncitizen victims, refer the victim immediately to an experienced immigration attorney to screen for immigration relief and any time-sensitive deadlines. Immigrant victims may be eligible for special forms of immigration relief, such as a T or U visa, based on their status as a victim of human trafficking. Click here to learn more about immigration protections for victims of trafficking.</h2>
+                      <h2 style={{fontWeight:"normal"}}>In cases involving noncitizen victims, refer the victim immediately to an experienced immigration attorney to screen for immigration relief and any time-sensitive deadlines. Immigrant victims may be eligible for special forms of immigration relief, such as a T or U visa, based on their status as a victim of human trafficking.</h2>
                     </div>
                   )} />
                   <NormalText html={(
@@ -1056,7 +1057,7 @@ class App extends Component {
                       </div>
                     )} />
                   )} />
-                  <QuestionBox title={<h1>Other Options to Cosider</h1>} html={(
+                  <QuestionBox title={<h1>Other Options to Consider</h1>} html={(
                     <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
                       <div>
                         <h2 style={{fontWeight:"normal"}}>There are various other immigration options for which victims may qualify, including asylum, relief under the Violence Against Women Act, and Special Immigrant Juvenile Status, among others. For this reason, it is strongly recommended that a victim consult with an experienced immigration attorney as early as possible in the process.</h2>
@@ -1223,13 +1224,6 @@ class App extends Component {
                           <h2 style={{fontWeight:"normal"}}>Limited representation is available during May to August.</h2>
                         </li>
                       </ul>
-                    </div>
-                  )} />
-                  <NormalText html={(
-                    <div>
-                      <h1>Immigration Protection for Immigrant Victims of Human Trafficking</h1>
-                      <h2 style={{fontWeight:"normal"}}>In cases involving noncitizen victims, refer the victim immediately to an experienced immigration attorney to screen for immigration relief and any time-sensitive deadlines. Immigrant victims may be eligible for special forms of immigration relief, such as a T or U visa, based on their status as a victim of human trafficking. Click here to learn more about immigration protections for victims of trafficking.</h2>
-                      <h2 style={{fontWeight:"bold"}}>These organizations provide specialized legal services to trafficking survivors:</h2>
                     </div>
                   )} />
                 </div>
@@ -1483,7 +1477,7 @@ class App extends Component {
         <div class="mobile-cover" style={this.state.mobileMenu ? {right: '70vw'} : {right: '0'}}></div>
         <div class="lis new-lis"><a class={this.state.page == 1? ("active") : ("")} onClick= {this._onCompleteClick}>Home</a></div>
         <div class="lis new-lis"><a class={this.state.page == 2? ("active") : ("")} onClick= {this._onPrepareClick}>Prepare</a></div>
-        <div class="lis new-lis"><a class={this.state.page == 3? ("active") : ("")} onClick= {this._onAssessClick}>Assess</a></div>
+        <div class="lis new-lis"><a class={this.state.page == 3 || this.state.page == 5? ("active") : ("")} onClick= {this._onAssessClick}>Assess</a></div>
         <div style={{pointerEvents:"none"}} class="lis new-lis"><a style={{pointerEvents:"none"}} class={this.state.page == 6 || this.state.page == 8? ("active") : ("")}>Resources</a></div>
         <ul class="resources-ul">
           <li onClick={this._onReportClick}>
