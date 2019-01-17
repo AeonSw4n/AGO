@@ -1,9 +1,33 @@
 .yellowBoxContainer{
+  padding: 10px 30px;
   width: 100%
 }
 .yellowBox{
+  padding: 20px 10px;
+  padding-bottom: 10px;
   width: 100%;
   border: 2px solid #F5C436;
+}
+.yellowBox h1{
+  font-weight: 1000;
+  font-size: 14px;
+  line-height: 19px;
+  margin: 0px;
+  margin-bottom: 10px
+
+}
+.yellowBox h2{
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 17px;
+  margin: 0px;
+  margin-bottom: 10px;
+}
+.yellowBox p{
+  font-size: 12px;
+  line-height: 16px;
+  margin: 0px;
+  margin-bottom: 10px;
 }
 
 
@@ -15,10 +39,13 @@
 @media (max-width: 767px){
   .yellowBoxContainer{
     padding: 10px 30px;
+    width: 100%
   }
   .yellowBox{
     padding: 20px 10px;
-    padding-bottom: 10px
+    padding-bottom: 10px;
+    width: 100%;
+    border: 2px solid #F5C436;
   }
   .yellowBox h1{
     font-weight: 1000;

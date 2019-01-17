@@ -15,7 +15,7 @@
   padding-bottom: 10px
 }
 .blueBox h1{
-  font-weight: 1000;
+  font-weight: bold;
   font-size: 14px;
   line-height: 19px;
   margin: 0px;
@@ -67,7 +67,7 @@
     padding-bottom: 10px
   }
   .blueBox h1{
-    font-weight: 1000;
+    font-weight: bold;
     font-size: 14px;
     line-height: 19px;
     margin: 0px;

@@ -241,7 +241,7 @@ class App extends Component {
                 <p class="regularText">An employer kicks the worker in the morning to wake her up and to start working.</p>
               </li>
               <li>
-                <p class="regularText">When the worker asked for their wages, the employer got angry and hit the worker.</p>
+                <p class="regularText">When the worker asks for their wages, the employers gets angry and hits the worker.</p>
               </li>
             </ul>
           </div>
@@ -263,12 +263,12 @@ class App extends Component {
           <div class="App">
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-            <p class="regularText">Physical restraint means purposely limiting or obstructing the freedom of a person’s bodily movement. This can include using locks on doors or windows to more subtle forms of control that restrict another person’s ability to move around.</p>
+            <p class="regularText">Physical restraint means purposely limiting or obstructing the freedom of a person’s bodily movement. This can range from using locks on doors or windows to more subtle forms of control that restrict another person’s ability to move around.</p>
             <br />
-            <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
+            <p class="regularText" style={{"fontWeight" : "bold"}}>Example</p>
             <ul>
               <li>
-                <p class="regularText">A nanny brought to the US to continue working for a family is never allowed to leave the house without permission or supervision, and is not allowed to talk with anyone they meet outside the house.</p>
+                <p class="regularText">A domestic worker is brought to the United States by an employer. Her employers do not permit her to leave the house unaccompanied, and her movement is monitored by cameras.</p>
               </li>
             </ul>
           </div>
@@ -290,7 +290,7 @@ class App extends Component {
           <div class="App">
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-            <p class="regularText">Abuse of the legal process includes the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed. Common examples are deportation threats, whether subtle or overt. </p>
+            <p class="regularText">Abuse of the legal process includes the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed. A common example is a threat of deportation by an employer.</p>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
             <p class="regularText">Abuse of the legal process federally is defined as the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed, in order to exert pressure on another person to cause that person to take some action or refrain from taking some action. 22 U.S.C. § 7102(1).</p>
@@ -301,7 +301,7 @@ class App extends Component {
                 <p class="regularText">An employer threatens to deport the worker or "call immigration" on them if they stopped working for the employer.</p>
               </li>
               <li>
-                <p class="regularText">An employer thretens falsely accuse the worker of a crime if she fails to work.</p>
+                <p class="regularText">An employer threatens to falsely accuse the worker of a crime if she fails to work.</p>
               </li>
             </ul>
           </div>
@@ -325,10 +325,10 @@ class App extends Component {
             <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
             <p class="regularText">This includes taking someone’s passport for any period of time, even if it is brief. In addition, it can include tearing or mutilating identity documents related to work.</p>
             <br />
-            <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
+            <p class="regularText" style={{"fontWeight" : "bold"}}>Example</p>
             <ul>
               <li>
-                <p class="regularText">An employer commands the worker for their passport and keeps it until further notice.</p>
+                <p class="regularText">An employer demands that the worker give her the worker’s passport and keeps it in an undisclosed location.</p>
               </li>
             </ul>
           </div>
@@ -350,10 +350,10 @@ class App extends Component {
           <div class="App">
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-            <p class="regularText">Extortion is the practice of trying to get something through force, threats, or blackmail. For example, extortion might be involved if a perpetrator threatens to release embarrassing photographs, unless the victim continues to work.</p>
+            <p class="regularText">Extortion is the practice of trying to get something through force, threats, or blackmail. For example, extortion may involve a perpetrator who threatens to release embarrassing photographs, unless the victim continues to work.</p>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
-            <p class="regularText">"Whoever, verbally or by a written or printed communication, maliciously threatens to accuse another of a crime or offence, or by a verbal or written or printed communication maliciously threatens an injury to the person or property of another, or any police officer or person having the powers of a police officer, or any officer, or employee of any licensing authority who verbally or by written or printed communication maliciously and unlawfully uses or threatens to use against another the power or authority vested in him, with intent thereby to extort money or any pecuniary advantage, or with intent to compel any person to do any act against his will, shall be punished by imprisonment in the state prison for not more than fifteen years, or in the house of correction for not more than two and one half years, or by a fine of not more than five thousand dollars, or both." Mass. Gen. Laws Ch. 265, Section 25.</p>
+            <p class="regularText">"Whoever, verbally or by a written or printed communication, maliciously threatens to accuse another of a crime or offence, or by a verbal or written or printed communication maliciously threatens an injury to the person or property of another, or any police officer or person having the powers of a police officer, or any officer, or employee of any licensing authority who verbally or by written or printed communication maliciously and unlawfully uses or threatens to use against another the power or authority vested in him, with intent thereby to extort money or any pecuniary advantage, or with intent to compel any person to do any act against his will, shall be punished by imprisonment in the state prison for not more than fifteen years, or in the house of correction for not more than two and one half years, or by a fine of not more than five thousand dollars, or both." M.G.L. ch. 265, § 25.</p>
           </div>
         } />
         {this.renderQuestions(ExtortionquizQuestions)}
@@ -376,18 +376,18 @@ class App extends Component {
             <p class="regularText">Financial harm may be involved if the perpetrator puts the victim in a detrimental position in relation to wealth, property, or other monetary benefits through extortion, criminal usury, or illegal employment contracts. This might include a situation where the perpetrator uses an illegal employment contract to lure a victim to work in demeaning conditions.</p>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
-            <p class="regularText">"Financial harm" is defined as a detrimental position in relation to wealth, property or other monetary benefits that occurs as a result of another person’s illegal act including, but not limited to, extortion under by section 25, a violation of section 49 of chapter 271 (“Criminal Usury”) or illegal employment contracts.</p>
+            <p class="regularText">“Financial harm” is defined as a detrimental position in relation to wealth, property or other monetary benefits that occurs as a result of another person’s illegal act including, but not limited to, extortion under by section 25, a violation of section 49 of chapter 271 (“Criminal Usury”), or illegal employment contracts.” M.G.L. ch. 265, § 49.</p>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
             <ul>
               <li>
-                <p class="regularText">An employer refuses to pay wages to the worker for the work they’ve done.</p>
+                <p class="regularText">An employer refuses to pay wages to the worker for the work they have done.</p>
               </li>
               <li>
                 <p class="regularText">A worker makes one mistake on the job, and the employer refuses to pay the worker that week.</p>
               </li>
               <li>
-                <p class="regularText">An employer makes the worker work long hours, late into the night, without even allowing a break to eat dinner.</p>
+                <p class="regularText">An employer makes the worker work long hours, late into the night, without even allowing him a break to eat dinner.</p>
               </li>
             </ul>
           </div>
@@ -501,7 +501,7 @@ class App extends Component {
             </span>
           </p>
         </button>
-        <button class="button4" onClick={this._onMassClick}><h1>Massachusetts Law</h1><p>View the Massachusetts human trafficking law</p></button>
+        <button class="button4" onClick={this._onMassClick}><h1>Massachusetts Law</h1><p>View the Massachusetts labor trafficking statute</p></button>
       </div>
       </div>
     );
@@ -665,7 +665,7 @@ class App extends Component {
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
                 <h1 style={{fontWeight:"bold", marginBottom: "5px"}}>Confidentiality limitations</h1>
-                <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>You will not be able to keep details disclosed by the victim confidential. Explain  this at the beginning so the victim will understand your role and not to feel betrayed if you have to share information with prosecutors or other government officials.</h2>
+                <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>You will not be able to keep details disclosed by the victim confidential. Explain  this at the beginning so the victim will understand your role and not feel betrayed if you have to share information with prosecutors or other government officials.</h2>
                 <h1 style={{fontWeight:"bold", marginBottom: "5px"}}>Be patient</h1>
                 <ul style={{"list-style-type": "disc", "padding-left": "16px", "margin": "0px", "font-size": "13px"}}>
                   <li>
@@ -704,7 +704,7 @@ class App extends Component {
                     <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>The victim may need to work to continue to repay debt and/or to support family members here or abroad.</h2>
                   </li>
                 </ul>
-                <h2 style={{fontWeight:"normal"}}>Some undocumented victims may be eligible for work authorization. <span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(2)}}>Click here to learn more about immigration relief.</span></h2>
+                <h2 style={{fontWeight:"normal"}}>Some undocumented victims may be eligible for work authorization. <span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(0)}}>Click here to learn more about immigration relief.</span></h2>
                 <h2 style={{fontWeight:"normal"}}>Make referrals to organizations that can assist with safety planning. <span class="prepareLink" onClick={this._onResourcesClick}>Click here to learn about available victim services.</span></h2>
               </div>
             )} />
@@ -715,8 +715,6 @@ class App extends Component {
               <div>
                 <h2 style={{fontWeight:"normal"}}>Undocumented victims are particularly at risk for human trafficking and may fear engaging with law enforcement.</h2>
                 <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>Immigration threats are often used as a means of power and control over the victim. If the victim is undocumented or if you are unsure of the victim’s immigration status, make a referral immediately to an experienced immigration attorney. <span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(2)}}>Click here for a list of local immigration legal services providers.</span></h2>
-                <h2 style={{fontWeight:"normal"}}><span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(2)}}>Learn more about immigration options for undocumented victims</span></h2>
-                <h2 style={{fontWeight:"normal"}}><span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(2)}}>Learn more about pro bono immigration legal services for victims</span></h2>
               </div>
             )} />
           )} />
@@ -729,7 +727,6 @@ class App extends Component {
                 <h2 style={{fontWeight:"normal"}}>In-person interpretation is preferable.</h2>
                 <h2 style={{fontWeight:"normal"}}>Before the interview, screen your interpreter to make sure he or she is not involved in the case and does not have connections to the suspect. Often, ethnic communities can be small, and it is essential that the interpreter has no relationship with the suspect and understands the importance of confidentiality.</h2>
                 <h2 style={{fontWeight:"normal"}}>Understand that there may be stigma and subtle cultural considerations that can affect the victim’s disclosures to interpreters. For example, a victim may not feel comfortable disclosing about a sexual assault in front of someone from his or her same ethnicity fearing stigma or blame.</h2>
-                <h2 style={{fontWeight:"bold"}}>Having a trained interpreter is essential when working with victims with limited English proficiency.</h2>
               </div>
             )} />
           )} />
@@ -738,13 +735,13 @@ class App extends Component {
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
                 <h1 style={{fontWeight:"bold"}}>Make appropriate referrals to victim services </h1>
-                <h2 style={{fontWeight:"normal"}}>The first priority is ensuring that the victim’s basic needs are met. This includes access to safe housing, mental health services, medical services, and food. <span class="prepareLink" onClick={this._onResourcesClick}>Click here to learn more about available victim services.</span></h2>
+                <h2 style={{fontWeight:"normal"}}>The first priority is ensuring that the victim’s basic needs are met. This includes access to safe housing, mental health services, medical services, and food. <span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(0)}}>Click here to learn more about available victim services.</span></h2>
                 <h2 style={{fontWeight:"normal"}}> It is important to refer the victim to an attorney as soon as possible to ensure that he or she can learn about his or her rights. A victim of labor trafficking may be eligible for certain protections under law, such as victim compensation, criminal restitution, immigration relief, and civil remedies. <span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(3)}}>Click here to learn more about available legal services and how to make referral.</span></h2>
               </div>
             )} />
           )} />
 
-          <QuestionBox title={<h1>Tip 6: How to engage the victim</h1>} html={(
+          <QuestionBox title={<h1>Tip 6: How to engage with the victim</h1>} html={(
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
                 <h2 style={{fontWeight:"normal"}}>At the outset, allowing the victim to tell as much or as little of his/her experience as he or she is comfortable is key in building trust and a successful investigation.</h2>
@@ -826,7 +823,7 @@ class App extends Component {
         <div class="App" >
           <p class="pageTitle">Assess</p>
           <p class="Head">Is this case trafficking?</p>
-          <p class="HomeHead1">These questions can help determine if your case may meets the definition of trafficking under Massachusetts law.</p>
+          <p class="HomeHead1">These questions can help determine if your case meets the definition of trafficking under Massachusetts law.</p>
         </div>
         <div class="AssesmentContent">
           <div class="App">
@@ -905,19 +902,29 @@ class App extends Component {
                       <h2><span style={{fontWeight:"normal"}}>Text "BEFREE" to: <span style={{textDecoration : "underline"}}>233733</span></span></h2>
                       <h2><span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="https://humantraffickinghotline.org/chat">Click here to access live chat</a></span></h2>
                       <h2><span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="mailto:help@humantraffickinghotline.org%20?subject=MA%20Labor%20Trafficking%20Case">Click here to email the hotline</a></span></h2>
-                      <h2 style={{fontWeight:"normal"}}>For resources available in your geographic area to assist labor trafficking victims, please contact the National Human Trafficking Resource Center (NHTRC) Hotline. NHTRC connects victims and survivors of human trafficking with support and services.</h2>
                       <h2 style={{fontWeight:"normal"}}>The hotline is open 24 hours a day, 7 days a week and has resources available in more than 200 languages.</h2>
+                      <h2 style={{fontWeight:"normal"}}>For resources available in your geographic area to assist labor trafficking victims, please contact the National Human Trafficking Resource Center (NHTRC) Hotline. NHTRC connects victims and survivors of human trafficking with support and services.</h2>
                     </div>
                   )} />
                   <BlueBox html={(
                     <div>
                       <h1 style={{fontWeight:"bold"}}>Emergency Shelter</h1>
-                      <h2 style={{fontWeight:"normal"}}>Contact the National Human Trafficking Resource Center Hotline at <span style={{fontWeight:"bold"}}>1-888-373-788</span> for emergency shelter options</h2>
+                      <h2 style={{fontWeight:"normal"}}>Contact the National Human Trafficking Resource Center Hotline at <span style={{fontWeight:"bold"}}>1-888-373-788</span> for emergency shelter options.</h2>
                       <h2 style={{fontWeight:"normal"}}>Trafficking-specific Shelter Options. Listed below are organizations that place priority on housing for survivors of human trafficking:</h2>
-                      <h2 style={{fontWeight:"normal"}}> Amirah (North Shore, sex trafficking): <span style={{fontWeight:"bold"}}>(781) 462-1758</span></h2>
-                      <h2 style={{fontWeight:"normal"}}> Bhakita House (Greater Boston, labor and sex trafficking): <span style={{fontWeight:"bold"}}>(781) 321-0499</span></h2>
-                      <h2 style={{fontWeight:"normal"}}> EVA Center (Sex trafficking, Greater Boston): <span style={{fontWeight:"bold"}}>(617) 799-2133</span></h2>
-                      <h2 style={{fontWeight:"normal"}}> RIA House (Sex trafficking, Central Massachusetts): <span style={{fontWeight:"bold"}}>info@riahouse.org </span></h2>
+                      <ul>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}> Amirah (North Shore, sex trafficking): <span style={{fontWeight:"bold"}}>(781) 462-1758</span></h2>
+                        </li>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}> Bhakita House (Greater Boston, labor and sex trafficking): <span style={{fontWeight:"bold"}}>(781) 321-0499</span></h2>
+                        </li>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}> EVA Center (Sex trafficking, Greater Boston): <span style={{fontWeight:"bold"}}>(617) 799-2133</span></h2>
+                        </li>
+                        <li>
+                          <h2 style={{fontWeight:"normal"}}> RIA House (Sex trafficking, Central Massachusetts): <span style={{fontWeight:"bold"}}>info@riahouse.org </span></h2>
+                        </li>
+                      </ul>
                       <h2 style={{fontWeight:"normal"}}><span style={{fontWeight:"bold"}}>Domestic Violence Shelter:</span> Some domestic violence shelters may house victims of labor trafficking. Click <a href="https://www.mass.gov/service-details/domestic-violence-programs">here</a> for a complete list of shelters in Massachusetts. To determine if a shelter space is available, victims can contact the Safelink state-wide hotline at <span style={{fontWeight : "bold"}}>877-785-2020</span> (toll-free), <span style={{fontWeight : "bold"}}>877-521-2601</span> (TTY).</h2>
                     </div>
                   )} />
@@ -937,7 +944,7 @@ class App extends Component {
                   <NormalText html={(
                     <div>
                       <h1>Safety planning is essential.</h1>
-                      <h2 style={{fontWeight:"normal"}}>It is important to engage in trauma-informed safety planning with the victim to ensure that the victim is safe throughout the investigation. At the earliest stage possible, it is recommended that you get a victim advocate involved and make appropriate referrals to victim services agencies that can assist with safety planning.</h2>
+                      <h2 style={{fontWeight:"normal"}}>It is important to engage in trauma-informed safety planning with the victim to ensure that the victim is safe throughout the investigation. At the earliest stage possible, it is recommended that investigators get a victim advocate involved and make appropriate referrals to victim services agencies that can assist with safety planning.</h2>
                       <h2 style={{fontWeight:"normal"}}>In addition, it may be appropriate to ask additional questions to determine the level of risk. This may involve asking any of the following questions:</h2>
                     </div>
                   )} />
@@ -974,8 +981,7 @@ class App extends Component {
                   <NormalText html={(
                     <div>
                       <h1>Immigration Protection for Immigrant Victims of Human Trafficking</h1>
-                      <h2 style={{fontWeight:"normal"}}>What immigration avenues exist for undocumented victims?</h2>
-                      <h2 style={{fontWeight:"normal"}}>Undocumented victims are especially vulnerable to human trafficking. Certain immigration options are available to victims that may allow them to apply for work authorization and permission to remain in the United States. It is essential that victims consult with an experienced immigration attorney about available options and understand the risks of pursuing immigration relief. Below is a list of potential immigration remedies commonly available to victims of crime and a description of how an investigator can assist in providing certification that the victim was helpful in the investigation. This list is not exhaustive, and it is important that every victim be screened individually by an experienced immigration attorney for eligibility.”</h2>
+                      <h2 style={{fontWeight:"normal"}}>Undocumented victims are especially vulnerable to human trafficking. Certain immigration options are available to victims that may allow them to apply for work authorization and permission to remain in the United States. It is essential that victims consult with an experienced immigration attorney about available options and understand the risks of pursuing immigration relief. Below is a list of potential immigration remedies commonly available to victims of crime. This list is not exhaustive, and it is important that every victim be screened individually by an experienced immigration attorney for eligibility.”</h2>
                     </div>
                   )} />
                   <QuestionBox title={<h1>T Nonimmigrant Status (“T visa”)</h1>} html={(
@@ -1073,8 +1079,8 @@ class App extends Component {
                     <div>
                       <h2 style={{fontWeight:"normal"}}>Worcester, MA</h2>
                       <h1 style={{fontWeight:"bold"}}>Ascentria Care Alliance</h1>
-                      <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(774) 243-3041</span></h2>
-                      <h2 style={{fontWeight:"normal"}}>Emergency Cell:<span style={{textDecoration : "underline"}}>(774) 437-3237</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(774) 243-3041</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Emergency Cell: <span style={{textDecoration : "underline"}}>(774) 437-3237</span></h2>
                       <h2 style={{fontWeight:"bold"}}>Geographic Limitations:</h2>
                       <h2 style={{fontWeight:"normal"}}>Can accept cases involving Central Massachusetts residents under 187.5% of the poverty guidelines.</h2>
                     </div>
@@ -1083,8 +1089,8 @@ class App extends Component {
                     <div>
                       <h2 style={{fontWeight:"normal"}}>Boston, MA</h2>
                       <h1 style={{fontWeight:"bold"}}>Boston University School of Law Immigrants’ Rights and Human Trafficking Program</h1>
-                      <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(617) 353-2807</span></h2>
-                      <h2 style={{fontWeight:"normal"}}>Email:<span style={{textDecoration : "underline"}}>Jadahl@bu.edu</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 353-2807</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Email: <span style={{textDecoration : "underline"}}>Jadahl@bu.edu</span></h2>
                       <h2 style={{fontWeight:"bold"}}>Geographic Limitations:</h2>
                       <h2 style={{fontWeight:"normal"}}>Can accept cases involving Massachusetts residents under 187.5% of the poverty guidelines.</h2>
                     </div>
@@ -1098,8 +1104,8 @@ class App extends Component {
                     <div>
                       <h2 style={{fontWeight:"normal"}}>275 West Broadway, South Boston, MA 02127</h2>
                       <h1 style={{fontWeight:"bold"}}>Catholic Charities Refugee and Immigration Services</h1>
-                      <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(617) 464-8100</span></h2>
-                      <h2 style={{fontWeight:"normal"}}>Fax:<span style={{textDecoration : "underline"}}>(617) 464-8150</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 464-8100</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(617) 464-8150</span></h2>
                       <ul>
                         <li>
                           <h2 style={{fontWeight:"normal"}}>Legal Clinic for advice, referral and forms assistance.</h2>
@@ -1129,12 +1135,12 @@ class App extends Component {
                     <div>
                       <h2 style={{fontWeight:"normal"}}>405 Main Street, 4th Floor, Worcester, MA 01608</h2>
                       <h1 style={{fontWeight:"bold"}}>Centralwest Justice Center</h1>
-                      <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(508) 752-3718</span></h2>
-                      <h2 style={{fontWeight:"normal"}}>Fax:<span style={{textDecoration : "underline"}}>(508) 752-5918</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(508) 752-3718</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(508) 752-5918</span></h2>
                       <br />
                       <h2 style={{fontWeight:"normal"}}>One Monarch Place, Springfield, MA 01144</h2>
-                      <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(413) 781-7814</span></h2>
-                      <h2 style={{fontWeight:"normal"}}>Fax:<span style={{textDecoration : "underline"}}>(413) 746-3221</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(413) 781-7814</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(413) 746-3221</span></h2>
                       <ul>
                         <li>
                           <h2 style={{fontWeight:"normal"}}>Free representation to noncitizens seeking humanitarian immigration relief, including asylum, relief under the Violence Against Women Act, Special Immigrant Juvenile Status, U visas for crime victims, and T visas for trafficking victims.</h2>
@@ -1149,8 +1155,8 @@ class App extends Component {
                     <div>
                       <h2 style={{fontWeight:"normal"}}>98 North Washington Street, Suite 106, Boston, MA 02114</h2>
                       <h1 style={{fontWeight:"bold"}}>Political Asylum/Immigration Representation Project (PAIR)</h1>
-                      <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(617) 742-9296</span></h2>
-                      <h2 style={{fontWeight:"normal"}}>Fax:<span style={{textDecoration : "underline"}}>(617) 742-9385</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 742-9296</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(617) 742-9385</span></h2>
                       <ul>
                         <li>
                           <h2 style={{fontWeight:"normal"}}>Represents asylum applicants.</h2>
@@ -1171,8 +1177,8 @@ class App extends Component {
                     <div>
                       <h2 style={{fontWeight:"normal"}}>47 Thorndike Street Suite SB-LL-1 Cambridge, MA 02141</h2>
                       <h1 style={{fontWeight:"bold"}}>Community Legal Services Counseling Center</h1>
-                      <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(617) 661-1010</span></h2>
-                      <h2 style={{fontWeight:"normal"}}>Fax:<span style={{textDecoration : "underline"}}>(617) 661-1011</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 661-1010</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(617) 661-1011</span></h2>
                       <ul>
                         <li>
                           <h2 style={{fontWeight:"normal"}}>Represents noncitizens in asylum proceedings and victims of domestic violence seeking lawful permanent residence.</h2>
@@ -1184,7 +1190,7 @@ class App extends Component {
                     <div>
                       <h2 style={{fontWeight:"normal"}}>Boston Office c/o Nutter McClennen & Fish LLP Seaport West, 155 Seaport Blvd, 5th Floor Boston, MA 02210</h2>
                       <h1 style={{fontWeight:"bold"}}>Kids in Need of Defense (KIND)</h1>
-                      <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(617) 207-4138</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 207-4138</span></h2>
                       <ul>
                         <li>
                           <h2 style={{fontWeight:"normal"}}>Serves victims under age 18 only</h2>
@@ -1196,7 +1202,7 @@ class App extends Component {
                     <div>
                       <h2 style={{fontWeight:"normal"}}>197 Friend Street Boston, MA 02114</h2>
                       <h1 style={{fontWeight:"bold"}}>Greater Boston Legal Services</h1>
-                      <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(617) 371-1234</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 371-1234</span></h2>
                       <ul>
                         <li>
                           <h2 style={{fontWeight:"normal"}}>Represents noncitizens in Asylum proceedings.</h2>
@@ -1214,8 +1220,8 @@ class App extends Component {
                     <div>
                       <h2 style={{fontWeight:"normal"}}>333 Faunce Corner Road North Dartmouth, MA 02747</h2>
                       <h1 style={{fontWeight:"bold"}}>University of Massachusetts School of Law Dartmouth Immigration Law Clinic</h1>
-                      <h2 style={{fontWeight:"normal"}}>Tel.:<span style={{textDecoration : "underline"}}>(508) 985-1174</span></h2>
-                      <h2 style={{fontWeight:"normal"}}>Fax:<span style={{textDecoration : "underline"}}>(508) 985-1136</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(508) 985-1174</span></h2>
+                      <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(508) 985-1136</span></h2>
                       <ul>
                         <li>
                           <h2 style={{fontWeight:"normal"}}>Eligibility is based on income. Interpreters provided upon request. Inquiries are accepted by telephone or mail.</h2>
@@ -1243,29 +1249,29 @@ class App extends Component {
                     <div>
                       <h1 style={{fontWeight:"normal"}}>Boston, MA</h1>
                       <h1><a href="https://www.bu.edu/law/current-students/jd-student-resources/experiential-learning/clinics/immigrants-rights-human-trafficking-clinic/" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Boston University School of Law Immigrants’ Rights and Human Trafficking Program</a></h1>
-                      <h2><span style={{fontWeight:"bold"}}>Tel.:</span> (617) 353-2807</h2>
-                      <h2><span style={{fontWeight:"bold"}}>Email:</span>Jadahl@bu.edu</h2>
+                      <h2>Tel.: <span style={{"textDecoration" : "underline"}}>(617) 353-2807</span></h2>
+                      <h2>Email: <span style={{"textDecoration" : "underline"}}>Jadahl@bu.edu</span></h2>
                     </div>
                   )} />
                   <BlueBox html={(
                     <div>
                       <h1 style={{fontWeight:"normal"}}>State-wide</h1>
                       <h1><a href="https://massclavc.org/" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Civil Legal Aid for Victims of Crime Attorneys</a></h1>
-                      <h2><span style={{fontWeight:"bold"}}>Tel.:</span> 617-367-8544</h2>
+                      <h2>Tel.: <span style={{"textDecoration" : "underline"}}>(617) 367-8544</span></h2>
                     </div>
                   )} />
                   <BlueBox html={(
                     <div>
                       <h1 style={{fontWeight:"normal"}}>Boston, MA</h1>
                       <h1><a href="https://www.victimrights.org/" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Victim Rights Law Center</a></h1>
-                      <h2><span style={{fontWeight:"bold"}}>Tel.:</span> (617) 399-6720</h2>
+                      <h2>Tel.: <span style={{"textDecoration" : "underline"}}>(617) 399-6720</span></h2>
                       <h2 style={{fontWeight:"normal"}}>Limitations: Can only accept cases involving victims of sexual assault.</h2>
                     </div>
                   )} />
                   <NormalText html={(
                     <div>
                       <h2>Victim Compensation:</h2>
-                      <h2 style={{fontWeight:"normal"}}>ictims of labor trafficking may also be eligible for victim compensation. To apply for compensation, the victim should complete the application <a href="https://www.mass.gov/files/documents/2018/11/13/victim-comp-app.pdf" style={{fontWeight:"bold", color:"#11416D" , textDecoration:"underline"}}>here</a> or contact the <a href="https://www.mass.gov/massachusetts-victims-of-violent-crime-compensation" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Massachusetts Office of Victim Assistance</a> at 844-878-MOVA (6682).</h2>
+                      <h2 style={{fontWeight:"normal"}}>Victims of labor trafficking may also be eligible for victim compensation. To apply for compensation, the victim should complete the application <a href="https://www.mass.gov/files/documents/2018/11/13/victim-comp-app.pdf" style={{fontWeight:"bold", color:"#11416D" , textDecoration:"underline"}}>here</a> or contact the <a href="https://www.mass.gov/massachusetts-victims-of-violent-crime-compensation" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Massachusetts Office of Victim Assistance</a> at 844-878-MOVA (6682).</h2>
                     </div>
                   )} />
                 </div>
@@ -1301,12 +1307,12 @@ class App extends Component {
                   <h2 style={{fontWeight: "normal"}}>subjects, or attempts to subject, another person to forced services, or recruits, entices, harbors, transports, provides or obtains by any means, or attempts to recruit, entice, harbor, transport, provide or obtain by any means, another person, intending or knowing that such person will be subjected to forced services; or</h2>
                 </li>
                 <li>
-                  <h2 style={{fontWeight: "normal"}}>benefits, financially or by receiving anything of value, as a result of a violation of the above. Mass. Gen. Laws ch. 265, § 51.</h2>
+                  <h2 style={{fontWeight: "normal"}}>benefits, financially or by receiving anything of value, as a result of a violation of the above. M.G.L. ch. 265, § 51.</h2>
                 </li>
               </ul>
               <hr />
               <h2>Definition of Forced Services:</h2>
-              <h2 style={{fontWeight : "normal"}}>If one or more of the six prongs listed below are met, the conduct is categorized as forced services. Forced services is defined as services performed or provided by a person that are obtained or maintained by another person who:</h2>
+              <h2 style={{fontWeight : "normal"}}>If one or more of the six prongs listed below are met, the conduct is categorized as Trafficking in Persons for Forced Services. Trafficking in Persons for Forced Services is defined as services performed or provided by a person that are obtained or maintained by another person who:</h2>
               <ul>
                 <li>
                   <h2 style={{fontWeight: "normal"}}>causes or threatens to cause serious harm to any person</h2>
@@ -1324,7 +1330,7 @@ class App extends Component {
                   <h2 style={{fontWeight: "normal"}}>engages in extortion under Massachusetts law</h2>
                 </li>
                 <li>
-                  <h2 style={{fontWeight: "normal"}}>causes or threatens to cause financial harm to any person. Mass. Gen. Laws ch. 265, § 49.</h2>
+                  <h2 style={{fontWeight: "normal"}}>causes or threatens to cause financial harm to any person. M.G.L. ch. 265, § 49.</h2>
                 </li>
               </ul>
             </div>
@@ -1344,13 +1350,13 @@ class App extends Component {
             <div>
               <ul>
                 <li>
-                  <h2 style={{fontWeight: "normal"}}>The crime of Trafficking in Persons for Forced Services shall be punished by imprisonment in the state prison for not less than 5 years but not more than 20 years and by a fine of not more than $25,000. Mass. Gen. Laws ch. 265, § 51(a).</h2>
+                  <h2 style={{fontWeight: "normal"}}>The crime of Trafficking in Persons for Forced Services shall be punished by imprisonment in the state prison for not less than 5 years but not more than 20 years and by a fine of not more than $25,000. M.G.L. ch. 265, § 51(a).</h2>
                 </li>
                 <li>
-                  <h2 style={{fontWeight: "normal"}}>Whoever commits the crime of trafficking of persons for forced services upon a person under 18 years of age shall be punished by imprisonment in the state prison for life or for any term of years, but not less than 5 years. Mass. Gen. Laws ch. 265, § 51(b). </h2>
+                  <h2 style={{fontWeight: "normal"}}>Whoever commits the crime of trafficking of persons for forced services upon a person under 18 years of age shall be punished by imprisonment in the state prison for life or for any term of years, but not less than 5 years. M.G.L. ch. 265, § 51(b). </h2>
                 </li>
                 <li>
-                  <h2 style={{fontWeight: "normal"}}>A business entity that commits trafficking of persons for forced labor services shall be punished by a fine of not more than $1,000,000.” MASS. GEN. LAWS ch. 265, 51(c).</h2>
+                  <h2 style={{fontWeight: "normal"}}>A business entity that commits trafficking of persons for forced labor services shall be punished by a fine of not more than $1,000,000.” M.G.L. ch. 265, 51(c).</h2>
                 </li>
               </ul>
             </div>
@@ -1510,7 +1516,7 @@ class App extends Component {
           <div class="topRowContainer row">
           <div class="topRow col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <img src={logo} className="topDivHL" alt="logo" />
-          <h3 class ="topDivH"><a href="https://www.mass.gov/" style={{color : "inherit"}}>Mass.gov </a></h3>
+          <h3 class ="topDivH"><a href="https://www.mass.gov/" style={{color : "inherit"}}>MA AGO</a></h3>
           </div>
 
           <div class="topRow1 col-xs-6 col-sm-6 col-md-9 col-lg-9">

@@ -34,7 +34,7 @@ var FinancialHarmquizQuestions = [
       ]
   },
   {
-      question: "Does the victim have debt owed to the perpetrator?",
+      question: "Does the victim have a debt owed to the perpetrator?",
       answers: [
           {
               type: "Yes",
@@ -119,7 +119,7 @@ var FinancialHarmquizQuestions = [
       ]
   },
   {
-      question: "Did the victim ever not receive accurate paychecks or fail to be paid for all hours worked?",
+      question: "Did the victim ever fail to receive accurate paychecks or fail to be paid for all hours worked?",
       answers: [
           {
               type: "Yes",
@@ -170,7 +170,7 @@ var FinancialHarmquizQuestions = [
       ]
   },
   {
-      question: "Did the victim have to pay rent or pay for other basic necessities from the perpetrator?",
+      question: "Did the victim have to pay rent or pay for other basic necessities to the perpetrator?",
       answers: [
           {
               type: "Yes",

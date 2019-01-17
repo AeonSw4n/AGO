@@ -1,6 +1,6 @@
 var IdentityDocumentsquizQuestions = [
   {
-      question: "Did the perpetrator ever take, hide or confiscate the victim’s passport?",
+      question: "Did the perpetrator ever take, hide, or confiscate the victim’s passport?",
       answers: [
           {
               type: "Yes",
@@ -51,7 +51,7 @@ var IdentityDocumentsquizQuestions = [
       ]
   },
   {
-      question: "Did the victim ever lack access to their identity documents, such as passports, work permits, birth certificates, etc.?",
+      question: "Did the victim ever lack access to their identity documents, such as passports, work permits, birth certificates?",
       answers: [
           {
               type: "Yes",
