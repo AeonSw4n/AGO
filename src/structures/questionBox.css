@@ -10,6 +10,7 @@
   -ms-transition: opacity 1s linear 1s, max-height 1s;
   transition: opacity 1s linear 1s, max-height 1s;
   opacity: 0;
+  max-width: 800px;
 }
 .questionBoxBorder{
   width: 100%;

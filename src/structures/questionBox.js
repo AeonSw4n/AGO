@@ -21,7 +21,6 @@ class QuestionBox extends React.Component{
 
   componentDidMount() {
     const height = this.divElement.clientHeight;
-    console.log(height);
     this.setState({ height : height, mount : true});
     this.onQuestionClick();
   }

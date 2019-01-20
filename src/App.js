@@ -462,47 +462,71 @@ class App extends Component {
     return (
       <div className="App">
         <br class="hidden-lg hidden-md" />
-        <p className="HomeHead hidden-sm hidden-xs">Labor Trafficking <br />Identification Tool</p>
         <p className="Head hidden-lg hidden-md">Labor Trafficking <br />Identification Tool</p>
-      <div class="ButBar">
-        <p className="HomeHead1">A tool to help investigators identify labor trafficking under Massachusetts law.<br></br></p>
-        <div className="buttonContainer hidden-xs hidden-sm">
-          <button type="button" class="button3" onClick={this._onPrepareClick}>Prepare</button>
-          <button type="button" class="button1" onClick={this._onAssessClick} >Begin</button>
+        <div class="ButBar hidden-lg hidden-md">
+          <p className="HomeHead1">A tool to help investigators identify labor trafficking under Massachusetts law.<br></br></p>
         </div>
-      </div>
-      <picture class="homeInstruction hidden-xs hidden-sm">
-        <source srcset={instructions1} media= "(max-width: 760px)"/>
-        <img src={instructions} alt="Instructions" className = "Desc-Image"/>
-      </picture>
-      <picture class="hidden-xs hidden-sm">
-        <source srcset={instructions2} media= "(max-width: 760px)"/>
-        <img src="" className = "Desc-Image"/>
-      </picture>
-      <picture class="hidden-xs hidden-sm">
-        <source srcset={instructions3} media= "(max-width: 760px)"/>
-        <img src="" className = "Desc-Image"/>
-      </picture>
-      <picture class="hidden-xs hidden-sm">
-        <source srcset={instructions4} media= "(max-width: 760px)"/>
-        <img src="" className = "Desc-Image"/>
-      </picture>
-      <div class="buttonContainer hidden-md hidden-lg">
-        <button class="button4" onClick={this._onPrepareClick}><h1>Prepare</h1><p>Tips for interviewing victims</p></button>
-        <button class="button4" onClick={this._onAssessClick}><h1>Assess</h1><p>Is this case trafficking?</p></button>
-        <button class="button4">
-          <div onClick={this._onReportClick} style={{position: "absolute", left : "0", top : "0", width: "100%", height: "100%"}}></div>
-          <h1>Resources</h1>
-          <p>
-            <span style={{textDecoration : "underline"}}>Report</span>&nbsp;and&nbsp;
-            <span style={{textDecoration : "underline", position : "relative"}}>
-              <div onClick={this._onResourcesClick} style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div>
-              Victim Services
-            </span>
-          </p>
-        </button>
-        <button class="button4" onClick={this._onMassClick}><h1>Massachusetts Law</h1><p>View the Massachusetts labor trafficking statute</p></button>
-      </div>
+
+        <div class="homeContainer hidden-sm hidden-xs">
+          <p class="MassTitle">Massachusetts Attorney General’s Office</p>
+          <p class="HomeHead">Labor Trafficking Identification Tool</p>
+          <p class="HomeHead1">A tool to help investigators identify labor trafficking <br /> under Massachusetts law.</p>
+        </div>
+
+        <div class="buttonContainer hidden-sm hidden-xs">
+          <button class="button4" onClick={this._onPrepareClick}>
+            <div class="b4_container">
+              <h1>Prepare</h1>
+              <div class="home_yellow"></div>
+              <p style={{"fontWeight" : "bold"}}>Tips for interviewing victims</p>
+              <p>What to think about before you interview the victim</p>
+            </div>
+          </button>
+          <button class="button4" onClick={this._onAssessClick}>
+            <div class="b4_container">
+              <h1>Assess</h1>
+              <div class="home_yellow"></div>
+              <p style={{"fontWeight" : "bold"}}>Is this case trafficking?</p>
+              <p>These questions can help determine if your case meets the definition of trafficking under Massachusetts law.</p>
+            </div>
+          </button>
+          <br class="HomeBR" />
+          <button class="button4">
+            <div class="b4_container">
+              <div onClick={this._onReportClick} style={{position: "absolute", left : "0", top : "0", width: "100%", height: "100%"}}></div>
+              <h1>Resources</h1>
+              <div class="home_yellow"></div>
+              <p style={{"fontWeight" : "bold", textDecoration : "underline"}}>Report</p>
+              <p style={{"fontWeight" : "bold", textDecoration : "underline", position : "relative"}}>
+                <div onClick={this._onResourcesClick} style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div>
+                Victim Services
+              </p>
+            </div>
+          </button>
+          <button class="button4" onClick={this._onMassClick}>
+            <div class="b4_container">
+              <h1>Massachusetts Law</h1>
+              <div class="home_yellow"></div>
+              <p style={{"fontWeight" : "bold"}}>View the Massachusetts labor trafficking statute</p>
+            </div>
+          </button>
+        </div>
+        <div class="buttonContainer hidden-md hidden-lg">
+          <button class="button4" onClick={this._onPrepareClick}><h1>Prepare</h1><p>Tips for interviewing victims</p></button>
+          <button class="button4" onClick={this._onAssessClick}><h1>Assess</h1><p>Is this case trafficking?</p></button>
+          <button class="button4">
+            <div onClick={this._onReportClick} style={{position: "absolute", left : "0", top : "0", width: "100%", height: "100%"}}></div>
+            <h1>Resources</h1>
+            <p>
+              <span style={{textDecoration : "underline"}}>Report</span>&nbsp;and&nbsp;
+              <span style={{textDecoration : "underline", position : "relative"}}>
+                <div onClick={this._onResourcesClick} style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div>
+                Victim Services
+              </span>
+            </p>
+          </button>
+          <button class="button4" onClick={this._onMassClick}><h1>Massachusetts Law</h1><p>View the Massachusetts labor trafficking statute</p></button>
+        </div>
       </div>
     );
   }
@@ -548,8 +572,8 @@ class App extends Component {
       answerOptions: shuffledAnswerOptions[0],
       qcategory: 1
     });
-
   }
+
   restraintQuizFunc() {
     const shuffledAnswerOptions = RestraintquizQuestions.map((question) => this.shuffleArray(question.answers));
     this.setState({
@@ -559,8 +583,8 @@ class App extends Component {
       answerOptions: shuffledAnswerOptions[0],
       qcategory: 2
     });
-
   }
+
   abuseQuizFunc() {
     const shuffledAnswerOptions = AbuseofLawquizQuestions.map((question) => this.shuffleArray(question.answers));
     this.setState({
@@ -570,8 +594,8 @@ class App extends Component {
       answerOptions: shuffledAnswerOptions[0],
       qcategory: 3
     });
-
   }
+
   identitydocQuizFunc() {
     const shuffledAnswerOptions = IdentityDocumentsquizQuestions.map((question) => this.shuffleArray(question.answers));
     this.setState({
@@ -581,8 +605,8 @@ class App extends Component {
       answerOptions: shuffledAnswerOptions[0],
       qcategory: 4
     });
-
   }
+
   extortionQuizFunc() {
     const shuffledAnswerOptions = ExtortionquizQuestions.map((question) => this.shuffleArray(question.answers));
     this.setState({
@@ -592,8 +616,8 @@ class App extends Component {
       answerOptions: shuffledAnswerOptions[0],
       qcategory: 5
     });
-
   }
+
   fharmQuizFunc() {
     const shuffledAnswerOptions = FinancialHarmquizQuestions.map((question) => this.shuffleArray(question.answers));
     this.setState({
@@ -603,7 +627,6 @@ class App extends Component {
       answerOptions: shuffledAnswerOptions[0],
       qcategory: 6
     });
-
   }
 
   _onCompleteClick() {
@@ -654,10 +677,18 @@ class App extends Component {
 
     return (
       <div>
-        <div className="App">
+        <div class="App hidden-md hidden-lg">
           <p class="pageTitle">Prepare</p>
           <p class="Head">Tips for interviewing Victims</p>
           <p className="HomeHead1">What to think about before you interview the victim<br></br></p>
+        </div>
+
+        <div class="App hidden-xs hidden-sm">
+          <div class="homeContainer">
+            <p class="pageTitle">Prepare</p>
+            <p class="Head">Tips for interviewing Victims</p>
+            <p className="HomeHead1">What to think about before you interview the victim</p>
+          </div>
         </div>
 
         <div className="prep1 resourcesContent">
@@ -747,7 +778,7 @@ class App extends Component {
                 <h2 style={{fontWeight:"normal"}}>At the outset, allowing the victim to tell as much or as little of his/her experience as he or she is comfortable is key in building trust and a successful investigation.</h2>
                 <h2 style={{fontWeight:"bold"}}>Asking open-ended questions is important to build trust.</h2>
                 <h2 style={{fontWeight:"normal"}}>It is important to understand how trauma can affect a victim’s disclosure and how to respond when the signs of trauma present themselves in an interview. Trauma can make victims reluctant to disclose and may affect their memory of an event, causing them to disclose their stories in a non-linear or inconsistent manner. It is important to allow for multiple interviews to help the victim fully disclose the traumatic event and to understand that there may be inconsistencies that emerge in early interviews.</h2>
-                <h2>If interviewing a child victim, find your local Children’s Advocacy Center. <span class="prepareLink" onClick={this._onResourcesClick}>Click here for a list of victim services.</span></h2>
+                <h2>If interviewing a child victim, find your local Children’s Advocacy Center. <a href="https://www.nationalcac.org/find-a-cac/" class="prepareLink">Click here for a list of victim services.</a></h2>
               </div>
             )} />
           )} />
@@ -782,8 +813,10 @@ class App extends Component {
             )} />
           )} />
 
-          <div class="clearfix" style={{'padding' : '30px 30px 10px 30px', 'width' : '100%'}}>
-            <button class="button1" style={{'float' : 'right', 'margin' : '0'}} onClick = {this._onAssessClick}>Assess</button>
+          <div style={{'padding' : '30px 30px 10px 30px', 'width' : '100%', "textAlign" : "center"}}>
+            <div style={{"textAlign" : "right", "maxWidth" : "800px", "marginLeft": "auto", "marginRight": "auto"}}>
+              <button class="button1" style={{'float' : 'none', 'margin' : '0'}} onClick = {this._onAssessClick}>Assess</button>
+            </div>
           </div>
         </div>
       </div>
@@ -1102,7 +1135,7 @@ class App extends Component {
                   )} />
                   <BlueBox html={(
                     <div>
-                      <h2 style={{fontWeight:"normal"}}>275 West Broadway, South Boston, MA 02127</h2>
+                      <h2 style={{fontWeight:"normal"}}>Boston, MA</h2>
                       <h1 style={{fontWeight:"bold"}}>Catholic Charities Refugee and Immigration Services</h1>
                       <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 464-8100</span></h2>
                       <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(617) 464-8150</span></h2>
@@ -1133,12 +1166,12 @@ class App extends Component {
                   )} />
                   <BlueBox html={(
                     <div>
-                      <h2 style={{fontWeight:"normal"}}>405 Main Street, 4th Floor, Worcester, MA 01608</h2>
+                      <h2 style={{fontWeight:"normal"}}>Worcester, MA</h2>
                       <h1 style={{fontWeight:"bold"}}>Centralwest Justice Center</h1>
                       <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(508) 752-3718</span></h2>
                       <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(508) 752-5918</span></h2>
                       <br />
-                      <h2 style={{fontWeight:"normal"}}>One Monarch Place, Springfield, MA 01144</h2>
+                      <h2 style={{fontWeight:"normal"}}>Springfield, MA</h2>
                       <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(413) 781-7814</span></h2>
                       <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(413) 746-3221</span></h2>
                       <ul>
@@ -1153,7 +1186,7 @@ class App extends Component {
                   )} />
                   <BlueBox html={(
                     <div>
-                      <h2 style={{fontWeight:"normal"}}>98 North Washington Street, Suite 106, Boston, MA 02114</h2>
+                      <h2 style={{fontWeight:"normal"}}>Boston, MA</h2>
                       <h1 style={{fontWeight:"bold"}}>Political Asylum/Immigration Representation Project (PAIR)</h1>
                       <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 742-9296</span></h2>
                       <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(617) 742-9385</span></h2>
@@ -1175,7 +1208,7 @@ class App extends Component {
                   )} />
                   <BlueBox html={(
                     <div>
-                      <h2 style={{fontWeight:"normal"}}>47 Thorndike Street Suite SB-LL-1 Cambridge, MA 02141</h2>
+                      <h2 style={{fontWeight:"normal"}}>Cambridge, MA</h2>
                       <h1 style={{fontWeight:"bold"}}>Community Legal Services Counseling Center</h1>
                       <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 661-1010</span></h2>
                       <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(617) 661-1011</span></h2>
@@ -1188,7 +1221,7 @@ class App extends Component {
                   )} />
                   <BlueBox html={(
                     <div>
-                      <h2 style={{fontWeight:"normal"}}>Boston Office c/o Nutter McClennen & Fish LLP Seaport West, 155 Seaport Blvd, 5th Floor Boston, MA 02210</h2>
+                      <h2 style={{fontWeight:"normal"}}>Boston, MA</h2>
                       <h1 style={{fontWeight:"bold"}}>Kids in Need of Defense (KIND)</h1>
                       <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 207-4138</span></h2>
                       <ul>
@@ -1200,7 +1233,7 @@ class App extends Component {
                   )} />
                   <BlueBox html={(
                     <div>
-                      <h2 style={{fontWeight:"normal"}}>197 Friend Street Boston, MA 02114</h2>
+                      <h2 style={{fontWeight:"normal"}}>Boston, MA</h2>
                       <h1 style={{fontWeight:"bold"}}>Greater Boston Legal Services</h1>
                       <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 371-1234</span></h2>
                       <ul>
@@ -1218,7 +1251,7 @@ class App extends Component {
                   )} />
                   <BlueBox html={(
                     <div>
-                      <h2 style={{fontWeight:"normal"}}>333 Faunce Corner Road North Dartmouth, MA 02747</h2>
+                      <h2 style={{fontWeight:"normal"}}>Dartmouth, MA</h2>
                       <h1 style={{fontWeight:"bold"}}>University of Massachusetts School of Law Dartmouth Immigration Law Clinic</h1>
                       <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(508) 985-1174</span></h2>
                       <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(508) 985-1136</span></h2>
@@ -1420,62 +1453,15 @@ class App extends Component {
   renderNavHome() {
     return (
       <div class="row menu">
-        <div class="col-md-2 col-lg-2 lis new-lis"><a class="active" onClick= {this._onCompleteClick}>HOME</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a onClick= {this._onPrepareClick}>PREPARE</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a onClick= {this._onAssessClick}>ASSESS</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a onClick= {this._onInvestigateClick}>INVESTIGATE</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a onClick= {this._onVictimClick}>VICTIM SERVICES</a></div>
+        <div class="col-md-2 col-lg-2 lis new-lis"><a class={this.state.page == 1? ("active") : ("")} onClick= {this._onCompleteClick}>Home</a></div>
+        <div class="col-md-2 col-lg-2 lis new-lis"><a class={this.state.page == 2? ("active") : ("")} onClick= {this._onPrepareClick}>Prepare</a></div>
+        <div class="col-md-2 col-lg-2 lis new-lis"><a class={this.state.page == 3 || this.state.page == 5? ("active") : ("")} onClick= {this._onAssessClick}>Assess</a></div>
+        <div class="col-md-2 col-lg-2 lis new-lis"><a class={this.state.page == 6 || this.state.page == 8? ("active") : ("")} onClick= {this._onReportClick}>Resources</a></div>
+        <div class="col-md-2 col-lg-2 lis new-lis"><a class={this.state.page == 7? ("active") : ("")} onClick= {this._onMassClick}>Massachusetts Law</a></div>
       </div>
     );
   }
 
-  renderNavPrepare() {
-    return (
-      <div class="row menu">
-        <div class="col-md-2 col-lg-2 lis new-lis"><a onClick= {this._onCompleteClick}>HOME</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a class="active" onClick= {this._onPrepareClick}>PREPARE</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a onClick= {this._onAssessClick}>ASSESS</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a onClick= {this._onInvestigateClick}>INVESTIGATE</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a onClick= {this._onVictimClick}>VICTIM SERVICES</a></div>
-      </div>
-    );
-  }
-
-  renderNavAsses() {
-    return (
-      <div class="row menu">
-        <div class="col-md-2 col-lg-2 lis new-lis"><a onClick= {this._onCompleteClick}>HOME</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a onClick= {this._onPrepareClick}>PREPARE</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a class="active" onClick= {this._onAssessClick}>ASSESS</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a onClick= {this._onInvestigateClick}>INVESTIGATE</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a onClick= {this._onVictimClick}>VICTIM SERVICES</a></div>
-      </div>
-    );
-  }
-
-  renderNavInvestigate() {
-    return (
-      <div class="row menu">
-        <div class="col-md-2 col-lg-2 lis new-lis"><a onClick= {this._onCompleteClick}>HOME</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a onClick= {this._onPrepareClick}>PREPARE</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a onClick= {this._onAssessClick}>ASSESS</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a class="active" onClick= {this._onInvestigateClick}>INVESTIGATE</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a onClick= {this._onVictimClick}>VICTIM SERVICES</a></div>
-      </div>
-    );
-  }
-
-  renderNavVictim() {
-    return (
-      <div class="row menu">
-        <div class="col-md-2 col-lg-2 lis new-lis"><a onClick= {this._onCompleteClick}>HOME</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a onClick= {this._onPrepareClick}>PREPARE</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a onClick= {this._onAssessClick}>ASSESS</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a onClick= {this._onInvestigateClick}>INVESTIGATE</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a class="active" onClick= {this._onVictimClick}>VICTIM SERVICES</a></div>
-      </div>
-    );
-  }
 
   renderMobileMenu() {
     return (
@@ -1499,10 +1485,10 @@ class App extends Component {
   }
 
   handleMenuClick() {
-  this.setState({
-    mobileMenu : !this.state.mobileMenu,
-  })
-}
+    this.setState({
+      mobileMenu : !this.state.mobileMenu,
+    })
+  }
 
   render() {
     if(this.state.qcategory_old != this.state.qcategory || this.state.page_old != this.state.page){
@@ -1526,24 +1512,10 @@ class App extends Component {
             this.renderNavAsses() : this.state.page == 5? this.renderNavAsses() : this.state.page == 6 ?
             this.renderNavVictim() : this.renderNavHome()*/}
           {
-            (()=>{
-              switch(this.state.page){
-                case 2:
-                  return this.renderNavPrepare();
-                  break;
-                case 3:
-                case 4:
-                case 5:
-                  return this.renderNavAsses();
-                  break;
-                case 6:
-                  return this.renderNavVictim();
-                  break;
-                default:
-                  return this.renderNavHome();
-                }
-              })()
-            }
+          (()=>{
+            return this.renderNavHome();
+          })()
+          }
           </div>
         </div>
 

@@ -427,11 +427,15 @@ input[type=checkbox]:checked ~ #menu{
   text-align: left;
   color: #fff;
   font-family: sans-serif;
-  font-size: 25px;
+  font-size: 16px;
   margin: 0;
   line-height: 75px;
   font-weight: normal;
   padding-right: 1px;
+}
+
+.topDivH a:hover{
+  text-decoration: none;
 }
 
 .topDivHL {
@@ -915,7 +919,7 @@ input[type=checkbox]:checked ~ #menu{
 
 
 /*Responsive Styles*/
-@media screen and (max-width : 1001px){
+@media screen and (max-width : 991px){
     /*Make dropdown links appear inline*/
     .menu {
         position: relative;

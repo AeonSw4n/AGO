@@ -2,4 +2,102 @@
   .mobile-menu{
     display: none;
   }
+
+  .homeContainer{
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+
+  .pageTitle{
+    color: #19568D;
+    font-weight: bold;
+    font-size: 15px;
+  }
+
+  .MassTitle{
+    font-size: 15px;
+    color: #AEAEAE;
+    font-weight: bold;
+  }
+
+  .Head{
+    width: unset;
+    font-size: 22px;
+    text-align: center;
+    font-weight: normal;
+    padding: 0px;
+    line-height: 40px;
+    margin-bottom: 10px;
+  }
+
+  .HomeHead{
+    font-family: sans-serif;
+    padding-left: 0;
+    text-align: center;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 60px;
+    padding: 0;
+    width: unset;
+    margin-bottom: 10px;
+  }
+
+  .HomeHead1{
+    font-size: 15px;
+    line-height: 24px;
+    margin-bottom: 10px;
+    padding-top: 0;
+    width: unset;
+    text-align: center;
+  }
+
+  .button4{
+    display: inline-block;
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background-color: #fff;
+    border: 2px solid #11416d;
+    font-size: 28px;
+    color: #fff;
+    padding: 14px;
+    text-align: left;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 8px 8px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    vertical-align: middle;
+  }
+
+  .button4 h1{
+    color: #14558f;
+    font-size: 16px;
+    margin-top: 0;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+  .button4 p{
+    color: #000;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .b4_container{
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .home_yellow{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: 0;
+    width: 30%;
+    text-align: left;
+    border-top: 2px solid #F5C436
+  }
 }

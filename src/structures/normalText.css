@@ -2,6 +2,7 @@
   padding: 10px 30px;
   padding-bottom: 0px;
   width: 100%;
+  max-width: 800px;
 }
 .normalText{
   padding: 0;

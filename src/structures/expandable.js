@@ -15,7 +15,6 @@ class Expandable extends React.Component{
       mount : false,
       expandHeight : height,
     }
-    console.log(this.state.app);
     this.onExpandClick = this.onExpandClick.bind(this);
   }
 
@@ -27,7 +26,6 @@ class Expandable extends React.Component{
 
   componentDidMount() {
     const height = this.divElement.clientHeight;
-    console.log(height);
     this.setState({ height : height, mount : true});
     this.onExpandClick();
   }

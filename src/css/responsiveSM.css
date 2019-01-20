@@ -55,9 +55,8 @@
   .Head{
     width: 100%;
     padding-top: 10px;
-    font-size: 28px;
-    line-height: 34px;
-    max-width: 330px;
+    font-size: 24px;
+    line-height: 30px;
     margin-bottom: 8px;
   }
 
@@ -94,20 +93,24 @@
   }
   .HomeHead1{
     max-width: 600px;
+    font-size: 14px;
+    max-width: 420px;
+    line-height: 18px;
+    padding: 0px;
   }
 
   .button1{
     margin: 0;
     font-size: 17px;
     height: 42px;
-    width: 144px;
+    width: 148px;
   }
 
   .button3{
     margin: 0;
     font-size: 17px;
     height: 42px;
-    width: 144px;
+    width: 148px;
   }
 
   .show-menu{

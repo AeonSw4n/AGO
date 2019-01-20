@@ -1,6 +1,7 @@
 .yellowBoxContainer{
   padding: 10px 30px;
-  width: 100%
+  width: 100%;
+  max-width: 800px;
 }
 .yellowBox{
   padding: 20px 10px;
