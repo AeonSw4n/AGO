@@ -1108,7 +1108,7 @@ class App extends Component {
                   <BlueBox html={(
                     <div>
                       <h1 style={{fontWeight:"bold"}}>National Human Trafficking Resource Center</h1>
-                      <h2><span style={{fontWeight:"normal"}}>Call the Fair Labor Hotline at: <span style={{textDecoration : "underline"}}>1-888-373-7888</span></span></h2>
+                      <h2><span style={{fontWeight:"normal"}}>Call the Hotline at: <span style={{textDecoration : "underline"}}>1-888-373-7888</span></span></h2>
                       <h2><span style={{fontWeight:"normal"}}>Text "BEFREE" to: <span style={{textDecoration : "underline"}}>233733</span></span></h2>
                       <h2><span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="https://humantraffickinghotline.org/chat">Click here to access live chat</a></span></h2>
                       <h2><span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="mailto:help@humantraffickinghotline.org%20?subject=MA%20Labor%20Trafficking%20Case">Click here to email the hotline</a></span></h2>
@@ -1690,15 +1690,15 @@ class App extends Component {
           )} />
           <BlueBox html={
             <div>
-              <h2>Massachusetts Attorney General’s Office</h2>
-              <h2 style={{fontWeight:"normal"}}>Call the Fair Labor Hotline at <span style={{textDecoration:"underline"}}>(617) 727-3465</span></h2>
+              <h1 style={{fontWeight:"bold"}}>Massachusetts Attorney General’s Office</h1>
+              <h2 style={{fontWeight:"normal"}}>Call the Hotline at <span style={{textDecoration:"underline"}}>(617) 727-3465</span></h2>
               <h2 style={{fontWeight:"normal"}}>Available Monday–Friday 10:00AM–4:00PM</h2>
             </div>
           } />
           <BlueBox html={(
             <div>
               <h1 style={{fontWeight:"bold"}}>National Human Trafficking Resource Center</h1>
-              <h2><span style={{fontWeight:"normal"}}>Call the Fair Labor Hotline at: <span style={{textDecoration : "underline"}}>1-888-373-7888</span></span></h2>
+              <h2><span style={{fontWeight:"normal"}}>Call the Hotline at: <span style={{textDecoration : "underline"}}>1-888-373-7888</span></span></h2>
               <h2><span style={{fontWeight:"normal"}}>Text "BEFREE" to: <span style={{textDecoration : "underline"}}>233733</span></span></h2>
               <h2><span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="https://humantraffickinghotline.org/chat">Click here to access live chat</a></span></h2>
               <h2><span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="mailto:help@humantraffickinghotline.org%20?subject=MA%20Labor%20Trafficking%20Case">Click here to email the hotline</a></span></h2>
