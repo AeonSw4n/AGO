@@ -7,6 +7,7 @@ class QuestionBox extends React.Component{
   constructor(props){
     super(props)
     this.state = {
+      qClass : props.qClass==null?"":props.qClass,
       expand : true,
       height : 10000,
       mount : false,
@@ -27,7 +28,7 @@ class QuestionBox extends React.Component{
 
   render(){
     return (
-      <div class="questionBoxWrapper">
+      <div class={"questionBoxWrapper " + this.state.qClass}>
         <button
           class="questionBoxContainer"
           style={this.state.mount? ({"opacity" : "1"}) : ({"opacity" : "0"})}

@@ -190,7 +190,7 @@ class App extends Component {
 
   renderQuestions(questions){
     return (
-      <div>
+      <div style={{"backgroundColor" : "#fff"}}>
         <div class="AssessmentQuestions">
           {
             (function (){
@@ -210,7 +210,7 @@ class App extends Component {
             }).bind(this)()
           }
         </div>
-        <div style={{backgroundColor : "#fff", padding: "10px 20px", textAlign : "right"}}>
+        <div class="AssessmentButtons" style={{backgroundColor : "#fff", padding: "10px 20px", textAlign : "right"}}>
           <button class="button1" style={{float : "unset", marginRight : "10px"}} onClick={this.evaluateNow}>Evaluate</button>
           <button class="button3" style={{float : "unset"}} onClick={this._onAssessClick}>Categories</button>
         </div>
@@ -221,13 +221,42 @@ class App extends Component {
   renderHarmQuiz() {
     return (
       <div>
-        <div class="App" >
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
           <p class="pageTitle">Assess</p>
           <p class="Head">Question: Serious Harm</p>
           <p class="regularText" style={{"fontWeight" : "bold"}}>Causes or threatens to cause serious harm to any person</p>
         </div>
-        <Expandable content={
-          <div class="App">
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
+          <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
+            <p class="pageTitle">Assess</p>
+            <p class="Head">Question: Serious Harm</p>
+            <p class="HomeHead1">Causes or threatens to cause serious harm to any person</p>
+          </div>
+        </div>
+        <div class="hidden-md hidden-lg">
+          <Expandable content={
+            <div class="App">
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
+              <p class="regularText">Serious harm may be physical and nonphysical, including psychological, financial, or reputational harm. Generally, the test contemplates whether it is sufficiently serious, under all the surrounding circumstances, to compel a reasonable person of the same background and in the same circumstances to perform or to continue performing labor or services in order to avoid incurring that harm. </p>
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
+              <p class="regularText">Serious harm is defined federally as any harm, whether physical or nonphysical, including psychological, financial, or reputational harm, that is sufficiently serious, under all the surrounding circumstances, to compel a reasonable person of the same background and in the same circumstances to perform or to continue performing labor or services in order to avoid incurring that harm. 18 USC § 1589 (c)(2).</p>
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
+              <ul>
+                <li>
+                  <p class="regularText">An employer kicks the worker in the morning to wake her up and to start working.</p>
+                </li>
+                <li>
+                  <p class="regularText">When the worker asks for their wages, the employers gets angry and hits the worker.</p>
+                </li>
+              </ul>
+            </div>
+          } />
+        </div>
+        <div class="hidden-xs hidden-sm">
+          <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
             <p class="regularText">Serious harm may be physical and nonphysical, including psychological, financial, or reputational harm. Generally, the test contemplates whether it is sufficiently serious, under all the surrounding circumstances, to compel a reasonable person of the same background and in the same circumstances to perform or to continue performing labor or services in order to avoid incurring that harm. </p>
@@ -245,7 +274,7 @@ class App extends Component {
               </li>
             </ul>
           </div>
-        } />
+        </div>
         {this.renderQuestions(SeriousHarmquizQuestions)}
       </div>
     );
@@ -254,13 +283,36 @@ class App extends Component {
   renderRestraintQuiz() {
     return (
       <div>
-        <div class="App" >
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
           <p class="pageTitle">Assess</p>
           <p class="Head">Question: Physical Restraint</p>
           <p class="regularText" style={{"fontWeight" : "bold"}}>Physically restrains or threatens to physically restrain another person	</p>
         </div>
-        <Expandable content={
-          <div class="App">
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
+          <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
+            <p class="pageTitle">Assess</p>
+            <p class="Head">Question: Physical Restraint</p>
+            <p class="HomeHead1">Physically restrains or threatens to physically restrain another person	</p>
+          </div>
+        </div>
+        <div class="hidden-md hidden-lg">
+          <Expandable content={
+            <div class="App">
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
+              <p class="regularText">Physical restraint means purposely limiting or obstructing the freedom of a person’s bodily movement. This can range from using locks on doors or windows to more subtle forms of control that restrict another person’s ability to move around.</p>
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Example</p>
+              <ul>
+                <li>
+                  <p class="regularText">A domestic worker is brought to the United States by an employer. Her employers do not permit her to leave the house unaccompanied, and her movement is monitored by cameras.</p>
+                </li>
+              </ul>
+            </div>
+          } />
+        </div>
+        <div class="hidden-xs hidden-sm">
+          <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
             <p class="regularText">Physical restraint means purposely limiting or obstructing the freedom of a person’s bodily movement. This can range from using locks on doors or windows to more subtle forms of control that restrict another person’s ability to move around.</p>
@@ -272,7 +324,7 @@ class App extends Component {
               </li>
             </ul>
           </div>
-        } />
+        </div>
         {this.renderQuestions(RestraintquizQuestions)}
       </div>
     );
@@ -281,13 +333,42 @@ class App extends Component {
   renderAbuseQuiz() {
     return (
       <div>
-        <div class="App" >
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
           <p class="pageTitle">Assess</p>
           <p class="Head">Question: Abuse of the Law</p>
           <p class="regularText" style={{"fontWeight" : "bold"}}>Abuses or threatens to abuse the law or legal process	</p>
         </div>
-        <Expandable content={
-          <div class="App">
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
+          <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
+            <p class="pageTitle">Assess</p>
+            <p class="Head">Question: Abuse of the Law</p>
+            <p class="HomeHead1">Abuses or threatens to abuse the law or legal process	</p>
+          </div>
+        </div>
+        <div class="hidden-md hidden-lg">
+          <Expandable content={
+            <div class="App">
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
+              <p class="regularText">Abuse of the legal process includes the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed. A common example is a threat of deportation by an employer.</p>
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
+              <p class="regularText">Abuse of the legal process federally is defined as the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed, in order to exert pressure on another person to cause that person to take some action or refrain from taking some action. 22 U.S.C. § 7102(1).</p>
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
+              <ul>
+                <li>
+                  <p class="regularText">An employer threatens to deport the worker or "call immigration" on them if they stopped working for the employer.</p>
+                </li>
+                <li>
+                  <p class="regularText">An employer threatens to falsely accuse the worker of a crime if she fails to work.</p>
+                </li>
+              </ul>
+            </div>
+          } />
+        </div>
+        <div class="hidden-xs hidden-sm">
+          <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
             <p class="regularText">Abuse of the legal process includes the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed. A common example is a threat of deportation by an employer.</p>
@@ -305,7 +386,7 @@ class App extends Component {
               </li>
             </ul>
           </div>
-        } />
+        </div>
         {this.renderQuestions(AbuseofLawquizQuestions)}
       </div>
     );
@@ -314,13 +395,36 @@ class App extends Component {
   renderIdentityQuiz() {
     return (
       <div>
-        <div class="App" >
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
           <p class="pageTitle">Assess</p>
           <p class="Head">Question: Identity Documents</p>
           <p class="regularText" style={{"fontWeight" : "bold"}}>Knowingly destroys, conceals, removes, confiscates or possesses any actual or purported passport or other immigration document, or any other actual or purported government identification document, of another person.</p>
         </div>
-        <Expandable content={
-          <div class="App">
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
+          <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
+            <p class="pageTitle">Assess</p>
+            <p class="Head">Question: Identity Documents</p>
+            <p class="HomeHead1">Knowingly destroys, conceals, removes, confiscates or possesses any actual <br /> or purported passport or other immigration document, or any other actual <br /> or purported government identification document, of another person.</p>
+          </div>
+        </div>
+        <div class="hidden-md hidden-lg">
+          <Expandable content={
+            <div class="App">
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
+              <p class="regularText">This includes taking someone’s passport for any period of time, even if it is brief. In addition, it can include tearing or mutilating identity documents related to work.</p>
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Example</p>
+              <ul>
+                <li>
+                  <p class="regularText">An employer demands that the worker give her the worker’s passport and keeps it in an undisclosed location.</p>
+                </li>
+              </ul>
+            </div>
+          } />
+        </div>
+        <div class="hidden-xs hidden-sm">
+          <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
             <p class="regularText">This includes taking someone’s passport for any period of time, even if it is brief. In addition, it can include tearing or mutilating identity documents related to work.</p>
@@ -332,7 +436,7 @@ class App extends Component {
               </li>
             </ul>
           </div>
-        } />
+        </div>
         {this.renderQuestions(IdentityDocumentsquizQuestions)}
       </div>
     );
@@ -341,13 +445,32 @@ class App extends Component {
   renderExtortionQuiz() {
     return (
       <div>
-        <div class="App" >
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
           <p class="pageTitle">Assess</p>
           <p class="Head">Question: Extortion</p>
           <p class="regularText" style={{"fontWeight" : "bold"}}>Engages in extortion under Massachusetts law	</p>
         </div>
-        <Expandable content={
-          <div class="App">
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
+          <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
+            <p class="pageTitle">Assess</p>
+            <p class="Head">Question: Extortion</p>
+            <p class="HomeHead1">Engages in extortion under Massachusetts law	</p>
+          </div>
+        </div>
+        <div class="hidden-md hidden-lg">
+          <Expandable content={
+            <div class="App">
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
+              <p class="regularText">Extortion is the practice of trying to get something through force, threats, or blackmail. For example, extortion may involve a perpetrator who threatens to release embarrassing photographs, unless the victim continues to work.</p>
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
+              <p class="regularText">"Whoever, verbally or by a written or printed communication, maliciously threatens to accuse another of a crime or offence, or by a verbal or written or printed communication maliciously threatens an injury to the person or property of another, or any police officer or person having the powers of a police officer, or any officer, or employee of any licensing authority who verbally or by written or printed communication maliciously and unlawfully uses or threatens to use against another the power or authority vested in him, with intent thereby to extort money or any pecuniary advantage, or with intent to compel any person to do any act against his will, shall be punished by imprisonment in the state prison for not more than fifteen years, or in the house of correction for not more than two and one half years, or by a fine of not more than five thousand dollars, or both." M.G.L. ch. 265, § 25.</p>
+            </div>
+          } />
+        </div>
+        <div class="hidden-xs hidden-sm">
+          <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
             <p class="regularText">Extortion is the practice of trying to get something through force, threats, or blackmail. For example, extortion may involve a perpetrator who threatens to release embarrassing photographs, unless the victim continues to work.</p>
@@ -355,7 +478,7 @@ class App extends Component {
             <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
             <p class="regularText">"Whoever, verbally or by a written or printed communication, maliciously threatens to accuse another of a crime or offence, or by a verbal or written or printed communication maliciously threatens an injury to the person or property of another, or any police officer or person having the powers of a police officer, or any officer, or employee of any licensing authority who verbally or by written or printed communication maliciously and unlawfully uses or threatens to use against another the power or authority vested in him, with intent thereby to extort money or any pecuniary advantage, or with intent to compel any person to do any act against his will, shall be punished by imprisonment in the state prison for not more than fifteen years, or in the house of correction for not more than two and one half years, or by a fine of not more than five thousand dollars, or both." M.G.L. ch. 265, § 25.</p>
           </div>
-        } />
+        </div>
         {this.renderQuestions(ExtortionquizQuestions)}
       </div>
     );
@@ -364,13 +487,45 @@ class App extends Component {
   renderfHarmQuiz() {
     return (
       <div>
-        <div class="App" >
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
           <p class="pageTitle">Assess</p>
           <p class="Head">Question: Financial Harm</p>
           <p class="regularText" style={{"fontWeight" : "bold"}}>Causes or threatens to cause financial harm to any person.</p>
         </div>
-        <Expandable content={
-          <div class="App">
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
+          <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
+            <p class="pageTitle">Assess</p>
+            <p class="Head">Question: Financial Harm</p>
+            <p class="HomeHead1">Causes or threatens to cause financial harm to any person.</p>
+          </div>
+        </div>
+        <div class="hidden-md hidden-lg">
+          <Expandable content={
+            <div class="App">
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
+              <p class="regularText">Financial harm may be involved if the perpetrator puts the victim in a detrimental position in relation to wealth, property, or other monetary benefits through extortion, criminal usury, or illegal employment contracts. This might include a situation where the perpetrator uses an illegal employment contract to lure a victim to work in demeaning conditions.</p>
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
+              <p class="regularText">“Financial harm” is defined as a detrimental position in relation to wealth, property or other monetary benefits that occurs as a result of another person’s illegal act including, but not limited to, extortion under by section 25, a violation of section 49 of chapter 271 (“Criminal Usury”), or illegal employment contracts.” M.G.L. ch. 265, § 49.</p>
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
+              <ul>
+                <li>
+                  <p class="regularText">An employer refuses to pay wages to the worker for the work they have done.</p>
+                </li>
+                <li>
+                  <p class="regularText">A worker makes one mistake on the job, and the employer refuses to pay the worker that week.</p>
+                </li>
+                <li>
+                  <p class="regularText">An employer makes the worker work long hours, late into the night, without even allowing him a break to eat dinner.</p>
+                </li>
+              </ul>
+            </div>
+          } />
+        </div>
+        <div class="hidden-xs hidden-sm">
+          <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
             <p class="regularText">Financial harm may be involved if the perpetrator puts the victim in a detrimental position in relation to wealth, property, or other monetary benefits through extortion, criminal usury, or illegal employment contracts. This might include a situation where the perpetrator uses an illegal employment contract to lure a victim to work in demeaning conditions.</p>
@@ -391,7 +546,7 @@ class App extends Component {
               </li>
             </ul>
           </div>
-        } />
+        </div>
         {this.renderQuestions(FinancialHarmquizQuestions)}
       </div>
     );
@@ -672,18 +827,18 @@ class App extends Component {
   }
 
   renderPrepare() {
-    let blueBoxContainer = "prepareBlueBoxContainer";
+    let blueBoxContainer = "prepareBlueBoxContainer blueBoxLeft";
     let blueBox = "prepareBlueBox";
 
     return (
       <div>
-        <div class="App hidden-md hidden-lg">
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg">
           <p class="pageTitle">Prepare</p>
           <p class="Head">Tips for interviewing Victims</p>
           <p className="HomeHead1">What to think about before you interview the victim<br></br></p>
         </div>
 
-        <div class="App hidden-xs hidden-sm">
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm">
           <div class="homeContainer">
             <p class="pageTitle">Prepare</p>
             <p class="Head">Tips for interviewing Victims</p>
@@ -853,36 +1008,51 @@ class App extends Component {
         </div>
       </div>
       <div style={this.state.disclaimer ? {display : "block"} : {display : "none"}}>
-        <div class="App" >
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
           <p class="pageTitle">Assess</p>
           <p class="Head">Is this case trafficking?</p>
           <p class="HomeHead1">These questions can help determine if your case meets the definition of trafficking under Massachusetts law.</p>
         </div>
-        <div class="AssesmentContent">
-          <div class="App">
-            <p class="regularText" style={{"fontStyle" : "italic"}}>Select a category to view its questions</p>
-            <p class="regularText" style={{"fontWeight" : "bold", "textDecoration" : "underline"}}>Or click here to download the questions</p>
+
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm">
+          <div class="homeContainer">
+            <p class="pageTitle">Assess</p>
+            <p class="Head">Is this case trafficking?</p>
+            <p class="HomeHead1">These questions can help determine if your case meets <br /> the definition of trafficking under Massachusetts law.</p>
           </div>
-          <br />
-          <div>
-            <button class="AssessmentButton" onClick={this.sHarmQuizFunc} >
-              <AssessmentBox title={"Serious Harm"} content={"Causes or threatens to cause serious harm to any person"} />
-            </button>
-            <button class="AssessmentButton" onClick={this.restraintQuizFunc} >
-              <AssessmentBox title={"Physical Restraint"} content={"Physically restrains or threatens to physically restrain another person"} />
-            </button>
-            <button class="AssessmentButton" onClick={this.abuseQuizFunc} >
-              <AssessmentBox title={"Abuse of the Law"} content={"Abuses or threatens to abuse the law or legal process"} />
-            </button>
-            <button class="AssessmentButton" onClick={this.identitydocQuizFunc} >
-              <AssessmentBox title={"Identity Documents"} content={"Knowingly destroys, conceals, removes, confiscates or possesses any actual or purported passport or other immigration document, or any other actual or purported government identification document, of another person"} />
-            </button>
-            <button class="AssessmentButton" onClick={this.extortionQuizFunc} >
-              <AssessmentBox title={"Extortion"} content={"Engages in extortion under Massachusetts law"} />
-            </button>
-            <button class="AssessmentButton" onClick={this.fharmQuizFunc} >
-              <AssessmentBox title={"Financial Harm"} content={"Causes or threatens to cause financial harm to any person"} />
-            </button>
+        </div>
+
+        <div style={{"backgroundColor" : "#fff"}}>
+          <div class="AssesmentContent">
+            <div class="App hidden-md hidden-lg">
+              <p class="regularText" style={{"fontStyle" : "italic"}}>Select a category to view its questions</p>
+              <p class="regularText" style={{"fontWeight" : "bold", "textDecoration" : "underline"}}>Or click here to download the questions</p>
+            </div>
+            <div class="App hidden-xs hidden-sm">
+              <p class="regularText" style={{"fontStyle" : "italic", "textAlign" : "center"}}>Select a category to view its questions</p>
+              <p class="regularText" style={{"fontWeight" : "bold", "textDecoration" : "underline", "textAlign" : "center"}}>Or click here to download the questions</p>
+            </div>
+            <br />
+            <div>
+              <button class="AssessmentButton" onClick={this.sHarmQuizFunc} >
+                <AssessmentBox title={"Serious Harm"} content={"Causes or threatens to cause serious harm to any person"} />
+              </button>
+              <button class="AssessmentButton" onClick={this.restraintQuizFunc} >
+                <AssessmentBox title={"Physical Restraint"} content={"Physically restrains or threatens to physically restrain another person"} />
+              </button>
+              <button class="AssessmentButton" onClick={this.abuseQuizFunc} >
+                <AssessmentBox title={"Abuse of the Law"} content={"Abuses or threatens to abuse the law or legal process"} />
+              </button>
+              <button class="AssessmentButton" onClick={this.identitydocQuizFunc} >
+                <AssessmentBox title={"Identity Documents"} content={"Knowingly destroys, conceals, removes, confiscates or possesses any actual or purported passport or other immigration document, or any other actual or purported government identification document, of another person"} />
+              </button>
+              <button class="AssessmentButton" onClick={this.extortionQuizFunc} >
+                <AssessmentBox title={"Extortion"} content={"Engages in extortion under Massachusetts law"} />
+              </button>
+              <button class="AssessmentButton" onClick={this.fharmQuizFunc} >
+                <AssessmentBox title={"Financial Harm"} content={"Causes or threatens to cause financial harm to any person"} />
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -897,8 +1067,9 @@ class App extends Component {
   }
 
   renderResources() {
-    let blueBoxContainer = "prepareBlueBoxContainer";
+    let blueBoxContainer = "prepareBlueBoxContainer blueBoxLeft";
     let blueBox = "prepareBlueBox";
+    let qClass = "immigrationQ";
 
     function menuClass(id){
       return ("lis new-lis resources-lis "+((id==this.state.resourcesPage)?"resources-lis-active":""));
@@ -906,9 +1077,15 @@ class App extends Component {
     menuClass = menuClass.bind(this)
     return (
       <div>
-        <div className="App">
+        <div className="App hidden-md hidden-lg">
           <p class="pageTitle">Resources</p>
           <p class="Head" style={{paddingBottom : "15px"}}>Victim services</p>
+        </div>
+        <div style={{"borderBottom" : "2px solid #EAEAEA"}} className="App hidden-xs hidden-sm">
+          <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
+            <p class="pageTitle">Resources</p>
+            <p class="Head" style={{paddingBottom : "15px"}}>Victim services</p>
+          </div>
         </div>
         <div class="resourcesDiv">
           <div class="menu resourcesMenu">
@@ -939,34 +1116,79 @@ class App extends Component {
                       <h2 style={{fontWeight:"normal"}}>For resources available in your geographic area to assist labor trafficking victims, please contact the National Human Trafficking Resource Center (NHTRC) Hotline. NHTRC connects victims and survivors of human trafficking with support and services.</h2>
                     </div>
                   )} />
-                  <BlueBox html={(
-                    <div>
-                      <h1 style={{fontWeight:"bold"}}>Emergency Shelter</h1>
-                      <h2 style={{fontWeight:"normal"}}>Contact the National Human Trafficking Resource Center Hotline at <span style={{fontWeight:"bold"}}>1-888-373-788</span> for emergency shelter options.</h2>
-                      <h2 style={{fontWeight:"normal"}}>Trafficking-specific Shelter Options. Listed below are organizations that place priority on housing for survivors of human trafficking:</h2>
-                      <ul>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}> Amirah (North Shore, sex trafficking): <span style={{fontWeight:"bold"}}>(781) 462-1758</span></h2>
-                        </li>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}> Bhakita House (Greater Boston, labor and sex trafficking): <span style={{fontWeight:"bold"}}>(781) 321-0499</span></h2>
-                        </li>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}> EVA Center (Sex trafficking, Greater Boston): <span style={{fontWeight:"bold"}}>(617) 799-2133</span></h2>
-                        </li>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}> RIA House (Sex trafficking, Central Massachusetts): <span style={{fontWeight:"bold"}}>info@riahouse.org </span></h2>
-                        </li>
-                      </ul>
-                      <h2 style={{fontWeight:"normal"}}><span style={{fontWeight:"bold"}}>Domestic Violence Shelter:</span> Some domestic violence shelters may house victims of labor trafficking. Click <a href="https://www.mass.gov/service-details/domestic-violence-programs">here</a> for a complete list of shelters in Massachusetts. To determine if a shelter space is available, victims can contact the Safelink state-wide hotline at <span style={{fontWeight : "bold"}}>877-785-2020</span> (toll-free), <span style={{fontWeight : "bold"}}>877-521-2601</span> (TTY).</h2>
+                  <div class="hidden-md hidden-lg">
+                    <BlueBox html={(
+                      <div>
+                        <h1 style={{fontWeight:"bold"}}>Emergency Shelter</h1>
+                        <h2 style={{fontWeight:"normal"}}>Contact the National Human Trafficking Resource Center Hotline for emergency shelter options at <span style={{fontWeight:"bold"}}>1-888-373-788</span></h2>
+                        <br />
+                        <h2 style={{fontWeight:"bold"}}>Trafficking-specific Shelter Options:</h2>
+                        <h2 style={{fontWeight:"normal"}}>Listed below are organizations that place priority on housing for survivors of human trafficking:</h2>
+                        <ul>
+                          <li>
+                            <h2 style={{fontWeight:"normal"}}> Amirah (North Shore, sex trafficking): <span style={{fontWeight:"bold"}}>(781) 462-1758</span></h2>
+                          </li>
+                          <li>
+                            <h2 style={{fontWeight:"normal"}}> Bhakita House (Greater Boston, labor and sex trafficking): <span style={{fontWeight:"bold"}}>(781) 321-0499</span></h2>
+                          </li>
+                          <li>
+                            <h2 style={{fontWeight:"normal"}}> EVA Center (Sex trafficking, Greater Boston): <span style={{fontWeight:"bold"}}>(617) 799-2133</span></h2>
+                          </li>
+                          <li>
+                            <h2 style={{fontWeight:"normal"}}> RIA House (Sex trafficking, Central Massachusetts): <span style={{fontWeight:"bold"}}>info@riahouse.org </span></h2>
+                          </li>
+                        </ul>
+                        <br />
+                        <h2 style={{fontWeight:"bold"}}>Domestic Violence Shelter:</h2>
+                        <h2 style={{fontWeight:"normal"}}>Some domestic violence shelters may house victims of labor trafficking. Click <a href="https://www.mass.gov/service-details/domestic-violence-programs">here</a> for a complete list of shelters in Massachusetts. To determine if a shelter space is available, victims can contact the Safelink state-wide hotline at <span style={{fontWeight : "bold"}}>877-785-2020</span> (toll-free), <span style={{fontWeight : "bold"}}>877-521-2601</span> (TTY).</h2>
+                      </div>
+                    )} />
+                    <BlueBox html={(
+                      <div>
+                        <h1 style={{fontWeight:"bold"}}>Food</h1>
+                        <h2 style={{fontWeight:"normal"}}>Please click <a href="https://www.foodpantries.org/st/massachusetts">here</a> for information about food pantries in Massachusetts.</h2>
+                      </div>
+                    )} />
+                  </div>
+                  <div class="hidden-xs hidden-sm">
+                    <div class="massTitle">
+                      <p>Emergency Shelter</p>
                     </div>
-                  )} />
-                  <BlueBox html={(
-                    <div>
-                      <h1 style={{fontWeight:"bold"}}>Food</h1>
-                      <h2 style={{fontWeight:"normal"}}>Please click <a href="https://www.foodpantries.org/st/massachusetts">here</a> for information about food pantries in Massachusetts.</h2>
+                    <NormalText html={(
+                      <div>
+                        <h2 style={{fontWeight:"normal"}}>Contact the National Human Trafficking Resource Center Hotline for emergency shelter options at <span style={{fontWeight:"bold"}}>1-888-373-788</span> .</h2>
+                        <br />
+                        <h2 style={{fontWeight:"bold"}}>Trafficking-specific Shelter Options:</h2>
+                        <h2 style={{fontWeight:"normal"}}>Listed below are organizations that place priority on housing for survivors of human trafficking:</h2>
+                        <ul style={{"listStyleType" : "none"}}>
+                          <li>
+                            <h2 style={{fontWeight:"bold"}}> Amirah (North Shore, sex trafficking): <span style={{fontWeight:"bold"}}>(781) 462-1758</span></h2>
+                          </li>
+                          <li>
+                            <h2 style={{fontWeight:"bold"}}> Bhakita House (Greater Boston, labor and sex trafficking): <span style={{fontWeight:"bold"}}>(781) 321-0499</span></h2>
+                          </li>
+                          <li>
+                            <h2 style={{fontWeight:"bold"}}> EVA Center (Sex trafficking, Greater Boston): <span style={{fontWeight:"bold"}}>(617) 799-2133</span></h2>
+                          </li>
+                          <li>
+                            <h2 style={{fontWeight:"bold"}}> RIA House (Sex trafficking, Central Massachusetts): <span style={{fontWeight:"bold"}}>info@riahouse.org </span></h2>
+                          </li>
+                        </ul>
+                        <br />
+                        <h2 style={{fontWeight:"bold"}}>Domestic Violence Shelter:</h2>
+                        <h2 style={{fontWeight:"normal"}}>Some domestic violence shelters may house victims of labor trafficking. Click <a href="https://www.mass.gov/service-details/domestic-violence-programs">here</a> for a complete list of shelters in Massachusetts. To determine if a shelter space is available, victims can contact the Safelink state-wide hotline at <span style={{fontWeight : "bold"}}>877-785-2020</span> (toll-free), <span style={{fontWeight : "bold"}}>877-521-2601</span> (TTY).</h2>
+                      </div>
+                    )} />
+                    <div class="massTitle">
+                      <p>Food</p>
                     </div>
-                  )} />
+                    <NormalText html={(
+                      <div>
+                        <h2 style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="https://www.foodpantries.org/st/massachusetts">Please click here for information about food pantries in Massachusetts.</a></h2>
+                      </div>
+                    )} />
+                    <br /> <br />
+                  </div>
                 </div>
               );
           })()}
@@ -978,11 +1200,12 @@ class App extends Component {
                     <div>
                       <h1>Safety planning is essential.</h1>
                       <h2 style={{fontWeight:"normal"}}>It is important to engage in trauma-informed safety planning with the victim to ensure that the victim is safe throughout the investigation. At the earliest stage possible, it is recommended that investigators get a victim advocate involved and make appropriate referrals to victim services agencies that can assist with safety planning.</h2>
+                      <br class="hidden-xs hidden-sm" />
                       <h2 style={{fontWeight:"normal"}}>In addition, it may be appropriate to ask additional questions to determine the level of risk. This may involve asking any of the following questions:</h2>
                     </div>
                   )} />
                   <YellowBox html={(
-                    <div>
+                    <div class="desktopSafety">
                       <h2 style={{color: "#11416D"}}>Are you safe?</h2>
                       <h2 style={{color: "#11416D"}}>What are you afraid will happen?</h2>
                       <h2 style={{color: "#11416D"}}>Have you ever been threatened?</h2>
@@ -998,6 +1221,7 @@ class App extends Component {
                       <h2 style={{fontWeight:"normal"}}>Victims should play a primary role in safety planning, and safety plans must take into consideration the victim’s unique circumstances, past trauma history, mental health needs, potential need to generate income, and educational needs. Plans must be made on a case-by-case basis tailored to the victim’s needs. In particular, many victims are exploited because they need to generate income to assist their family. It is essential for investigators to address the victim’s concerns about financially supporting family members. Otherwise, the victim may remain at risk to future victimization.</h2>
                     </div>
                   )} />
+                  <br /><br />
                 </div>
               );
           })()}
@@ -1011,17 +1235,23 @@ class App extends Component {
                       <h2 style={{fontWeight:"normal"}}>In cases involving noncitizen victims, refer the victim immediately to an experienced immigration attorney to screen for immigration relief and any time-sensitive deadlines. Immigrant victims may be eligible for special forms of immigration relief, such as a T or U visa, based on their status as a victim of human trafficking.</h2>
                     </div>
                   )} />
+                  <br />
+                  <div class="massTitle hidden-xs hidden-sm">
+                    <p>Immigration Protection for Immigrant Victims of Human Trafficking</p>
+                  </div>
                   <NormalText html={(
                     <div>
-                      <h1>Immigration Protection for Immigrant Victims of Human Trafficking</h1>
+                      <h1 class="hidden-md hidden-lg">Immigration Protection for Immigrant Victims of Human Trafficking</h1>
                       <h2 style={{fontWeight:"normal"}}>Undocumented victims are especially vulnerable to human trafficking. Certain immigration options are available to victims that may allow them to apply for work authorization and permission to remain in the United States. It is essential that victims consult with an experienced immigration attorney about available options and understand the risks of pursuing immigration relief. Below is a list of potential immigration remedies commonly available to victims of crime. This list is not exhaustive, and it is important that every victim be screened individually by an experienced immigration attorney for eligibility.”</h2>
                     </div>
                   )} />
-                  <QuestionBox title={<h1>T Nonimmigrant Status (“T visa”)</h1>} html={(
+                  <br />
+                  <QuestionBox qClass={qClass} title={<h1>T Nonimmigrant Status (“T visa”)</h1>} html={(
                     <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
                       <div>
                         <h2 style={{fontWeight:"bold"}}>What is T nonimmigrant status?</h2>
                         <h2 style={{fontWeight:"normal"}}>T nonimmigrant status is a form of immigration status for victims of severe forms of trafficking in persons under federal law. T nonimmigrant status provides the victim with immigration status for four years, ability to work legally, and eligibility to apply for certain derivative family members and permanent residency. In addition, victims may be able to access public benefits, including refugee cash assistance and food stamps. Please note that victims are not eligible for employment authorization until the application is approved.</h2>
+                        <br />
                         <h2 style={{fontWeight:"bold"}}>Who is eligible?</h2>
                         <h2 style={{fontWeight:"normal"}}>This benefit is only available to victims who meet the federal definition of a victim of a severe form of human trafficking, which is defined as:</h2>
                         <ul>
@@ -1032,7 +1262,8 @@ class App extends Component {
                             <h2 style={{fontWeight:"normal"}}>Labor or services, through the use of force, fraud, or coercion for the purpose of subjection to involuntary servitude, peonage, debt bondage, or slavery.</h2>
                           </li>
                         </ul>
-                        <h2 style={{fontWeight:"normal"}}>The victim must also show that he or she:</h2>
+                        <br />
+                        <h2 style={{fontWeight:"bold"}}>The victim must also show that he or she:</h2>
                         <ul>
                           <li>
                             <h2 style={{fontWeight:"normal"}}>Is a victim of a severe form of human trafficking.</h2>
@@ -1047,20 +1278,24 @@ class App extends Component {
                             <h2 style={{fontWeight:"normal"}}>Would suffer extreme hardship involving unusual and severe harm upon removal (i.e., deportation).</h2>
                           </li>
                         </ul>
+                        <br />
                         <h2 style={{fontWeight:"bold"}}>What is T visa certification?</h2>
                         <h2 style={{fontWeight:"normal"}}>To apply for T nonimmigrant status, U.S. Citizenship and Immigration Services asks for the victim to submit a certification form from a qualifying government agency confirming that the applicant was a victim of a severe form of human trafficking and responded to a reasonable request for assistance from law enforcement. The certification form is known as Form I-914, Supplement B, Declaration of Law Enforcement Officer for Victim of Trafficking in Persons.</h2>
+                        <br />
                         <h2 style={{fontWeight:"bold"}}>What is the role of the investigator?</h2>
                         <h2 style={{fontWeight:"normal"}}>Investigators can play an important role by completing the certification form (Form I-914, Supplement B) to confirm the status of the victim and his or her role in the investigation. This certification does not provide immigration status but assists the victim to prove to U.S. Citizenship and Immigration Services that he or she meets the requirements to qualify for T nonimmigrant status.</h2>
+                        <br />
                         <h2 style={{fontWeight:"bold"}}>Who can complete the T visa certification?</h2>
                         <h2 style={{fontWeight:"normal"}}>The certification form (Form I-914, Supplement B) can be completed by any government agency that has responsibility for the detection, investigation, and/or prosecution of severe forms of human trafficking in Persons. </h2>
                       </div>
                     )} />
                   )} />
-                  <QuestionBox title={<h1>U Nonimmigrant Status (“U visa”)</h1>} html={(
+                  <QuestionBox qClass={qClass} title={<h1>U Nonimmigrant Status (“U visa”)</h1>} html={(
                     <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
                       <div>
                         <h2 style={{fontWeight:"bold"}}>What is U nonimmigrant status?</h2>
                         <h2 style={{fontWeight:"normal"}}>U nonimmigrant status is a form of immigration status for victims of violent crime, including victims of human trafficking under state or federal law. U nonimmigrant status provides the victim with immigration status for four years and eligibility to apply for certain derivative family members and eventual permanent residency. Please note that victims are not eligible for employment authorization until the application is approved, and current processing times are very long.</h2>
+                        <br />
                         <h2 style={{fontWeight:"bold"}}>Who is eligible?</h2>
                         <h2 style={{fontWeight:"normal"}}>A victim may be eligible for U nonimmigrant status if he or she:</h2>
                         <ul>
@@ -1077,32 +1312,37 @@ class App extends Component {
                             <h2 style={{fontWeight:"normal"}}>The criminal activity violated the laws of the United States or occurred in the United States (including in Indian country and military institutions) or the territories and possessions of the United States.</h2>
                           </li>
                         </ul>
+                        <br />
                         <h2 style={{fontWeight:"bold"}}>What is U visa certification?</h2>
                         <h2 style={{fontWeight:"normal"}}>To qualify, a victim must obtain a U Nonimmigrant Status Certification (Form I-918, Supplement B) from a qualifying government agency, confirming that he or she was a victim and was, is, or will be helpful in the investigation.</h2>
+                        <br />
                         <h2 style={{fontWeight:"bold"}}>What is the role of the investigator?</h2>
                         <h2 style={{fontWeight:"normal"}}>nvestigators can play an important role to assist the victim to obtain immigration status by completing a U visa certification (Form I-918, Supplement B), confirming the status of the victim and his or her role in the investigation. Such a certification does not provide immigration status but assists the victim to prove to U.S. Citizenship and Immigration Services that he or she meets the requirements to qualify for immigration status.</h2>
+                        <br />
                         <h2 style={{fontWeight:"bold"}}>Who can complete the U visa certification?</h2>
                         <h2 style={{fontWeight:"normal"}}>The certification form (Form I-918, Supplement B) can be completed by any government agency that has responsibility for the detection, investigation, or prosecution of a qualifying crime or criminal activity.</h2>
                       </div>
                     )} />
                   )} />
-                  <QuestionBox title={<h1>Continued Presence</h1>} html={(
+                  <QuestionBox qClass={qClass} title={<h1>Continued Presence</h1>} html={(
                     <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
                       <div>
                         <h2 style={{fontWeight:"bold"}}>What is Continued Presence?</h2>
                         <h2 style={{fontWeight:"normal"}}>Continued Presence is a short-term form of immigration relief provided to individuals identified as victims of human trafficking in a potential criminal investigation. The application for Continued Presence must be submitted by federal law enforcement. However, local and state investigators can play an important role by coordinating with a federal law enforcement agency to submit an application. This is generally the fastest way to ensure that the victim has access to employment authorization and access to important government benefits. This benefit provides access to work authorization for two years, and it is renewable subject to law enforcement approval. The victim also may qualify for certain public benefits.</h2>
+                        <br />
                         <h2 style={{fontWeight:"bold"}}>What is the role of the investigator?</h2>
                         <h2 style={{fontWeight:"normal"}}>To assist a victim to apply for Continued Presence, contact a federal law enforcement agency with the authority to submit an application.</h2>
                       </div>
                     )} />
                   )} />
-                  <QuestionBox title={<h1>Other Options to Consider</h1>} html={(
+                  <QuestionBox qClass={qClass} title={<h1>Other Options to Consider</h1>} html={(
                     <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
                       <div>
                         <h2 style={{fontWeight:"normal"}}>There are various other immigration options for which victims may qualify, including asylum, relief under the Violence Against Women Act, and Special Immigrant Juvenile Status, among others. For this reason, it is strongly recommended that a victim consult with an experienced immigration attorney as early as possible in the process.</h2>
                       </div>
                     )} />
                   )} />
+                  <br />
                   <NormalText html={(
                     <div>
                       <h2 style={{fontWeight:"bold"}}>These organizations provide specialized legal services to trafficking survivors:</h2>
@@ -1128,12 +1368,13 @@ class App extends Component {
                       <h2 style={{fontWeight:"normal"}}>Can accept cases involving Massachusetts residents under 187.5% of the poverty guidelines.</h2>
                     </div>
                   )} />
+                  <br />
                   <NormalText html={(
                     <div>
                       <h2 style={{fontWeight:"bold"}}>The following organizations provide general immigration legal services to income-eligible Massachusetts residents:</h2>
                     </div>
                   )} />
-                  <BlueBox html={(
+                  <BlueBox blueBox={"immigrationUl"} html={(
                     <div>
                       <h2 style={{fontWeight:"normal"}}>Boston, MA</h2>
                       <h1 style={{fontWeight:"bold"}}>Catholic Charities Refugee and Immigration Services</h1>
@@ -1164,7 +1405,7 @@ class App extends Component {
                       </ul>
                     </div>
                   )} />
-                  <BlueBox html={(
+                  <BlueBox blueBox={"immigrationUl"} html={(
                     <div>
                       <h2 style={{fontWeight:"normal"}}>Worcester, MA</h2>
                       <h1 style={{fontWeight:"bold"}}>Centralwest Justice Center</h1>
@@ -1184,7 +1425,7 @@ class App extends Component {
                       </ul>
                     </div>
                   )} />
-                  <BlueBox html={(
+                  <BlueBox blueBox={"immigrationUl"} html={(
                     <div>
                       <h2 style={{fontWeight:"normal"}}>Boston, MA</h2>
                       <h1 style={{fontWeight:"bold"}}>Political Asylum/Immigration Representation Project (PAIR)</h1>
@@ -1206,7 +1447,7 @@ class App extends Component {
                       </ul>
                     </div>
                   )} />
-                  <BlueBox html={(
+                  <BlueBox blueBox={"immigrationUl"} html={(
                     <div>
                       <h2 style={{fontWeight:"normal"}}>Cambridge, MA</h2>
                       <h1 style={{fontWeight:"bold"}}>Community Legal Services Counseling Center</h1>
@@ -1219,7 +1460,7 @@ class App extends Component {
                       </ul>
                     </div>
                   )} />
-                  <BlueBox html={(
+                  <BlueBox blueBox={"immigrationUl"} html={(
                     <div>
                       <h2 style={{fontWeight:"normal"}}>Boston, MA</h2>
                       <h1 style={{fontWeight:"bold"}}>Kids in Need of Defense (KIND)</h1>
@@ -1231,7 +1472,7 @@ class App extends Component {
                       </ul>
                     </div>
                   )} />
-                  <BlueBox html={(
+                  <BlueBox blueBox={"immigrationUl"} html={(
                     <div>
                       <h2 style={{fontWeight:"normal"}}>Boston, MA</h2>
                       <h1 style={{fontWeight:"bold"}}>Greater Boston Legal Services</h1>
@@ -1249,7 +1490,7 @@ class App extends Component {
                       </ul>
                     </div>
                   )} />
-                  <BlueBox html={(
+                  <BlueBox blueBox={"immigrationUl"} html={(
                     <div>
                       <h2 style={{fontWeight:"normal"}}>Dartmouth, MA</h2>
                       <h1 style={{fontWeight:"bold"}}>University of Massachusetts School of Law Dartmouth Immigration Law Clinic</h1>
@@ -1265,6 +1506,7 @@ class App extends Component {
                       </ul>
                     </div>
                   )} />
+                  <br /><br />
                 </div>
               );
           })()}
@@ -1301,12 +1543,16 @@ class App extends Component {
                       <h2 style={{fontWeight:"normal"}}>Limitations: Can only accept cases involving victims of sexual assault.</h2>
                     </div>
                   )} />
+                  <div class="massTitle hidden-xs hidden-sm">
+                    <p>Victim Compensation</p>
+                  </div>
                   <NormalText html={(
                     <div>
-                      <h2>Victim Compensation:</h2>
+                      <h2 class="hidden-md hidden-lg">Victim Compensation:</h2>
                       <h2 style={{fontWeight:"normal"}}>Victims of labor trafficking may also be eligible for victim compensation. To apply for compensation, the victim should complete the application <a href="https://www.mass.gov/files/documents/2018/11/13/victim-comp-app.pdf" style={{fontWeight:"bold", color:"#11416D" , textDecoration:"underline"}}>here</a> or contact the <a href="https://www.mass.gov/massachusetts-victims-of-violent-crime-compensation" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Massachusetts Office of Victim Assistance</a> at 844-878-MOVA (6682).</h2>
                     </div>
                   )} />
+                  <br /><br />
                 </div>
               );
           })()}
@@ -1318,10 +1564,18 @@ class App extends Component {
   renderMassStatute(){
     return (
       <div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} className="App">
-          <p class="pageTitle">Mass Statute</p>
-          <p class="Head" style={{paddingBottom: "15px"}}>Massachusetts Law</p>
+        <div style={{borderBottom : "1px solid #EAEAEA"}} className="App hidden-md hidden-lg">
+          <p class="pageTitle">Massachusetts Law</p>
+          <p class="Head" style={{paddingBottom: "15px"}}>View the Massachusetts human trafficking law</p>
         </div>
+
+        <div style={{"borderBottom" : "1px solid #EAEAEA"}} className="App hidden-xs hidden-sm">
+          <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
+            <p class="pageTitle">Massachusetts Law</p>
+            <p class="Head" style={{paddingBottom : "15px"}}>View the Massachusetts human trafficking law</p>
+          </div>
+        </div>
+
         <div style={{backgroundColor : "#fff", paddingTop: "20px"}}>
           <NormalText html={(
             <div>
@@ -1331,10 +1585,11 @@ class App extends Component {
           <div class="massTitle">
             <p>Massachusetts Law</p>
           </div>
-          <BlueBox blueBox={"massBlueBox"} html={
+          <BlueBox blueBox={"massBlueBox immigrationUl"} html={
             <div>
               <h2>Crime of Trafficking in Persons for Forced Services:</h2>
               <h2 style={{fontWeight : "normal"}}>Under Massachusetts law, the crime of labor trafficking is known as Trafficking in Persons for Forced Services. This crime involves whoever knowingly:</h2>
+              <br class="hidden-md hidden-lg" />
               <ul>
                 <li>
                   <h2 style={{fontWeight: "normal"}}>subjects, or attempts to subject, another person to forced services, or recruits, entices, harbors, transports, provides or obtains by any means, or attempts to recruit, entice, harbor, transport, provide or obtain by any means, another person, intending or knowing that such person will be subjected to forced services; or</h2>
@@ -1346,6 +1601,7 @@ class App extends Component {
               <hr />
               <h2>Definition of Forced Services:</h2>
               <h2 style={{fontWeight : "normal"}}>If one or more of the six prongs listed below are met, the conduct is categorized as Trafficking in Persons for Forced Services. Trafficking in Persons for Forced Services is defined as services performed or provided by a person that are obtained or maintained by another person who:</h2>
+              <br class="hidden-md hidden-lg" />
               <ul>
                 <li>
                   <h2 style={{fontWeight: "normal"}}>causes or threatens to cause serious harm to any person</h2>
@@ -1379,7 +1635,7 @@ class App extends Component {
           <div class="massTitle">
             <p>Criminal Penalties</p>
           </div>
-          <BlueBox blueBox={"massBlueBox"} html={
+          <BlueBox blueBox={"massBlueBox immigrationUl"} html={
             <div>
               <ul>
                 <li>
@@ -1399,13 +1655,14 @@ class App extends Component {
           </div>
           <BlueBox blueBox={"massBlueBox"} html={
             <div>
-              <h2 style={{fontWeight : "normal"}}>There are also federal criminal statutes that address labor trafficking crimes, such as forced labor and involuntary servitude. Victims also may have additional rights to criminal restitution, civil remedies, and government benefits under federal law. </h2>
-              <h2 style={{fontWeight : "normal"}}>Click here to read more about the federal crimes of labor trafficking.</h2>
+              <h2 style={{fontWeight : "normal"}}>There are also federal criminal statutes that address labor trafficking crimes, such as forced labor and involuntary servitude. Victims also may have additional rights to criminal restitution, civil remedies, and government benefits under federal law. <a href="https://www.justice.gov/crt/human-trafficking-prosecution-unit-htpu" style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}>Click here to read more about the federal crimes of labor trafficking</a>.</h2>
+              <br />
               <h2 style={{fontWeight : "normal"}}>Violations under federal law must be referred to federal authorities.</h2>
-              <h2 style={{fontWeight : "normal"}}>Click here for a list of the federal human trafficking crimes.</h2>
+              <br />
               <h2 style={{fontWeight : "normal"}}>To report to federal law enforcement, please contact the National Human Trafficking Resource Center Hotline at <span style={{textDecoration : "underline", fontWeight : "bold"}}>1-888-373-788</span>, which will send the information to federal law enforcement within a given jurisdiction.</h2>
             </div>
           } />
+          <br /> <br />
         </div>
       </div>
     )
@@ -1414,9 +1671,15 @@ class App extends Component {
   renderReport(){
     return (
       <div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} className="App">
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg">
           <p class="pageTitle">Resources</p>
           <p class="Head" style={{paddingBottom: "15px"}}>Report</p>
+        </div>
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm">
+          <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
+            <p class="pageTitle">Resources</p>
+            <p class="Head">Report</p>
+          </div>
         </div>
         <div style={{backgroundColor : "#fff", paddingTop: "20px"}}>
           <NormalText html={(
@@ -1441,7 +1704,7 @@ class App extends Component {
               <h2><span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="mailto:help@humantraffickinghotline.org%20?subject=MA%20Labor%20Trafficking%20Case">Click here to email the hotline</a></span></h2>
             </div>
           )} />
-          <div style={{textAlign: "right", padding : "10px 30px"}}>
+          <div style={{textAlign: "right", padding : "10px 30px", maxWidth: "800px", marginLeft : "auto", marginRight : "auto"}}>
             <button class="button3" style={{float : "unset"}} onClick={this._onResourcesClick}>Victim Services</button>
           </div>
         </div>
@@ -1456,7 +1719,16 @@ class App extends Component {
         <div class="col-md-2 col-lg-2 lis new-lis"><a class={this.state.page == 1? ("active") : ("")} onClick= {this._onCompleteClick}>Home</a></div>
         <div class="col-md-2 col-lg-2 lis new-lis"><a class={this.state.page == 2? ("active") : ("")} onClick= {this._onPrepareClick}>Prepare</a></div>
         <div class="col-md-2 col-lg-2 lis new-lis"><a class={this.state.page == 3 || this.state.page == 5? ("active") : ("")} onClick= {this._onAssessClick}>Assess</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a class={this.state.page == 6 || this.state.page == 8? ("active") : ("")} onClick= {this._onReportClick}>Resources</a></div>
+        <div class="col-md-2 col-lg-2 lis new-lis">
+          <div class="desktopResources">
+            <div style={{"position" : "relative", "height" : "100%", "width" : "100%", "backgroundColor" : "transparent", "left" : "0", "right": "0"}}></div>
+            <div style={{"width": "150px", "backgroundColor" : "#14558f", "textAlign" : "left", "color" : "#fff", "padding" : "10px 20px", "marginLeft" : "auto"}}>
+              <p class={this.state.page==8?("desktopResourcesActive"):("")} onClick={this._onReportClick}>Report</p>
+              <p class={this.state.page==6?("desktopResourcesActive"):("")} onClick={this._onVictimClick}>Victim Services</p>
+            </div>
+          </div>
+          <a style={{"border" : "0"}} class={this.state.page == 6 || this.state.page == 8? ("active") : ("")} onClick= {this._onReportClick}>Resources</a>
+        </div>
         <div class="col-md-2 col-lg-2 lis new-lis"><a class={this.state.page == 7? ("active") : ("")} onClick= {this._onMassClick}>Massachusetts Law</a></div>
       </div>
     );

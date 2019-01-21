@@ -173,6 +173,25 @@
       padding: 15px;
       max-width: 600px;
     }
+
+    .AssesmentContent{
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .AssessmentQuestions{
+      max-width: 550px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .AssessmentButtons{
+      max-width: 550px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0;
+    }
 }
 
 /*
@@ -197,5 +216,24 @@
       -moz-border-radius: 3px;
       padding: 15px;
       max-width: 600px;
+    }
+
+    .AssesmentContent{
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .AssessmentQuestions{
+      max-width: 550px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .AssessmentButtons{
+      max-width: 550px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0;
     }
 }

@@ -115,6 +115,8 @@
 @media (min-width: 992px) and (max-width: 1199px){
   .yellowBoxContainer{
     padding: 10px 30px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .yellowBox{
     padding: 20px 10px;
@@ -129,6 +131,8 @@
 @media (min-width: 1200px){
   .yellowBoxContainer{
     padding: 10px 30px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .yellowBox{
     padding: 20px 10px;

@@ -349,7 +349,6 @@ body {
   width: 75%;
   height: 100%;
   display: inline-block;
-  overflow: hidden;
   background-color: #14558F;
 }
 
@@ -390,13 +389,13 @@ body {
 
 /*Hover state for top level links*/
 .lis:hover a {
-  border-bottom: 5px solid #baccdd;
+  border-bottom: 3px solid #baccdd;
   color: #baccdd;
   text-decoration: none;
 }
 
 .lis a.active {
-  border-bottom: 5px solid #baccdd;
+  border-bottom: 3px solid #baccdd;
   color: #baccdd;
 }
 
@@ -455,11 +454,11 @@ input[type=checkbox]:checked ~ #menu{
     border: 3px solid #388557;
     color: #388557;
     float: left;
-    font-size: 20px;
     width: 150px;
-    height: 50px;
+    font-size: 18px;
+    height: 44px;
     margin-left: 0;
-    margin-right: 20px;
+    margin-right: 0;
     text-align: center;
     -webkit-transition-duration: unset; /* Safari */
     transition-duration: unset;
@@ -496,11 +495,11 @@ input[type=checkbox]:checked ~ #menu{
   border: none;
   color: #fff;
   float: left;
-  font-size: 20px;
+  font-size: 18px;
   width: 150px;
-  height: 50px;
+  height: 44px;
   margin-left: 0;
-  margin-right: 20px;
+  margin-right: 0;
   text-align: center;
   -webkit-transition-duration: unset; /* Safari */
   -moz-transition-duration: unset; /* Safari */
