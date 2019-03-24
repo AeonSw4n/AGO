@@ -68,7 +68,7 @@ var SeriousHarmquizQuestions = [
       ]
   },
   {
-      question: "Did the perpetrator threaten to contact the police for some sort of unlawful purposes?",
+      question: "Did the perpetrator threaten to contact the police for some sort of unlawful purpose?",
       answers: [
           {
               type: "Yes",

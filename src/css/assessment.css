@@ -1,5 +1,6 @@
 .Assess {
   padding: 0;
+  background-color: rgb(242, 242, 242);
 }
 
 .AssessmentButton{
@@ -154,6 +155,11 @@
   height   : 50%;
 }
 
+.alertText{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 
 @media (min-width: 992px) and (max-width: 1199px){
     .AssessmentDisclaimer{
@@ -236,4 +242,5 @@
       margin-right: auto;
       padding: 0;
     }
+
 }

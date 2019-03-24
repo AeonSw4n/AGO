@@ -1,6 +1,6 @@
 var AbuseofLawquizQuestions = [
   {
-      question: "Does the perpetrator threaten the victim with deportation?",
+      question: "Did the perpetrator threaten the victim with deportation?",
       answers: [
           {
               type: "Yes",
@@ -17,7 +17,7 @@ var AbuseofLawquizQuestions = [
       ]
   },
   {
-      question: "Does the perpetrator mention immigration status or the lack of immigration status?",
+      question: "Did the perpetrator discuss immigration status or the lack of immigration status?",
       answers: [
           {
               type: "Yes",
@@ -34,7 +34,7 @@ var AbuseofLawquizQuestions = [
       ]
   },
   {
-      question: "Did the perpetrator ever threaten the victim with contacting the authorities/law enforcement/the government in order to cause the victim fear?",
+      question: "Did the perpetrator ever threaten the victim with contacting the \"authorities,\" law enforcement, or the government in order to cause the victim fear?",
       answers: [
           {
               type: "Yes",

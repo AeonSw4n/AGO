@@ -34,7 +34,7 @@ var ExtortionquizQuestions = [
       ]
   },
   {
-      question: "Does the victim fear retaliation from the perpetrator for quitting?",
+      question: "Did the victim fear retaliation from the perpetrator for quitting?",
       answers: [
           {
               type: "Yes",

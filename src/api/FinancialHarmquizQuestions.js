@@ -1,5 +1,22 @@
 var FinancialHarmquizQuestions = [
   {
+      question: "Was the victim paid less than minimum wage?",
+      answers: [
+          {
+              type: "Yes",
+              content: "Yes"
+          },
+          {
+              type: "No",
+              content: "No"
+          },
+          {
+              type: "Maybe",
+              content: "Maybe"
+          }
+      ]
+  },
+  {
       question: "Did the perpetrator ever withdraw money from the victim’s bank account?",
       answers: [
           {
@@ -34,23 +51,6 @@ var FinancialHarmquizQuestions = [
       ]
   },
   {
-      question: "Does the victim have a debt owed to the perpetrator?",
-      answers: [
-          {
-              type: "Yes",
-              content: "Yes"
-          },
-          {
-              type: "No",
-              content: "No"
-          },
-          {
-              type: "Maybe",
-              content: "Maybe"
-          }
-      ]
-  },
-  {
       question: "Did the perpetrator ever open a bank account in the victim's name?",
       answers: [
           {
@@ -68,7 +68,7 @@ var FinancialHarmquizQuestions = [
       ]
   },
   {
-      question: "Did the perpetrator ever subject the victim to unreasonable deductions for items, such as food or transportation?",
+      question: "Did the victim have a debt owed to the perpetrator?",
       answers: [
           {
               type: "Yes",
@@ -85,7 +85,7 @@ var FinancialHarmquizQuestions = [
       ]
   },
   {
-      question: "Was the victim paid less than minimum wage?",
+      question: "Did the perpetrator ever subject the victim to unreasonable deductions for items, such as food, housing, or transportation?",
       answers: [
           {
               type: "Yes",
@@ -153,7 +153,7 @@ var FinancialHarmquizQuestions = [
       ]
   },
   {
-      question: "Was the victim not provided with meal breaks?",
+      question: "Did the victim have meal breaks?",
       answers: [
           {
               type: "Yes",

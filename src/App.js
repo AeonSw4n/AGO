@@ -241,7 +241,7 @@ class App extends Component {
               <p class="regularText">Serious harm may be physical and nonphysical, including psychological, financial, or reputational harm. Generally, the test contemplates whether it is sufficiently serious, under all the surrounding circumstances, to compel a reasonable person of the same background and in the same circumstances to perform or to continue performing labor or services in order to avoid incurring that harm. </p>
               <br />
               <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
-              <p class="regularText">Serious harm is defined federally as any harm, whether physical or nonphysical, including psychological, financial, or reputational harm, that is sufficiently serious, under all the surrounding circumstances, to compel a reasonable person of the same background and in the same circumstances to perform or to continue performing labor or services in order to avoid incurring that harm. 18 USC § 1589 (c)(2).</p>
+              <p class="regularText">Serious harm is can be defined as any harm, whether physical or nonphysical, including psychological, financial, or reputational harm, that is sufficiently serious, under all the surrounding circumstances, to compel a reasonable person of the same background and in the same circumstances to perform or to continue performing labor or services in order to avoid incurring that harm. 18 USC § 1589 (c)(2).</p>
               <br />
               <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
               <ul>
@@ -249,7 +249,7 @@ class App extends Component {
                   <p class="regularText">An employer kicks the worker in the morning to wake her up and to start working.</p>
                 </li>
                 <li>
-                  <p class="regularText">When the worker asks for their wages, the employers gets angry and hits the worker.</p>
+                  <p class="regularText">When the worker asks for his wages, the employers gets angry and hits the worker.</p>
                 </li>
               </ul>
             </div>
@@ -270,7 +270,7 @@ class App extends Component {
                 <p class="regularText">An employer kicks the worker in the morning to wake her up and to start working.</p>
               </li>
               <li>
-                <p class="regularText">When the worker asks for their wages, the employers gets angry and hits the worker.</p>
+                <p class="regularText">When the worker asks for his wages, the employers gets angry and hits the worker.</p>
               </li>
             </ul>
           </div>
@@ -353,12 +353,12 @@ class App extends Component {
               <p class="regularText">Abuse of the legal process includes the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed. A common example is a threat of deportation by an employer.</p>
               <br />
               <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
-              <p class="regularText">Abuse of the legal process federally is defined as the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed, in order to exert pressure on another person to cause that person to take some action or refrain from taking some action. 22 U.S.C. § 7102(1).</p>
+              <p class="regularText">Abuse of the legal process can be defined as the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed, in order to exert pressure on another person to cause that person to take some action or refrain from taking some action. 22 U.S.C. § 7102(1).</p>
               <br />
               <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
               <ul>
                 <li>
-                  <p class="regularText">An employer threatens to deport the worker or "call immigration" on them if they stopped working for the employer.</p>
+                  <p class="regularText">An employer threatens to deport the worker or "call immigration" on him if he stopped working for the employer.</p>
                 </li>
                 <li>
                   <p class="regularText">An employer threatens to falsely accuse the worker of a crime if she fails to work.</p>
@@ -374,12 +374,12 @@ class App extends Component {
             <p class="regularText">Abuse of the legal process includes the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed. A common example is a threat of deportation by an employer.</p>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
-            <p class="regularText">Abuse of the legal process federally is defined as the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed, in order to exert pressure on another person to cause that person to take some action or refrain from taking some action. 22 U.S.C. § 7102(1).</p>
+            <p class="regularText">Abuse of the legal process can be defined as the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed, in order to exert pressure on another person to cause that person to take some action or refrain from taking some action. 22 U.S.C. § 7102(1).</p>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
             <ul>
               <li>
-                <p class="regularText">An employer threatens to deport the worker or "call immigration" on them if they stopped working for the employer.</p>
+                <p class="regularText">An employer threatens to deport the worker or "call immigration" on him if he stopped working for the employer.</p>
               </li>
               <li>
                 <p class="regularText">An employer threatens to falsely accuse the worker of a crime if she fails to work.</p>
@@ -490,13 +490,13 @@ class App extends Component {
         <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
           <p class="pageTitle">Assess</p>
           <p class="Head">Question: Financial Harm</p>
-          <p class="regularText" style={{"fontWeight" : "bold"}}>Causes or threatens to cause financial harm to any person.</p>
+          <p class="regularText" style={{"fontWeight" : "bold"}}>Causes or threatens to cause financial harm to any person</p>
         </div>
         <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
           <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
             <p class="pageTitle">Assess</p>
             <p class="Head">Question: Financial Harm</p>
-            <p class="HomeHead1">Causes or threatens to cause financial harm to any person.</p>
+            <p class="HomeHead1">Causes or threatens to cause financial harm to any person</p>
           </div>
         </div>
         <div class="hidden-md hidden-lg">
@@ -512,13 +512,13 @@ class App extends Component {
               <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
               <ul>
                 <li>
-                  <p class="regularText">An employer refuses to pay wages to the worker for the work they have done.</p>
+                  <p class="regularText">An employer refuses to pay wages to the worker for the work she has done.</p>
                 </li>
                 <li>
-                  <p class="regularText">A worker makes one mistake on the job, and the employer refuses to pay the worker that week.</p>
+                  <p class="regularText">A worker makes one mistake on the job, and the employer refuses to pay him that week.</p>
                 </li>
                 <li>
-                  <p class="regularText">An employer makes the worker work long hours, late into the night, without even allowing him a break to eat dinner.</p>
+                  <p class="regularText">An employer tells the worker that he has no wages to be paid out because of the costs the employer is incurring to house, feed, transport him to the worksite each day.</p>
                 </li>
               </ul>
             </div>
@@ -536,13 +536,13 @@ class App extends Component {
             <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
             <ul>
               <li>
-                <p class="regularText">An employer refuses to pay wages to the worker for the work they have done.</p>
+                <p class="regularText">An employer refuses to pay wages to the worker for the work she has done.</p>
               </li>
               <li>
-                <p class="regularText">A worker makes one mistake on the job, and the employer refuses to pay the worker that week.</p>
+                <p class="regularText">A worker makes one mistake on the job, and the employer refuses to pay him that week.</p>
               </li>
               <li>
-                <p class="regularText">An employer makes the worker work long hours, late into the night, without even allowing him a break to eat dinner.</p>
+                <p class="regularText">An employer tells the worker that he has no wages to be paid out because of the costs the employer is incurring to house, feed, transport him to the worksite each day.</p>
               </li>
             </ul>
           </div>
@@ -619,13 +619,13 @@ class App extends Component {
         <br class="hidden-lg hidden-md" />
         <p className="Head hidden-lg hidden-md">Labor Trafficking <br />Identification Tool</p>
         <div class="ButBar hidden-lg hidden-md">
-          <p className="HomeHead1">A tool to help investigators identify labor trafficking under Massachusetts law.<br></br></p>
+          <p className="HomeHead1">A tool to help investigators refer labor trafficking under Massachusetts law.<br></br></p>
         </div>
 
         <div class="homeContainer hidden-sm hidden-xs">
-          <p class="MassTitle">Massachusetts Attorney General’s Office</p>
+          {/*<p class="MassTitle">Massachusetts Attorney General’s Office</p>*/}
           <p class="HomeHead">Labor Trafficking Identification Tool</p>
-          <p class="HomeHead1">A tool to help investigators identify labor trafficking <br /> under Massachusetts law.</p>
+          <p class="HomeHead1">A tool to help investigators refer labor trafficking <br /> under Massachusetts law.</p>
         </div>
 
         <div class="buttonContainer hidden-sm hidden-xs">
@@ -850,8 +850,6 @@ class App extends Component {
           <QuestionBox title={<h1>Tip 1: Develop trust</h1>} html={(
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
-                <h1 style={{fontWeight:"bold", marginBottom: "5px"}}>Confidentiality limitations</h1>
-                <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>You will not be able to keep details disclosed by the victim confidential. Explain  this at the beginning so the victim will understand your role and not feel betrayed if you have to share information with prosecutors or other government officials.</h2>
                 <h1 style={{fontWeight:"bold", marginBottom: "5px"}}>Be patient</h1>
                 <ul style={{"list-style-type": "disc", "padding-left": "16px", "margin": "0px", "font-size": "13px"}}>
                   <li>
@@ -861,6 +859,8 @@ class App extends Component {
                     <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>In the human trafficking context, it is common to engage in multiple interviews as trust develops. It is also common that there may be initial inconsistencies as a result of distrust or the victim’s lack of understanding about the legal process.</h2>
                   </li>
                 </ul>
+                <h1 style={{fontWeight:"bold", marginBottom: "5px"}}>Confidentiality limitations</h1>
+                <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>You will not be able to keep details disclosed by the victim confidential. Explain  this at the beginning so the victim will understand your role and not feel betrayed if you have to share information with prosecutors or other government officials.</h2>
                 <h1 style={{fontWeight:"bold", marginBottom: "5px"}}>Referrals/resources</h1>
                 <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>Make referrals to appropriate legal, social, and mental health services as soon as possible to establish trust and to ensure the victim receives needed support. <span style={{"font-weight" : "bold"}}>See Tip 5 for more information.</span></h2>
                 <h1 style={{fontWeight:"bold", marginBottom: "5px"}}>Communication</h1>
@@ -869,7 +869,19 @@ class App extends Component {
             )} />
           )} />
 
-          <QuestionBox title={<h1>Tip 2: Engage in safety planning</h1>} html={(
+          <QuestionBox title={<h1>Tip 2: Use a qualified interpreter</h1>} html={(
+            <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
+              <div>
+                <h2 style={{fontWeight:"normal"}}>It is important to use skilled, culturally competent interpreters to assist in interviews with victims who have limited English proficiency.</h2>
+                <h2 style={{fontWeight:"normal"}}>Always ask the victim about any languages he or she speaks and in what language he or she prefers to communicate.</h2>
+                <h2 style={{fontWeight:"normal"}}>In-person interpretation is preferable.</h2>
+                <h2 style={{fontWeight:"normal"}}>Before the interview, screen your interpreter to make sure he or she is not involved in the case and does not have connections to the suspect. Often, ethnic communities can be small, and it is essential that the interpreter has no relationship with the suspect and understands the importance of confidentiality.</h2>
+                <h2 style={{fontWeight:"normal"}}>Understand that there may be stigma and subtle cultural considerations that can affect the victim’s disclosures to interpreters. For example, a victim may not feel comfortable disclosing about a sexual assault in front of someone from his or her same ethnicity fearing stigma or blame.</h2>
+              </div>
+            )} />
+          )} />
+
+          <QuestionBox title={<h1>Tip 3: Engage in safety planning</h1>} html={(
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
                 <h1 style={{fontWeight:"bold", marginBottom: "5px"}}>Safety planning is very important</h1>
@@ -896,23 +908,11 @@ class App extends Component {
             )} />
           )} />
 
-          <QuestionBox title={<h1>Tip 3: Lack of immigration status may create significant barriers to reporting trafficking</h1>} html={(
+          <QuestionBox title={<h1>Tip 4: Understand status concerns</h1>} html={(
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
                 <h2 style={{fontWeight:"normal"}}>Undocumented victims are particularly at risk for human trafficking and may fear engaging with law enforcement.</h2>
                 <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>Immigration threats are often used as a means of power and control over the victim. If the victim is undocumented or if you are unsure of the victim’s immigration status, make a referral immediately to an experienced immigration attorney. <span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(2)}}>Click here for a list of local immigration legal services providers.</span></h2>
-              </div>
-            )} />
-          )} />
-
-          <QuestionBox title={<h1>Tip 4: Use a qualified interpreter</h1>} html={(
-            <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
-              <div>
-                <h2 style={{fontWeight:"normal"}}>It is important to use skilled, culturally competent interpreters to assist in interviews with victims who have limited English proficiency.</h2>
-                <h2 style={{fontWeight:"normal"}}>Always ask the victim about any languages he or she speaks and in what language he or she prefers to communicate.</h2>
-                <h2 style={{fontWeight:"normal"}}>In-person interpretation is preferable.</h2>
-                <h2 style={{fontWeight:"normal"}}>Before the interview, screen your interpreter to make sure he or she is not involved in the case and does not have connections to the suspect. Often, ethnic communities can be small, and it is essential that the interpreter has no relationship with the suspect and understands the importance of confidentiality.</h2>
-                <h2 style={{fontWeight:"normal"}}>Understand that there may be stigma and subtle cultural considerations that can affect the victim’s disclosures to interpreters. For example, a victim may not feel comfortable disclosing about a sexual assault in front of someone from his or her same ethnicity fearing stigma or blame.</h2>
               </div>
             )} />
           )} />
@@ -927,7 +927,7 @@ class App extends Component {
             )} />
           )} />
 
-          <QuestionBox title={<h1>Tip 6: How to engage with the victim</h1>} html={(
+         {/*<QuestionBox title={<h1>Tip 5: How to engage with the victim</h1>} html={(
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
                 <h2 style={{fontWeight:"normal"}}>At the outset, allowing the victim to tell as much or as little of his/her experience as he or she is comfortable is key in building trust and a successful investigation.</h2>
@@ -936,29 +936,33 @@ class App extends Component {
                 <h2>If interviewing a child victim, find your local Children’s Advocacy Center. <a href="https://www.nationalcac.org/find-a-cac/" class="prepareLink">Click here for a list of victim services.</a></h2>
               </div>
             )} />
-          )} />
+          )} />  */}
 
-          <QuestionBox title={<h1>Tip 7: Educate yourself about trauma</h1>} html={(
+          <QuestionBox title={<h1>Tip 6: Educate yourself about trauma</h1>} html={(
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
-                <h2 style={{fontWeight:"normal"}}>Approach the interview in a trauma-informed manner. It is important to understand how trauma can affect a victim’s disclosure and how to respond when the signs of trauma present themselves in an interview.</h2>
+                <h2 style={{fontWeight:"normal"}}>Approach the victim in a trauma-informed manner. It is important to understand how trauma can affect a victim’s disclosure and how to respond when the signs of trauma present themselves in an interview.</h2>
                 <h2 style={{fontWeight:"normal"}}> Often, victims may suffer from post-traumatic stress disorder, depression, and/or other mental health conditions. For this reason, they may have difficulty telling you about key parts of their story. Trauma can make victims reluctant to disclose and may affect their memory of an event, causing them to disclose their stories in a non-linear or inconsistent manner. Facts may emerge over time, and it may be important to engage in multiple interviews or ask for the assistance of a forensic interviewer, when appropriate.</h2>
                 <h2 style={{fontWeight:"normal"}}>Explore whether the victim has mental health supports in place at the outset and if not, make appropriate referrals to ensure the victim has support throughout the process. <span class="prepareLink" onClick={this._onResourcesClick}>Click here for a list of victim services.</span></h2>
-                <h2 style={{fontWeight:"bold"}}>If a child (any victim under 18) is involved, mandated reporters must file a 51A report with the Massachusetts Department of Children and Families (DCF), which will report the situation to the local District Attorney’s Office. By law, DCF will work to establish a multidisciplinary team to provide comprehensive, tailored services to the child victim.</h2>
+                <h2 style={{fontWeight:"bold"}}>If a child (any victim under 18) is involved, mandated reporters must file a 51A report with the Massachusetts Department of Children and Families (DCF), which will report the situation to the local District Attorney’s Office. By law, DCF will work to establish a multidisciplinary team to provide comprehensive, tailored services to the child victim, and coordinate an interview.</h2>
                 <ul style={{"list-style-type": "disc", "padding-left": "16px", "margin": "0px", "font-size": "13px"}}>
                   <li>
-                    <h2 style={{fontWeight:"normal"}}>Please consult with your local Children’s Advocacy Center to coordinate, and the multidisciplinary team will work with you to consider if an interview of the child is appropriate and if so, how best to approach the interview. Consider conducting a child forensic interview. Even in cases wherein there is no physical or sexual violence suspected, a child forensic interview still may be helpful given emotional abuse and fear.</h2>
+                    <h2 style={{fontWeight:"normal"}}>Please consult with your local Children’s Advocacy Center to coordinate, and the multidisciplinary team will work with you to consider if an interview of the child is appropriate and if so, how best to approach the interview. {/*Consider conducting a child forensic interview. Even in cases wherein there is no physical or sexual violence suspected, a child forensic interview still may be helpful given emotional abuse and fear.*/}</h2>
                   </li>
-                  <li>
+                  {/*<li>
                     <h2 style={{fontWeight:"normal"}}>Child forensic interviewers are trained to consider the unique family relationships, community support, histories of trauma, and cultural or social attitudes that may shape a child’s disclosure. Each child victim is different, due to different past experiences of violence and trauma. It is important to note that no two children will react in the same manner or provide the same level of detail and clarity.</h2>
-                  </li>
+                  </li>*/}
                 </ul>
                 <h2 style={{fontWeight:"bold"}}>It is important to engage in a trauma-informed interview. If working with child victims, contact the local Children’s Advocacy Center as soon as possible.</h2>
+                <br />
+                <h1 style={{fontWeight:"bold"}}>Culture can play an important role in how a victim engages in the interview process.</h1>
+                <h2 style={{fontWeight:"normal"}}>If the victim is from a distinct ethnic or social group, educate yourself about the culture.</h2>
+                <h2 style={{fontWeight:"normal"}}>Cultural norms may shape what or how the victim will disclose critical information. Consider connecting with social service providers in your area with expertise serving this population.</h2>
               </div>
             )} />
           )} />
 
-          <QuestionBox title={<h1>Tip 8: Educate yourself about the culture</h1>} html={(
+          {/*<QuestionBox title={<h1>Tip 7: Educate yourself about the culture</h1>} html={(
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
                 <h1 style={{fontWeight:"bold"}}>Culture can play an important role in how a victim engages in the interview process.</h1>
@@ -966,7 +970,7 @@ class App extends Component {
                 <h2 style={{fontWeight:"normal"}}>Cultural norms may shape what or how the victim will disclose critical information. Consider connecting with social service providers with expertise serving this population.</h2>
               </div>
             )} />
-          )} />
+          )} /> */}
 
           <div style={{'padding' : '30px 30px 10px 30px', 'width' : '100%', "textAlign" : "center"}}>
             <div style={{"textAlign" : "right", "maxWidth" : "800px", "marginLeft": "auto", "marginRight": "auto"}}>
@@ -986,8 +990,8 @@ class App extends Component {
           <img src={Warning} class="AssessmentWarning" />
           <p class="pageTitle"> Legal Disclaimer</p>
         </div>
-        <p style={{"fontWeight" : "bold"}}>All materials on this website have been prepared for general information purposes only to permit you to learn more about labor trafficking. The information presented is not legal advice, is not to be acted on as such, may not be current and is subject to change without notice.</p>
-        <p style={{"fontWeight" : "bold"}}>Communication of information by, in, to or through this website and your receipt or use of it</p>
+        <p style={{"fontWeight" : "bold"}}>All materials on this website have been prepared for training and general information purposes only to permit you to learn more about labor trafficking. The information presented is not legal advice, is not to be acted on as such, may not be current and is subject to change without notice.</p>
+        <p style={{"fontWeight" : "bold"}}>Communication of information by, in, to or through this website and your receipt or use of it:</p>
         <ul>
           <li>
             <p>is not provided in the course of and does not create or constitute an attorney-client relationship</p>
@@ -1010,8 +1014,8 @@ class App extends Component {
       <div style={this.state.disclaimer ? {display : "block"} : {display : "none"}}>
         <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
           <p class="pageTitle">Assess</p>
-          <p class="Head">Is this case trafficking?</p>
-          <p class="HomeHead1">These questions can help determine if your case meets the definition of trafficking under Massachusetts law.</p>
+          {/*<p class="Head">Is this case trafficking?</p>*/}
+          <p class="HomeHead1">These questions can help determine if your case meets the definition of labor trafficking under Massachusetts law.</p>
         </div>
 
         <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm">
@@ -1120,9 +1124,9 @@ class App extends Component {
                     <BlueBox html={(
                       <div>
                         <h1 style={{fontWeight:"bold"}}>Emergency Shelter</h1>
-                        <h2 style={{fontWeight:"normal"}}>Contact the National Human Trafficking Resource Center Hotline for emergency shelter options at <span style={{fontWeight:"bold"}}>1-888-373-788</span></h2>
+                        <h2 style={{fontWeight:"normal"}}>Contact the National Human Trafficking Resource Center Hotline for emergency shelter options at <span style={{fontWeight:"bold"}}>1-888-373-7880</span>.</h2>
                         <br />
-                        <h2 style={{fontWeight:"bold"}}>Trafficking-specific Shelter Options:</h2>
+                        <h2 style={{fontWeight:"bold"}}>Trafficking-specific shelter options:</h2>
                         <h2 style={{fontWeight:"normal"}}>Listed below are organizations that place priority on housing for survivors of human trafficking:</h2>
                         <ul>
                           <li>
@@ -1132,10 +1136,10 @@ class App extends Component {
                             <h2 style={{fontWeight:"normal"}}> Bhakita House (Greater Boston, labor and sex trafficking): <span style={{fontWeight:"bold"}}>(781) 321-0499</span></h2>
                           </li>
                           <li>
-                            <h2 style={{fontWeight:"normal"}}> EVA Center (Sex trafficking, Greater Boston): <span style={{fontWeight:"bold"}}>(617) 799-2133</span></h2>
+                            <h2 style={{fontWeight:"normal"}}> EVA Center (Greater Boston, sex trafficking): <span style={{fontWeight:"bold"}}>(617) 799-2133</span></h2>
                           </li>
                           <li>
-                            <h2 style={{fontWeight:"normal"}}> RIA House (Sex trafficking, Central Massachusetts): <span style={{fontWeight:"bold"}}>info@riahouse.org </span></h2>
+                            <h2 style={{fontWeight:"normal"}}> RIA House (Central Massachusetts, sex trafficking): <span style={{fontWeight:"bold"}}>info@riahouse.org </span></h2>
                           </li>
                         </ul>
                         <br />
@@ -1156,9 +1160,9 @@ class App extends Component {
                     </div>
                     <NormalText html={(
                       <div>
-                        <h2 style={{fontWeight:"normal"}}>Contact the National Human Trafficking Resource Center Hotline for emergency shelter options at <span style={{fontWeight:"bold"}}>1-888-373-788</span> .</h2>
+                        <h2 style={{fontWeight:"normal"}}>Contact the National Human Trafficking Resource Center Hotline for emergency shelter options at <span style={{fontWeight:"bold"}}>1-888-373-7880</span>.</h2>
                         <br />
-                        <h2 style={{fontWeight:"bold"}}>Trafficking-specific Shelter Options:</h2>
+                        <h2 style={{fontWeight:"bold"}}>Trafficking-specific shelter options:</h2>
                         <h2 style={{fontWeight:"normal"}}>Listed below are organizations that place priority on housing for survivors of human trafficking:</h2>
                         <ul style={{"listStyleType" : "none"}}>
                           <li>
@@ -1168,10 +1172,10 @@ class App extends Component {
                             <h2 style={{fontWeight:"bold"}}> Bhakita House (Greater Boston, labor and sex trafficking): <span style={{fontWeight:"bold"}}>(781) 321-0499</span></h2>
                           </li>
                           <li>
-                            <h2 style={{fontWeight:"bold"}}> EVA Center (Sex trafficking, Greater Boston): <span style={{fontWeight:"bold"}}>(617) 799-2133</span></h2>
+                            <h2 style={{fontWeight:"bold"}}> EVA Center (Greater Boston, sex trafficking): <span style={{fontWeight:"bold"}}>(617) 799-2133</span></h2>
                           </li>
                           <li>
-                            <h2 style={{fontWeight:"bold"}}> RIA House (Sex trafficking, Central Massachusetts): <span style={{fontWeight:"bold"}}>info@riahouse.org </span></h2>
+                            <h2 style={{fontWeight:"bold"}}> RIA House (Central Massachusetts, sex trafficking): <span style={{fontWeight:"bold"}}>info@riahouse.org </span></h2>
                           </li>
                         </ul>
                         <br />
@@ -1242,7 +1246,7 @@ class App extends Component {
                   <NormalText html={(
                     <div>
                       <h1 class="hidden-md hidden-lg">Immigration Protection for Immigrant Victims of Human Trafficking</h1>
-                      <h2 style={{fontWeight:"normal"}}>Undocumented victims are especially vulnerable to human trafficking. Certain immigration options are available to victims that may allow them to apply for work authorization and permission to remain in the United States. It is essential that victims consult with an experienced immigration attorney about available options and understand the risks of pursuing immigration relief. Below is a list of potential immigration remedies commonly available to victims of crime. This list is not exhaustive, and it is important that every victim be screened individually by an experienced immigration attorney for eligibility.”</h2>
+                      <h2 style={{fontWeight:"normal"}}>Undocumented victims are especially vulnerable to human trafficking. Certain immigration options are available to victims that may allow them to apply for work authorization and permission to remain in the United States. It is essential that victims consult with an experienced immigration attorney about available options and understand the risks of pursuing immigration relief. Below is a list of potential immigration remedies commonly available to victims of crime. This list is not exhaustive, and it is important that every victim be screened individually by an experienced immigration attorney for eligibility.</h2>
                     </div>
                   )} />
                   <br />
@@ -1303,7 +1307,7 @@ class App extends Component {
                             <h2 style={{fontWeight:"normal"}}>Has suffered substantial physical or mental abuse as a result of having been a victim of a qualifying crime, including human trafficking, involuntary servitude, peonage, and slave trade, or substantially similar criminal activity.</h2>
                           </li>
                           <li>
-                            <h2 style={{fontWeight:"normal"}}>Possesses information about the criminal activit.</h2>
+                            <h2 style={{fontWeight:"normal"}}>Possesses information about the criminal activity.</h2>
                           </li>
                           <li>
                             <h2 style={{fontWeight:"normal"}}>Has been helpful, is being helpful, or is likely to be helpful to a Federal, State, or local law enforcement official, to a Federal, State, or local prosecutor, to a Federal or State judge, to United States Citizenship and Immigration Services, or to other Federal, State, or local authorities investigating or prosecuting the criminal activity</h2>
@@ -1317,7 +1321,7 @@ class App extends Component {
                         <h2 style={{fontWeight:"normal"}}>To qualify, a victim must obtain a U Nonimmigrant Status Certification (Form I-918, Supplement B) from a qualifying government agency, confirming that he or she was a victim and was, is, or will be helpful in the investigation.</h2>
                         <br />
                         <h2 style={{fontWeight:"bold"}}>What is the role of the investigator?</h2>
-                        <h2 style={{fontWeight:"normal"}}>nvestigators can play an important role to assist the victim to obtain immigration status by completing a U visa certification (Form I-918, Supplement B), confirming the status of the victim and his or her role in the investigation. Such a certification does not provide immigration status but assists the victim to prove to U.S. Citizenship and Immigration Services that he or she meets the requirements to qualify for immigration status.</h2>
+                        <h2 style={{fontWeight:"normal"}}>Investigators can play an important role to assist the victim to obtain immigration status by completing a U visa certification (Form I-918, Supplement B), confirming the status of the victim and his or her role in the investigation. Such a certification does not provide immigration status but assists the victim to prove to U.S. Citizenship and Immigration Services that he or she meets the requirements to qualify for immigration status.</h2>
                         <br />
                         <h2 style={{fontWeight:"bold"}}>Who can complete the U visa certification?</h2>
                         <h2 style={{fontWeight:"normal"}}>The certification form (Form I-918, Supplement B) can be completed by any government agency that has responsibility for the detection, investigation, or prosecution of a qualifying crime or criminal activity.</h2>
@@ -1328,7 +1332,7 @@ class App extends Component {
                     <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
                       <div>
                         <h2 style={{fontWeight:"bold"}}>What is Continued Presence?</h2>
-                        <h2 style={{fontWeight:"normal"}}>Continued Presence is a short-term form of immigration relief provided to individuals identified as victims of human trafficking in a potential criminal investigation. The application for Continued Presence must be submitted by federal law enforcement. However, local and state investigators can play an important role by coordinating with a federal law enforcement agency to submit an application. This is generally the fastest way to ensure that the victim has access to employment authorization and access to important government benefits. This benefit provides access to work authorization for two years, and it is renewable subject to law enforcement approval. The victim also may qualify for certain public benefits.</h2>
+                        <h2 style={{fontWeight:"normal"}}>Continued Presence is a short-term form of immigration relief available to individuals identified as victims of human trafficking in a potential criminal investigation. The application for Continued Presence must be submitted by federal law enforcement. However, local and state investigators can play an important role by coordinating with a federal law enforcement agency to submit an application. This is generally the fastest way to ensure that the victim has access to employment authorization and access to important government benefits. This benefit provides access to work authorization for two years, and it is renewable subject to law enforcement approval. The victim also may qualify for certain public benefits.</h2>
                         <br />
                         <h2 style={{fontWeight:"bold"}}>What is the role of the investigator?</h2>
                         <h2 style={{fontWeight:"normal"}}>To assist a victim to apply for Continued Presence, contact a federal law enforcement agency with the authority to submit an application.</h2>
@@ -1531,7 +1535,7 @@ class App extends Component {
                   <BlueBox html={(
                     <div>
                       <h1 style={{fontWeight:"normal"}}>State-wide</h1>
-                      <h1><a href="https://massclavc.org/" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Civil Legal Aid for Victims of Crime Attorneys</a></h1>
+                      <h1><a href="https://massclavc.org/" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Civil Legal Aid for Victims of Crime</a></h1>
                       <h2>Tel.: <span style={{"textDecoration" : "underline"}}>(617) 367-8544</span></h2>
                     </div>
                   )} />
@@ -1684,17 +1688,10 @@ class App extends Component {
         <div style={{backgroundColor : "#fff", paddingTop: "20px"}}>
           <NormalText html={(
             <div>
-              <h2 style={{fontWeight:"bold"}}>If this is an emergency, call 9-11.</h2>
-              <h2 style={{fontWeight:"bold"}}>For non-emergencies, please contact the following offices to report suspected labor trafficking:</h2>
+              <h1 style={{fontWeight:"bold"}}>If this is an emergency, call 911.</h1>
+              <h2 style={{fontWeight:"bold"}}>For non-emergencies, please contact either of the following offices to report suspected labor trafficking:</h2>
             </div>
           )} />
-          <BlueBox html={
-            <div>
-              <h1 style={{fontWeight:"bold"}}>Massachusetts Attorney General’s Office</h1>
-              <h2 style={{fontWeight:"normal"}}>Call the Hotline at <span style={{textDecoration:"underline"}}>(617) 727-3465</span></h2>
-              <h2 style={{fontWeight:"normal"}}>Available Monday–Friday 10:00AM–4:00PM</h2>
-            </div>
-          } />
           <BlueBox html={(
             <div>
               <h1 style={{fontWeight:"bold"}}>National Human Trafficking Resource Center</h1>
@@ -1704,6 +1701,13 @@ class App extends Component {
               <h2><span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="mailto:help@humantraffickinghotline.org%20?subject=MA%20Labor%20Trafficking%20Case">Click here to email the hotline</a></span></h2>
             </div>
           )} />
+          <BlueBox html={
+            <div>
+              <h1 style={{fontWeight:"bold"}}>Massachusetts Attorney General’s Office</h1>
+              <h2 style={{fontWeight:"normal"}}>Call the Fair Labor line at <span style={{textDecoration:"underline"}}>(617) 727-3465</span></h2>
+              <h2 style={{fontWeight:"normal"}}>Available Monday–Friday 10:00AM–4:00PM</h2>
+            </div>
+          } />
           <div style={{textAlign: "right", padding : "10px 30px", maxWidth: "800px", marginLeft : "auto", marginRight : "auto"}}>
             <button class="button3" style={{float : "unset"}} onClick={this._onResourcesClick}>Victim Services</button>
           </div>
@@ -1737,13 +1741,13 @@ class App extends Component {
 
   renderMobileMenu() {
     return (
-      <div class="mobile-menu">
+      <div class="mobile-menu hidden-md hidden-lg">
         <div class="mobile-cover" style={this.state.mobileMenu ? {right: '70vw'} : {right: '0'}}></div>
-        <div class="lis new-lis"><a class={this.state.page == 1? ("active") : ("")} onClick= {this._onCompleteClick}>Home</a></div>
-        <div class="lis new-lis"><a class={this.state.page == 2? ("active") : ("")} onClick= {this._onPrepareClick}>Prepare</a></div>
-        <div class="lis new-lis"><a class={this.state.page == 3 || this.state.page == 5? ("active") : ("")} onClick= {this._onAssessClick}>Assess</a></div>
+        <div class="hidden-md hidden-lg lis new-lis"><a class={this.state.page == 1? ("active") : ("")} onClick= {this._onCompleteClick}>Home</a></div>
+        <div class="hidden-md hidden-lg lis new-lis"><a class={this.state.page == 2? ("active") : ("")} onClick= {this._onPrepareClick}>Prepare</a></div>
+        <div class="hidden-md hidden-lg lis new-lis"><a class={this.state.page == 3 || this.state.page == 5? ("active") : ("")} onClick= {this._onAssessClick}>Assess</a></div>
         <div style={{pointerEvents:"none"}} class="lis new-lis"><a style={{pointerEvents:"none"}} class={this.state.page == 6 || this.state.page == 8? ("active") : ("")}>Resources</a></div>
-        <ul class="resources-ul">
+        <ul class="hidden-md hidden-lg resources-ul">
           <li onClick={this._onReportClick}>
             <p style={this.state.page == 8?{textDecoration : "underline"}:{}}>Report</p>
           </li>
@@ -1751,7 +1755,7 @@ class App extends Component {
             <p style={this.state.page == 6?{textDecoration : "underline"}:{}}>Victim Services</p>
           </li>
         </ul>
-        <div class="lis new-lis"><a class={this.state.page == 7? ("active") : ("")} onClick= {this._onMassClick}>MA Law</a></div>
+        <div class="hidden-md hidden-lg lis new-lis"><a class={this.state.page == 7? ("active") : ("")} onClick= {this._onMassClick}>MA Law</a></div>
       </div>
     );
   }

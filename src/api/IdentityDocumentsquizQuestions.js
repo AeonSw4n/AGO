@@ -1,6 +1,6 @@
 var IdentityDocumentsquizQuestions = [
   {
-      question: "Did the perpetrator ever take, hide, or confiscate the victim’s passport?",
+      question: "Did the perpetrator ever take, hide, or confiscate the victim’s passport for any period of time?",
       answers: [
           {
               type: "Yes",
