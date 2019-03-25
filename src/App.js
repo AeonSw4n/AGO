@@ -617,15 +617,17 @@ class App extends Component {
     return (
       <div className="App">
         <br class="hidden-lg hidden-md" />
-        <p className="Head hidden-lg hidden-md">Labor Trafficking <br />Identification Tool</p>
+        <p className="Head hidden-lg hidden-md">Recognize and Evaluate Signs <br />to Uncover Labor Trafficking{/*Labor Trafficking <br />Identification Tool*/}</p>
         <div class="ButBar hidden-lg hidden-md">
-          <p className="HomeHead1">A tool to help investigators refer labor trafficking under Massachusetts law.<br></br></p>
+          {/*<p class="HomeHead1" style={{"fontWeight" : "bold", "color" : "#808080", "marginBottom": "20px"}}> </p>*/}
+          <p className="HomeHead1">A tool to help investigators refer labor trafficking <br /> under Massachusetts law.<br></br></p>
         </div>
 
         <div class="homeContainer hidden-sm hidden-xs">
           {/*<p class="MassTitle">Massachusetts Attorney General’s Office</p>*/}
-          <p class="HomeHead">Labor Trafficking Identification Tool</p>
-          <p class="HomeHead1">A tool to help investigators refer labor trafficking <br /> under Massachusetts law.</p>
+          <p class="HomeHead" style={{"lineHeight": "36px"}}>RESULT{/*Labor Trafficking Identification Tool*/}</p>
+          <p class="HomeHead1" style={{"fontWeight" : "bold", "color" : "#808080", "marginBottom": "20px"}}>Recognize and Evaluate Signs to Uncover Labor Trafficking </p>
+          <p class="HomeHead1">A tool to help investigators refer labor <br />trafficking under Massachusetts law.</p>
         </div>
 
         <div class="buttonContainer hidden-sm hidden-xs">
@@ -1777,8 +1779,8 @@ class App extends Component {
 
           <div class="topRowContainer row">
           <div class="topRow col-xs-6 col-sm-6 col-md-3 col-lg-3">
-          <img src={logo} className="topDivHL" alt="logo" />
-          <h3 class ="topDivH"><a href="https://www.mass.gov/" style={{color : "inherit"}}>MA AGO</a></h3>
+            {/*<img src={logo} className="topDivHL" alt="logo" />*/}
+            <h3 class ="topDivH">{/*<a href="https://www.mass.gov/" style={{color : "inherit"}}>*/}RESULT{/*</a>*/}</h3>
           </div>
 
           <div class="topRow1 col-xs-6 col-sm-6 col-md-9 col-lg-9">

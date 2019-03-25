@@ -124,6 +124,7 @@
   .topDivH{
     font-size: 16px;
     line-height: 63px;
+    padding-left: 40px;
   }
   .mobile-menu{
     position: absolute;
