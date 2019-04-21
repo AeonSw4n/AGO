@@ -10,6 +10,9 @@ import YesImg from './Yes.png';
 import NoImg from './No.png';
 import MaybeImg from './Maybe.png';
 import Warning from './Warning.svg';
+import ResultImg from './ResultWordmark.svg';
+import ResultImgLight from './ResultWordmarkLightBlue.svg';
+import ResultImgMobile from './ResultLockup.svg';
 import './App.css';
 import Question from './components/Question';
 import SeriousHarmquizQuestions from './api/SeriousHarmquizQuestions';
@@ -29,6 +32,7 @@ import NormalText from './structures/normalText';
 import QuestionBox from './structures/questionBox';
 import AssessmentBox from './structures/assessmentBox';
 import Expandable from './structures/expandable';
+import AssessmentPDF from './LaborTraffickingAssessment.pdf';
 
 class App extends Component {
 
@@ -43,7 +47,6 @@ class App extends Component {
      answerOptions: [],
      Answer: new Array(14).fill(''),
      assessedCategories: [0],
-     assessNext: -1,
      oneRegYes: -1,
      oneYes: -1,
      line: 0,
@@ -127,7 +130,6 @@ class App extends Component {
 
 
   getResults() {
-    this.setState({assessNext: -1});
 
     let answerKey = [];
     answerKey[1] = [1, 3, 4, 9];
@@ -135,18 +137,23 @@ class App extends Component {
     answerKey[3] = [1];
     answerKey[4] = [1, 2, 3, 4, 5];
     answerKey[5] = [2];
-    answerKey[6] = [1];
+    answerKey[6] = [5];
+
+    if(this.state.qcategory == 6){
+      let temp = this.state.Answer;
+      if(temp[7] == 'No')
+        temp[7] = 'Yes';
+      else if(temp[7] == 'Yes')
+        temp[7] = 'No';
+      this.setState({Answer : temp});
+    }
+
 
     for( let i =0; i<answerKey[this.state.qcategory].length; i++){
       let answer = answerKey[this.state.qcategory][i];
       if(this.state.Answer[answer] == 'Yes'){
-        if((this.state.oneYes != -1) && (this.state.oneYes != this.state.qcategory)){
-          return ['yes-all'];
-        }
-        else{
-          this.setState({oneYes: this.state.qcategory});
-          return ['yes-one'];
-        }
+        this.setState({oneYes: 1});
+        return ['yes-one'];
       }
     }
 
@@ -155,69 +162,36 @@ class App extends Component {
       assessedCategories.push(this.state.qcategory);
       this.setState({assessedCategories : assessedCategories});
     }
-    //console.log(this.state.assessedCategories);
-    //console.log(this.state.oneYes);
-    //console.log(this.state.assessedCategories.length);
-    //console.log(answerKey.length);
+
+    if(this.state.oneYes != -1)
+      return ['yes-one'];
+
     if(assessedCategories.length == answerKey.length)
       return ['unclear-all'];
 
-    let returnVal = [];
-    if(this.state.oneYes != -1)
-      returnVal = ['yes-one'];
-
-    if(this.state.oneRegYes != -1)
-      returnVal = ['yes-reg'];
-
-    const answersCount = this.state.answersCount;
     for(let i=1; i<=this.state.Answer.length; i++){
       if(this.state.Answer[i] == 'Yes'){
-        this.setState({oneRegYes: 1});
-        returnVal = ['yes-reg'];
-      }
-    }
-
-    returnVal = ['unclear-one'];
-
-    for(let i=1; i<answerKey.length; i++){
-      if(!assessedCategories.includes(i)){
-        switch(i){
-          case 1:
-            this.sHarmQuizFunc();
-            this.setState({assessNext: this.renderHarmQuiz.bind(this)});
-            break;
-          case 2:
-            this.restraintQuizFunc();
-            this.setState({assessNext: this.renderRestraintQuiz.bind(this)});
-            break;
-          case 3:
-            this.abuseQuizFunc();
-            this.setState({assessNext: this.renderAbuseQuiz.bind(this)});
-            break;
-          case 4:
-            this.identitydocQuizFunc();
-            this.setState({assessNext: this.renderIdentityQuiz.bind(this)});
-            break;
-          case 5:
-            this.extortionQuizFunc();
-            this.setState({assessNext: this.renderExtortionQuiz.bind(this)});
-            break;
-          case 6:
-            this.fharmQuizFunc();
-            this.setState({assessNext: this.renderfHarmQuiz.bind(this)});
-            break;
+        if(this.state.oneRegYes != -1)
+          return ['yes-all'];
+        else{
+          if(this.state.qcategory == 6){
+            this.setState({oneRegYes: 2});
+            return ['fharm'];
+          }
+          else{
+            this.setState({oneRegYes: 1});
+            return ['yes-reg'];
+          }
         }
-        break;
       }
     }
 
-    return returnVal;
+    if(this.state.oneRegYes == 1)
+      return ['yes-reg'];
+    else if(this.state.oneRegYes == 2)
+      return ['fharm'];
 
-
-    const answersCountKeys = Object.keys(answersCount);
-    const answersCountValues = answersCountKeys.map((key) => answersCount[key]);
-    const maxAnswerCount = Math.max.apply(null, answersCountValues);
-    return answersCountKeys.filter((key) => answersCount[key] === maxAnswerCount);
+    return ['unclear-one'];
   }
 
   setResults (result) {
@@ -232,7 +206,6 @@ class App extends Component {
       this.setState({ result: 'Maybe', page: 5 });
     }
   }
-
 
   handleAnswerSelected(event) {
     let ul = event.currentTarget.parentElement.parentElement;
@@ -739,6 +712,7 @@ class App extends Component {
 
         <div class="homeContainer hidden-sm hidden-xs">
           {/*<p class="MassTitle">Massachusetts Attorney General’s Office</p>*/}
+          {/*<img src={ResultImg} height="36px" alt="RESULT"/>*/}
           <p class="HomeHead" style={{"lineHeight": "36px"}}>RESULT{/*Labor Trafficking Identification Tool*/}</p>
           <p class="HomeHead1" style={{"fontWeight" : "bold", "color" : "#808080", "marginBottom": "20px"}}>Recognize and Evaluate Signs to Uncover Labor Trafficking </p>
           <p class="HomeHead1">A tool to help investigators refer labor <br />trafficking under Massachusetts law.</p>
@@ -1106,7 +1080,7 @@ class App extends Component {
           <img src={Warning} class="AssessmentWarning" />
           <p class="pageTitle"> Legal Disclaimer</p>
         </div>
-        <p style={{"fontWeight" : "bold"}}>All materials on this website have been prepared for training and general information purposes only to permit you to learn more about labor trafficking. The information presented is not legal advice, is not to be acted on as such, may not be current and is subject to change without notice.</p>
+        <p style={{"fontWeight" : "bold"}}>All materials on this website are for general informational purposes only. The information presented is not legal advice, may not be current and is subject to change without notice.</p>
         <p style={{"fontWeight" : "bold"}}>Communication of information by, in, to or through this website and your receipt or use of it:</p>
         <ul>
           <li>
@@ -1114,9 +1088,6 @@ class App extends Component {
           </li>
           <li>
             <p>is not intended as a solicitation</p>
-          </li>
-          <li>
-            <p>is not intended to convey or constitute legal advice</p>
           </li>
           <li>
             <p>is not a substitute for obtaining legal advice from a qualified attorney</p>
@@ -1150,7 +1121,7 @@ class App extends Component {
             </div>
             <div class="App hidden-xs hidden-sm">
               <p class="regularText" style={{"fontStyle" : "italic", "textAlign" : "center"}}>Select a category to view its questions</p>
-              <p class="regularText" style={{"fontWeight" : "bold", "textDecoration" : "underline", "textAlign" : "center"}}>Or click here to download the questions</p>
+              <p class="regularText" style={{"fontWeight" : "bold", "textDecoration" : "underline", "textAlign" : "center"}}><a href={AssessmentPDF}>Or click here to download the questions</a></p>
             </div>
             <br />
             <div>
@@ -1369,14 +1340,14 @@ class App extends Component {
                   <QuestionBox qClass={qClass} title={<h1>T Nonimmigrant Status (“T visa”)</h1>} html={(
                     <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
                       <div>
-                        <h2 style={{fontWeight:"bold"}}>What is T nonimmigrant status?</h2>
+                        <h2 style={{fontWeight:"bold"}}>What is T nonimmigrant status or a T visa? </h2>
                         <h2 style={{fontWeight:"normal"}}>T nonimmigrant status is a form of immigration status for victims of severe forms of trafficking in persons under federal law. T nonimmigrant status provides the victim with immigration status for four years, ability to work legally, and eligibility to apply for certain derivative family members and permanent residency. In addition, victims may be able to access public benefits, including refugee cash assistance and food stamps. Please note that victims are not eligible for employment authorization until the application is approved.</h2>
                         <br />
                         <h2 style={{fontWeight:"bold"}}>Who is eligible?</h2>
                         <h2 style={{fontWeight:"normal"}}>This benefit is only available to victims who meet the federal definition of a victim of a severe form of human trafficking, which is defined as:</h2>
                         <ul>
                           <li>
-                            <h2 style={{fontWeight:"normal"}}>Sex trafficking in which a commercial sex act is induced by force, fraud, or coercion, or in which the person induced to perform such act has not attained 18 years of age.</h2>
+                            <h2 style={{fontWeight:"normal"}}>Sex trafficking in which a commercial sex act is induced by force, fraud, or coercion, or in which the person induced to perform such act has not attained 18 years of age; or</h2>
                           </li>
                           <li>
                             <h2 style={{fontWeight:"normal"}}>Labor or services, through the use of force, fraud, or coercion for the purpose of subjection to involuntary servitude, peonage, debt bondage, or slavery.</h2>
@@ -1386,13 +1357,13 @@ class App extends Component {
                         <h2 style={{fontWeight:"bold"}}>The victim must also show that he or she:</h2>
                         <ul>
                           <li>
-                            <h2 style={{fontWeight:"normal"}}>Is a victim of a severe form of human trafficking.</h2>
+                            <h2 style={{fontWeight:"normal"}}>Is a victim of a severe form of human trafficking;</h2>
                           </li>
                           <li>
-                            <h2 style={{fontWeight:"normal"}}>Is physically present in the United States on account of trafficking.</h2>
+                            <h2 style={{fontWeight:"normal"}}>Is physically present in the United States on account of trafficking;</h2>
                           </li>
                           <li>
-                            <h2 style={{fontWeight:"normal"}}>Has complied with any reasonable request by federal, state, or local law enforcement agency to assist in the investigation or prosecution of such trafficking (unless unable to cooperate due to psychological trauma or the victim is under 18 years old).</h2>
+                            <h2 style={{fontWeight:"normal"}}>Has complied with any reasonable request by federal, state, or local law enforcement agency to assist in the investigation or prosecution of such trafficking (unless unable to cooperate due to psychological trauma or the victim is under 18 years old); and</h2>
                           </li>
                           <li>
                             <h2 style={{fontWeight:"normal"}}>Would suffer extreme hardship involving unusual and severe harm upon removal (i.e., deportation).</h2>
@@ -1400,33 +1371,33 @@ class App extends Component {
                         </ul>
                         <br />
                         <h2 style={{fontWeight:"bold"}}>What is T visa certification?</h2>
-                        <h2 style={{fontWeight:"normal"}}>To apply for T nonimmigrant status, U.S. Citizenship and Immigration Services asks for the victim to submit a certification form from a qualifying government agency confirming that the applicant was a victim of a severe form of human trafficking and responded to a reasonable request for assistance from law enforcement. The certification form is known as Form I-914, Supplement B, Declaration of Law Enforcement Officer for Victim of Trafficking in Persons.</h2>
+                        <h2 style={{fontWeight:"normal"}}>To apply for T nonimmigrant status, U.S. Citizenship and Immigration Services asks for the victim to submit a certification form from a qualifying government agency confirming that the applicant was a victim of a severe form of human trafficking and responded to a reasonable request for assistance from law enforcement. The certification form is known as Form I-914, Supplement B, Declaration of Law Enforcement Officer for Victim of Trafficking in Persons. The form is available online <span style={{textDecoration: "underline", color : "#11416D"}}><a href="https://www.uscis.gov/i-914">here</a></span></h2>
                         <br />
                         <h2 style={{fontWeight:"bold"}}>What is the role of the investigator?</h2>
-                        <h2 style={{fontWeight:"normal"}}>Investigators can play an important role by completing the certification form (Form I-914, Supplement B) to confirm the status of the victim and his or her role in the investigation. This certification does not provide immigration status but assists the victim to prove to U.S. Citizenship and Immigration Services that he or she meets the requirements to qualify for T nonimmigrant status.</h2>
+                        <h2 style={{fontWeight:"normal"}}>Investigators can play an important role by completing the certification form (<span style={{textDecoration: "underline", color : "#11416D"}}><a href="https://www.uscis.gov/i-914">Form I-914, Supplement B</a></span>) to confirm the status of the victim and his or her role in the investigation. This certification does not provide immigration status but assists the victim to prove to U.S. Citizenship and Immigration Services that he or she meets the requirements to qualify for T nonimmigrant status.</h2>
                         <br />
                         <h2 style={{fontWeight:"bold"}}>Who can complete the T visa certification?</h2>
-                        <h2 style={{fontWeight:"normal"}}>The certification form (Form I-914, Supplement B) can be completed by any government agency that has responsibility for the detection, investigation, and/or prosecution of severe forms of human trafficking in Persons. </h2>
+                        <h2 style={{fontWeight:"normal"}}>The certification form (<span style={{textDecoration: "underline", color : "#11416D"}}><a href="https://www.uscis.gov/i-914">Form I-914, Supplement B</a></span>) can be completed by any government agency that has responsibility for the detection, investigation, and/or prosecution of severe forms of human trafficking in Persons.</h2>
                       </div>
                     )} />
                   )} />
                   <QuestionBox qClass={qClass} title={<h1>U Nonimmigrant Status (“U visa”)</h1>} html={(
                     <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
                       <div>
-                        <h2 style={{fontWeight:"bold"}}>What is U nonimmigrant status?</h2>
-                        <h2 style={{fontWeight:"normal"}}>U nonimmigrant status is a form of immigration status for victims of violent crime, including victims of human trafficking under state or federal law. U nonimmigrant status provides the victim with immigration status for four years and eligibility to apply for certain derivative family members and eventual permanent residency. Please note that victims are not eligible for employment authorization until the application is approved, and current processing times are very long.</h2>
+                        <h2 style={{fontWeight:"bold"}}>What is U nonimmigrant status or a U visa? </h2>
+                        <h2 style={{fontWeight:"normal"}}>U nonimmigrant status is a form of immigration status for victims of violent crime, including victims of human trafficking under state or federal law, among other crimes. U nonimmigrant status provides the victim with immigration status for four years and eligibility to apply for certain derivative family members in addition to a pathway to permanent residency. Please note that victims are not eligible for employment authorization until the application is approved, and current processing times are very long.</h2>
                         <br />
                         <h2 style={{fontWeight:"bold"}}>Who is eligible?</h2>
                         <h2 style={{fontWeight:"normal"}}>A victim may be eligible for U nonimmigrant status if he or she:</h2>
                         <ul>
                           <li>
-                            <h2 style={{fontWeight:"normal"}}>Has suffered substantial physical or mental abuse as a result of having been a victim of a qualifying crime, including human trafficking, involuntary servitude, peonage, and slave trade, or substantially similar criminal activity.</h2>
+                            <h2 style={{fontWeight:"normal"}}>Has suffered substantial physical or mental abuse as a result of having been a victim of a qualifying crime, including human trafficking, involuntary servitude, peonage, and slave trade, or substantially similar criminal activity;</h2>
                           </li>
                           <li>
-                            <h2 style={{fontWeight:"normal"}}>Possesses information about the criminal activity.</h2>
+                            <h2 style={{fontWeight:"normal"}}>Possesses information about the criminal activity;</h2>
                           </li>
                           <li>
-                            <h2 style={{fontWeight:"normal"}}>Has been helpful, is being helpful, or is likely to be helpful to a Federal, State, or local law enforcement official, to a Federal, State, or local prosecutor, to a Federal or State judge, to United States Citizenship and Immigration Services, or to other Federal, State, or local authorities investigating or prosecuting the criminal activity</h2>
+                            <h2 style={{fontWeight:"normal"}}>Has been helpful, is being helpful, or is likely to be helpful to a Federal, State, or local law enforcement official, to a Federal, State, or local prosecutor, to a Federal or State judge, to United States Citizenship and Immigration Services, or to other Federal, State, or local authorities investigating or prosecuting the criminal activity; and</h2>
                           </li>
                           <li>
                             <h2 style={{fontWeight:"normal"}}>The criminal activity violated the laws of the United States or occurred in the United States (including in Indian country and military institutions) or the territories and possessions of the United States.</h2>
@@ -1434,13 +1405,13 @@ class App extends Component {
                         </ul>
                         <br />
                         <h2 style={{fontWeight:"bold"}}>What is U visa certification?</h2>
-                        <h2 style={{fontWeight:"normal"}}>To qualify, a victim must obtain a U Nonimmigrant Status Certification (Form I-918, Supplement B) from a qualifying government agency, confirming that he or she was a victim and was, is, or will be helpful in the investigation.</h2>
+                        <h2 style={{fontWeight:"normal"}}>To qualify for a U visa, a victim must obtain a U Nonimmigrant Status Certification (Form I-918, Supplement B) from a qualifying government agency, confirming that he or she was a victim and was, is, or will be helpful in the investigation. The certification form is known as Form I-918, Supplement B, U Nonimmigrant Status Certification. The form is available online <span style={{textDecoration: "underline", color : "#11416D"}}><a href="https://www.uscis.gov/i-918">here</a></span>.</h2>
                         <br />
                         <h2 style={{fontWeight:"bold"}}>What is the role of the investigator?</h2>
-                        <h2 style={{fontWeight:"normal"}}>Investigators can play an important role to assist the victim to obtain immigration status by completing a U visa certification (Form I-918, Supplement B), confirming the status of the victim and his or her role in the investigation. Such a certification does not provide immigration status but assists the victim to prove to U.S. Citizenship and Immigration Services that he or she meets the requirements to qualify for immigration status.</h2>
+                        <h2 style={{fontWeight:"normal"}}>Investigators can play an important role to assist the victim to obtain immigration status by completing a U Nonimmigant Status Certification (<span style={{textDecoration: "underline", color : "#11416D"}}><a href="https://www.uscis.gov/i-918">Form I-918, Supplement B</a></span>), confirming the status of the victim and his or her role in the investigation. Such a certification does not provide immigration status but assists the victim to prove to U.S. Citizenship and Immigration Services that he or she meets the requirements to qualify for immigration status.</h2>
                         <br />
                         <h2 style={{fontWeight:"bold"}}>Who can complete the U visa certification?</h2>
-                        <h2 style={{fontWeight:"normal"}}>The certification form (Form I-918, Supplement B) can be completed by any government agency that has responsibility for the detection, investigation, or prosecution of a qualifying crime or criminal activity.</h2>
+                        <h2 style={{fontWeight:"normal"}}>A federal, state, local law enforcement agency, prosecutor, judge, or other authority that has the responsibility for the investigation or prosecution of a qualifying crime or criminal activity is eligible to sign a U Nonimmigrant Status Certification (Form I-918, Supplement B). This includes agencies with criminal investigative jurisdiction in their respective areas of expertise, including but not limited to child and adult protective services, the Equal Employment Opportunity Commission, and Federal and State Departments of Labor.</h2>
                       </div>
                     )} />
                   )} />
@@ -1448,7 +1419,9 @@ class App extends Component {
                     <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
                       <div>
                         <h2 style={{fontWeight:"bold"}}>What is Continued Presence?</h2>
-                        <h2 style={{fontWeight:"normal"}}>Continued Presence is a short-term form of immigration relief available to individuals identified as victims of human trafficking in a potential criminal investigation. The application for Continued Presence must be submitted by federal law enforcement. However, local and state investigators can play an important role by coordinating with a federal law enforcement agency to submit an application. This is generally the fastest way to ensure that the victim has access to employment authorization and access to important government benefits. This benefit provides access to work authorization for two years, and it is renewable subject to law enforcement approval. The victim also may qualify for certain public benefits.</h2>
+                        <h2 style={{fontWeight:"normal"}}>Continued Presence is a short-term form of immigration relief available to individuals identified as victims of human trafficking in a potential criminal investigation. The application for Continued Presence must be submitted by federal law enforcement. However, local and state investigators can play an important role by coordinating with a federal law enforcement agency to submit an application.</h2>
+                        <br />
+                        <h2 style={{fontWeight:"normal"}}>This is generally the fastest way to ensure that the victim has access to employment authorization and access to important government benefits. This benefit provides access to work authorization for two years, and it is renewable subject to law enforcement approval. Continued Presence also allows the victim to qualify for certain public benefits.</h2>
                         <br />
                         <h2 style={{fontWeight:"bold"}}>What is the role of the investigator?</h2>
                         <h2 style={{fontWeight:"normal"}}>To assist a victim to apply for Continued Presence, contact a federal law enforcement agency with the authority to submit an application.</h2>
@@ -1570,7 +1543,7 @@ class App extends Component {
                   <BlueBox blueBox={"immigrationUl"} html={(
                     <div>
                       <h2 style={{fontWeight:"normal"}}>Cambridge, MA</h2>
-                      <h1 style={{fontWeight:"bold"}}>Community Legal Services Counseling Center</h1>
+                      <h1 style={{fontWeight:"bold"}}>De Novo</h1>
                       <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 661-1010</span></h2>
                       <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(617) 661-1011</span></h2>
                       <ul>
@@ -1699,7 +1672,7 @@ class App extends Component {
         <div style={{backgroundColor : "#fff", paddingTop: "20px"}}>
           <NormalText html={(
             <div>
-              <h2 style={{fontWeight:"normal"}}>If you are not a law enforcement investigator, you should bring your report to law enforcement at this stage. If you are a law enforcement investigator, you should commence your investigation into the specific facts surrounding this person and his/her situation and generate your investigative report according to your agency protocol for investigations.</h2>
+              <h2 style={{fontWeight:"normal"}}>The Massachusetts Anti-Trafficking Statute was enacted in 2012, and the law is still evolving. In certain contexts, the statute provided Federally, laws prohibiting labor trafficking law have been in place since 2000, and there have been a number of labor trafficking cases to review for precedent. For those reasons, in Massachusetts we often look for guidance from federal definitions and federal case.</h2>
             </div>
           )} />
           <div class="massTitle">
@@ -1720,7 +1693,9 @@ class App extends Component {
               </ul>
               <hr />
               <h2>Definition of Forced Services:</h2>
-              <h2 style={{fontWeight : "normal"}}>If one or more of the six prongs listed below are met, the conduct is categorized as Trafficking in Persons for Forced Services. Trafficking in Persons for Forced Services is defined as services performed or provided by a person that are obtained or maintained by another person who:</h2>
+              <h2 style={{fontWeight : "normal"}}>If one or more of the six prongs listed below are met, the conduct may be categorized as Trafficking in Persons for Forced Services. “Services”  are any act performed by a person under the supervision of or for the benefit of another including, but not limited to, commercial sexual activity and sexually explicit performances.</h2>
+              <br />
+              <h2 style={{fontWeight : "normal"}}>“Forced Services” is defined as services performed or provided by a person that are obtained or maintained by another person who:</h2>
               <br class="hidden-md hidden-lg" />
               <ul>
                 <li>
@@ -1749,7 +1724,7 @@ class App extends Component {
           </div>
           <NormalText html={(
             <div>
-              <h2 style={{fontWeight:"normal"}}>It is common that labor trafficking may overlap with other crimes, such as sex trafficking, sexual assault, wage theft and other crimes. An investigator should be aware that other violations of law may surface warranting further referral.</h2>
+              <h2 style={{fontWeight:"normal"}}>Labor trafficking may overlap with other crimes, such as sex trafficking, sexual assault, wage theft and other crimes. An investigator should be keep in mind that other violations of law may surface...</h2>
             </div>
           )} />
           <div class="massTitle">
@@ -1762,7 +1737,7 @@ class App extends Component {
                   <h2 style={{fontWeight: "normal"}}>The crime of Trafficking in Persons for Forced Services shall be punished by imprisonment in the state prison for not less than 5 years but not more than 20 years and by a fine of not more than $25,000. M.G.L. ch. 265, § 51(a).</h2>
                 </li>
                 <li>
-                  <h2 style={{fontWeight: "normal"}}>Whoever commits the crime of trafficking of persons for forced services upon a person under 18 years of age shall be punished by imprisonment in the state prison for life or for any term of years, but not less than 5 years. M.G.L. ch. 265, § 51(b). </h2>
+                  <h2 style={{fontWeight: "normal"}}>Whoever commits the crime of trafficking of persons for forced services upon a person under 18 years of age shall be punished by imprisonment in the state prison for life or for any term of years, but not less than 5 years. M.G.L. ch. 265, § 51(b).</h2>
                 </li>
                 <li>
                   <h2 style={{fontWeight: "normal"}}>A business entity that commits trafficking of persons for forced labor services shall be punished by a fine of not more than $1,000,000.” M.G.L. ch. 265, 51(c).</h2>
@@ -1947,10 +1922,7 @@ class App extends Component {
               }
               break;
             case 5:
-              let category = this.state.assessNext;
-              if(category == -1)
-                category = this.renderAssessmentSteps.bind(this);
-              let JSXlist = [category(), this.renderResult()];
+              let JSXlist = [this.renderAssessmentSteps(), this.renderResult()];
               return JSXlist;
               break;
             case 6:
