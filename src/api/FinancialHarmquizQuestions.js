@@ -1,6 +1,6 @@
 var FinancialHarmquizQuestions = [
   {
-      question: "Was the victim paid less than minimum wage?",
+      question: "Was the worker paid less than minimum wage?",
       answers: [
           {
               type: "Yes",
@@ -17,7 +17,7 @@ var FinancialHarmquizQuestions = [
       ]
   },
   {
-      question: "Did the perpetrator ever withdraw money from the victim’s bank account?",
+      question: "Did the perpetrator ever open a bank account in the worker's name?",
       answers: [
           {
               type: "Yes",
@@ -34,7 +34,7 @@ var FinancialHarmquizQuestions = [
       ]
   },
   {
-      question: "Did the perpetrator ever obtain credit cards or other items using the victim’s identity?",
+      question: "Did the perpetrator ever withdraw money from the worker’s bank account?",
       answers: [
           {
               type: "Yes",
@@ -51,7 +51,7 @@ var FinancialHarmquizQuestions = [
       ]
   },
   {
-      question: "Did the perpetrator ever open a bank account in the victim's name?",
+      question: "Did the perpetrator ever obtain credit cards or other items using the worker’s identity?",
       answers: [
           {
               type: "Yes",
@@ -68,7 +68,7 @@ var FinancialHarmquizQuestions = [
       ]
   },
   {
-      question: "Did the victim have a debt owed to the perpetrator?",
+      question: "Did the worker have a debt owed to the perpetrator?",
       answers: [
           {
               type: "Yes",
@@ -85,7 +85,7 @@ var FinancialHarmquizQuestions = [
       ]
   },
   {
-      question: "Did the perpetrator ever subject the victim to unreasonable deductions for items, such as food, housing, or transportation?",
+      question: "Did the perpetrator ever subject the worker to unreasonable deductions for items, such as food, housing, or transportation?",
       answers: [
           {
               type: "Yes",
@@ -102,7 +102,7 @@ var FinancialHarmquizQuestions = [
       ]
   },
   {
-      question: "Was the victim paid overtime?",
+      question: "Was the worker paid overtime?",
       answers: [
           {
               type: "Yes",
@@ -119,7 +119,7 @@ var FinancialHarmquizQuestions = [
       ]
   },
   {
-      question: "Did the victim ever fail to receive accurate paychecks or fail to be paid for all hours worked?",
+      question: "Did the worker ever fail to receive accurate paychecks or fail to be paid for all hours worked?",
       answers: [
           {
               type: "Yes",
@@ -136,7 +136,7 @@ var FinancialHarmquizQuestions = [
       ]
   },
   {
-      question: "Were the victim’s wages ever withheld?",
+      question: "Were the worker’s wages ever withheld?",
       answers: [
           {
               type: "Yes",
@@ -153,24 +153,7 @@ var FinancialHarmquizQuestions = [
       ]
   },
   {
-      question: "Did the victim have meal breaks?",
-      answers: [
-          {
-              type: "Yes",
-              content: "Yes"
-          },
-          {
-              type: "No",
-              content: "No"
-          },
-          {
-              type: "Maybe",
-              content: "Maybe"
-          }
-      ]
-  },
-  {
-      question: "Did the victim have to pay rent or pay for other basic necessities to the perpetrator?",
+      question: "Did the worker have to pay rent or pay for other basic necessities to the perpetrator?",
       answers: [
           {
               type: "Yes",

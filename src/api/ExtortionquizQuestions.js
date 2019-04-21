@@ -1,6 +1,6 @@
 var ExtortionquizQuestions = [
   {
-      question: "Did the perpetrator ever threaten to falsely accuse the victim of a crime if he/she did not continue to work?",
+      question: "Did the perpetrator ever threaten to accuse the worker of a crime if he/she did not continue to work?",
       answers: [
           {
               type: "Yes",
@@ -17,7 +17,7 @@ var ExtortionquizQuestions = [
       ]
   },
   {
-      question: "Did the perpetrator ever threaten to harm someone if the victim did not continue to work?",
+      question: "Did the perpetrator ever compel injury or threaten to compel injury by use of position of power (i.e. police authority, licensing authority)?",
       answers: [
           {
               type: "Yes",
@@ -34,7 +34,7 @@ var ExtortionquizQuestions = [
       ]
   },
   {
-      question: "Did the victim fear retaliation from the perpetrator for quitting?",
+      question: "Did the worker fear retaliation from the perpetrator for quitting?",
       answers: [
           {
               type: "Yes",

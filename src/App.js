@@ -42,6 +42,10 @@ class App extends Component {
      question: [],
      answerOptions: [],
      Answer: new Array(14).fill(''),
+     assessedCategories: [0],
+     assessNext: -1,
+     oneRegYes: -1,
+     oneYes: -1,
      line: 0,
      page: 1,
      page_old: 1,
@@ -77,6 +81,7 @@ class App extends Component {
     this.renderQuestions = this.renderQuestions.bind(this);
     this.renderMassStatute = this.renderMassStatute.bind(this);
     this.renderReport = this.renderReport.bind(this);
+    this.renderFederalIntro = this.renderFederalIntro.bind(this);
 
   }
 
@@ -122,25 +127,92 @@ class App extends Component {
 
 
   getResults() {
+    this.setState({assessNext: -1});
+
     let answerKey = [];
-    answerKey[1] = [1, 2, 3, 4, 5];
-    answerKey[2] = [1, 2, 3, 4, 5];
-    answerKey[3] = [1, 2, 3];
-    answerKey[4] = [1, 2, 3, 4];
-    answerKey[5] = [1, 2, 3];
-    answerKey[6] = [];
+    answerKey[1] = [1, 3, 4, 9];
+    answerKey[2] = [1, 4, 6];
+    answerKey[3] = [1];
+    answerKey[4] = [1, 2, 3, 4, 5];
+    answerKey[5] = [2];
+    answerKey[6] = [1];
 
     for( let i =0; i<answerKey[this.state.qcategory].length; i++){
       let answer = answerKey[this.state.qcategory][i];
-      if(this.state.Answer[answer] == 'Yes')
-        return ['Yes'];
+      if(this.state.Answer[answer] == 'Yes'){
+        if((this.state.oneYes != -1) && (this.state.oneYes != this.state.qcategory)){
+          return ['yes-all'];
+        }
+        else{
+          this.setState({oneYes: this.state.qcategory});
+          return ['yes-one'];
+        }
+      }
     }
 
-    const answersCount = this.state.answersCount;
+    let assessedCategories = this.state.assessedCategories;
+    if(!assessedCategories.includes(this.state.qcategory)){
+      assessedCategories.push(this.state.qcategory);
+      this.setState({assessedCategories : assessedCategories});
+    }
+    //console.log(this.state.assessedCategories);
+    //console.log(this.state.oneYes);
+    //console.log(this.state.assessedCategories.length);
+    //console.log(answerKey.length);
+    if(assessedCategories.length == answerKey.length)
+      return ['unclear-all'];
 
-    for(let i=1; i<=this.state.Answer.length; i++)
-      if(this.state.Answer[i] != '')
-        answersCount[this.state.Answer[i]]++;
+    let returnVal = [];
+    if(this.state.oneYes != -1)
+      returnVal = ['yes-one'];
+
+    if(this.state.oneRegYes != -1)
+      returnVal = ['yes-reg'];
+
+    const answersCount = this.state.answersCount;
+    for(let i=1; i<=this.state.Answer.length; i++){
+      if(this.state.Answer[i] == 'Yes'){
+        this.setState({oneRegYes: 1});
+        returnVal = ['yes-reg'];
+      }
+    }
+
+    returnVal = ['unclear-one'];
+
+    for(let i=1; i<answerKey.length; i++){
+      if(!assessedCategories.includes(i)){
+        switch(i){
+          case 1:
+            this.sHarmQuizFunc();
+            this.setState({assessNext: this.renderHarmQuiz.bind(this)});
+            break;
+          case 2:
+            this.restraintQuizFunc();
+            this.setState({assessNext: this.renderRestraintQuiz.bind(this)});
+            break;
+          case 3:
+            this.abuseQuizFunc();
+            this.setState({assessNext: this.renderAbuseQuiz.bind(this)});
+            break;
+          case 4:
+            this.identitydocQuizFunc();
+            this.setState({assessNext: this.renderIdentityQuiz.bind(this)});
+            break;
+          case 5:
+            this.extortionQuizFunc();
+            this.setState({assessNext: this.renderExtortionQuiz.bind(this)});
+            break;
+          case 6:
+            this.fharmQuizFunc();
+            this.setState({assessNext: this.renderfHarmQuiz.bind(this)});
+            break;
+        }
+        break;
+      }
+    }
+
+    return returnVal;
+
 
     const answersCountKeys = Object.keys(answersCount);
     const answersCountValues = answersCountKeys.map((key) => answersCount[key]);
@@ -187,6 +259,14 @@ class App extends Component {
     this.setResults(this.getResults());
   }
 
+  renderFederalIntro(){
+    return (
+      <div>
+        <p class="regularText"> The Massachusetts Anti-Trafficking Statute was enacted in 2012, and the law is still evolving. In certain contexts, the statute provided Federally, laws prohibiting labor trafficking law have been in place since 2000, and there have been a number of labor trafficking cases to review for precedent.  For those reasons, in Massachusetts we often look for guidance from federal definitions and federal case </p>
+        <br />
+      </div>
+    );
+  }
 
   renderQuestions(questions){
     return (
@@ -237,11 +317,12 @@ class App extends Component {
           <Expandable content={
             <div class="App">
               <br />
+              {this.renderFederalIntro()}
               <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
               <p class="regularText">Serious harm may be physical and nonphysical, including psychological, financial, or reputational harm. Generally, the test contemplates whether it is sufficiently serious, under all the surrounding circumstances, to compel a reasonable person of the same background and in the same circumstances to perform or to continue performing labor or services in order to avoid incurring that harm. </p>
               <br />
               <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
-              <p class="regularText">Serious harm is can be defined as any harm, whether physical or nonphysical, including psychological, financial, or reputational harm, that is sufficiently serious, under all the surrounding circumstances, to compel a reasonable person of the same background and in the same circumstances to perform or to continue performing labor or services in order to avoid incurring that harm. 18 USC § 1589 (c)(2).</p>
+              <p class="regularText">There is currently no statutory or case law definition of serious harm under Massachusetts law. Serious harm is defined under federal law as any harm, whether physical or nonphysical, including psychological, financial, or reputational harm, that is sufficiently serious, under all the surrounding circumstances, to compel a reasonable person of the same background and in the same circumstances to perform or to continue performing labor or services in order to avoid incurring that harm. 18 USC § 1589 (c)(2). </p>
               <br />
               <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
               <ul>
@@ -258,11 +339,12 @@ class App extends Component {
         <div class="hidden-xs hidden-sm">
           <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
             <br />
+            {this.renderFederalIntro()}
             <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
             <p class="regularText">Serious harm may be physical and nonphysical, including psychological, financial, or reputational harm. Generally, the test contemplates whether it is sufficiently serious, under all the surrounding circumstances, to compel a reasonable person of the same background and in the same circumstances to perform or to continue performing labor or services in order to avoid incurring that harm. </p>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
-            <p class="regularText">Serious harm is defined federally as any harm, whether physical or nonphysical, including psychological, financial, or reputational harm, that is sufficiently serious, under all the surrounding circumstances, to compel a reasonable person of the same background and in the same circumstances to perform or to continue performing labor or services in order to avoid incurring that harm. 18 USC § 1589 (c)(2).</p>
+            <p class="regularText">There is currently no statutory or case law definition of serious harm under Massachusetts law. Serious harm is defined under federal law as any harm, whether physical or nonphysical, including psychological, financial, or reputational harm, that is sufficiently serious, under all the surrounding circumstances, to compel a reasonable person of the same background and in the same circumstances to perform or to continue performing labor or services in order to avoid incurring that harm. 18 USC § 1589 (c)(2). </p>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
             <ul>
@@ -299,13 +381,14 @@ class App extends Component {
           <Expandable content={
             <div class="App">
               <br />
+              {this.renderFederalIntro()}
               <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-              <p class="regularText">Physical restraint means purposely limiting or obstructing the freedom of a person’s bodily movement. This can range from using locks on doors or windows to more subtle forms of control that restrict another person’s ability to move around.</p>
+              <p class="regularText">Physical restraint is not defined under Massachusetts law. Federally, it has been defined generally as purposely limiting or obstructing the freedom of a person’s bodily movement. This can range from using locks on doors or windows to more subtle forms of control that restrict another person’s ability to move around.</p>
               <br />
               <p class="regularText" style={{"fontWeight" : "bold"}}>Example</p>
               <ul>
                 <li>
-                  <p class="regularText">A domestic worker is brought to the United States by an employer. Her employers do not permit her to leave the house unaccompanied, and her movement is monitored by cameras.</p>
+                  <p class="regularText">A domestic worker is brought to the United States by an employer. The employer does not permit her to leave the house unaccompanied, and her movement is monitored by cameras.</p>
                 </li>
               </ul>
             </div>
@@ -314,8 +397,9 @@ class App extends Component {
         <div class="hidden-xs hidden-sm">
           <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
             <br />
+            {this.renderFederalIntro()}
             <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-            <p class="regularText">Physical restraint means purposely limiting or obstructing the freedom of a person’s bodily movement. This can range from using locks on doors or windows to more subtle forms of control that restrict another person’s ability to move around.</p>
+            <p class="regularText">Physical restraint is not defined under Massachusetts law. Federally, it has been defined generally as purposely limiting or obstructing the freedom of a person’s bodily movement. This can range from using locks on doors or windows to more subtle forms of control that restrict another person’s ability to move around.</p>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Example</p>
             <ul>
@@ -349,16 +433,17 @@ class App extends Component {
           <Expandable content={
             <div class="App">
               <br />
+              {this.renderFederalIntro()}
               <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-              <p class="regularText">Abuse of the legal process includes the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed. A common example is a threat of deportation by an employer.</p>
+              <p class="regularText">Abuse of the legal process under federal law includes the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed. A common example is a threat of deportation by an employer.</p>
               <br />
               <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
-              <p class="regularText">Abuse of the legal process can be defined as the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed, in order to exert pressure on another person to cause that person to take some action or refrain from taking some action. 22 U.S.C. § 7102(1).</p>
+              <p class="regularText">There is currently no statutory or case law definition of serious harm under Massachusetts law. Abuse of the legal process is defined federally as the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed, in order to exert pressure on another person to cause that person to take some action or refrain from taking some action. 22 U.S.C. § 7102(1).</p>
               <br />
               <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
               <ul>
                 <li>
-                  <p class="regularText">An employer threatens to deport the worker or "call immigration" on him if he stopped working for the employer.</p>
+                  <p class="regularText">An employer threatens to deport the worker or "call immigration" if he stops working for the employer.</p>
                 </li>
                 <li>
                   <p class="regularText">An employer threatens to falsely accuse the worker of a crime if she fails to work.</p>
@@ -370,16 +455,17 @@ class App extends Component {
         <div class="hidden-xs hidden-sm">
           <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
             <br />
+            {this.renderFederalIntro()}
             <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-            <p class="regularText">Abuse of the legal process includes the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed. A common example is a threat of deportation by an employer.</p>
+            <p class="regularText">Abuse of the legal process under federal law includes the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed. A common example is a threat of deportation by an employer.</p>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
-            <p class="regularText">Abuse of the legal process can be defined as the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed, in order to exert pressure on another person to cause that person to take some action or refrain from taking some action. 22 U.S.C. § 7102(1).</p>
+            <p class="regularText">There is currently no statutory or case law definition of serious harm under Massachusetts law. Abuse of the legal process is defined federally as the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed, in order to exert pressure on another person to cause that person to take some action or refrain from taking some action. 22 U.S.C. § 7102(1).</p>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
             <ul>
               <li>
-                <p class="regularText">An employer threatens to deport the worker or "call immigration" on him if he stopped working for the employer.</p>
+                <p class="regularText">An employer threatens to deport the worker or "call immigration" if he stops working for the employer.</p>
               </li>
               <li>
                 <p class="regularText">An employer threatens to falsely accuse the worker of a crime if she fails to work.</p>
@@ -412,12 +498,15 @@ class App extends Component {
             <div class="App">
               <br />
               <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-              <p class="regularText">This includes taking someone’s passport for any period of time, even if it is brief. In addition, it can include tearing or mutilating identity documents related to work.</p>
+              <p class="regularText">This includes taking someone’s identity document for any period of time, even if it is brief. In addition, it can include tearing or mutilating identity documents related to work.</p>
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
+              <p class="regularText">Under Massachusetts law, this includes anyone who knowingly destroys, conceals, removes, confiscates or possesses any actual or purported passport or other immigration document, or any other actual or purported government identification document, of another person. M.G.L. ch. 265, § 49.</p>
               <br />
               <p class="regularText" style={{"fontWeight" : "bold"}}>Example</p>
               <ul>
                 <li>
-                  <p class="regularText">An employer demands that the worker give her the worker’s passport and keeps it in an undisclosed location.</p>
+                  <p class="regularText">An employer demands that the worker’s passport remain with the employer. The employer keeps it in an undisclosed location.</p>
                 </li>
               </ul>
             </div>
@@ -427,12 +516,15 @@ class App extends Component {
           <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-            <p class="regularText">This includes taking someone’s passport for any period of time, even if it is brief. In addition, it can include tearing or mutilating identity documents related to work.</p>
+            <p class="regularText">This includes taking someone’s identity document for any period of time, even if it is brief. In addition, it can include tearing or mutilating identity documents related to work.</p>
+            <br />
+            <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
+            <p class="regularText">Under Massachusetts law, this includes anyone who knowingly destroys, conceals, removes, confiscates or possesses any actual or purported passport or other immigration document, or any other actual or purported government identification document, of another person. M.G.L. ch. 265, § 49.</p>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Example</p>
             <ul>
               <li>
-                <p class="regularText">An employer demands that the worker give her the worker’s passport and keeps it in an undisclosed location.</p>
+                <p class="regularText">An employer demands that the worker’s passport remain with the employer. The employer keeps it in an undisclosed location.</p>
               </li>
             </ul>
           </div>
@@ -462,10 +554,17 @@ class App extends Component {
             <div class="App">
               <br />
               <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-              <p class="regularText">Extortion is the practice of trying to get something through force, threats, or blackmail. For example, extortion may involve a perpetrator who threatens to release embarrassing photographs, unless the victim continues to work.</p>
+              <p class="regularText">Extortion is the practice of trying to get something through force, threats, or blackmail.</p>
               <br />
               <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
               <p class="regularText">"Whoever, verbally or by a written or printed communication, maliciously threatens to accuse another of a crime or offence, or by a verbal or written or printed communication maliciously threatens an injury to the person or property of another, or any police officer or person having the powers of a police officer, or any officer, or employee of any licensing authority who verbally or by written or printed communication maliciously and unlawfully uses or threatens to use against another the power or authority vested in him, with intent thereby to extort money or any pecuniary advantage, or with intent to compel any person to do any act against his will, shall be punished by imprisonment in the state prison for not more than fifteen years, or in the house of correction for not more than two and one half years, or by a fine of not more than five thousand dollars, or both." M.G.L. ch. 265, § 25.</p>
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Example</p>
+              <ul>
+                <li>
+                  <p class="regularText">An employer threatens to release embarrassing photographs, unless the worker continues to work.</p>
+                </li>
+              </ul>
             </div>
           } />
         </div>
@@ -473,10 +572,17 @@ class App extends Component {
           <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-            <p class="regularText">Extortion is the practice of trying to get something through force, threats, or blackmail. For example, extortion may involve a perpetrator who threatens to release embarrassing photographs, unless the victim continues to work.</p>
+            <p class="regularText">Extortion is the practice of trying to get something through force, threats, or blackmail.</p>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
             <p class="regularText">"Whoever, verbally or by a written or printed communication, maliciously threatens to accuse another of a crime or offence, or by a verbal or written or printed communication maliciously threatens an injury to the person or property of another, or any police officer or person having the powers of a police officer, or any officer, or employee of any licensing authority who verbally or by written or printed communication maliciously and unlawfully uses or threatens to use against another the power or authority vested in him, with intent thereby to extort money or any pecuniary advantage, or with intent to compel any person to do any act against his will, shall be punished by imprisonment in the state prison for not more than fifteen years, or in the house of correction for not more than two and one half years, or by a fine of not more than five thousand dollars, or both." M.G.L. ch. 265, § 25.</p>
+            <br />
+            <p class="regularText" style={{"fontWeight" : "bold"}}>Example</p>
+            <ul>
+              <li>
+                <p class="regularText">An employer threatens to release embarrassing photographs, unless the worker continues to work.</p>
+              </li>
+            </ul>
           </div>
         </div>
         {this.renderQuestions(ExtortionquizQuestions)}
@@ -504,7 +610,7 @@ class App extends Component {
             <div class="App">
               <br />
               <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-              <p class="regularText">Financial harm may be involved if the perpetrator puts the victim in a detrimental position in relation to wealth, property, or other monetary benefits through extortion, criminal usury, or illegal employment contracts. This might include a situation where the perpetrator uses an illegal employment contract to lure a victim to work in demeaning conditions.</p>
+              <p class="regularText">Financial harm is when a perpetrator puts the worker in a detrimental position in relation to wealth, property, or other monetary benefits through extortion, criminal usury, or illegal employment contracts. This might include a situation where the perpetrator uses an illegal employment contract to lure a worker to work in demeaning conditions.</p>
               <br />
               <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
               <p class="regularText">“Financial harm” is defined as a detrimental position in relation to wealth, property or other monetary benefits that occurs as a result of another person’s illegal act including, but not limited to, extortion under by section 25, a violation of section 49 of chapter 271 (“Criminal Usury”), or illegal employment contracts.” M.G.L. ch. 265, § 49.</p>
@@ -528,7 +634,7 @@ class App extends Component {
           <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-            <p class="regularText">Financial harm may be involved if the perpetrator puts the victim in a detrimental position in relation to wealth, property, or other monetary benefits through extortion, criminal usury, or illegal employment contracts. This might include a situation where the perpetrator uses an illegal employment contract to lure a victim to work in demeaning conditions.</p>
+            <p class="regularText">Financial harm is when a perpetrator puts the worker in a detrimental position in relation to wealth, property, or other monetary benefits through extortion, criminal usury, or illegal employment contracts. This might include a situation where the perpetrator uses an illegal employment contract to lure a worker to work in demeaning conditions.</p>
             <br />
             <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
             <p class="regularText">“Financial harm” is defined as a detrimental position in relation to wealth, property or other monetary benefits that occurs as a result of another person’s illegal act including, but not limited to, extortion under by section 25, a violation of section 49 of chapter 271 (“Criminal Usury”), or illegal employment contracts.” M.G.L. ch. 265, § 49.</p>
@@ -575,37 +681,45 @@ class App extends Component {
         <div>
           <Popup
             open={true}
-            contentStyle={{ maxWidth: "600px", height: "400px", width: "90%", overflow: "auto" }}>
+            contentStyle={{ maxWidth: "600px", height: "400px", width: "90%", overflow: "auto"}}>
             {close => (
-              <div>
-                <button class="modalClose" onClick={() => {close(); this._onAssessClic}}>&#215;</button>
-                <div className="header">
-                  <p class="modalCategory">Results for:</p>
-                </div>
-                <div className="header">
-                  <p>
-                    {
-                        this.state.qcategory == 1 ? "Serious Harm" : this.state.qcategory == 2 ?
-                                                  "Physical Restraint" : this.state.qcategory == 3 ? "Abuse of the Law" :
-                                                  this.state.qcategory == 4 ? "Identity Documents" : this.state.qcategory == 5 ?
-                                                  "Extortion" : "Financial Harm"
-                    }
-                  </p>
-                </div>
-
-                {this.state.result == 'Yes' ? this.renderImgTick() : this.state.result == 'No' ? this.renderImgCross() : this.renderImgQues()}
-
-                <div style={{paddingTop: "20px"}} class="header">
-                  <p>Report &amp; Find Victim Services</p>
-                </div>
-                <Result quizResult={this.state.result} />
-                <div class="actions">
-                  <div>
-                    <button className="button1" style={{float : "unset", marginRight: "10px"}} onClick={this._onReportClick}>Report</button>
-                    <button className="button3" style={{float : "unset"}} onClick={this._onResourcesClick}>Victim Services</button>
+              <div style={{display: "table", height: "100%", width: "100%"}}>
+                <button class="modalClose" onClick={() => {close(); /*this._onPrepareClick()*/}}>&#215;</button>
+                <div style={{display : "table-cell", verticalAlign : "middle"}}>
+                  <div className="header">
+                    <p class="modalCategory">Results for:</p>
                   </div>
+                  <div className="header">
+                    <p>
+                      {
+                          this.state.qcategory == 1 ? "Serious Harm" : this.state.qcategory == 2 ?
+                                                    "Physical Restraint" : this.state.qcategory == 3 ? "Abuse of the Law" :
+                                                    this.state.qcategory == 4 ? "Identity Documents" : this.state.qcategory == 5 ?
+                                                    "Extortion" : "Financial Harm"
+                      }
+                    </p>
+                  </div>
+                  {(()=>{
+                    switch(this.state.result){
+                      case 'yes-one':
+                      case 'yes-all':
+                        return this.renderImgTick();
+                      default:
+                        return this.renderImgQues();
+                    }
+                  })()}
+                  <div style={{paddingTop: "20px"}} class="header">
+                    <p>Report &amp; Find Victim Services</p>
+                  </div>
+                  <Result quizResult={this.state.result} />
+                  <div class="actions">
+                    <div>
+                      <button className="button1" style={{float : "unset", marginRight: "10px"}} onClick={this._onReportClick}>Report</button>
+                      <button className="button3" style={{float : "unset"}} onClick={this._onResourcesClick}>Victim Services</button>
+                    </div>
+                  </div>
+                  <br/>
                 </div>
-                <br/>
               </div>
             )}
           </Popup>
@@ -1833,7 +1947,10 @@ class App extends Component {
               }
               break;
             case 5:
-              let JSXlist = [this.renderAssessmentSteps(), this.renderResult()];
+              let category = this.state.assessNext;
+              if(category == -1)
+                category = this.renderAssessmentSteps.bind(this);
+              let JSXlist = [category(), this.renderResult()];
               return JSXlist;
               break;
             case 6:

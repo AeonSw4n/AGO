@@ -1,6 +1,6 @@
 var SeriousHarmquizQuestions = [
   {
-      question: "Did the perpetrator physically hurt the victim or anyone else involved in the case?",
+      question: "Did the perpetrator physically hurt the worker or anyone else involved in the case?",
       answers: [
           {
               type: "Yes",
@@ -17,7 +17,7 @@ var SeriousHarmquizQuestions = [
       ]
   },
   {
-      question: "Did the perpetrator threaten to physically hurt the victim or anyone else?",
+      question: "Did the perpetrator threaten to physically hurt the worker or anyone else?",
       answers: [
           {
               type: "Yes",
@@ -34,7 +34,7 @@ var SeriousHarmquizQuestions = [
       ]
   },
   {
-      question: "Did the perpetrator sexually assault the victim or threaten to sexually assault the victim?",
+      question: "Did the perpetrator sexually assault the worker or threaten to sexually assault the worker?",
       answers: [
           {
               type: "Yes",
@@ -51,7 +51,7 @@ var SeriousHarmquizQuestions = [
       ]
   },
   {
-      question: "Did the perpetrator threaten the victim with deportation?",
+      question: "Did the perpetrator threaten the worker with deportation?",
       answers: [
           {
               type: "Yes",
@@ -85,7 +85,7 @@ var SeriousHarmquizQuestions = [
       ]
   },
   {
-      question: "Did the perpetrator threaten to fire the victim (not for good cause)?",
+      question: "Did the perpetrator threaten to fire the worker (not for good cause)?",
       answers: [
           {
               type: "Yes",
@@ -102,7 +102,7 @@ var SeriousHarmquizQuestions = [
       ]
   },
   {
-      question: "Did the perpetrator threaten the victim with reputational harm?",
+      question: "Did the perpetrator threaten the worker with reputational harm?",
       answers: [
           {
               type: "Yes",
@@ -119,7 +119,7 @@ var SeriousHarmquizQuestions = [
       ]
   },
   {
-      question: "Was the victim emotionally abused by the perpetrator?",
+      question: "Was the worker emotionally abused by the perpetrator?",
       answers: [
           {
               type: "Yes",
@@ -136,7 +136,7 @@ var SeriousHarmquizQuestions = [
       ]
   },
   {
-      question: "Did the perpetrator seriously harm or threaten the victim with serious harm in any other way?",
+      question: "Did the perpetrator seriously harm or threaten the worker with serious harm in any other way?",
       answers: [
           {
               type: "Yes",

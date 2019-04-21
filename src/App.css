@@ -82,6 +82,9 @@
   font-family: serif;
   font-weight: bold;
   line-height: 30px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
 .header .modalCategory{

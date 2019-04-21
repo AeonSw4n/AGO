@@ -1,6 +1,6 @@
 var AbuseofLawquizQuestions = [
   {
-      question: "Did the perpetrator threaten the victim with deportation?",
+      question: "Did the perpetrator threaten the worker with deportation?",
       answers: [
           {
               type: "Yes",
@@ -34,7 +34,7 @@ var AbuseofLawquizQuestions = [
       ]
   },
   {
-      question: "Did the perpetrator ever threaten the victim with contacting the \"authorities,\" law enforcement, or the government in order to cause the victim fear?",
+      question: "Did the perpetrator ever threaten the worker with contacting the 'authorities,' law enforcement, or the government in order to cause the worker fear?",
       answers: [
           {
               type: "Yes",

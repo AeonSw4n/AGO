@@ -1,6 +1,6 @@
 var RestraintquizQuestions = [
   {
-      question: "Did the perpetrator ever physically restrain or threaten to physically restrain the victim in any other way?",
+      question: "Did the perpetrator ever physically restrain or threaten to physically restrain the worker in any other way?",
       answers: [
           {
               type: "Yes",
@@ -17,7 +17,7 @@ var RestraintquizQuestions = [
       ]
   },
   {
-      question: "Did the perpetrator lock the windows or doors where the victim was residing or working?",
+      question: "Did the perpetrator lock the windows or doors where the worker was residing or working?",
       answers: [
           {
               type: "Yes",
@@ -34,7 +34,7 @@ var RestraintquizQuestions = [
       ]
   },
   {
-      question: "Was the victim monitored by the perpetrator?",
+      question: "Was the worker monitored by the perpetrator?",
       answers: [
           {
               type: "Yes",
@@ -51,7 +51,7 @@ var RestraintquizQuestions = [
       ]
   },
   {
-      question: "Was the victim’s movement restricted in any way by the perpetrator?",
+      question: "Was the worker’s movement restricted in any way by the perpetrator?",
       answers: [
           {
               type: "Yes",
@@ -68,7 +68,7 @@ var RestraintquizQuestions = [
       ]
   },
   {
-      question: "Did the perpetrator kidnap or threaten to kidnap the victim?",
+      question: "Did the perpetrator kidnap or threaten to kidnap the worker?",
       answers: [
           {
               type: "Yes",
@@ -85,7 +85,7 @@ var RestraintquizQuestions = [
       ]
   },
   {
-      question: "Did the perpetrator hold the victim against will?",
+      question: "Did the perpetrator hold the worker against will?",
       answers: [
           {
               type: "Yes",
@@ -102,7 +102,7 @@ var RestraintquizQuestions = [
       ]
   },
   {
-      question: "Did the victim have limited communication with family and/or friends?",
+      question: "Did the worker have limited communication with family and/or friends?",
       answers: [
           {
               type: "Yes",
