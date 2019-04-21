@@ -1117,7 +1117,7 @@ class App extends Component {
           <div class="AssesmentContent">
             <div class="App hidden-md hidden-lg">
               <p class="regularText" style={{"fontStyle" : "italic"}}>Select a category to view its questions</p>
-              <p class="regularText" style={{"fontWeight" : "bold", "textDecoration" : "underline"}}>Or click here to download the questions</p>
+              <p class="regularText" style={{"fontWeight" : "bold", "textDecoration" : "underline"}}><a href={AssessmentPDF}>Or click here to download the questions</a></p>
             </div>
             <div class="App hidden-xs hidden-sm">
               <p class="regularText" style={{"fontStyle" : "italic", "textAlign" : "center"}}>Select a category to view its questions</p>
