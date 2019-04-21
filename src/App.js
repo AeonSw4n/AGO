@@ -79,12 +79,14 @@ class App extends Component {
     this._onVictimClick = this._onVictimClick.bind(this);
     this._onMassClick = this._onMassClick.bind(this);
     this._onReportClick = this._onReportClick.bind(this);
+    this._onAboutClick = this._onAboutClick.bind(this);
     this.downloadPdf = this.downloadPdf.bind(this);
     this.handleResourcesClick = this.handleResourcesClick.bind(this);
     this.renderQuestions = this.renderQuestions.bind(this);
     this.renderMassStatute = this.renderMassStatute.bind(this);
     this.renderReport = this.renderReport.bind(this);
     this.renderFederalIntro = this.renderFederalIntro.bind(this);
+    this.renderAbout = this.renderAbout.bind(this);
 
   }
 
@@ -704,16 +706,19 @@ class App extends Component {
     return (
       <div className="App">
         <br class="hidden-lg hidden-md" />
-        <p className="Head hidden-lg hidden-md">Recognize and Evaluate Signs <br />to Uncover Labor Trafficking{/*Labor Trafficking <br />Identification Tool*/}</p>
+        <div class="Head hidden-lg hidden-md" style={{textAlign : "left"}}>
+          <img src={ResultImg} style={{height: "24px", marginBottom: "5px", marginTop: "5px"}} alt="RESULT" />
+        </div>
+        {/*<p className="Head hidden-lg hidden-md">Recognize and Evaluate Signs <br />to Uncover Labor Trafficking</p>*/}
         <div class="ButBar hidden-lg hidden-md">
           {/*<p class="HomeHead1" style={{"fontWeight" : "bold", "color" : "#808080", "marginBottom": "20px"}}> </p>*/}
-          <p className="HomeHead1">A tool to help investigators refer labor trafficking <br /> under Massachusetts law.<br></br></p>
+          <p className="HomeHead1">A tool to help investigators refer labor trafficking <br class="hidden-xs" /> under Massachusetts law.<br></br></p>
         </div>
 
         <div class="homeContainer hidden-sm hidden-xs">
           {/*<p class="MassTitle">Massachusetts Attorney General’s Office</p>*/}
-          {/*<img src={ResultImg} height="36px" alt="RESULT"/>*/}
-          <p class="HomeHead" style={{"lineHeight": "36px"}}>RESULT{/*Labor Trafficking Identification Tool*/}</p>
+          <img class="HomeHead" src={ResultImg} height="30px" alt="RESULT"/>
+          {/*<p class="HomeHead" style={{"lineHeight": "36px"}}>RESULT</p>*/}
           <p class="HomeHead1" style={{"fontWeight" : "bold", "color" : "#808080", "marginBottom": "20px"}}>Recognize and Evaluate Signs to Uncover Labor Trafficking </p>
           <p class="HomeHead1">A tool to help investigators refer labor <br />trafficking under Massachusetts law.</p>
         </div>
@@ -916,6 +921,12 @@ class App extends Component {
     })
   }
 
+  _onAboutClick(){
+    this.setState({
+      page: 9,
+      mobileMenu: false,
+    })
+  }
   renderPrepare() {
     let blueBoxContainer = "prepareBlueBoxContainer blueBoxLeft";
     let blueBox = "prepareBlueBox";
@@ -1808,6 +1819,89 @@ class App extends Component {
     )
   }
 
+  renderAbout(){
+    return (
+      <div>
+        <div style={{borderBottom : "1px solid #EAEAEA"}} className="App hidden-md hidden-lg">
+          <div class="pageTitle hidden-lg hidden-md" style={{textAlign : "center", paddingBottom: "10px"}}>
+            <img src={ResultImg} style={{height: "24px", marginBottom: "5px"}} alt="RESULT" />
+          </div>
+          <div class="massTitle" style={{paddingTop: "0px"}}>
+            <p style={{borderBottom: "none"}}>Recognize and Evaluate Signs to Uncover Labor Trafficking</p>
+          </div>
+        </div>
+
+        <div style={{"borderBottom" : "1px solid #EAEAEA"}} className="App hidden-xs hidden-sm">
+          <div class="homeContainer" style={{"paddingBottom" : "10px"}}>
+            <img class="HomeHead" src={ResultImg} height="26px" alt="RESULT"/>
+          </div>
+          <div class="massTitle" style={{paddingTop: "0px"}}>
+            <p style={{borderBottom: "none"}}>Recognize and Evaluate Signs to Uncover Labor Trafficking</p>
+          </div>
+        </div>
+
+        <div style={{backgroundColor : "#fff", paddingTop: "20px"}}>
+          <div class="massTitle" >
+            <p>Our goal</p>
+          </div>
+          <NormalText html={(
+            <div style={{textAlign: "center"}}>
+              <h2 style={{fontWeight:"bold"}}>To bring insight and understanding about the signs <br class="hidden-xs hiden-sm" /> and signals of labor trafficking to your fingertips.</h2>
+            </div>
+          )} />
+          <br />
+          <BlueBox blueBox={"massBlueBox immigrationUl"} html={
+            <div>
+              <h2>Who We Are</h2>
+              <h2 style={{fontWeight : "normal"}}>A coalition of individuals focused on shining a light to bring labor trafficking out of the shadows.</h2>
+              <br class="hidden-md hidden-lg" />
+              <ul>
+                <li>
+                  <h2 style={{fontWeight: "normal"}}>BU Spark!</h2>
+                </li>
+                <li>
+                  <h2 style={{fontWeight: "normal"}}>BU School of Law Immigrants’ Rights and Human Trafficking Clinic</h2>
+                </li>
+                <li>
+                  <h2 style={{fontWeight: "normal"}}>Fair Labor Division, Massachusetts Office of the Attorney General</h2>
+                </li>
+                <li>
+                  <h2 style={{fontWeight: "normal"}}>Human Trafficking Division, Massachusetts Office of the Attorney General</h2>
+                </li>
+              </ul>
+              <hr />
+              <h2>Why this App?</h2>
+              <br class="hidden-md hidden-lg" />
+              <ul>
+                <li>
+                  <h2 style={{fontWeight: "normal"}}>Because labor trafficking is everywhere.</h2>
+                </li>
+                <li>
+                  <h2 style={{fontWeight: "normal"}}>Because labor trafficking is difficult to see.</h2>
+                </li>
+                <li>
+                  <h2 style={{fontWeight: "normal"}}>Because you always have your phone in your hand.</h2>
+                </li>
+                <li>
+                  <h2 style={{fontWeight: "normal"}}>Because we want to help you answer questions.</h2>
+                </li>
+                <li>
+                  <h2 style={{fontWeight: "normal"}}>Because we want victims of labor trafficking to know help is out there.</h2>
+                </li>
+                <li>
+                  <h2 style={{fontWeight: "normal"}}>Because we all have a role in unmasking labor trafficking.</h2>
+                </li>
+                <li>
+                  <h2 style={{fontWeight: "normal"}}>Because the RESULT can aid in eradicating labor trafficking in Massachusetts.</h2>
+                </li>
+              </ul>
+            </div>
+          } />
+        </div>
+      </div>
+    )
+  }
+
   renderNavHome() {
     return (
       <div class="row menu">
@@ -1869,7 +1963,8 @@ class App extends Component {
           <div class="topRowContainer row">
           <div class="topRow col-xs-6 col-sm-6 col-md-3 col-lg-3">
             {/*<img src={logo} className="topDivHL" alt="logo" />*/}
-            <h3 class ="topDivH">{/*<a href="https://www.mass.gov/" style={{color : "inherit"}}>*/}RESULT{/*</a>*/}</h3>
+            <img src={ResultImgLight} onClick={this._onAboutClick} class="topDivHL" alt="RESULT" />
+            {/*<h3 class ="topDivH">RESULT</h3>*/}
           </div>
 
           <div class="topRow1 col-xs-6 col-sm-6 col-md-9 col-lg-9">
@@ -1933,6 +2028,9 @@ class App extends Component {
               break;
             case 8:
               return this.renderReport();
+              break;
+            case 9:
+              return this.renderAbout();
               break;
             default:
               return this.renderHome();

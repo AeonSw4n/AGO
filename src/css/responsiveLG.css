@@ -1,4 +1,11 @@
 @media (min-width: 1200px){
+
+  .topDivHL:hover{
+    border-bottom: 4px solid #baccdd;
+    color: #baccdd;
+    text-decoration: none;
+  }
+
   .resourcesContent{
     padding-top: 40px;
     background-color: #fff;

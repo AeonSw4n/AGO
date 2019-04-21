@@ -1,5 +1,13 @@
 
 @media (min-width: 992px) and (max-width: 1199px){
+
+
+  .topDivHL:hover{
+    border-bottom: 4px solid #baccdd;
+    color: #baccdd;
+    text-decoration: none;
+  }
+
   .HomeBR{
     display: block;
   }

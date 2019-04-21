@@ -444,9 +444,11 @@ input[type=checkbox]:checked ~ #menu{
   width: 75px;
   padding: 10px;
   padding-left: 0px;
-  margin-left: -4px;
+  margin-left: 0px;
+  border-bottom: none;
 
 }
+
 
 .button1 {
     position: relative;

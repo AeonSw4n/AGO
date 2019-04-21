@@ -32,8 +32,8 @@
   }
   .topDivHL{
     height: 60px;
-    width: 60px;
-
+    width: 80px;
+    margin-left: 10px;
   }
   .topRow1{
     padding: 0;
@@ -89,7 +89,7 @@
   }
 
   .ButBar{
-    height: 60px;
+    height: 50px;
   }
   .HomeHead1{
     max-width: 600px;
