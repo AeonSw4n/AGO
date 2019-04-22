@@ -1833,11 +1833,10 @@ class App extends Component {
 
         <div style={{"borderBottom" : "1px solid #EAEAEA"}} className="App hidden-xs hidden-sm">
           <div class="homeContainer" style={{"paddingBottom" : "10px"}}>
-            <img class="HomeHead" src={ResultImg} height="26px" alt="RESULT"/>
+            <img class="HomeHead" src={ResultImg} height="30px" alt="RESULT"/>
+            <p class="HomeHead1" style={{"fontWeight" : "bold", "color" : "#808080", "marginBottom": "20px"}}>Recognize and Evaluate Signs to Uncover Labor Trafficking </p>
           </div>
-          <div class="massTitle" style={{paddingTop: "0px"}}>
-            <p style={{borderBottom: "none"}}>Recognize and Evaluate Signs to Uncover Labor Trafficking</p>
-          </div>
+
         </div>
 
         <div style={{backgroundColor : "#fff", paddingTop: "20px"}}>
