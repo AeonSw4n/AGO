@@ -1860,7 +1860,7 @@ class App extends Component {
                   <h2 style={{fontWeight: "normal"}}>BU Spark!</h2>
                 </li>
                 <li>
-                  <h2 style={{fontWeight: "normal"}}>BU School of Law Immigrants’ Rights and Human Trafficking Clinic</h2>
+                  <h2 style={{fontWeight: "normal"}}>BU Law Immigrants’ Rights and Human Trafficking Program.</h2>
                 </li>
                 <li>
                   <h2 style={{fontWeight: "normal"}}>Fair Labor Division, Massachusetts Office of the Attorney General</h2>
