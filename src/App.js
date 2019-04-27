@@ -1764,7 +1764,7 @@ class App extends Component {
               <br />
               <h2 style={{fontWeight : "normal"}}>Violations under federal law must be referred to federal authorities.</h2>
               <br />
-              <h2 style={{fontWeight : "normal"}}>To report to federal law enforcement, please contact the National Human Trafficking Resource Center Hotline at <span style={{textDecoration : "underline", fontWeight : "bold"}}>1-888-373-788</span>, which will send the information to federal law enforcement within a given jurisdiction.</h2>
+              <h2 style={{fontWeight : "normal"}}>To report to federal law enforcement, please contact the National Human Trafficking Resource Center Hotline at <span style={{textDecoration : "underline", fontWeight : "bold"}}>1-888-373-7888</span>, which will send the information to federal law enforcement within a given jurisdiction.</h2>
             </div>
           } />
           <br /> <br />
