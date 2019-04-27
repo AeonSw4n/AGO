@@ -237,7 +237,7 @@ class App extends Component {
   renderFederalIntro(){
     return (
       <div>
-        <p class="regularText"> The Massachusetts Anti-Trafficking Statute was enacted in 2012, and the law is still evolving. In certain contexts, the statute provided Federally, laws prohibiting labor trafficking law have been in place since 2000, and there have been a number of labor trafficking cases to review for precedent.  For those reasons, in Massachusetts we often look for guidance from federal definitions and federal case </p>
+        <p class="regularText">The Massachusetts anti-trafficking statute was enacted in 2012, and the law is still evolving. For those reasons, we often look for guidance from federal definitions and federal case law.</p>
         <br />
       </div>
     );
@@ -712,7 +712,7 @@ class App extends Component {
         {/*<p className="Head hidden-lg hidden-md">Recognize and Evaluate Signs <br />to Uncover Labor Trafficking</p>*/}
         <div class="ButBar hidden-lg hidden-md">
           {/*<p class="HomeHead1" style={{"fontWeight" : "bold", "color" : "#808080", "marginBottom": "20px"}}> </p>*/}
-          <p className="HomeHead1">A tool to help investigators refer labor trafficking <br class="hidden-xs" /> under Massachusetts law.<br></br></p>
+          <p className="HomeHead1">A tool to help investigators identify potential <br class="hidden-xs" /> labor trafficking under Massachusetts law.<br></br></p>
         </div>
 
         <div class="homeContainer hidden-sm hidden-xs">
@@ -720,7 +720,7 @@ class App extends Component {
           <img class="HomeHead" src={ResultImg} height="30px" alt="RESULT"/>
           {/*<p class="HomeHead" style={{"lineHeight": "36px"}}>RESULT</p>*/}
           <p class="HomeHead1" style={{"fontWeight" : "bold", "color" : "#808080", "marginBottom": "20px"}}>Recognize and Evaluate Signs to Uncover Labor Trafficking </p>
-          <p class="HomeHead1">A tool to help investigators refer labor <br />trafficking under Massachusetts law.</p>
+          <p class="HomeHead1">A tool to help investigators identify potential <br /> labor trafficking under Massachusetts law.</p>
         </div>
 
         <div class="buttonContainer hidden-sm hidden-xs">
@@ -729,15 +729,15 @@ class App extends Component {
               <h1>Prepare</h1>
               <div class="home_yellow"></div>
               <p style={{"fontWeight" : "bold"}}>Tips for interviewing victims</p>
-              <p>What to think about before you interview the victim</p>
+              <p>What to think about before you interview the victim.</p>
             </div>
           </button>
           <button class="button4" onClick={this._onAssessClick}>
             <div class="b4_container">
               <h1>Assess</h1>
               <div class="home_yellow"></div>
-              <p style={{"fontWeight" : "bold"}}>Is this case trafficking?</p>
-              <p>These questions can help determine if your case meets the definition of trafficking under Massachusetts law.</p>
+              <p style={{"fontWeight" : "bold"}}>Is this trafficking?</p>
+              <p>These questions can help determine if certain circumstances rise to the level of labor trafficking under Massachusetts law.</p>
             </div>
           </button>
           <br class="HomeBR" />
@@ -763,7 +763,7 @@ class App extends Component {
         </div>
         <div class="buttonContainer hidden-md hidden-lg">
           <button class="button4" onClick={this._onPrepareClick}><h1>Prepare</h1><p>Tips for interviewing victims</p></button>
-          <button class="button4" onClick={this._onAssessClick}><h1>Assess</h1><p>Is this case trafficking?</p></button>
+          <button class="button4" onClick={this._onAssessClick}><h1>Assess</h1><p>Is this trafficking?</p></button>
           <button class="button4">
             <div onClick={this._onReportClick} style={{position: "absolute", left : "0", top : "0", width: "100%", height: "100%"}}></div>
             <h1>Resources</h1>
@@ -936,14 +936,14 @@ class App extends Component {
         <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg">
           <p class="pageTitle">Prepare</p>
           <p class="Head">Tips for interviewing Victims</p>
-          <p className="HomeHead1">What to think about before you interview the victim<br></br></p>
+          <p className="HomeHead1">What to think about before you interview the victim.<br></br></p>
         </div>
 
         <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm">
           <div class="homeContainer">
             <p class="pageTitle">Prepare</p>
             <p class="Head">Tips for interviewing Victims</p>
-            <p className="HomeHead1">What to think about before you interview the victim</p>
+            <p className="HomeHead1">What to think about before you interview the victim.</p>
           </div>
         </div>
 
@@ -962,22 +962,18 @@ class App extends Component {
                 </ul>
                 <h1 style={{fontWeight:"bold", marginBottom: "5px"}}>Confidentiality limitations</h1>
                 <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>You will not be able to keep details disclosed by the victim confidential. Explain  this at the beginning so the victim will understand your role and not feel betrayed if you have to share information with prosecutors or other government officials.</h2>
-                <h1 style={{fontWeight:"bold", marginBottom: "5px"}}>Referrals/resources</h1>
+                <h1 style={{fontWeight:"bold", marginBottom: "5px"}}>Referrals</h1>
                 <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>Make referrals to appropriate legal, social, and mental health services as soon as possible to establish trust and to ensure the victim receives needed support. <span style={{"font-weight" : "bold"}}>See Tip 5 for more information.</span></h2>
                 <h1 style={{fontWeight:"bold", marginBottom: "5px"}}>Communication</h1>
-                <h2 style={{fontWeight:"normal"}}>If there are language barriers, trust will be nearly impossible to establish without a skilled interpreter. <span style={{"font-weight" : "bold"}}>See Tip 4 below to learn about when to use an interpreter.</span></h2>
+                <h2 style={{fontWeight:"normal"}}>If the victim has limited English proficiency, trust will be nearly impossible to establish without a skilled interpreter. <span style={{"font-weight" : "bold"}}>See Tip 4 below to learn about when to use an interpreter.</span></h2>
               </div>
             )} />
           )} />
-
-          <QuestionBox title={<h1>Tip 2: Use a qualified interpreter</h1>} html={(
+          <QuestionBox title={<h1>Tip 2: Understand the impact of immigration status on victim cooperation</h1>} html={(
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
-                <h2 style={{fontWeight:"normal"}}>It is important to use skilled, culturally competent interpreters to assist in interviews with victims who have limited English proficiency.</h2>
-                <h2 style={{fontWeight:"normal"}}>Always ask the victim about any languages he or she speaks and in what language he or she prefers to communicate.</h2>
-                <h2 style={{fontWeight:"normal"}}>In-person interpretation is preferable.</h2>
-                <h2 style={{fontWeight:"normal"}}>Before the interview, screen your interpreter to make sure he or she is not involved in the case and does not have connections to the suspect. Often, ethnic communities can be small, and it is essential that the interpreter has no relationship with the suspect and understands the importance of confidentiality.</h2>
-                <h2 style={{fontWeight:"normal"}}>Understand that there may be stigma and subtle cultural considerations that can affect the victim’s disclosures to interpreters. For example, a victim may not feel comfortable disclosing about a sexual assault in front of someone from his or her same ethnicity fearing stigma or blame.</h2>
+                <h2 style={{fontWeight:"normal"}}>Undocumented victims are particularly at risk for human trafficking and may fear engaging with law enforcement.</h2>
+                <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>Immigration threats are often used as a means of power and control over the victim. If the victim is undocumented or if you are unsure of the victim’s immigration status, make a referral immediately to an experienced immigration attorney. <span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(2)}}>Click here for a list of local immigration legal services providers.</span></h2>
               </div>
             )} />
           )} />
@@ -1009,11 +1005,14 @@ class App extends Component {
             )} />
           )} />
 
-          <QuestionBox title={<h1>Tip 4: Understand status concerns</h1>} html={(
+          <QuestionBox title={<h1>Tip 4: Use a qualified interpreter</h1>} html={(
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
-                <h2 style={{fontWeight:"normal"}}>Undocumented victims are particularly at risk for human trafficking and may fear engaging with law enforcement.</h2>
-                <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>Immigration threats are often used as a means of power and control over the victim. If the victim is undocumented or if you are unsure of the victim’s immigration status, make a referral immediately to an experienced immigration attorney. <span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(2)}}>Click here for a list of local immigration legal services providers.</span></h2>
+                <h2 style={{fontWeight:"normal"}}>It is important to use skilled, culturally competent interpreters to assist in interviews with victims who have limited English proficiency.</h2>
+                <h2 style={{fontWeight:"normal"}}>Always ask the victim about any languages he or she speaks and in what language he or she prefers to communicate.</h2>
+                <h2 style={{fontWeight:"normal"}}>In-person interpretation is preferable.</h2>
+                <h2 style={{fontWeight:"normal"}}>Before the interview, screen your interpreter to make sure he or she is not involved in the case and does not have connections to the suspect. Often, ethnic communities can be small, and it is essential that the interpreter has no relationship with the suspect and understands the importance of confidentiality.</h2>
+                <h2 style={{fontWeight:"normal"}}>Understand that there may be stigma and subtle cultural considerations that can affect the victim’s disclosures to interpreters. For example, a victim may not feel comfortable disclosing about a sexual assault in front of someone from his or her same ethnicity fearing stigma or blame.</h2>
               </div>
             )} />
           )} />
@@ -1021,7 +1020,7 @@ class App extends Component {
           <QuestionBox title={<h1>Tip 5: Make referrals to appropriate victim services as soon as possible</h1>} html={(
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
-                <h1 style={{fontWeight:"bold"}}>Make appropriate referrals to victim services </h1>
+                <h1 style={{fontWeight:"bold"}}>Referrals to victim services </h1>
                 <h2 style={{fontWeight:"normal"}}>The first priority is ensuring that the victim’s basic needs are met. This includes access to safe housing, mental health services, medical services, and food. <span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(0)}}>Click here to learn more about available victim services.</span></h2>
                 <h2 style={{fontWeight:"normal"}}> It is important to refer the victim to an attorney as soon as possible to ensure that he or she can learn about his or her rights. A victim of labor trafficking may be eligible for certain protections under law, such as victim compensation, criminal restitution, immigration relief, and civil remedies. <span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(3)}}>Click here to learn more about available legal services and how to make referral.</span></h2>
               </div>
@@ -1042,22 +1041,22 @@ class App extends Component {
           <QuestionBox title={<h1>Tip 6: Educate yourself about trauma</h1>} html={(
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
+                <h1 style={{fontWeight:"bold"}}>Trauma-informed interviewing</h1>
                 <h2 style={{fontWeight:"normal"}}>Approach the victim in a trauma-informed manner. It is important to understand how trauma can affect a victim’s disclosure and how to respond when the signs of trauma present themselves in an interview.</h2>
                 <h2 style={{fontWeight:"normal"}}> Often, victims may suffer from post-traumatic stress disorder, depression, and/or other mental health conditions. For this reason, they may have difficulty telling you about key parts of their story. Trauma can make victims reluctant to disclose and may affect their memory of an event, causing them to disclose their stories in a non-linear or inconsistent manner. Facts may emerge over time, and it may be important to engage in multiple interviews or ask for the assistance of a forensic interviewer, when appropriate.</h2>
                 <h2 style={{fontWeight:"normal"}}>Explore whether the victim has mental health supports in place at the outset and if not, make appropriate referrals to ensure the victim has support throughout the process. <span class="prepareLink" onClick={this._onResourcesClick}>Click here for a list of victim services.</span></h2>
+                <h1 style={{marginTop: "20px", fontWeight:"bold"}}>Child victims</h1>
                 <h2 style={{fontWeight:"bold"}}>If a child (any victim under 18) is involved, mandated reporters must file a 51A report with the Massachusetts Department of Children and Families (DCF), which will report the situation to the local District Attorney’s Office. By law, DCF will work to establish a multidisciplinary team to provide comprehensive, tailored services to the child victim, and coordinate an interview.</h2>
                 <ul style={{"list-style-type": "disc", "padding-left": "16px", "margin": "0px", "font-size": "13px"}}>
                   <li>
-                    <h2 style={{fontWeight:"normal"}}>Please consult with your local Children’s Advocacy Center to coordinate, and the multidisciplinary team will work with you to consider if an interview of the child is appropriate and if so, how best to approach the interview. {/*Consider conducting a child forensic interview. Even in cases wherein there is no physical or sexual violence suspected, a child forensic interview still may be helpful given emotional abuse and fear.*/}</h2>
+                    <h2 style={{fontWeight:"normal"}}>Please consult with your local <span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a target="_blank" href="http://machildrensalliance.org/locate-a-cac/">Children’s Advocacy Center</a></span> to coordinate, and the multidisciplinary team will work with you to consider if an interview of the child is appropriate and if so, how best to approach the interview. {/*Consider conducting a child forensic interview. Even in cases wherein there is no physical or sexual violence suspected, a child forensic interview still may be helpful given emotional abuse and fear.*/}</h2>
                   </li>
                   {/*<li>
                     <h2 style={{fontWeight:"normal"}}>Child forensic interviewers are trained to consider the unique family relationships, community support, histories of trauma, and cultural or social attitudes that may shape a child’s disclosure. Each child victim is different, due to different past experiences of violence and trauma. It is important to note that no two children will react in the same manner or provide the same level of detail and clarity.</h2>
                   </li>*/}
                 </ul>
-                <h2 style={{fontWeight:"bold"}}>It is important to engage in a trauma-informed interview. If working with child victims, contact the local Children’s Advocacy Center as soon as possible.</h2>
-                <br />
-                <h1 style={{fontWeight:"bold"}}>Culture can play an important role in how a victim engages in the interview process.</h1>
-                <h2 style={{fontWeight:"normal"}}>If the victim is from a distinct ethnic or social group, educate yourself about the culture.</h2>
+                <h1 style={{marginTop: "20px", fontWeight:"bold"}}>Culture</h1>
+                <h2 style={{fontWeight:"normal"}}>Culture can play an important role in how a victim engages in the interview process. If the victim is from a distinct ethnic or social group, educate yourself about the culture.</h2>
                 <h2 style={{fontWeight:"normal"}}>Cultural norms may shape what or how the victim will disclose critical information. Consider connecting with social service providers in your area with expertise serving this population.</h2>
               </div>
             )} />
@@ -1091,7 +1090,7 @@ class App extends Component {
           <img src={Warning} class="AssessmentWarning" />
           <p class="pageTitle"> Legal Disclaimer</p>
         </div>
-        <p style={{"fontWeight" : "bold"}}>All materials on this website are for general informational purposes only. The information presented is not legal advice, may not be current and is subject to change without notice.</p>
+        <p style={{"fontWeight" : "bold"}}>All materials on this app are for general informational purposes only. The information presented is not legal advice, may not be current, and is subject to change without notice.</p>
         <p style={{"fontWeight" : "bold"}}>Communication of information by, in, to or through this website and your receipt or use of it:</p>
         <ul>
           <li>
@@ -1112,15 +1111,15 @@ class App extends Component {
       <div style={this.state.disclaimer ? {display : "block"} : {display : "none"}}>
         <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
           <p class="pageTitle">Assess</p>
-          {/*<p class="Head">Is this case trafficking?</p>*/}
-          <p class="HomeHead1">These questions can help determine if your case meets the definition of labor trafficking under Massachusetts law.</p>
+          {/*<p class="Head">Is it trafficking?</p>*/}
+          <p class="HomeHead1">These questions can help determine if certain circumstances rise to the level of labor trafficking under Massachusetts law.</p>
         </div>
 
         <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm">
           <div class="homeContainer">
             <p class="pageTitle">Assess</p>
-            <p class="Head">Is this case trafficking?</p>
-            <p class="HomeHead1">These questions can help determine if your case meets <br /> the definition of trafficking under Massachusetts law.</p>
+            <p class="Head">Is this trafficking?</p>
+            <p class="HomeHead1">These questions can help determine if certain circumstances<br /> rise to the level of labor trafficking under Massachusetts law.</p>
           </div>
         </div>
 
@@ -1128,11 +1127,11 @@ class App extends Component {
           <div class="AssesmentContent">
             <div class="App hidden-md hidden-lg">
               <p class="regularText" style={{"fontStyle" : "italic"}}>Select a category to view its questions</p>
-              <p class="regularText" style={{"fontWeight" : "bold", "textDecoration" : "underline"}}><a href={AssessmentPDF}>Or click here to download the questions</a></p>
+              <p class="regularText" style={{"fontWeight" : "bold", "textDecoration" : "underline"}}><a target="_blank" href={AssessmentPDF}>Or click here to download the questions</a></p>
             </div>
             <div class="App hidden-xs hidden-sm">
               <p class="regularText" style={{"fontStyle" : "italic", "textAlign" : "center"}}>Select a category to view its questions</p>
-              <p class="regularText" style={{"fontWeight" : "bold", "textDecoration" : "underline", "textAlign" : "center"}}><a href={AssessmentPDF}>Or click here to download the questions</a></p>
+              <p class="regularText" style={{"fontWeight" : "bold", "textDecoration" : "underline", "textAlign" : "center"}}><a target="_blank" href={AssessmentPDF}>Or click here to download the questions</a></p>
             </div>
             <br />
             <div>
@@ -1212,8 +1211,8 @@ class App extends Component {
                       <h1 style={{fontWeight:"bold"}}>National Human Trafficking Resource Center</h1>
                       <h2><span style={{fontWeight:"normal"}}>Call the Hotline at: <span style={{textDecoration : "underline"}}>1-888-373-7888</span></span></h2>
                       <h2><span style={{fontWeight:"normal"}}>Text "BEFREE" to: <span style={{textDecoration : "underline"}}>233733</span></span></h2>
-                      <h2><span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="https://humantraffickinghotline.org/chat">Click here to access live chat</a></span></h2>
-                      <h2><span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="mailto:help@humantraffickinghotline.org%20?subject=MA%20Labor%20Trafficking%20Case">Click here to email the hotline</a></span></h2>
+                      <h2><span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a target="_blank" href="https://humantraffickinghotline.org/chat">Click here to access live chat</a></span></h2>
+                      <h2><span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a target="_blank" href="mailto:help@humantraffickinghotline.org%20?subject=MA%20Labor%20Trafficking%20Case">Click here to email the hotline</a></span></h2>
                       <h2 style={{fontWeight:"normal"}}>The hotline is open 24 hours a day, 7 days a week and has resources available in more than 200 languages.</h2>
                       <h2 style={{fontWeight:"normal"}}>For resources available in your geographic area to assist labor trafficking victims, please contact the National Human Trafficking Resource Center (NHTRC) Hotline. NHTRC connects victims and survivors of human trafficking with support and services.</h2>
                     </div>
@@ -1242,13 +1241,13 @@ class App extends Component {
                         </ul>
                         <br />
                         <h2 style={{fontWeight:"bold"}}>Domestic Violence Shelter:</h2>
-                        <h2 style={{fontWeight:"normal"}}>Some domestic violence shelters may house victims of labor trafficking. Click <a href="https://www.mass.gov/service-details/domestic-violence-programs">here</a> for a complete list of shelters in Massachusetts. To determine if a shelter space is available, victims can contact the Safelink state-wide hotline at <span style={{fontWeight : "bold"}}>877-785-2020</span> (toll-free), <span style={{fontWeight : "bold"}}>877-521-2601</span> (TTY).</h2>
+                        <h2 style={{fontWeight:"normal"}}>Some domestic violence shelters may house victims of labor trafficking. Click <a target="_blank" href="https://www.mass.gov/service-details/domestic-violence-programs">here</a> for a complete list of shelters in Massachusetts. To determine if a shelter space is available, victims can contact the Safelink state-wide hotline at <span style={{fontWeight : "bold"}}>877-785-2020</span> (toll-free), <span style={{fontWeight : "bold"}}>877-521-2601</span> (TTY).</h2>
                       </div>
                     )} />
                     <BlueBox html={(
                       <div>
                         <h1 style={{fontWeight:"bold"}}>Food</h1>
-                        <h2 style={{fontWeight:"normal"}}>Please click <a href="https://www.foodpantries.org/st/massachusetts">here</a> for information about food pantries in Massachusetts.</h2>
+                        <h2 style={{fontWeight:"normal"}}>Please click <a target="_blank" href="https://www.foodpantries.org/st/massachusetts">here</a> for information about food pantries in Massachusetts.</h2>
                       </div>
                     )} />
                   </div>
@@ -1278,7 +1277,7 @@ class App extends Component {
                         </ul>
                         <br />
                         <h2 style={{fontWeight:"bold"}}>Domestic Violence Shelter:</h2>
-                        <h2 style={{fontWeight:"normal"}}>Some domestic violence shelters may house victims of labor trafficking. Click <a href="https://www.mass.gov/service-details/domestic-violence-programs">here</a> for a complete list of shelters in Massachusetts. To determine if a shelter space is available, victims can contact the Safelink state-wide hotline at <span style={{fontWeight : "bold"}}>877-785-2020</span> (toll-free), <span style={{fontWeight : "bold"}}>877-521-2601</span> (TTY).</h2>
+                        <h2 style={{fontWeight:"normal"}}>Some domestic violence shelters may house victims of labor trafficking. Click <a target="_blank" href="https://www.mass.gov/service-details/domestic-violence-programs">here</a> for a complete list of shelters in Massachusetts. To determine if a shelter space is available, victims can contact the Safelink state-wide hotline at <span style={{fontWeight : "bold"}}>877-785-2020</span> (toll-free), <span style={{fontWeight : "bold"}}>877-521-2601</span> (TTY).</h2>
                       </div>
                     )} />
                     <div class="massTitle">
@@ -1286,7 +1285,7 @@ class App extends Component {
                     </div>
                     <NormalText html={(
                       <div>
-                        <h2 style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="https://www.foodpantries.org/st/massachusetts">Please click here for information about food pantries in Massachusetts.</a></h2>
+                        <h2 style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a target="_blank" href="https://www.foodpantries.org/st/massachusetts">Please click here for information about food pantries in Massachusetts.</a></h2>
                       </div>
                     )} />
                     <br /> <br />
@@ -1313,7 +1312,7 @@ class App extends Component {
                       <h2 style={{color: "#11416D"}}>Have you ever been threatened?</h2>
                       <h2 style={{color: "#11416D"}}>Do you owe a debt to anyone?</h2>
                       <h2 style={{color: "#11416D"}}>Are you afraid of deportation?</h2>
-                      <h2 style={{color: "#11416D"}}>What do you think would happen if the subject knew that you had spoken with us?</h2>
+                      <h2 style={{color: "#11416D"}}>What do you think would happen if the perpetrator knew that you had spoken with us?</h2>
                       <h2 style={{color: "#11416D"}}>Do you feel like you need to work? If so, why?</h2>
                       <h2 style={{color: "#11416D"}}>What would happen if you did not work?</h2>
                     </div>
@@ -1382,13 +1381,13 @@ class App extends Component {
                         </ul>
                         <br />
                         <h2 style={{fontWeight:"bold"}}>What is T visa certification?</h2>
-                        <h2 style={{fontWeight:"normal"}}>To apply for T nonimmigrant status, U.S. Citizenship and Immigration Services asks for the victim to submit a certification form from a qualifying government agency confirming that the applicant was a victim of a severe form of human trafficking and responded to a reasonable request for assistance from law enforcement. The certification form is known as Form I-914, Supplement B, Declaration of Law Enforcement Officer for Victim of Trafficking in Persons. The form is available online <span style={{textDecoration: "underline", color : "#11416D"}}><a href="https://www.uscis.gov/i-914">here</a></span></h2>
+                        <h2 style={{fontWeight:"normal"}}>To apply for T nonimmigrant status, U.S. Citizenship and Immigration Services asks for the victim to submit a certification form from a qualifying government agency confirming that the applicant was a victim of a severe form of human trafficking and responded to a reasonable request for assistance from law enforcement. The certification form is known as Form I-914, Supplement B, Declaration of Law Enforcement Officer for Victim of Trafficking in Persons. The form is available online <span style={{textDecoration: "underline", color : "#11416D"}}><a target="_blank" href="https://www.uscis.gov/i-914">here</a></span></h2>
                         <br />
                         <h2 style={{fontWeight:"bold"}}>What is the role of the investigator?</h2>
-                        <h2 style={{fontWeight:"normal"}}>Investigators can play an important role by completing the certification form (<span style={{textDecoration: "underline", color : "#11416D"}}><a href="https://www.uscis.gov/i-914">Form I-914, Supplement B</a></span>) to confirm the status of the victim and his or her role in the investigation. This certification does not provide immigration status but assists the victim to prove to U.S. Citizenship and Immigration Services that he or she meets the requirements to qualify for T nonimmigrant status.</h2>
+                        <h2 style={{fontWeight:"normal"}}>Investigators can play an important role by completing the certification form (<span style={{textDecoration: "underline", color : "#11416D"}}><a target="_blank" href="https://www.uscis.gov/i-914">Form I-914, Supplement B</a></span>) to confirm the status of the victim and his or her role in the investigation. This certification does not provide immigration status but assists the victim to prove to U.S. Citizenship and Immigration Services that he or she meets the requirements to qualify for T nonimmigrant status.</h2>
                         <br />
                         <h2 style={{fontWeight:"bold"}}>Who can complete the T visa certification?</h2>
-                        <h2 style={{fontWeight:"normal"}}>The certification form (<span style={{textDecoration: "underline", color : "#11416D"}}><a href="https://www.uscis.gov/i-914">Form I-914, Supplement B</a></span>) can be completed by any government agency that has responsibility for the detection, investigation, and/or prosecution of severe forms of human trafficking in Persons.</h2>
+                        <h2 style={{fontWeight:"normal"}}>The certification form (<span style={{textDecoration: "underline", color : "#11416D"}}><a target="_blank" href="https://www.uscis.gov/i-914">Form I-914, Supplement B</a></span>) can be completed by any government agency that has responsibility for the detection, investigation, and/or prosecution of severe forms of human trafficking in Persons.</h2>
                       </div>
                     )} />
                   )} />
@@ -1416,10 +1415,10 @@ class App extends Component {
                         </ul>
                         <br />
                         <h2 style={{fontWeight:"bold"}}>What is U visa certification?</h2>
-                        <h2 style={{fontWeight:"normal"}}>To qualify for a U visa, a victim must obtain a U Nonimmigrant Status Certification (Form I-918, Supplement B) from a qualifying government agency, confirming that he or she was a victim and was, is, or will be helpful in the investigation. The certification form is known as Form I-918, Supplement B, U Nonimmigrant Status Certification. The form is available online <span style={{textDecoration: "underline", color : "#11416D"}}><a href="https://www.uscis.gov/i-918">here</a></span>.</h2>
+                        <h2 style={{fontWeight:"normal"}}>To qualify for a U visa, a victim must obtain a U Nonimmigrant Status Certification (Form I-918, Supplement B) from a qualifying government agency, confirming that he or she was a victim and was, is, or will be helpful in the investigation. The certification form is known as Form I-918, Supplement B, U Nonimmigrant Status Certification. The form is available online <span style={{textDecoration: "underline", color : "#11416D"}}><a target="_blank" href="https://www.uscis.gov/i-918">here</a></span>.</h2>
                         <br />
                         <h2 style={{fontWeight:"bold"}}>What is the role of the investigator?</h2>
-                        <h2 style={{fontWeight:"normal"}}>Investigators can play an important role to assist the victim to obtain immigration status by completing a U Nonimmigant Status Certification (<span style={{textDecoration: "underline", color : "#11416D"}}><a href="https://www.uscis.gov/i-918">Form I-918, Supplement B</a></span>), confirming the status of the victim and his or her role in the investigation. Such a certification does not provide immigration status but assists the victim to prove to U.S. Citizenship and Immigration Services that he or she meets the requirements to qualify for immigration status.</h2>
+                        <h2 style={{fontWeight:"normal"}}>Investigators can play an important role to assist the victim to obtain immigration status by completing a U Nonimmigant Status Certification (<span style={{textDecoration: "underline", color : "#11416D"}}><a target="_blank" href="https://www.uscis.gov/i-918">Form I-918, Supplement B</a></span>), confirming the status of the victim and his or her role in the investigation. Such a certification does not provide immigration status but assists the victim to prove to U.S. Citizenship and Immigration Services that he or she meets the requirements to qualify for immigration status.</h2>
                         <br />
                         <h2 style={{fontWeight:"bold"}}>Who can complete the U visa certification?</h2>
                         <h2 style={{fontWeight:"normal"}}>A federal, state, local law enforcement agency, prosecutor, judge, or other authority that has the responsibility for the investigation or prosecution of a qualifying crime or criminal activity is eligible to sign a U Nonimmigrant Status Certification (Form I-918, Supplement B). This includes agencies with criminal investigative jurisdiction in their respective areas of expertise, including but not limited to child and adult protective services, the Equal Employment Opportunity Commission, and Federal and State Departments of Labor.</h2>
@@ -1627,7 +1626,7 @@ class App extends Component {
                   <BlueBox html={(
                     <div>
                       <h1 style={{fontWeight:"normal"}}>Boston, MA</h1>
-                      <h1><a href="https://www.bu.edu/law/current-students/jd-student-resources/experiential-learning/clinics/immigrants-rights-human-trafficking-clinic/" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Boston University School of Law Immigrants’ Rights and Human Trafficking Program</a></h1>
+                      <h1><a target="_blank" href="https://www.bu.edu/law/current-students/jd-student-resources/experiential-learning/clinics/immigrants-rights-human-trafficking-clinic/" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Boston University School of Law Immigrants’ Rights and Human Trafficking Program</a></h1>
                       <h2>Tel.: <span style={{"textDecoration" : "underline"}}>(617) 353-2807</span></h2>
                       <h2>Email: <span style={{"textDecoration" : "underline"}}>Jadahl@bu.edu</span></h2>
                     </div>
@@ -1635,14 +1634,14 @@ class App extends Component {
                   <BlueBox html={(
                     <div>
                       <h1 style={{fontWeight:"normal"}}>State-wide</h1>
-                      <h1><a href="https://massclavc.org/" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Civil Legal Aid for Victims of Crime</a></h1>
+                      <h1><a target="_blank" href="https://massclavc.org/" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Civil Legal Aid for Victims of Crime</a></h1>
                       <h2>Tel.: <span style={{"textDecoration" : "underline"}}>(617) 367-8544</span></h2>
                     </div>
                   )} />
                   <BlueBox html={(
                     <div>
                       <h1 style={{fontWeight:"normal"}}>Boston, MA</h1>
-                      <h1><a href="https://www.victimrights.org/" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Victim Rights Law Center</a></h1>
+                      <h1><a target="_blank" href="https://www.victimrights.org/" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Victim Rights Law Center</a></h1>
                       <h2>Tel.: <span style={{"textDecoration" : "underline"}}>(617) 399-6720</span></h2>
                       <h2 style={{fontWeight:"normal"}}>Limitations: Can only accept cases involving victims of sexual assault.</h2>
                     </div>
@@ -1653,7 +1652,7 @@ class App extends Component {
                   <NormalText html={(
                     <div>
                       <h2 class="hidden-md hidden-lg">Victim Compensation:</h2>
-                      <h2 style={{fontWeight:"normal"}}>Victims of labor trafficking may also be eligible for victim compensation. To apply for compensation, the victim should complete the application <a href="https://www.mass.gov/files/documents/2018/11/13/victim-comp-app.pdf" style={{fontWeight:"bold", color:"#11416D" , textDecoration:"underline"}}>here</a> or contact the <a href="https://www.mass.gov/massachusetts-victims-of-violent-crime-compensation" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Massachusetts Office of Victim Assistance</a> at 844-878-MOVA (6682).</h2>
+                      <h2 style={{fontWeight:"normal"}}>Victims of labor trafficking may also be eligible for victim compensation. To apply for compensation, the victim should complete the application <a target="_blank" href="https://www.mass.gov/files/documents/2018/11/13/victim-comp-app.pdf" style={{fontWeight:"bold", color:"#11416D" , textDecoration:"underline"}}>here</a> or contact the <a target="_blank" href="https://www.mass.gov/massachusetts-victims-of-violent-crime-compensation" style={{fontWeight:"bold", color:"#11416D", textDecoration:"underline"}}>Massachusetts Office of Victim Assistance</a> at 844-878-MOVA (6682).</h2>
                     </div>
                   )} />
                   <br /><br />
@@ -1670,20 +1669,20 @@ class App extends Component {
       <div>
         <div style={{borderBottom : "1px solid #EAEAEA"}} className="App hidden-md hidden-lg">
           <p class="pageTitle">Massachusetts Law</p>
-          <p class="Head" style={{paddingBottom: "15px"}}>View the Massachusetts human trafficking law</p>
+          <p class="Head" style={{paddingBottom: "15px"}}>View the Massachusetts labor trafficking law</p>
         </div>
 
         <div style={{"borderBottom" : "1px solid #EAEAEA"}} className="App hidden-xs hidden-sm">
           <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
             <p class="pageTitle">Massachusetts Law</p>
-            <p class="Head" style={{paddingBottom : "15px"}}>View the Massachusetts human trafficking law</p>
+            <p class="Head" style={{paddingBottom : "15px"}}>View the Massachusetts labor trafficking law</p>
           </div>
         </div>
 
         <div style={{backgroundColor : "#fff", paddingTop: "20px"}}>
           <NormalText html={(
             <div>
-              <h2 style={{fontWeight:"normal"}}>The Massachusetts Anti-Trafficking Statute was enacted in 2012, and the law is still evolving. In certain contexts, the statute provided Federally, laws prohibiting labor trafficking law have been in place since 2000, and there have been a number of labor trafficking cases to review for precedent. For those reasons, in Massachusetts we often look for guidance from federal definitions and federal case.</h2>
+              <h2 style={{fontWeight:"normal"}}>The Massachusetts anti-trafficking statute was enacted in 2012, and the law is still evolving. For those reasons, we often look for guidance from federal definitions and federal case law.</h2>
             </div>
           )} />
           <div class="massTitle">
@@ -1761,7 +1760,7 @@ class App extends Component {
           </div>
           <BlueBox blueBox={"massBlueBox"} html={
             <div>
-              <h2 style={{fontWeight : "normal"}}>There are also federal criminal statutes that address labor trafficking crimes, such as forced labor and involuntary servitude. Victims also may have additional rights to criminal restitution, civil remedies, and government benefits under federal law. <a href="https://www.justice.gov/crt/human-trafficking-prosecution-unit-htpu" style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}>Click here to read more about the federal crimes of labor trafficking</a>.</h2>
+              <h2 style={{fontWeight : "normal"}}>There are also federal criminal statutes that address labor trafficking crimes, such as forced labor and involuntary servitude. Victims also may have additional rights to criminal restitution, civil remedies, and government benefits under federal law. <a target="_blank" href="https://www.justice.gov/crt/human-trafficking-prosecution-unit-htpu" style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}>Click here to read more about the federal crimes of labor trafficking</a>.</h2>
               <br />
               <h2 style={{fontWeight : "normal"}}>Violations under federal law must be referred to federal authorities.</h2>
               <br />
@@ -1799,8 +1798,8 @@ class App extends Component {
               <h1 style={{fontWeight:"bold"}}>National Human Trafficking Resource Center</h1>
               <h2><span style={{fontWeight:"normal"}}>Call the Hotline at: <span style={{textDecoration : "underline"}}>1-888-373-7888</span></span></h2>
               <h2><span style={{fontWeight:"normal"}}>Text "BEFREE" to: <span style={{textDecoration : "underline"}}>233733</span></span></h2>
-              <h2><span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="https://humantraffickinghotline.org/chat">Click here to access live chat</a></span></h2>
-              <h2><span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="mailto:help@humantraffickinghotline.org%20?subject=MA%20Labor%20Trafficking%20Case">Click here to email the hotline</a></span></h2>
+              <h2><span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a target="_blank" href="https://humantraffickinghotline.org/chat">Click here to access live chat</a></span></h2>
+              <h2><span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a target="_blank" href="mailto:help@humantraffickinghotline.org%20?subject=MA%20Labor%20Trafficking%20Case">Click here to email the hotline</a></span></h2>
             </div>
           )} />
           <BlueBox html={
@@ -1859,7 +1858,7 @@ class App extends Component {
                   <h2 style={{fontWeight: "normal"}}>BU Spark!</h2>
                 </li>
                 <li>
-                  <h2 style={{fontWeight: "normal"}}>BU Law Immigrants’ Rights and Human Trafficking Program.</h2>
+                  <h2 style={{fontWeight: "normal"}}>BU Law Immigrants’ Rights and Human Trafficking Program</h2>
                 </li>
                 <li>
                   <h2 style={{fontWeight: "normal"}}>Fair Labor Division, Massachusetts Office of the Attorney General</h2>
@@ -1904,7 +1903,6 @@ class App extends Component {
   renderNavHome() {
     return (
       <div class="row menu">
-        <div class="col-md-2 col-lg-2 lis new-lis"><a class={this.state.page == 1? ("active") : ("")} onClick= {this._onCompleteClick}>Home</a></div>
         <div class="col-md-2 col-lg-2 lis new-lis"><a class={this.state.page == 2? ("active") : ("")} onClick= {this._onPrepareClick}>Prepare</a></div>
         <div class="col-md-2 col-lg-2 lis new-lis"><a class={this.state.page == 3 || this.state.page == 5? ("active") : ("")} onClick= {this._onAssessClick}>Assess</a></div>
         <div class="col-md-2 col-lg-2 lis new-lis">
@@ -1918,6 +1916,7 @@ class App extends Component {
           <a style={{"border" : "0"}} class={this.state.page == 6 || this.state.page == 8? ("active") : ("")} onClick= {this._onReportClick}>Resources</a>
         </div>
         <div class="col-md-2 col-lg-2 lis new-lis"><a class={this.state.page == 7? ("active") : ("")} onClick= {this._onMassClick}>Massachusetts Law</a></div>
+        <div class="col-md-2 col-lg-2 lis new-lis"><a class={this.state.page == 9? ("active") : ("")} onClick= {this._onAboutClick}>About Us</a></div>
       </div>
     );
   }
@@ -1927,7 +1926,6 @@ class App extends Component {
     return (
       <div class="mobile-menu hidden-md hidden-lg">
         <div class="mobile-cover" style={this.state.mobileMenu ? {right: '70vw'} : {right: '0'}}></div>
-        <div class="hidden-md hidden-lg lis new-lis"><a class={this.state.page == 1? ("active") : ("")} onClick= {this._onCompleteClick}>Home</a></div>
         <div class="hidden-md hidden-lg lis new-lis"><a class={this.state.page == 2? ("active") : ("")} onClick= {this._onPrepareClick}>Prepare</a></div>
         <div class="hidden-md hidden-lg lis new-lis"><a class={this.state.page == 3 || this.state.page == 5? ("active") : ("")} onClick= {this._onAssessClick}>Assess</a></div>
         <div style={{pointerEvents:"none"}} class="lis new-lis"><a style={{pointerEvents:"none"}} class={this.state.page == 6 || this.state.page == 8? ("active") : ("")}>Resources</a></div>
@@ -1940,6 +1938,7 @@ class App extends Component {
           </li>
         </ul>
         <div class="hidden-md hidden-lg lis new-lis"><a class={this.state.page == 7? ("active") : ("")} onClick= {this._onMassClick}>MA Law</a></div>
+        <div class="hidden-md hidden-lg lis new-lis"><a class={this.state.page == 9? ("active") : ("")} onClick= {this._onAboutClick}>About Us</a></div>
       </div>
     );
   }
@@ -1962,7 +1961,7 @@ class App extends Component {
           <div class="topRowContainer row">
           <div class="topRow col-xs-6 col-sm-6 col-md-3 col-lg-3">
             {/*<img src={logo} className="topDivHL" alt="logo" />*/}
-            <img src={ResultImgLight} onClick={this._onAboutClick} class="topDivHL" alt="RESULT" />
+            <img src={ResultImgLight} onClick={this._onCompleteClick} class="topDivHL" alt="RESULT" />
             {/*<h3 class ="topDivH">RESULT</h3>*/}
           </div>
 
