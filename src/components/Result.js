@@ -24,16 +24,16 @@ function ReturnText(answer) {
 		/* Yes weighted in a category */
 		case 'yes-one':
 			return (
-				<p class="alertText" style={{'text-align':'center'}}>There appear to be likely indicators of potential labor trafficking; continue evaluation if you have more information, if not consider referring to law enforcement at this time.</p>
+				<p class="alertText" style={{'text-align':'center'}}>There appear to be likely indicators of labor trafficking. Continue evaluation or consider referring to law enforcement at this time.</p>
 			);
 		/* Yes weighted in 2+ categories */
 		case 'yes-all':
 			return (
-				<p class="alertText" style={{'text-align':'center'}}>There appear to be likely indicators of potential labor trafficking; continue evaluation if you have more information, if not consider referring to law enforcement at this time.</p>
+				<p class="alertText" style={{'text-align':'center'}}>There appear to be likely indicators of labor trafficking. Continue evaluation or consider referring to law enforcement at this time.</p>
 			);
 		case 'fharm':
 			return (
-				<p class="alertText" style={{'text-align':'center'}}>Potential signs of labor trafficking but need more information; consider evaluating more categories or filing a wage complaint with the AGO FLD at: 
+				<p class="alertText" style={{'text-align':'center'}}>Potential signs of labor trafficking but need more information; consider evaluating more categories or filing a wage complaint with the AGO FLD at:
 					<span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="https://www.mass.gov/ago/fld">www.mass.gov/ago/fld.</a></span>
 				</p>
 			)

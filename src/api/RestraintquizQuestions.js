@@ -1,22 +1,5 @@
 var RestraintquizQuestions = [
   {
-      question: "Did the perpetrator ever physically restrain or threaten to physically restrain the worker in any other way?",
-      answers: [
-          {
-              type: "Yes",
-              content: "Yes"
-          },
-          {
-              type: "No",
-              content: "No"
-          },
-          {
-              type: "Maybe",
-              content: "Maybe"
-          }
-      ]
-  },
-  {
       question: "Did the perpetrator lock the windows or doors where the worker was residing or working?",
       answers: [
           {
@@ -118,6 +101,23 @@ var RestraintquizQuestions = [
           }
       ]
   },
+  {
+      question: "Did the perpetrator ever physically restrain or threaten to physically restrain the worker in any other way?",
+      answers: [
+          {
+              type: "Yes",
+              content: "Yes"
+          },
+          {
+              type: "No",
+              content: "No"
+          },
+          {
+              type: "Maybe",
+              content: "Maybe"
+          }
+      ]
+  }
 ];
 
 export default RestraintquizQuestions;

@@ -185,6 +185,23 @@ var FinancialHarmquizQuestions = [
               content: "Maybe"
           }
       ]
+  },
+  {
+    question: "Did the perpetrator send wages intended for the victim to other parties, such as family members?",
+    answers: [
+        {
+            type: "Yes",
+            content: "Yes"
+        },
+        {
+            type: "No",
+            content: "No"
+        },
+        {
+            type: "Maybe",
+            content: "Maybe"
+        }
+    ]
   }
 ];
 

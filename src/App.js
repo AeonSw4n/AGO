@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import menu from './menu.svg';
+import { BrowserRouter as Router, Route, Link, Switch, Redirect, withRouter } from 'react-router-dom';
+import RouteHandler from './RouteHandler';
 import instructions from './instructions.jpg';
 import instructions1 from './instructions1.jpg';
 import instructions2 from './instructions2.jpg';
@@ -74,9 +76,8 @@ class App extends Component {
     this.identitydocQuizFunc = this.identitydocQuizFunc.bind(this);
     this.extortionQuizFunc = this.extortionQuizFunc.bind(this);
     this.fharmQuizFunc = this.fharmQuizFunc.bind(this);
-    this._onCompleteClick = this._onCompleteClick.bind(this);
+    this._onHomeClick = this._onHomeClick.bind(this);
     this._onResourcesClick = this._onResourcesClick.bind(this);
-    this._onVictimClick = this._onVictimClick.bind(this);
     this._onMassClick = this._onMassClick.bind(this);
     this._onReportClick = this._onReportClick.bind(this);
     this._onAboutClick = this._onAboutClick.bind(this);
@@ -130,12 +131,11 @@ class App extends Component {
     this.state.doc.save('Assessment Results.pdf');
   }
 
-
   getResults() {
 
     let answerKey = [];
     answerKey[1] = [1, 3, 4, 9];
-    answerKey[2] = [1, 4, 6];
+    answerKey[2] = [3, 5, 7];
     answerKey[3] = [1];
     answerKey[4] = [1, 2, 3, 4, 5];
     answerKey[5] = [2];
@@ -229,556 +229,8 @@ class App extends Component {
         this.state.Answer[ans[1]] = ans[0];
   }
 
-
   evaluateNow() {
     this.setResults(this.getResults());
-  }
-
-  renderFederalIntro(){
-    return (
-      <div>
-        <p class="regularText">The Massachusetts anti-trafficking statute was enacted in 2012, and the law is still evolving. For those reasons, we often look for guidance from federal definitions and federal case law.</p>
-        <br />
-      </div>
-    );
-  }
-
-  renderQuestions(questions){
-    return (
-      <div style={{"backgroundColor" : "#fff"}}>
-        <div class="AssessmentQuestions">
-          {
-            (function (){
-              let JSXarray = [];
-              for( let i=0; i<questions.length; i++){
-                JSXarray.push((
-                  <Quiz
-                    answer={this.state.Answer[i+1]}
-                    questionId={this.state.questionId+i}
-                    question={this.state.question[i].question}
-                    questionTotal={questions.length}
-                    onAnswerSelected={this.handleAnswerSelected}
-                  />
-                ));
-              }
-              return JSXarray;
-            }).bind(this)()
-          }
-        </div>
-        <div class="AssessmentButtons" style={{backgroundColor : "#fff", padding: "10px 20px", textAlign : "right"}}>
-          <button class="button1" style={{float : "unset", marginRight : "10px"}} onClick={this.evaluateNow}>Evaluate</button>
-          <button class="button3" style={{float : "unset"}} onClick={this._onAssessClick}>Categories</button>
-        </div>
-      </div>
-    );
-  }
-
-  renderHarmQuiz() {
-    return (
-      <div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
-          <p class="pageTitle">Assess</p>
-          <p class="Head">Question: Serious Harm</p>
-          <p class="regularText" style={{"fontWeight" : "bold"}}>Causes or threatens to cause serious harm to any person</p>
-        </div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
-          <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
-            <p class="pageTitle">Assess</p>
-            <p class="Head">Question: Serious Harm</p>
-            <p class="HomeHead1">Causes or threatens to cause serious harm to any person</p>
-          </div>
-        </div>
-        <div class="hidden-md hidden-lg">
-          <Expandable content={
-            <div class="App">
-              <br />
-              {this.renderFederalIntro()}
-              <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-              <p class="regularText">Serious harm may be physical and nonphysical, including psychological, financial, or reputational harm. Generally, the test contemplates whether it is sufficiently serious, under all the surrounding circumstances, to compel a reasonable person of the same background and in the same circumstances to perform or to continue performing labor or services in order to avoid incurring that harm. </p>
-              <br />
-              <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
-              <p class="regularText">There is currently no statutory or case law definition of serious harm under Massachusetts law. Serious harm is defined under federal law as any harm, whether physical or nonphysical, including psychological, financial, or reputational harm, that is sufficiently serious, under all the surrounding circumstances, to compel a reasonable person of the same background and in the same circumstances to perform or to continue performing labor or services in order to avoid incurring that harm. 18 USC § 1589 (c)(2). </p>
-              <br />
-              <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
-              <ul>
-                <li>
-                  <p class="regularText">An employer kicks the worker in the morning to wake her up and to start working.</p>
-                </li>
-                <li>
-                  <p class="regularText">When the worker asks for his wages, the employers gets angry and hits the worker.</p>
-                </li>
-              </ul>
-            </div>
-          } />
-        </div>
-        <div class="hidden-xs hidden-sm">
-          <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
-            <br />
-            {this.renderFederalIntro()}
-            <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-            <p class="regularText">Serious harm may be physical and nonphysical, including psychological, financial, or reputational harm. Generally, the test contemplates whether it is sufficiently serious, under all the surrounding circumstances, to compel a reasonable person of the same background and in the same circumstances to perform or to continue performing labor or services in order to avoid incurring that harm. </p>
-            <br />
-            <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
-            <p class="regularText">There is currently no statutory or case law definition of serious harm under Massachusetts law. Serious harm is defined under federal law as any harm, whether physical or nonphysical, including psychological, financial, or reputational harm, that is sufficiently serious, under all the surrounding circumstances, to compel a reasonable person of the same background and in the same circumstances to perform or to continue performing labor or services in order to avoid incurring that harm. 18 USC § 1589 (c)(2). </p>
-            <br />
-            <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
-            <ul>
-              <li>
-                <p class="regularText">An employer kicks the worker in the morning to wake her up and to start working.</p>
-              </li>
-              <li>
-                <p class="regularText">When the worker asks for his wages, the employers gets angry and hits the worker.</p>
-              </li>
-            </ul>
-          </div>
-        </div>
-        {this.renderQuestions(SeriousHarmquizQuestions)}
-      </div>
-    );
-  }
-
-  renderRestraintQuiz() {
-    return (
-      <div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
-          <p class="pageTitle">Assess</p>
-          <p class="Head">Question: Physical Restraint</p>
-          <p class="regularText" style={{"fontWeight" : "bold"}}>Physically restrains or threatens to physically restrain another person	</p>
-        </div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
-          <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
-            <p class="pageTitle">Assess</p>
-            <p class="Head">Question: Physical Restraint</p>
-            <p class="HomeHead1">Physically restrains or threatens to physically restrain another person	</p>
-          </div>
-        </div>
-        <div class="hidden-md hidden-lg">
-          <Expandable content={
-            <div class="App">
-              <br />
-              {this.renderFederalIntro()}
-              <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-              <p class="regularText">Physical restraint is not defined under Massachusetts law. Federally, it has been defined generally as purposely limiting or obstructing the freedom of a person’s bodily movement. This can range from using locks on doors or windows to more subtle forms of control that restrict another person’s ability to move around.</p>
-              <br />
-              <p class="regularText" style={{"fontWeight" : "bold"}}>Example</p>
-              <ul>
-                <li>
-                  <p class="regularText">A domestic worker is brought to the United States by an employer. The employer does not permit her to leave the house unaccompanied, and her movement is monitored by cameras.</p>
-                </li>
-              </ul>
-            </div>
-          } />
-        </div>
-        <div class="hidden-xs hidden-sm">
-          <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
-            <br />
-            {this.renderFederalIntro()}
-            <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-            <p class="regularText">Physical restraint is not defined under Massachusetts law. Federally, it has been defined generally as purposely limiting or obstructing the freedom of a person’s bodily movement. This can range from using locks on doors or windows to more subtle forms of control that restrict another person’s ability to move around.</p>
-            <br />
-            <p class="regularText" style={{"fontWeight" : "bold"}}>Example</p>
-            <ul>
-              <li>
-                <p class="regularText">A domestic worker is brought to the United States by an employer. Her employers do not permit her to leave the house unaccompanied, and her movement is monitored by cameras.</p>
-              </li>
-            </ul>
-          </div>
-        </div>
-        {this.renderQuestions(RestraintquizQuestions)}
-      </div>
-    );
-  }
-
-  renderAbuseQuiz() {
-    return (
-      <div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
-          <p class="pageTitle">Assess</p>
-          <p class="Head">Question: Abuse of the Law</p>
-          <p class="regularText" style={{"fontWeight" : "bold"}}>Abuses or threatens to abuse the law or legal process	</p>
-        </div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
-          <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
-            <p class="pageTitle">Assess</p>
-            <p class="Head">Question: Abuse of the Law</p>
-            <p class="HomeHead1">Abuses or threatens to abuse the law or legal process	</p>
-          </div>
-        </div>
-        <div class="hidden-md hidden-lg">
-          <Expandable content={
-            <div class="App">
-              <br />
-              {this.renderFederalIntro()}
-              <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-              <p class="regularText">Abuse of the legal process under federal law includes the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed. A common example is a threat of deportation by an employer.</p>
-              <br />
-              <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
-              <p class="regularText">There is currently no statutory or case law definition of serious harm under Massachusetts law. Abuse of the legal process is defined federally as the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed, in order to exert pressure on another person to cause that person to take some action or refrain from taking some action. 22 U.S.C. § 7102(1).</p>
-              <br />
-              <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
-              <ul>
-                <li>
-                  <p class="regularText">An employer threatens to deport the worker or "call immigration" if he stops working for the employer.</p>
-                </li>
-                <li>
-                  <p class="regularText">An employer threatens to falsely accuse the worker of a crime if she fails to work.</p>
-                </li>
-              </ul>
-            </div>
-          } />
-        </div>
-        <div class="hidden-xs hidden-sm">
-          <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
-            <br />
-            {this.renderFederalIntro()}
-            <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-            <p class="regularText">Abuse of the legal process under federal law includes the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed. A common example is a threat of deportation by an employer.</p>
-            <br />
-            <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
-            <p class="regularText">There is currently no statutory or case law definition of serious harm under Massachusetts law. Abuse of the legal process is defined federally as the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed, in order to exert pressure on another person to cause that person to take some action or refrain from taking some action. 22 U.S.C. § 7102(1).</p>
-            <br />
-            <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
-            <ul>
-              <li>
-                <p class="regularText">An employer threatens to deport the worker or "call immigration" if he stops working for the employer.</p>
-              </li>
-              <li>
-                <p class="regularText">An employer threatens to falsely accuse the worker of a crime if she fails to work.</p>
-              </li>
-            </ul>
-          </div>
-        </div>
-        {this.renderQuestions(AbuseofLawquizQuestions)}
-      </div>
-    );
-  }
-
-  renderIdentityQuiz() {
-    return (
-      <div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
-          <p class="pageTitle">Assess</p>
-          <p class="Head">Question: Identity Documents</p>
-          <p class="regularText" style={{"fontWeight" : "bold"}}>Knowingly destroys, conceals, removes, confiscates or possesses any actual or purported passport or other immigration document, or any other actual or purported government identification document, of another person.</p>
-        </div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
-          <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
-            <p class="pageTitle">Assess</p>
-            <p class="Head">Question: Identity Documents</p>
-            <p class="HomeHead1">Knowingly destroys, conceals, removes, confiscates or possesses any actual <br /> or purported passport or other immigration document, or any other actual <br /> or purported government identification document, of another person.</p>
-          </div>
-        </div>
-        <div class="hidden-md hidden-lg">
-          <Expandable content={
-            <div class="App">
-              <br />
-              <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-              <p class="regularText">This includes taking someone’s identity document for any period of time, even if it is brief. In addition, it can include tearing or mutilating identity documents related to work.</p>
-              <br />
-              <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
-              <p class="regularText">Under Massachusetts law, this includes anyone who knowingly destroys, conceals, removes, confiscates or possesses any actual or purported passport or other immigration document, or any other actual or purported government identification document, of another person. M.G.L. ch. 265, § 49.</p>
-              <br />
-              <p class="regularText" style={{"fontWeight" : "bold"}}>Example</p>
-              <ul>
-                <li>
-                  <p class="regularText">An employer demands that the worker’s passport remain with the employer. The employer keeps it in an undisclosed location.</p>
-                </li>
-              </ul>
-            </div>
-          } />
-        </div>
-        <div class="hidden-xs hidden-sm">
-          <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
-            <br />
-            <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-            <p class="regularText">This includes taking someone’s identity document for any period of time, even if it is brief. In addition, it can include tearing or mutilating identity documents related to work.</p>
-            <br />
-            <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
-            <p class="regularText">Under Massachusetts law, this includes anyone who knowingly destroys, conceals, removes, confiscates or possesses any actual or purported passport or other immigration document, or any other actual or purported government identification document, of another person. M.G.L. ch. 265, § 49.</p>
-            <br />
-            <p class="regularText" style={{"fontWeight" : "bold"}}>Example</p>
-            <ul>
-              <li>
-                <p class="regularText">An employer demands that the worker’s passport remain with the employer. The employer keeps it in an undisclosed location.</p>
-              </li>
-            </ul>
-          </div>
-        </div>
-        {this.renderQuestions(IdentityDocumentsquizQuestions)}
-      </div>
-    );
-  }
-
-  renderExtortionQuiz() {
-    return (
-      <div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
-          <p class="pageTitle">Assess</p>
-          <p class="Head">Question: Extortion</p>
-          <p class="regularText" style={{"fontWeight" : "bold"}}>Engages in extortion under Massachusetts law	</p>
-        </div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
-          <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
-            <p class="pageTitle">Assess</p>
-            <p class="Head">Question: Extortion</p>
-            <p class="HomeHead1">Engages in extortion under Massachusetts law	</p>
-          </div>
-        </div>
-        <div class="hidden-md hidden-lg">
-          <Expandable content={
-            <div class="App">
-              <br />
-              <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-              <p class="regularText">Extortion is the practice of trying to get something through force, threats, or blackmail.</p>
-              <br />
-              <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
-              <p class="regularText">"Whoever, verbally or by a written or printed communication, maliciously threatens to accuse another of a crime or offence, or by a verbal or written or printed communication maliciously threatens an injury to the person or property of another, or any police officer or person having the powers of a police officer, or any officer, or employee of any licensing authority who verbally or by written or printed communication maliciously and unlawfully uses or threatens to use against another the power or authority vested in him, with intent thereby to extort money or any pecuniary advantage, or with intent to compel any person to do any act against his will, shall be punished by imprisonment in the state prison for not more than fifteen years, or in the house of correction for not more than two and one half years, or by a fine of not more than five thousand dollars, or both." M.G.L. ch. 265, § 25.</p>
-              <br />
-              <p class="regularText" style={{"fontWeight" : "bold"}}>Example</p>
-              <ul>
-                <li>
-                  <p class="regularText">An employer threatens to release embarrassing photographs, unless the worker continues to work.</p>
-                </li>
-              </ul>
-            </div>
-          } />
-        </div>
-        <div class="hidden-xs hidden-sm">
-          <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
-            <br />
-            <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-            <p class="regularText">Extortion is the practice of trying to get something through force, threats, or blackmail.</p>
-            <br />
-            <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
-            <p class="regularText">"Whoever, verbally or by a written or printed communication, maliciously threatens to accuse another of a crime or offence, or by a verbal or written or printed communication maliciously threatens an injury to the person or property of another, or any police officer or person having the powers of a police officer, or any officer, or employee of any licensing authority who verbally or by written or printed communication maliciously and unlawfully uses or threatens to use against another the power or authority vested in him, with intent thereby to extort money or any pecuniary advantage, or with intent to compel any person to do any act against his will, shall be punished by imprisonment in the state prison for not more than fifteen years, or in the house of correction for not more than two and one half years, or by a fine of not more than five thousand dollars, or both." M.G.L. ch. 265, § 25.</p>
-            <br />
-            <p class="regularText" style={{"fontWeight" : "bold"}}>Example</p>
-            <ul>
-              <li>
-                <p class="regularText">An employer threatens to release embarrassing photographs, unless the worker continues to work.</p>
-              </li>
-            </ul>
-          </div>
-        </div>
-        {this.renderQuestions(ExtortionquizQuestions)}
-      </div>
-    );
-  }
-
-  renderfHarmQuiz() {
-    return (
-      <div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
-          <p class="pageTitle">Assess</p>
-          <p class="Head">Question: Financial Harm</p>
-          <p class="regularText" style={{"fontWeight" : "bold"}}>Causes or threatens to cause financial harm to any person</p>
-        </div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
-          <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
-            <p class="pageTitle">Assess</p>
-            <p class="Head">Question: Financial Harm</p>
-            <p class="HomeHead1">Causes or threatens to cause financial harm to any person</p>
-          </div>
-        </div>
-        <div class="hidden-md hidden-lg">
-          <Expandable content={
-            <div class="App">
-              <br />
-              <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-              <p class="regularText">Financial harm is when a perpetrator puts the worker in a detrimental position in relation to wealth, property, or other monetary benefits through extortion, criminal usury, or illegal employment contracts. This might include a situation where the perpetrator uses an illegal employment contract to lure a worker to work in demeaning conditions.</p>
-              <br />
-              <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
-              <p class="regularText">“Financial harm” is defined as a detrimental position in relation to wealth, property or other monetary benefits that occurs as a result of another person’s illegal act including, but not limited to, extortion under by section 25, a violation of section 49 of chapter 271 (“Criminal Usury”), or illegal employment contracts.” M.G.L. ch. 265, § 49.</p>
-              <br />
-              <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
-              <ul>
-                <li>
-                  <p class="regularText">An employer refuses to pay wages to the worker for the work she has done.</p>
-                </li>
-                <li>
-                  <p class="regularText">A worker makes one mistake on the job, and the employer refuses to pay him that week.</p>
-                </li>
-                <li>
-                  <p class="regularText">An employer tells the worker that he has no wages to be paid out because of the costs the employer is incurring to house, feed, transport him to the worksite each day.</p>
-                </li>
-              </ul>
-            </div>
-          } />
-        </div>
-        <div class="hidden-xs hidden-sm">
-          <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
-            <br />
-            <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
-            <p class="regularText">Financial harm is when a perpetrator puts the worker in a detrimental position in relation to wealth, property, or other monetary benefits through extortion, criminal usury, or illegal employment contracts. This might include a situation where the perpetrator uses an illegal employment contract to lure a worker to work in demeaning conditions.</p>
-            <br />
-            <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
-            <p class="regularText">“Financial harm” is defined as a detrimental position in relation to wealth, property or other monetary benefits that occurs as a result of another person’s illegal act including, but not limited to, extortion under by section 25, a violation of section 49 of chapter 271 (“Criminal Usury”), or illegal employment contracts.” M.G.L. ch. 265, § 49.</p>
-            <br />
-            <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
-            <ul>
-              <li>
-                <p class="regularText">An employer refuses to pay wages to the worker for the work she has done.</p>
-              </li>
-              <li>
-                <p class="regularText">A worker makes one mistake on the job, and the employer refuses to pay him that week.</p>
-              </li>
-              <li>
-                <p class="regularText">An employer tells the worker that he has no wages to be paid out because of the costs the employer is incurring to house, feed, transport him to the worksite each day.</p>
-              </li>
-            </ul>
-          </div>
-        </div>
-        {this.renderQuestions(FinancialHarmquizQuestions)}
-      </div>
-    );
-  }
-
-  renderImgTick() {
-    return (
-      <img src={YesImg} class="modalImg" alt="Result"/>
-    );
-  }
-
-  renderImgCross() {
-    return (
-      <img src={NoImg} class="modalImg" alt="Result"/>
-    );
-  }
-
-  renderImgQues() {
-    return (
-      <img src={MaybeImg} class="modalImg" alt="Result"/>
-    );
-  }
-
-  renderResult() {
-    return (
-        <div>
-          <Popup
-            open={true}
-            contentStyle={{ maxWidth: "600px", height: "400px", width: "90%", overflow: "auto"}}>
-            {close => (
-              <div style={{display: "table", height: "100%", width: "100%"}}>
-                <button class="modalClose" onClick={() => {close(); /*this._onPrepareClick()*/}}>&#215;</button>
-                <div style={{display : "table-cell", verticalAlign : "middle"}}>
-                  <div className="header">
-                    <p class="modalCategory">Results for:</p>
-                  </div>
-                  <div className="header">
-                    <p>
-                      {
-                          this.state.qcategory == 1 ? "Serious Harm" : this.state.qcategory == 2 ?
-                                                    "Physical Restraint" : this.state.qcategory == 3 ? "Abuse of the Law" :
-                                                    this.state.qcategory == 4 ? "Identity Documents" : this.state.qcategory == 5 ?
-                                                    "Extortion" : "Financial Harm"
-                      }
-                    </p>
-                  </div>
-                  {(()=>{
-                    switch(this.state.result){
-                      case 'yes-one':
-                      case 'yes-all':
-                        return this.renderImgTick();
-                      default:
-                        return this.renderImgQues();
-                    }
-                  })()}
-                  <div style={{paddingTop: "20px"}} class="header">
-                    <p>Report &amp; Find Victim Services</p>
-                  </div>
-                  <Result quizResult={this.state.result} />
-                  <div class="actions">
-                    <div>
-                      <button className="button1" style={{float : "unset", marginRight: "10px"}} onClick={this._onReportClick}>Report</button>
-                      <button className="button3" style={{float : "unset"}} onClick={this._onResourcesClick}>Victim Services</button>
-                    </div>
-                  </div>
-                  <br/>
-                </div>
-              </div>
-            )}
-          </Popup>
-        </div>
-    );
-  }
-
-  renderHome() {
-    return (
-      <div className="App">
-        <br class="hidden-lg hidden-md" />
-        <div class="Head hidden-lg hidden-md" style={{textAlign : "left"}}>
-          <img src={ResultImg} style={{height: "24px", marginBottom: "5px", marginTop: "5px"}} alt="RESULT" />
-        </div>
-        {/*<p className="Head hidden-lg hidden-md">Recognize and Evaluate Signs <br />to Uncover Labor Trafficking</p>*/}
-        <div class="ButBar hidden-lg hidden-md">
-          {/*<p class="HomeHead1" style={{"fontWeight" : "bold", "color" : "#808080", "marginBottom": "20px"}}> </p>*/}
-          <p className="HomeHead1">A tool to help investigators identify potential <br class="hidden-xs" /> labor trafficking under Massachusetts law.<br></br></p>
-        </div>
-
-        <div class="homeContainer hidden-sm hidden-xs">
-          {/*<p class="MassTitle">Massachusetts Attorney General’s Office</p>*/}
-          <img class="HomeHead" src={ResultImg} height="30px" alt="RESULT"/>
-          {/*<p class="HomeHead" style={{"lineHeight": "36px"}}>RESULT</p>*/}
-          <p class="HomeHead1" style={{"fontWeight" : "bold", "color" : "#808080", "marginBottom": "20px"}}>Recognize and Evaluate Signs to Uncover Labor Trafficking </p>
-          <p class="HomeHead1">A tool to help investigators identify potential <br /> labor trafficking under Massachusetts law.</p>
-        </div>
-
-        <div class="buttonContainer hidden-sm hidden-xs">
-          <button class="button4" onClick={this._onPrepareClick}>
-            <div class="b4_container">
-              <h1>Prepare</h1>
-              <div class="home_yellow"></div>
-              <p style={{"fontWeight" : "bold"}}>Tips for interviewing victims</p>
-              <p>What to think about before you interview the victim.</p>
-            </div>
-          </button>
-          <button class="button4" onClick={this._onAssessClick}>
-            <div class="b4_container">
-              <h1>Assess</h1>
-              <div class="home_yellow"></div>
-              <p style={{"fontWeight" : "bold"}}>Is this trafficking?</p>
-              <p>These questions can help determine if certain circumstances rise to the level of labor trafficking under Massachusetts law.</p>
-            </div>
-          </button>
-          <br class="HomeBR" />
-          <button class="button4">
-            <div class="b4_container">
-              <div onClick={this._onReportClick} style={{position: "absolute", left : "0", top : "0", width: "100%", height: "100%"}}></div>
-              <h1>Resources</h1>
-              <div class="home_yellow"></div>
-              <p style={{"fontWeight" : "bold", textDecoration : "underline"}}>Report</p>
-              <p style={{"fontWeight" : "bold", textDecoration : "underline", position : "relative"}}>
-                <div onClick={this._onResourcesClick} style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div>
-                Victim Services
-              </p>
-            </div>
-          </button>
-          <button class="button4" onClick={this._onMassClick}>
-            <div class="b4_container">
-              <h1>Massachusetts Law</h1>
-              <div class="home_yellow"></div>
-              <p style={{"fontWeight" : "bold"}}>View the Massachusetts labor trafficking statute</p>
-            </div>
-          </button>
-        </div>
-        <div class="buttonContainer hidden-md hidden-lg">
-          <button class="button4" onClick={this._onPrepareClick}><h1>Prepare</h1><p>Tips for interviewing victims</p></button>
-          <button class="button4" onClick={this._onAssessClick}><h1>Assess</h1><p>Is this trafficking?</p></button>
-          <button class="button4">
-            <div onClick={this._onReportClick} style={{position: "absolute", left : "0", top : "0", width: "100%", height: "100%"}}></div>
-            <h1>Resources</h1>
-            <p>
-              <span style={{textDecoration : "underline"}}>Report</span>&nbsp;and&nbsp;
-              <span style={{textDecoration : "underline", position : "relative"}}>
-                <div onClick={this._onResourcesClick} style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div>
-                Victim Services
-              </span>
-            </p>
-          </button>
-          <button class="button4" onClick={this._onMassClick}><h1>Massachusetts Law</h1><p>View the Massachusetts labor trafficking statute</p></button>
-        </div>
-      </div>
-    );
   }
 
   prepareFunc() {
@@ -796,21 +248,6 @@ class App extends Component {
         }
       });
     }
-  }
-
-  _onPrepareClick() {
-    this.setState({
-      page: 2,
-      mobileMenu: false,
-    });
-  }
-
-  _onAssessClick() {
-    this.setState({
-      page: 3,
-      mobileMenu: false,
-      Answer: new Array(14).fill(''),
-    });
   }
 
   sHarmQuizFunc() {
@@ -879,10 +316,26 @@ class App extends Component {
     });
   }
 
-  _onCompleteClick() {
+
+  _onHomeClick() {
     this.setState({
       page: 1,
       mobileMenu: false,
+    });
+  }
+
+  _onPrepareClick() {
+    this.setState({
+      page: 2,
+      mobileMenu: false,
+    });
+  }
+
+  _onAssessClick() {
+    this.setState({
+      page: 3,
+      mobileMenu: false,
+      Answer: new Array(14).fill(''),
     });
   }
 
@@ -893,17 +346,23 @@ class App extends Component {
     });
   }
 
-  _onVictimClick() {
-    this.setState({
-      page: 6,
-      mobileMenu: false,
-    });
-  }
-
   _onResourcesClick(){
+    let params = new URLSearchParams(window.location.search);
+    let id = 0;
+    if(params.get("id")){
+      if(params.get("id") === "0")
+        id = 0;
+      else if(params.get("id") === "1")
+        id = 1;
+      else if(params.get("id") === "2")
+        id = 2;
+      else if(params.get("id") === "3")
+        id = 3;
+    }
     this.setState({
       page: 6,
       mobileMenu: false,
+      resourcesPage: id
     });
   }
 
@@ -927,6 +386,21 @@ class App extends Component {
       mobileMenu: false,
     })
   }
+
+
+  handleMenuClick() {
+    this.setState({
+      mobileMenu : !this.state.mobileMenu,
+    })
+  }
+
+  handleResourcesClick(id){
+    this.setState({
+      resourcesPage: id,
+    });
+  }
+
+
   renderPrepare() {
     let blueBoxContainer = "prepareBlueBoxContainer blueBoxLeft";
     let blueBox = "prepareBlueBox";
@@ -952,14 +426,10 @@ class App extends Component {
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
                 <h1 style={{fontWeight:"bold", marginBottom: "5px"}}>Be patient</h1>
-                <ul style={{"list-style-type": "disc", "padding-left": "16px", "margin": "0px", "font-size": "13px"}}>
-                  <li>
-                    <h2 style={{fontWeight:"normal"}}>Establishing trust with the victim may be difficult during initial interviews. Victims may not initially divulge key details due to fear.</h2>
-                  </li>
-                  <li>
-                    <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>In the human trafficking context, it is common to engage in multiple interviews as trust develops. It is also common that there may be initial inconsistencies as a result of distrust or the victim’s lack of understanding about the legal process.</h2>
-                  </li>
-                </ul>
+                <h2 style={{fontWeight:"normal"}}>Establishing trust with the victim may be difficult during initial interviews. Victims may not initially divulge key details due to fear.</h2>
+                <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>In the human trafficking context, it is common to engage in multiple interviews as trust develops. It is also common that there may be initial inconsistencies as a result of distrust or the victim’s lack of understanding about the legal process.</h2>
+                <h1 style={{fontWeight:"bold", marginBottom: "5px"}}>Interview setting</h1>
+                <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>Victims should be interviewed in a setting in which they are physically and emotionally comfortable. Interviewers should offer water, avoid noisy areas or areas with heavy foot traffic, and ensure that only essential people are present in the interview.</h2>
                 <h1 style={{fontWeight:"bold", marginBottom: "5px"}}>Confidentiality limitations</h1>
                 <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>You will not be able to keep details disclosed by the victim confidential. Explain  this at the beginning so the victim will understand your role and not feel betrayed if you have to share information with prosecutors or other government officials.</h2>
                 <h1 style={{fontWeight:"bold", marginBottom: "5px"}}>Referrals</h1>
@@ -973,7 +443,7 @@ class App extends Component {
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
                 <h2 style={{fontWeight:"normal"}}>Undocumented victims are particularly at risk for human trafficking and may fear engaging with law enforcement.</h2>
-                <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>Immigration threats are often used as a means of power and control over the victim. If the victim is undocumented or if you are unsure of the victim’s immigration status, make a referral immediately to an experienced immigration attorney. <span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(2)}}>Click here for a list of local immigration legal services providers.</span></h2>
+                <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>Immigration threats are often used as a means of power and control over the victim. If the victim is undocumented or if you are unsure of the victim’s immigration status, make a referral immediately to an experienced immigration attorney. <a class="prepareLink" href="/resources?id=2">Click here for a list of local immigration legal services providers.</a></h2>
               </div>
             )} />
           )} />
@@ -982,25 +452,13 @@ class App extends Component {
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
                 <h1 style={{fontWeight:"bold", marginBottom: "5px"}}>Safety planning is very important</h1>
-                <ul style={{"list-style-type": "disc", "padding-left": "16px", "margin": "0px", "font-size": "13px"}}>
-                  <li>
-                    <h2 style={{fontWeight:"normal"}}>Ask about the victim’s immediate safety and take appropriate steps to ensure safety both before and after interviewing.</h2>
-                  </li>
-                  <li>
-                    <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>Involve a victim advocate in the process as soon as possible. <span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(1)}}>Click here for a list of questions to consider when thinking about safety planning.</span></h2>
-                  </li>
-                </ul>
+                <h2 style={{fontWeight:"normal"}}>Ask about the victim’s immediate safety and take appropriate steps to ensure safety both before and after interviewing.</h2>
+                <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>Involve a victim advocate in the process as soon as possible. <a class="prepareLink" href="/resources?id=1">Click here for a list of questions to consider when thinking about safety planning.</a></h2>
                 <h1 style={{fontWeight:"bold", marginBottom: "5px"}}>Remember</h1>
-                <ul style={{"list-style-type": "disc", "padding-left": "16px", "margin": "0px", "font-size": "13px"}}>
-                  <li>
-                    <h2 style={{fontWeight:"normal"}}>Victims may be fearful of reprisals to themselves and their family members.</h2>
-                  </li>
-                  <li>
-                    <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>The victim may need to work to continue to repay debt and/or to support family members here or abroad.</h2>
-                  </li>
-                </ul>
-                <h2 style={{fontWeight:"normal"}}>Some undocumented victims may be eligible for work authorization. <span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(0)}}>Click here to learn more about immigration relief.</span></h2>
-                <h2 style={{fontWeight:"normal"}}>Make referrals to organizations that can assist with safety planning. <span class="prepareLink" onClick={this._onResourcesClick}>Click here to learn about available victim services.</span></h2>
+                <h2 style={{fontWeight:"normal"}}>Victims may be fearful of reprisals to themselves and their family members.</h2>
+                <h2 style={{fontWeight:"normal", marginBottom: "15px"}}>The victim may need to work to continue to repay debt and/or to support family members here or abroad.</h2>
+                <h2 style={{fontWeight:"normal"}}>Some undocumented victims may be eligible for work authorization. <a class="prepareLink" href="/resources?id=2">Click here to learn more about immigration relief.</a></h2>
+                <h2 style={{fontWeight:"normal"}}>Make referrals to organizations that can assist with safety planning. <a class="prepareLink" href="/resources?id=0">Click here to learn about available victim services.</a></h2>
               </div>
             )} />
           )} />
@@ -1012,7 +470,7 @@ class App extends Component {
                 <h2 style={{fontWeight:"normal"}}>Always ask the victim about any languages he or she speaks and in what language he or she prefers to communicate.</h2>
                 <h2 style={{fontWeight:"normal"}}>In-person interpretation is preferable.</h2>
                 <h2 style={{fontWeight:"normal"}}>Before the interview, screen your interpreter to make sure he or she is not involved in the case and does not have connections to the suspect. Often, ethnic communities can be small, and it is essential that the interpreter has no relationship with the suspect and understands the importance of confidentiality.</h2>
-                <h2 style={{fontWeight:"normal"}}>Understand that there may be stigma and subtle cultural considerations that can affect the victim’s disclosures to interpreters. For example, a victim may not feel comfortable disclosing about a sexual assault in front of someone from his or her same ethnicity fearing stigma or blame.</h2>
+                <h2 style={{fontWeight:"normal"}}>Understand that there may be stigma and subtle cultural considerations that can affect the victim’s disclosures to interpreters. For example, a victim may not feel comfortable disclosing a sexual assault in front of someone from his or her same ethnicity, fearing stigma or blame.</h2>
               </div>
             )} />
           )} />
@@ -1021,8 +479,8 @@ class App extends Component {
             <BlueBox blueBoxContainer={blueBoxContainer} blueBox={blueBox} html={(
               <div>
                 <h1 style={{fontWeight:"bold"}}>Referrals to victim services </h1>
-                <h2 style={{fontWeight:"normal"}}>The first priority is ensuring that the victim’s basic needs are met. This includes access to safe housing, mental health services, medical services, and food. <span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(0)}}>Click here to learn more about available victim services.</span></h2>
-                <h2 style={{fontWeight:"normal"}}> It is important to refer the victim to an attorney as soon as possible to ensure that he or she can learn about his or her rights. A victim of labor trafficking may be eligible for certain protections under law, such as victim compensation, criminal restitution, immigration relief, and civil remedies. <span class="prepareLink" onClick={()=>{this._onResourcesClick(); this.handleResourcesClick(3)}}>Click here to learn more about available legal services and how to make referral.</span></h2>
+                <h2 style={{fontWeight:"normal"}}>The first priority is ensuring that the victim’s basic needs are met. This includes access to safe housing, mental health services, medical services, and food. <a class="prepareLink" href="/resources?id=0">Click here to learn more about available victim services.</a></h2>
+                <h2 style={{fontWeight:"normal"}}> It is important to refer the victim to an attorney as soon as possible to ensure that he or she can learn about his or her rights. A victim of labor trafficking may be eligible for certain protections under law, such as victim compensation, criminal restitution, immigration relief, and civil remedies. <a class="prepareLink" href="/resources?id=3">Click here to learn more about available legal services and how to make referral.</a></h2>
               </div>
             )} />
           )} />
@@ -1044,17 +502,14 @@ class App extends Component {
                 <h1 style={{fontWeight:"bold"}}>Trauma-informed interviewing</h1>
                 <h2 style={{fontWeight:"normal"}}>Approach the victim in a trauma-informed manner. It is important to understand how trauma can affect a victim’s disclosure and how to respond when the signs of trauma present themselves in an interview.</h2>
                 <h2 style={{fontWeight:"normal"}}> Often, victims may suffer from post-traumatic stress disorder, depression, and/or other mental health conditions. For this reason, they may have difficulty telling you about key parts of their story. Trauma can make victims reluctant to disclose and may affect their memory of an event, causing them to disclose their stories in a non-linear or inconsistent manner. Facts may emerge over time, and it may be important to engage in multiple interviews or ask for the assistance of a forensic interviewer, when appropriate.</h2>
-                <h2 style={{fontWeight:"normal"}}>Explore whether the victim has mental health supports in place at the outset and if not, make appropriate referrals to ensure the victim has support throughout the process. <span class="prepareLink" onClick={this._onResourcesClick}>Click here for a list of victim services.</span></h2>
+                <h2 style={{fontWeight:"normal"}}>Explore whether the victim has mental health supports in place at the outset and if not, make appropriate referrals to ensure the victim has support throughout the process. <a class="prepareLink" href="/resources?id=0">Click here for a list of victim services.</a></h2>
                 <h1 style={{marginTop: "20px", fontWeight:"bold"}}>Child victims</h1>
-                <h2 style={{fontWeight:"bold"}}>If a child (any victim under 18) is involved, mandated reporters must file a 51A report with the Massachusetts Department of Children and Families (DCF), which will report the situation to the local District Attorney’s Office. By law, DCF will work to establish a multidisciplinary team to provide comprehensive, tailored services to the child victim, and coordinate an interview.</h2>
-                <ul style={{"list-style-type": "disc", "padding-left": "16px", "margin": "0px", "font-size": "13px"}}>
+                <h2 style={{fontWeight:"normal"}}>If a child (any victim under 18) is involved, mandated reporters must file a 51A report with the Massachusetts Department of Children and Families (DCF), which will report the situation to the local District Attorney’s Office. By law, DCF will work to establish a multidisciplinary team to provide comprehensive, tailored services to the child victim, and coordinate an interview.</h2>
+                <h2 style={{fontWeight:"normal"}}>Please consult with your local <span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a target="_blank" href="http://machildrensalliance.org/locate-a-cac/">Children’s Advocacy Center</a></span> to coordinate, and the multidisciplinary team will work with you to consider if an interview of the child is appropriate and if so, how best to approach the interview.</h2>
+                {/*<ul style={{"list-style-type": "disc", "padding-left": "16px", "margin": "0px", "font-size": "13px"}}>
                   <li>
-                    <h2 style={{fontWeight:"normal"}}>Please consult with your local <span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a target="_blank" href="http://machildrensalliance.org/locate-a-cac/">Children’s Advocacy Center</a></span> to coordinate, and the multidisciplinary team will work with you to consider if an interview of the child is appropriate and if so, how best to approach the interview. {/*Consider conducting a child forensic interview. Even in cases wherein there is no physical or sexual violence suspected, a child forensic interview still may be helpful given emotional abuse and fear.*/}</h2>
                   </li>
-                  {/*<li>
-                    <h2 style={{fontWeight:"normal"}}>Child forensic interviewers are trained to consider the unique family relationships, community support, histories of trauma, and cultural or social attitudes that may shape a child’s disclosure. Each child victim is different, due to different past experiences of violence and trauma. It is important to note that no two children will react in the same manner or provide the same level of detail and clarity.</h2>
-                  </li>*/}
-                </ul>
+                </ul>*/}
                 <h1 style={{marginTop: "20px", fontWeight:"bold"}}>Culture</h1>
                 <h2 style={{fontWeight:"normal"}}>Culture can play an important role in how a victim engages in the interview process. If the victim is from a distinct ethnic or social group, educate yourself about the culture.</h2>
                 <h2 style={{fontWeight:"normal"}}>Cultural norms may shape what or how the victim will disclose critical information. Consider connecting with social service providers in your area with expertise serving this population.</h2>
@@ -1074,7 +529,7 @@ class App extends Component {
 
           <div style={{'padding' : '30px 30px 10px 30px', 'width' : '100%', "textAlign" : "center"}}>
             <div style={{"textAlign" : "right", "maxWidth" : "800px", "marginLeft": "auto", "marginRight": "auto"}}>
-              <button class="button1" style={{'float' : 'none', 'margin' : '0'}} onClick = {this._onAssessClick}>Assess</button>
+              <a href="/assess"><button class="button1" style={{'float' : 'none', 'margin' : '0'}}>Assess</button></a>
             </div>
           </div>
         </div>
@@ -1090,7 +545,8 @@ class App extends Component {
           <img src={Warning} class="AssessmentWarning" />
           <p class="pageTitle"> Legal Disclaimer</p>
         </div>
-        <p style={{"fontWeight" : "bold"}}>All materials on this app are for general informational purposes only. The information presented is not legal advice, may not be current, and is subject to change without notice.</p>
+        <p style={{"fontWeight" : "bold"}}>All materials on this website and app are for general informational purposes only. The information presented is not legal advice, may not be current, and is subject to change without notice.</p>
+        <p style={{"fontWeight" : "bold"}}>Your answers to the following question will not be saved or shared with other parties. This tools is for educational purposes only.</p>
         <p style={{"fontWeight" : "bold"}}>Communication of information by, in, to or through this website and your receipt or use of it:</p>
         <ul>
           <li>
@@ -1112,14 +568,14 @@ class App extends Component {
         <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
           <p class="pageTitle">Assess</p>
           {/*<p class="Head">Is it trafficking?</p>*/}
-          <p class="HomeHead1">These questions can help determine if certain circumstances rise to the level of labor trafficking under Massachusetts law.</p>
+          <p class="HomeHead1">These questions are designed for investigators to help determine if circumstances rise to the level of labor trafficking under Massachusetts law.</p>
         </div>
 
         <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm">
           <div class="homeContainer">
             <p class="pageTitle">Assess</p>
-            <p class="Head">Is this trafficking?</p>
-            <p class="HomeHead1">These questions can help determine if certain circumstances<br /> rise to the level of labor trafficking under Massachusetts law.</p>
+            <p class="Head">Is it trafficking?</p>
+            <p class="HomeHead1">These questions are designed for investigators to help determine <br />if circumstances rise to the level of labor trafficking under Massachusetts law.</p>
           </div>
         </div>
 
@@ -1161,12 +617,6 @@ class App extends Component {
     );
   }
 
-  handleResourcesClick(id){
-    this.setState({
-      resourcesPage: id,
-    });
-  }
-
   renderResources() {
     let blueBoxContainer = "prepareBlueBoxContainer blueBoxLeft";
     let blueBox = "prepareBlueBox";
@@ -1175,7 +625,7 @@ class App extends Component {
     function menuClass(id){
       return ("lis new-lis resources-lis "+((id==this.state.resourcesPage)?"resources-lis-active":""));
     }
-    menuClass = menuClass.bind(this)
+    menuClass = menuClass.bind(this);
     return (
       <div>
         <div className="App hidden-md hidden-lg">
@@ -1223,7 +673,7 @@ class App extends Component {
                         <h1 style={{fontWeight:"bold"}}>Emergency Shelter</h1>
                         <h2 style={{fontWeight:"normal"}}>Contact the National Human Trafficking Resource Center Hotline for emergency shelter options at <span style={{fontWeight:"bold"}}>1-888-373-7880</span>.</h2>
                         <br />
-                        <h2 style={{fontWeight:"bold"}}>Trafficking-specific shelter options:</h2>
+                        {/*<h2 style={{fontWeight:"bold"}}>Trafficking-specific shelter options:</h2>
                         <h2 style={{fontWeight:"normal"}}>Listed below are organizations that place priority on housing for survivors of human trafficking:</h2>
                         <ul>
                           <li>
@@ -1239,7 +689,7 @@ class App extends Component {
                             <h2 style={{fontWeight:"normal"}}> RIA House (Central Massachusetts, sex trafficking): <span style={{fontWeight:"bold"}}>info@riahouse.org </span></h2>
                           </li>
                         </ul>
-                        <br />
+                        <br />*/}
                         <h2 style={{fontWeight:"bold"}}>Domestic Violence Shelter:</h2>
                         <h2 style={{fontWeight:"normal"}}>Some domestic violence shelters may house victims of labor trafficking. Click <a target="_blank" href="https://www.mass.gov/service-details/domestic-violence-programs">here</a> for a complete list of shelters in Massachusetts. To determine if a shelter space is available, victims can contact the Safelink state-wide hotline at <span style={{fontWeight : "bold"}}>877-785-2020</span> (toll-free), <span style={{fontWeight : "bold"}}>877-521-2601</span> (TTY).</h2>
                       </div>
@@ -1259,7 +709,7 @@ class App extends Component {
                       <div>
                         <h2 style={{fontWeight:"normal"}}>Contact the National Human Trafficking Resource Center Hotline for emergency shelter options at <span style={{fontWeight:"bold"}}>1-888-373-7880</span>.</h2>
                         <br />
-                        <h2 style={{fontWeight:"bold"}}>Trafficking-specific shelter options:</h2>
+                        {/*<h2 style={{fontWeight:"bold"}}>Trafficking-specific shelter options:</h2>
                         <h2 style={{fontWeight:"normal"}}>Listed below are organizations that place priority on housing for survivors of human trafficking:</h2>
                         <ul style={{"listStyleType" : "none"}}>
                           <li>
@@ -1275,7 +725,7 @@ class App extends Component {
                             <h2 style={{fontWeight:"bold"}}> RIA House (Central Massachusetts, sex trafficking): <span style={{fontWeight:"bold"}}>info@riahouse.org </span></h2>
                           </li>
                         </ul>
-                        <br />
+                        <br /> */}
                         <h2 style={{fontWeight:"bold"}}>Domestic Violence Shelter:</h2>
                         <h2 style={{fontWeight:"normal"}}>Some domestic violence shelters may house victims of labor trafficking. Click <a target="_blank" href="https://www.mass.gov/service-details/domestic-violence-programs">here</a> for a complete list of shelters in Massachusetts. To determine if a shelter space is available, victims can contact the Safelink state-wide hotline at <span style={{fontWeight : "bold"}}>877-785-2020</span> (toll-free), <span style={{fontWeight : "bold"}}>877-521-2601</span> (TTY).</h2>
                       </div>
@@ -1319,7 +769,7 @@ class App extends Component {
                   )} />
                   <NormalText html={(
                     <div>
-                      <h2 style={{fontWeight:"normal"}}>Victims should play a primary role in safety planning, and safety plans must take into consideration the victim’s unique circumstances, past trauma history, mental health needs, potential need to generate income, and educational needs. Plans must be made on a case-by-case basis tailored to the victim’s needs. In particular, many victims are exploited because they need to generate income to assist their family. It is essential for investigators to address the victim’s concerns about financially supporting family members. Otherwise, the victim may remain at risk to future victimization.</h2>
+                      <h2 style={{fontWeight:"normal"}}>Victims should play a primary role in safety planning, and safety plans must take into consideration the victim’s unique circumstances, past trauma history, immigration status, mental health needs, potential need to generate income, and educational needs. Plans must be made on a case-by-case basis tailored to the victim’s needs. In particular, many victims are exploited because they need to generate income to assist their family. It is essential for investigators to address the victim’s concerns about financially supporting family members. Otherwise, the victim may remain at risk to future victimization.</h2>
                     </div>
                   )} />
                   <br /><br />
@@ -1690,20 +1140,20 @@ class App extends Component {
           </div>
           <BlueBox blueBox={"massBlueBox immigrationUl"} html={
             <div>
-              <h2>Crime of Trafficking in Persons for Forced Services:</h2>
-              <h2 style={{fontWeight : "normal"}}>Under Massachusetts law, the crime of labor trafficking is known as Trafficking in Persons for Forced Services. This crime involves whoever knowingly:</h2>
+              <h2>Crime of Trafficking in Persons for Forced Services</h2>
+              <h2 style={{fontWeight : "normal"}}> Under Massachusetts law, M.G.L. ch. 265, § 51, the crime of labor trafficking is known as Trafficking in Persons for Forced Services. This crime involves whoever knowingly:</h2>
               <br class="hidden-md hidden-lg" />
               <ul>
                 <li>
                   <h2 style={{fontWeight: "normal"}}>subjects, or attempts to subject, another person to forced services, or recruits, entices, harbors, transports, provides or obtains by any means, or attempts to recruit, entice, harbor, transport, provide or obtain by any means, another person, intending or knowing that such person will be subjected to forced services; or</h2>
                 </li>
                 <li>
-                  <h2 style={{fontWeight: "normal"}}>benefits, financially or by receiving anything of value, as a result of a violation of the above. M.G.L. ch. 265, § 51.</h2>
+                  <h2 style={{fontWeight: "normal"}}>benefits, financially or by receiving anything of value, as a result of a violation of the above</h2>
                 </li>
               </ul>
               <hr />
-              <h2>Definition of Forced Services:</h2>
-              <h2 style={{fontWeight : "normal"}}>If one or more of the six prongs listed below are met, the conduct may be categorized as Trafficking in Persons for Forced Services. “Services”  are any act performed by a person under the supervision of or for the benefit of another including, but not limited to, commercial sexual activity and sexually explicit performances.</h2>
+              <h2>Definition of Forced Services M.G.L. ch. 265, § 49</h2>
+              <h2 style={{fontWeight : "normal"}}>If one or more of the six prongs listed below are met, the conduct may be categorized as Trafficking in Persons for Forced Services.</h2>
               <br />
               <h2 style={{fontWeight : "normal"}}>“Forced Services” is defined as services performed or provided by a person that are obtained or maintained by another person who:</h2>
               <br class="hidden-md hidden-lg" />
@@ -1724,19 +1174,16 @@ class App extends Component {
                   <h2 style={{fontWeight: "normal"}}>engages in extortion under Massachusetts law</h2>
                 </li>
                 <li>
-                  <h2 style={{fontWeight: "normal"}}>causes or threatens to cause financial harm to any person. M.G.L. ch. 265, § 49.</h2>
+                  <h2 style={{fontWeight: "normal"}}>causes or threatens to cause financial harm to any person</h2>
                 </li>
               </ul>
+              <br />
+              <h2 style={{fontWeight : "normal"}}>“Services” are any act performed by a person under the supervision of or for the benefit of another including, but not limited to, commercial sexual activity and sexually explicit performances.</h2>
+              <hr />
+              <h2>Overlap with Other Crimes</h2>
+              <h2 style={{fontWeight : "normal"}}>Labor trafficking may overlap with other crimes, such as sex trafficking, sexual assault, wage theft, and other crimes. An investigator should be keep in mind that other violations of law may surface.</h2>
             </div>
           } />
-          <div class="massTitle">
-            <p>Overlap with Other Crimes</p>
-          </div>
-          <NormalText html={(
-            <div>
-              <h2 style={{fontWeight:"normal"}}>Labor trafficking may overlap with other crimes, such as sex trafficking, sexual assault, wage theft and other crimes. An investigator should be keep in mind that other violations of law may surface...</h2>
-            </div>
-          )} />
           <div class="massTitle">
             <p>Criminal Penalties</p>
           </div>
@@ -1750,7 +1197,7 @@ class App extends Component {
                   <h2 style={{fontWeight: "normal"}}>Whoever commits the crime of trafficking of persons for forced services upon a person under 18 years of age shall be punished by imprisonment in the state prison for life or for any term of years, but not less than 5 years. M.G.L. ch. 265, § 51(b).</h2>
                 </li>
                 <li>
-                  <h2 style={{fontWeight: "normal"}}>A business entity that commits trafficking of persons for forced labor services shall be punished by a fine of not more than $1,000,000.” M.G.L. ch. 265, 51(c).</h2>
+                  <h2 style={{fontWeight: "normal"}}>A business entity that commits trafficking of persons for forced labor services shall be punished by a fine of not more than $1,000,000.” M.G.L. ch. 265, § 51(c).</h2>
                 </li>
               </ul>
             </div>
@@ -1760,11 +1207,13 @@ class App extends Component {
           </div>
           <BlueBox blueBox={"massBlueBox"} html={
             <div>
-              <h2 style={{fontWeight : "normal"}}>There are also federal criminal statutes that address labor trafficking crimes, such as forced labor and involuntary servitude. Victims also may have additional rights to criminal restitution, civil remedies, and government benefits under federal law. <a target="_blank" href="https://www.justice.gov/crt/human-trafficking-prosecution-unit-htpu" style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}>Click here to read more about the federal crimes of labor trafficking</a>.</h2>
+              <h2 style={{fontWeight : "normal"}}>There are also federal criminal statutes that address labor trafficking crimes, such as forced labor and involuntary servitude. <a target="_blank" href="https://www.justice.gov/crt/human-trafficking-prosecution-unit-htpu" style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}>Click here to read more about the federal crimes of labor trafficking</a>.</h2>
               <br />
               <h2 style={{fontWeight : "normal"}}>Violations under federal law must be referred to federal authorities.</h2>
               <br />
               <h2 style={{fontWeight : "normal"}}>To report to federal law enforcement, please contact the National Human Trafficking Resource Center Hotline at <span style={{textDecoration : "underline", fontWeight : "bold"}}>1-888-373-7888</span>, which will send the information to federal law enforcement within a given jurisdiction.</h2>
+              <br />
+              <h2 style={{fontWeight : "normal"}}>Victims also may have additional rights to criminal restitution, civil remedies, and government benefits under federal law. Please refer victims to an attorney as soon as possible to explor their rights.</h2>
             </div>
           } />
           <br /> <br />
@@ -1810,7 +1259,7 @@ class App extends Component {
             </div>
           } />
           <div style={{textAlign: "right", padding : "10px 30px", maxWidth: "800px", marginLeft : "auto", marginRight : "auto"}}>
-            <button class="button3" style={{float : "unset"}} onClick={this._onResourcesClick}>Victim Services</button>
+            <a href="/resources?id=0"><button class="button3" style={{float : "unset"}}>Victim Services</button></a>
           </div>
         </div>
 
@@ -1903,50 +1352,601 @@ class App extends Component {
   renderNavHome() {
     return (
       <div class="row menu">
-        <div class="col-md-2 col-lg-2 lis new-lis"><a class={this.state.page == 2? ("active") : ("")} onClick= {this._onPrepareClick}>Prepare</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a class={this.state.page == 3 || this.state.page == 5? ("active") : ("")} onClick= {this._onAssessClick}>Assess</a></div>
+        <div class="col-md-2 col-lg-2 lis new-lis"><a href="/prepare" class={this.state.page == 2? ("active") : ("")} >Prepare</a></div>
+        <div class="col-md-2 col-lg-2 lis new-lis"><a href="/assess" class={this.state.page == 3 || this.state.page == 5? ("active") : ("")}>Assess</a></div>
         <div class="col-md-2 col-lg-2 lis new-lis">
           <div class="desktopResources">
             <div style={{"position" : "relative", "height" : "100%", "width" : "100%", "backgroundColor" : "transparent", "left" : "0", "right": "0"}}></div>
             <div style={{"width": "150px", "backgroundColor" : "#14558f", "textAlign" : "left", "color" : "#fff", "padding" : "10px 20px", "marginLeft" : "auto"}}>
-              <p class={this.state.page==8?("desktopResourcesActive"):("")} onClick={this._onReportClick}>Report</p>
-              <p class={this.state.page==6?("desktopResourcesActive"):("")} onClick={this._onVictimClick}>Victim Services</p>
+              <p class={this.state.page==8?("desktopResourcesActive"):("")} onClick={()=>{window.location.href = '/report'}}>Report</p>
+              <p class={this.state.page==6?("desktopResourcesActive"):("")} onClick={()=>{window.location.href = '/resources?id=0'}}>Victim Services</p>
             </div>
           </div>
-          <a style={{"border" : "0"}} class={this.state.page == 6 || this.state.page == 8? ("active") : ("")} onClick= {this._onReportClick}>Resources</a>
+          <a href="/report" style={{"border" : "0"}} class={this.state.page == 6 || this.state.page == 8? ("active") : ("")}>Resources</a>
         </div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a class={this.state.page == 7? ("active") : ("")} onClick= {this._onMassClick}>Massachusetts Law</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis"><a class={this.state.page == 9? ("active") : ("")} onClick= {this._onAboutClick}>About Us</a></div>
+        <div class="col-md-2 col-lg-2 lis new-lis"><a href="/statute" class={this.state.page == 7? ("active") : ("")}>Massachusetts Law</a></div>
+        <div class="col-md-2 col-lg-2 lis new-lis"><a href="/about" class={this.state.page == 9? ("active") : ("")}>About Us</a></div>
       </div>
     );
   }
-
 
   renderMobileMenu() {
     return (
       <div class="mobile-menu hidden-md hidden-lg">
         <div class="mobile-cover" style={this.state.mobileMenu ? {right: '70vw'} : {right: '0'}}></div>
-        <div class="hidden-md hidden-lg lis new-lis"><a class={this.state.page == 2? ("active") : ("")} onClick= {this._onPrepareClick}>Prepare</a></div>
-        <div class="hidden-md hidden-lg lis new-lis"><a class={this.state.page == 3 || this.state.page == 5? ("active") : ("")} onClick= {this._onAssessClick}>Assess</a></div>
+        <div class="hidden-md hidden-lg lis new-lis"><a href="/prepare" class={this.state.page == 2? ("active") : ("")}>Prepare</a></div>
+        <div class="hidden-md hidden-lg lis new-lis"><a href="/assess" class={this.state.page == 3 || this.state.page == 5? ("active") : ("")}>Assess</a></div>
         <div style={{pointerEvents:"none"}} class="lis new-lis"><a style={{pointerEvents:"none"}} class={this.state.page == 6 || this.state.page == 8? ("active") : ("")}>Resources</a></div>
         <ul class="hidden-md hidden-lg resources-ul">
-          <li onClick={this._onReportClick}>
-            <p style={this.state.page == 8?{textDecoration : "underline"}:{}}>Report</p>
-          </li>
-          <li onClick= {this._onResourcesClick}>
-            <p style={this.state.page == 6?{textDecoration : "underline"}:{}}>Victim Services</p>
-          </li>
+          <a href="/report">
+            <li>
+              <p style={this.state.page == 8?{textDecoration : "underline"}:{}}>Report</p>
+            </li>
+          </a>
+          <a href="/resources?id=0">
+            <li onClick= {this._onResourcesClick}>
+              <p style={this.state.page == 6?{textDecoration : "underline"}:{}}>Victim Services</p>
+            </li>
+          </a>
         </ul>
-        <div class="hidden-md hidden-lg lis new-lis"><a class={this.state.page == 7? ("active") : ("")} onClick= {this._onMassClick}>MA Law</a></div>
-        <div class="hidden-md hidden-lg lis new-lis"><a class={this.state.page == 9? ("active") : ("")} onClick= {this._onAboutClick}>About Us</a></div>
+        <div class="hidden-md hidden-lg lis new-lis"><a href="/statute" class={this.state.page == 7? ("active") : ("")}>MA Law</a></div>
+        <div class="hidden-md hidden-lg lis new-lis"><a href="/about" class={this.state.page == 9? ("active") : ("")}>About Us</a></div>
       </div>
     );
   }
 
-  handleMenuClick() {
-    this.setState({
-      mobileMenu : !this.state.mobileMenu,
-    })
+  renderFederalIntro(){
+    return (
+      <div>
+        <p class="regularText">The Massachusetts anti-trafficking statute was enacted in 2012, and the law is still evolving. For those reasons, we often look for guidance from federal definitions and federal case law.</p>
+        <br />
+      </div>
+    );
+  }
+
+  renderQuestions(questions){
+    return (
+      <div style={{"backgroundColor" : "#fff"}}>
+        <div class="AssessmentQuestions">
+          {
+            (function (){
+              let JSXarray = [];
+              for( let i=0; i<questions.length; i++){
+                JSXarray.push((
+                  <Quiz
+                    answer={this.state.Answer[i+1]}
+                    questionId={this.state.questionId+i}
+                    question={this.state.question[i].question}
+                    questionTotal={questions.length}
+                    onAnswerSelected={this.handleAnswerSelected}
+                  />
+                ));
+              }
+              return JSXarray;
+            }).bind(this)()
+          }
+        </div>
+        <div class="AssessmentButtons" style={{backgroundColor : "#fff", padding: "10px 20px", textAlign : "right"}}>
+          <button class="button1" style={{float : "unset", marginRight : "10px"}} onClick={this.evaluateNow}>Evaluate</button>
+          <a href="/assess"><button class="button3" style={{float : "unset"}}>Categories</button></a>
+        </div>
+      </div>
+    );
+  }
+
+  renderHarmQuiz() {
+    return (
+      <div>
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
+          <p class="pageTitle">Assess</p>
+          <p class="Head">Question: Serious Harm</p>
+          <p class="regularText" style={{"fontWeight" : "bold"}}>Causes or threatens to cause serious harm to any person</p>
+        </div>
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
+          <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
+            <p class="pageTitle">Assess</p>
+            <p class="Head">Question: Serious Harm</p>
+            <p class="HomeHead1">Causes or threatens to cause serious harm to any person</p>
+          </div>
+        </div>
+        <div class="hidden-md hidden-lg">
+          <Expandable content={
+            <div class="App">
+              <br />
+              {this.renderFederalIntro()}
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
+              <p class="regularText">Serious harm may be physical and nonphysical, including psychological, financial, or reputational harm. Generally, the test contemplates whether it is sufficiently serious, under all the surrounding circumstances, to compel a reasonable person of the same background and in the same circumstances to perform or to continue performing labor or services in order to avoid incurring that harm. </p>
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
+              <p class="regularText">There is currently no statutory or case law definition of serious harm under Massachusetts law. Serious harm is defined under federal law as any harm, whether physical or nonphysical, including psychological, financial, or reputational harm, that is sufficiently serious, under all the surrounding circumstances, to compel a reasonable person of the same background and in the same circumstances to perform or to continue performing labor or services in order to avoid incurring that harm. 18 USC § 1589(c)(2). </p>
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
+              <ul>
+                <li>
+                  <p class="regularText">An employer kicks the worker in the morning to wake her up and to start working.</p>
+                </li>
+                <li>
+                  <p class="regularText">When the worker asks for his wages, the employers gets angry and hits the worker.</p>
+                </li>
+              </ul>
+            </div>
+          } />
+        </div>
+        <div class="hidden-xs hidden-sm">
+          <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
+            <br />
+            {this.renderFederalIntro()}
+            <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
+            <p class="regularText">Serious harm may be physical and nonphysical, including psychological, financial, or reputational harm. Generally, the test contemplates whether it is sufficiently serious, under all the surrounding circumstances, to compel a reasonable person of the same background and in the same circumstances to perform or to continue performing labor or services in order to avoid incurring that harm. </p>
+            <br />
+            <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
+            <p class="regularText">There is currently no statutory or case law definition of serious harm under Massachusetts law. Serious harm is defined under federal law as any harm, whether physical or nonphysical, including psychological, financial, or reputational harm, that is sufficiently serious, under all the surrounding circumstances, to compel a reasonable person of the same background and in the same circumstances to perform or to continue performing labor or services in order to avoid incurring that harm. 18 USC § 1589(c)(2). </p>
+            <br />
+            <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
+            <ul>
+              <li>
+                <p class="regularText">An employer kicks the worker in the morning to wake her up and to start working.</p>
+              </li>
+              <li>
+                <p class="regularText">When the worker asks for his wages, the employers gets angry and hits the worker.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        {this.renderQuestions(SeriousHarmquizQuestions)}
+      </div>
+    );
+  }
+
+  renderRestraintQuiz() {
+    return (
+      <div>
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
+          <p class="pageTitle">Assess</p>
+          <p class="Head">Question: Physical Restraint</p>
+          <p class="regularText" style={{"fontWeight" : "bold"}}>Physically restrains or threatens to physically restrain another person	</p>
+        </div>
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
+          <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
+            <p class="pageTitle">Assess</p>
+            <p class="Head">Question: Physical Restraint</p>
+            <p class="HomeHead1">Physically restrains or threatens to physically restrain another person	</p>
+          </div>
+        </div>
+        <div class="hidden-md hidden-lg">
+          <Expandable content={
+            <div class="App">
+              <br />
+              {this.renderFederalIntro()}
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
+              <p class="regularText">Physical restraint is not defined under Massachusetts law. Federally, it has been defined generally as purposely limiting or obstructing the freedom of a person’s bodily movement. This can range from using locks on doors or windows to more subtle forms of control that restrict another person’s ability to move around.</p>
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Example</p>
+              <ul>
+                <li>
+                  <p class="regularText">A domestic worker is brought to the United States by an employer. The employer does not permit her to leave the house unaccompanied, and her movement is monitored by cameras.</p>
+                </li>
+              </ul>
+            </div>
+          } />
+        </div>
+        <div class="hidden-xs hidden-sm">
+          <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
+            <br />
+            {this.renderFederalIntro()}
+            <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
+            <p class="regularText">Physical restraint is not defined under Massachusetts law. Federally, it has been defined generally as purposely limiting or obstructing the freedom of a person’s bodily movement. This can range from using locks on doors or windows to more subtle forms of control that restrict another person’s ability to move around.</p>
+            <br />
+            <p class="regularText" style={{"fontWeight" : "bold"}}>Example</p>
+            <ul>
+              <li>
+                <p class="regularText">A domestic worker is brought to the United States by an employer. Her employers do not permit her to leave the house unaccompanied, and her movement is monitored by cameras.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        {this.renderQuestions(RestraintquizQuestions)}
+      </div>
+    );
+  }
+
+  renderAbuseQuiz() {
+    return (
+      <div>
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
+          <p class="pageTitle">Assess</p>
+          <p class="Head">Question: Abuse of the Law</p>
+          <p class="regularText" style={{"fontWeight" : "bold"}}>Abuses or threatens to abuse the law or legal process	</p>
+        </div>
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
+          <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
+            <p class="pageTitle">Assess</p>
+            <p class="Head">Question: Abuse of the Law</p>
+            <p class="HomeHead1">Abuses or threatens to abuse the law or legal process	</p>
+          </div>
+        </div>
+        <div class="hidden-md hidden-lg">
+          <Expandable content={
+            <div class="App">
+              <br />
+              {this.renderFederalIntro()}
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
+              <p class="regularText">Abuse of the legal process under federal law includes the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed. A common example is a threat of deportation by an employer.</p>
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
+              <p class="regularText">There is currently no statutory or case law definition of abuse of legal process under Massachusetts law. Abuse of the legal process is defined federally as the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed, in order to exert pressure on another person to cause that person to take some action or refrain from taking some action. 22 U.S.C. § 7102(1).</p>
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
+              <ul>
+                <li>
+                  <p class="regularText">An employer threatens to deport the worker or "call immigration" if he stops working for the employer.</p>
+                </li>
+                <li>
+                  <p class="regularText">An employer threatens to falsely accuse the worker of a crime if she fails to work.</p>
+                </li>
+              </ul>
+            </div>
+          } />
+        </div>
+        <div class="hidden-xs hidden-sm">
+          <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
+            <br />
+            {this.renderFederalIntro()}
+            <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
+            <p class="regularText">Abuse of the legal process under federal law includes the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed. A common example is a threat of deportation by an employer.</p>
+            <br />
+            <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
+            <p class="regularText">There is currently no statutory or case law definition of abuse of legal process under Massachusetts law. Abuse of the legal process is defined federally as the use or threatened use of a law or legal process, whether administrative, civil, or criminal, in any manner or for any purpose for which the law was not designed, in order to exert pressure on another person to cause that person to take some action or refrain from taking some action. 22 U.S.C. § 7102(1).</p>
+            <br />
+            <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
+            <ul>
+              <li>
+                <p class="regularText">An employer threatens to deport the worker or "call immigration" if he stops working for the employer.</p>
+              </li>
+              <li>
+                <p class="regularText">An employer threatens to falsely accuse the worker of a crime if she fails to work.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        {this.renderQuestions(AbuseofLawquizQuestions)}
+      </div>
+    );
+  }
+
+  renderIdentityQuiz() {
+    return (
+      <div>
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
+          <p class="pageTitle">Assess</p>
+          <p class="Head">Question: Identity Documents</p>
+          <p class="regularText" style={{"fontWeight" : "bold"}}>Knowingly destroys, conceals, removes, confiscates or possesses any actual or purported passport or other immigration document, or any other actual or purported government identification document, of another person.</p>
+        </div>
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
+          <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
+            <p class="pageTitle">Assess</p>
+            <p class="Head">Question: Identity Documents</p>
+            <p class="HomeHead1">Knowingly destroys, conceals, removes, confiscates or possesses any actual <br /> or purported passport or other immigration document, or any other actual <br /> or purported government identification document, of another person.</p>
+          </div>
+        </div>
+        <div class="hidden-md hidden-lg">
+          <Expandable content={
+            <div class="App">
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
+              <p class="regularText">This includes taking someone’s identity document for any period of time, even if it is brief. In addition, it can include tearing or mutilating identity documents related to work.</p>
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
+              <p class="regularText">Under Massachusetts law, this includes anyone who knowingly destroys, conceals, removes, confiscates or possesses any actual or purported passport or other immigration document, or any other actual or purported government identification document, of another person. M.G.L. ch. 265, § 49.</p>
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Example</p>
+              <ul>
+                <li>
+                  <p class="regularText">An employer demands that the worker’s passport remain with the employer. The employer keeps it in an undisclosed location.</p>
+                </li>
+              </ul>
+            </div>
+          } />
+        </div>
+        <div class="hidden-xs hidden-sm">
+          <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
+            <br />
+            <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
+            <p class="regularText">This includes taking someone’s identity document for any period of time, even if it is brief. In addition, it can include tearing or mutilating identity documents related to work.</p>
+            <br />
+            <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
+            <p class="regularText">Under Massachusetts law, this includes anyone who knowingly destroys, conceals, removes, confiscates or possesses any actual or purported passport or other immigration document, or any other actual or purported government identification document, of another person. M.G.L. ch. 265, § 49.</p>
+            <br />
+            <p class="regularText" style={{"fontWeight" : "bold"}}>Example</p>
+            <ul>
+              <li>
+                <p class="regularText">An employer demands that the worker’s passport remain with the employer. The employer keeps it in an undisclosed location.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        {this.renderQuestions(IdentityDocumentsquizQuestions)}
+      </div>
+    );
+  }
+
+  renderExtortionQuiz() {
+    return (
+      <div>
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
+          <p class="pageTitle">Assess</p>
+          <p class="Head">Question: Extortion</p>
+          <p class="regularText" style={{"fontWeight" : "bold"}}>Engages in extortion under Massachusetts law	</p>
+        </div>
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
+          <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
+            <p class="pageTitle">Assess</p>
+            <p class="Head">Question: Extortion</p>
+            <p class="HomeHead1">Engages in extortion under Massachusetts law	</p>
+          </div>
+        </div>
+        <div class="hidden-md hidden-lg">
+          <Expandable content={
+            <div class="App">
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
+              <p class="regularText">Extortion is the practice of trying to get something through force, threats, or blackmail.</p>
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
+              <p class="regularText">"Whoever, verbally or by a written or printed communication, maliciously threatens to accuse another of a crime or offence, or by a verbal or written or printed communication maliciously threatens an injury to the person or property of another, or any police officer or person having the powers of a police officer, or any officer, or employee of any licensing authority who verbally or by written or printed communication maliciously and unlawfully uses or threatens to use against another the power or authority vested in him, with intent thereby to extort money or any pecuniary advantage, or with intent to compel any person to do any act against his will, shall be punished by imprisonment in the state prison for not more than fifteen years, or in the house of correction for not more than two and one half years, or by a fine of not more than five thousand dollars, or both." M.G.L. ch. 265, § 25.</p>
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Example</p>
+              <ul>
+                <li>
+                  <p class="regularText">An employer threatens to release embarrassing photographs, unless the worker continues to work.</p>
+                </li>
+              </ul>
+            </div>
+          } />
+        </div>
+        <div class="hidden-xs hidden-sm">
+          <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
+            <br />
+            <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
+            <p class="regularText">Extortion is the practice of trying to get something through force, threats, or blackmail.</p>
+            <br />
+            <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
+            <p class="regularText">"Whoever, verbally or by a written or printed communication, maliciously threatens to accuse another of a crime or offence, or by a verbal or written or printed communication maliciously threatens an injury to the person or property of another, or any police officer or person having the powers of a police officer, or any officer, or employee of any licensing authority who verbally or by written or printed communication maliciously and unlawfully uses or threatens to use against another the power or authority vested in him, with intent thereby to extort money or any pecuniary advantage, or with intent to compel any person to do any act against his will, shall be punished by imprisonment in the state prison for not more than fifteen years, or in the house of correction for not more than two and one half years, or by a fine of not more than five thousand dollars, or both." M.G.L. ch. 265, § 25.</p>
+            <br />
+            <p class="regularText" style={{"fontWeight" : "bold"}}>Example</p>
+            <ul>
+              <li>
+                <p class="regularText">An employer threatens to release embarrassing photographs, unless the worker continues to work.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        {this.renderQuestions(ExtortionquizQuestions)}
+      </div>
+    );
+  }
+
+  renderfHarmQuiz() {
+    return (
+      <div>
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
+          <p class="pageTitle">Assess</p>
+          <p class="Head">Question: Financial Harm</p>
+          <p class="regularText" style={{"fontWeight" : "bold"}}>Causes or threatens to cause financial harm to any person</p>
+        </div>
+        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
+          <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
+            <p class="pageTitle">Assess</p>
+            <p class="Head">Question: Financial Harm</p>
+            <p class="HomeHead1">Causes or threatens to cause financial harm to any person</p>
+          </div>
+        </div>
+        <div class="hidden-md hidden-lg">
+          <Expandable content={
+            <div class="App">
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
+              <p class="regularText">Financial harm is when a perpetrator puts the worker in a detrimental position in relation to wealth, property, or other monetary benefits through extortion, criminal usury, or illegal employment contracts. This might include a situation where the perpetrator uses an illegal employment contract to lure a worker to work in demeaning conditions.</p>
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
+              <p class="regularText">“Financial harm” is defined as a detrimental position in relation to wealth, property or other monetary benefits that occurs as a result of another person’s illegal act including, but not limited to, extortion under by section 25, a violation of section 49 of chapter 271 (“Criminal Usury”), or illegal employment contracts.” M.G.L. ch. 265, § 49.</p>
+              <br />
+              <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
+              <ul>
+                <li>
+                  <p class="regularText">An employer refuses to pay wages to the worker for the work she has done.</p>
+                </li>
+                <li>
+                  <p class="regularText">A worker makes one mistake on the job, and the employer refuses to pay him that week.</p>
+                </li>
+                <li>
+                  <p class="regularText">An employer tells the worker that he has no wages to be paid out because of the costs the employer is incurring to house, feed, transport him to the worksite each day.</p>
+                </li>
+              </ul>
+            </div>
+          } />
+        </div>
+        <div class="hidden-xs hidden-sm">
+          <div class="App" style={{"paddingBottom" : "30px", "maxWidth" : "800px", "marginLeft" : "auto", "marginRight" : "auto"}}>
+            <br />
+            <p class="regularText" style={{"fontWeight" : "bold"}}>Lay Definition</p>
+            <p class="regularText">Financial harm is when a perpetrator puts the worker in a detrimental position in relation to wealth, property, or other monetary benefits through extortion, criminal usury, or illegal employment contracts. This might include a situation where the perpetrator uses an illegal employment contract to lure a worker to work in demeaning conditions.</p>
+            <br />
+            <p class="regularText" style={{"fontWeight" : "bold"}}>Legal Definition</p>
+            <p class="regularText">“Financial harm” is defined as a detrimental position in relation to wealth, property or other monetary benefits that occurs as a result of another person’s illegal act including, but not limited to, extortion under by section 25, a violation of section 49 of chapter 271 (“Criminal Usury”), or illegal employment contracts.” M.G.L. ch. 265, § 49.</p>
+            <br />
+            <p class="regularText" style={{"fontWeight" : "bold"}}>Examples</p>
+            <ul>
+              <li>
+                <p class="regularText">An employer refuses to pay wages to the worker for the work she has done.</p>
+              </li>
+              <li>
+                <p class="regularText">A worker makes one mistake on the job, and the employer refuses to pay him that week.</p>
+              </li>
+              <li>
+                <p class="regularText">An employer tells the worker that he has no wages to be paid out because of the costs the employer is incurring to house, feed, transport him to the worksite each day.</p>
+              </li>
+            </ul>
+            <p class="regularText" style={{"fontWeight" : "normal"}}>**For more information about minimum wage in Massachusetts, <a style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}} target="_blank" href="https://www.mass.gov/guides/pay-and-recordkeeping">click here</a></p>
+          </div>
+        </div>
+        {this.renderQuestions(FinancialHarmquizQuestions)}
+      </div>
+    );
+  }
+
+  renderImgTick() {
+    return (
+      <img src={YesImg} class="modalImg" alt="Result"/>
+    );
+  }
+
+  renderImgCross() {
+    return (
+      <img src={NoImg} class="modalImg" alt="Result"/>
+    );
+  }
+
+  renderImgQues() {
+    return (
+      <img src={MaybeImg} class="modalImg" alt="Result"/>
+    );
+  }
+
+  renderResult() {
+    return (
+        <div>
+          <Popup
+            open={true}
+            contentStyle={{ maxWidth: "600px", height: "400px", width: "90%", overflow: "auto"}}>
+            {close => (
+              <div style={{display: "table", height: "100%", width: "100%"}}>
+                <button class="modalClose" onClick={() => {close(); /*this._onPrepareClick()*/}}>&#215;</button>
+                <div style={{display : "table-cell", verticalAlign : "middle"}}>
+                  <div className="header">
+                    <p class="modalCategory">Results for:</p>
+                  </div>
+                  <div className="header">
+                    <p>
+                      {
+                          this.state.qcategory == 1 ? "Serious Harm" : this.state.qcategory == 2 ?
+                                                    "Physical Restraint" : this.state.qcategory == 3 ? "Abuse of the Law" :
+                                                    this.state.qcategory == 4 ? "Identity Documents" : this.state.qcategory == 5 ?
+                                                    "Extortion" : "Financial Harm"
+                      }
+                    </p>
+                  </div>
+                  {(()=>{
+                    switch(this.state.result){
+                      case 'yes-one':
+                      case 'yes-all':
+                        return this.renderImgTick();
+                      default:
+                        return this.renderImgQues();
+                    }
+                  })()}
+                  <div style={{paddingTop: "20px"}} class="header">
+                    <p>Report &amp; Find Victim Services</p>
+                  </div>
+                  <Result quizResult={this.state.result} />
+                  <div class="actions">
+                    <div>
+                      <a href="/report"><button className="button1" style={{float : "unset", marginRight: "10px"}}>Report</button></a>
+                      <a href="/resources?id=0"><button className="button3" style={{float : "unset"}}>Victim Services</button></a>
+                    </div>
+                  </div>
+                  <br/>
+                </div>
+              </div>
+            )}
+          </Popup>
+        </div>
+    );
+  }
+
+  renderHome() {
+    return (
+      <div className="App">
+        <br class="hidden-lg hidden-md" />
+        <div class="Head hidden-lg hidden-md" style={{textAlign : "left"}}>
+          <img src={ResultImg} style={{height: "24px", marginBottom: "5px", marginTop: "5px"}} alt="RESULT" />
+        </div>
+        {/*<p className="Head hidden-lg hidden-md">Recognize and Evaluate Signs <br />to Uncover Labor Trafficking</p>*/}
+        <div class="ButBar hidden-lg hidden-md">
+          {/*<p class="HomeHead1" style={{"fontWeight" : "bold", "color" : "#808080", "marginBottom": "20px"}}> </p>*/}
+          <p className="HomeHead1">A tool to help investigators identify potential <br class="hidden-xs" /> labor trafficking under Massachusetts law.<br></br></p>
+        </div>
+
+        <div class="homeContainer hidden-sm hidden-xs">
+          {/*<p class="MassTitle">Massachusetts Attorney General’s Office</p>*/}
+          <img class="HomeHead" src={ResultImg} height="30px" alt="RESULT"/>
+          {/*<p class="HomeHead" style={{"lineHeight": "36px"}}>RESULT</p>*/}
+          <p class="HomeHead1" style={{"fontWeight" : "bold", "color" : "#808080", "marginBottom": "20px"}}>Recognize and Evaluate Signs to Uncover Labor Trafficking </p>
+          <p class="HomeHead1">A tool to help investigators identify potential <br /> labor trafficking under Massachusetts law.</p>
+        </div>
+
+        <div class="buttonContainer hidden-sm hidden-xs">
+          <a href="/prepare">
+            <button class="button4">
+              <div class="b4_container">
+                <h1>Prepare</h1>
+                <div class="home_yellow"></div>
+                <p style={{"fontWeight" : "bold"}}>Tips for interviewing victims</p>
+                <p>What to think about before you interview the victim.</p>
+              </div>
+            </button>
+          </a>
+          <a href="/assess">
+            <button class="button4">
+              <div class="b4_container">
+                <h1>Assess</h1>
+                <div class="home_yellow"></div>
+                <p style={{"fontWeight" : "bold"}}>Is it trafficking?</p>
+                <p>These questions are designed for investigators to help determine if circumstances rise to the level of labor trafficking under Massachusetts law.</p>
+              </div>
+            </button>
+          </a>
+          <br class="HomeBR" />
+          <button class="button4">
+            <div class="b4_container">
+              <a href="/report"><div style={{position: "absolute", left : "0", top : "0", width: "100%", height: "100%"}}></div></a>
+              <h1>Resources</h1>
+              <div class="home_yellow"></div>
+              <p style={{"fontWeight" : "bold", textDecoration : "underline"}}>Report</p>
+              <p style={{"fontWeight" : "bold", textDecoration : "underline", position : "relative"}}>
+                <a href="/resources?id=0"><div style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div></a>
+                Victim Services
+              </p>
+            </div>
+          </button>
+          <a href="/statute">
+            <button class="button4">
+              <div class="b4_container">
+                <h1>Massachusetts Law</h1>
+                <div class="home_yellow"></div>
+                <p style={{"fontWeight" : "bold"}}>View the Massachusetts labor trafficking statute</p>
+              </div>
+            </button>
+          </a>
+        </div>
+        <div class="buttonContainer hidden-md hidden-lg">
+          <a href="/prepare"><button class="button4"><h1>Prepare</h1><p>Tips for interviewing victims</p></button></a>
+          <a href="/assess"><button class="button4"><h1>Assess</h1><p>Is it trafficking?</p></button></a>
+          <button class="button4">
+            <a href="/report"><div style={{position: "absolute", left : "0", top : "0", width: "100%", height: "100%"}}></div></a>
+            <h1>Resources</h1>
+            <p>
+              <span style={{textDecoration : "underline"}}>Report</span>&nbsp;and&nbsp;
+              <span style={{textDecoration : "underline", position : "relative"}}>
+                <a href="/resources?id=0"><div style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div></a>
+                Victim Services
+              </span>
+            </p>
+          </button>
+          <a href="/statute"><button class="button4"><h1>Massachusetts Law</h1><p>View the Massachusetts labor trafficking statute</p></button></a>
+        </div>
+      </div>
+    );
   }
 
   render() {
@@ -1955,89 +1955,79 @@ class App extends Component {
       this.scrollToTop();
     }
     return (
-      <div>
+      <Router>
         <div className="Assess" ref="main" style={this.state.mobileMenu ? ({left : '-70vw'}) : ({left: '0'})}>
 
           <div class="topRowContainer row">
-          <div class="topRow col-xs-6 col-sm-6 col-md-3 col-lg-3">
-            {/*<img src={logo} className="topDivHL" alt="logo" />*/}
-            <img src={ResultImgLight} onClick={this._onCompleteClick} class="topDivHL" alt="RESULT" />
-            {/*<h3 class ="topDivH">RESULT</h3>*/}
-          </div>
+            <div class="topRow col-xs-6 col-sm-6 col-md-3 col-lg-3">
+              {/*<img src={logo} className="topDivHL" alt="logo" />*/}
+              <a href="/"><img src={ResultImgLight} class="topDivHL" alt="RESULT" /></a>
+              {/*<h3 class ="topDivH">RESULT</h3>*/}
+            </div>
 
-          <div class="topRow1 col-xs-6 col-sm-6 col-md-9 col-lg-9">
-          <img src={menu} class="show-menu" onClick={()=>{this.handleMenuClick()}}/>
-          <input type="checkbox" id="show-menu" role="button" />
-          {/*this.state.page == 2 ? this.renderNavPrepare() : this.state.page == 3 || this.state.page == 4 ?
-            this.renderNavAsses() : this.state.page == 5? this.renderNavAsses() : this.state.page == 6 ?
-            this.renderNavVictim() : this.renderNavHome()*/}
-          {
-          (()=>{
-            return this.renderNavHome();
-          })()
-          }
-          </div>
-        </div>
-
-        {/*  this.state.page == 1 ? this.renderHome() : this.state.page == 2 ? this.renderPrepare() :
-            this.state.page == 3 ? this.renderAssessmentSteps() : this.state.page == 4 ? (this.state.qcategory == 1 ?
-            this.renderHarmQuiz() : this.state.qcategory == 2 ? this.renderRestraintQuiz() : this.state.qcategory == 3 ?
-            this.renderAbuseQuiz() : this.state.qcategory == 4 ? this.renderIdentityQuiz() : this.state.qcategory == 5 ?
-            this.renderExtortionQuiz() : this.renderfHarmQuiz()): this.state.page == 5 ? this.renderResult() : this.state.page == 6 ? this.renderResources() : this.renderHome()*/}
-          {(()=>{
-            switch(this.state.page){
-            case 2:
-              return this.renderPrepare();
-              break;
-            case 3:
-              return this.renderAssessmentSteps();
-              break;
-            case 4:
-              switch(this.state.qcategory){
-                case 1:
-                  return this.renderHarmQuiz();
-                  break;
-                case 2:
-                  return this.renderRestraintQuiz();
-                  break;
-                case 3:
-                  return this.renderAbuseQuiz();
-                  break;
-                case 4:
-                  return this.renderIdentityQuiz();
-                  break;
-                case 5:
-                  return this.renderExtortionQuiz();
-                  break;
-                default:
-                  return this.renderfHarmQuiz();
-                  break;
+            <div class="topRow1 col-xs-6 col-sm-6 col-md-9 col-lg-9">
+              <img src={menu} class="show-menu" onClick={()=>{this.handleMenuClick()}}/>
+              <input type="checkbox" id="show-menu" role="button" />
+              {/*this.state.page == 2 ? this.renderNavPrepare() : this.state.page == 3 || this.state.page == 4 ?
+                this.renderNavAsses() : this.state.page == 5? this.renderNavAsses() : this.state.page == 6 ?
+                this.renderNavVictim() : this.renderNavHome()*/}
+              {
+              (()=>{
+                return this.renderNavHome();
+              })()
               }
-              break;
-            case 5:
-              let JSXlist = [this.renderAssessmentSteps(), this.renderResult()];
-              return JSXlist;
-              break;
-            case 6:
-              return this.renderResources();
-              break;
-            case 7:
-              return this.renderMassStatute();
-              break;
-            case 8:
-              return this.renderReport();
-              break;
-            case 9:
-              return this.renderAbout();
-              break;
-            default:
-              return this.renderHome();
-              break;
-            }})()
-          }
+            </div>
+          </div>
+          <Switch>
+            <Route exact path='/' render={props => <RouteHandler init={this._onHomeClick} render={this.renderHome.bind(this)} />} />
+            <Route exact path='/prepare' render={props => <RouteHandler init={this._onPrepareClick} render={this.renderPrepare.bind(this)} />} />
+            <Route exact path='/assess' render={props => <RouteHandler init={this._onAssessClick} render={(()=>{
+                switch(this.state.page){
+                  case 3:
+                    return this.renderAssessmentSteps.bind(this);
+                    break;
+                  case 4:
+                    switch(this.state.qcategory){
+                      case 1:
+                        return this.renderHarmQuiz.bind(this);
+                        break;
+                      case 2:
+                        return this.renderRestraintQuiz.bind(this);
+                        break;
+                      case 3:
+                        return this.renderAbuseQuiz.bind(this);
+                        break;
+                      case 4:
+                        return this.renderIdentityQuiz.bind(this);
+                        break;
+                      case 5:
+                        return this.renderExtortionQuiz.bind(this);
+                        break;
+                      default:
+                        return this.renderfHarmQuiz.bind(this);
+                        break;
+                    }
+                    break;
+                  case 5:
+                    let JSXlist = ()=>{
+                        return [(this.renderAssessmentSteps.bind(this))(), (this.renderResult.bind(this))()];
+                    };
+                    return JSXlist;
+                    break;
+                  default:
+                    return this.renderAssessmentSteps.bind(this);
+                    break;
+                }
+              })()
+            } /> } />
+            <Route exact path='/resources' render={props => <RouteHandler init={this._onResourcesClick} render={this.renderResources.bind(this)} /> } />
+            <Route exact path='/report' render={props => <RouteHandler init={this._onReportClick} render={this.renderReport.bind(this)} /> } />
+            <Route exact path='/about' render={props => <RouteHandler init={this._onAboutClick} render={this.renderAbout.bind(this)} /> } />
+            <Route exact path='/statute' render={props => <RouteHandler init={this._onMassClick} render={this.renderMassStatute.bind(this)} /> } />
+          </Switch>
         </div>
         {this.renderMobileMenu()}
-      </div>
+      </Router>
     );
   }
 }
