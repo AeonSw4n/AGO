@@ -1871,7 +1871,7 @@ class App extends Component {
         <div class="Head hidden-lg hidden-md" style={{textAlign : "left"}}>
           <img src={ResultImg} style={{height: "24px", marginBottom: "5px", marginTop: "5px"}} alt="RESULT" />
         </div>
-        {/*<p className="Head hidden-lg hidden-md">Recognize and Evaluate Signs <br />to Uncover Labor Trafficking</p>*/}
+        {/* <p className="Head hidden-lg hidden-md">Recognize and Evaluate Signs <br />to Uncover Labor Trafficking</p>*/}
         <div class="ButBar hidden-lg hidden-md">
           {/*<p class="HomeHead1" style={{"fontWeight" : "bold", "color" : "#808080", "marginBottom": "20px"}}> </p>*/}
           <p className="HomeHead1">A tool to help investigators identify potential <br class="hidden-xs" /> labor trafficking under Massachusetts law.<br></br></p>
