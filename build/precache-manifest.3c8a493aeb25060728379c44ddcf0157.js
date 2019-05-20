@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "14ca0903b8caa64d131a290cffd543d1",
+    "revision": "55f1e5852e660f637dfb97e5f8befa5b",
     "url": "/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/css/2.44f83eb4.chunk.css"
   },
   {
-    "revision": "4c913077aba6d1082c2d",
+    "revision": "5385332242cbac720587",
     "url": "/static/css/main.92aafec8.chunk.css"
   },
   {
@@ -16,16 +16,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.0b7644d1.chunk.js"
   },
   {
-    "revision": "4c913077aba6d1082c2d",
-    "url": "/static/js/main.2c206593.chunk.js"
+    "revision": "5385332242cbac720587",
+    "url": "/static/js/main.b8e16f2b.chunk.js"
   },
   {
     "revision": "42ac5946195a7306e2a5",
     "url": "/static/js/runtime~main.a8a9905a.js"
   },
   {
-    "revision": "ab495b00c45e1606eb6bf9c9e944aee6",
-    "url": "/static/media/LaborTraffickingAssessment.ab495b00.pdf"
+    "revision": "114b41e5cde134aefe0e842037d30c3a",
+    "url": "/static/media/LaborTraffickingAssessment.114b41e5.pdf"
   },
   {
     "revision": "78dc182218231f0899ad0a882672bd38",
