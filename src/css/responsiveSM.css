@@ -20,6 +20,14 @@
   .resources-ul{
     padding-left: 30px !important;
   }
+
+  .WarningDiv p{
+    font-size: 14px;
+  }
+
+  .AssessmentDisclaimer p{
+    font-size: 10px;
+  }
 }
 
 

@@ -546,7 +546,7 @@ class App extends Component {
           <p class="pageTitle"> Legal Disclaimer</p>
         </div>
         <p style={{"fontWeight" : "bold"}}>All materials on this website and app are for general informational purposes only. The information presented is not legal advice, may not be current, and is subject to change without notice.</p>
-        <p style={{"fontWeight" : "bold"}}>Your answers to the following question will not be saved or shared with other parties. This tools is for educational purposes only.</p>
+        <p style={{"fontWeight" : "bold"}}>This tool is designed for law enforcement and investigators only. For this reason, the tool uses terms, such as "victim" and "perpetrator," recognized in the criminal law context. If you are a victim in need of services, please contact the National Human Trafficking Resource Center hotline at (888) 373-7888 for more information.</p>
         <p style={{"fontWeight" : "bold"}}>Communication of information by, in, to or through this website and your receipt or use of it:</p>
         <ul>
           <li>
@@ -559,7 +559,8 @@ class App extends Component {
             <p>is not a substitute for obtaining legal advice from a qualified attorney</p>
           </li>
         </ul>
-        <p>Click below to acknowledge that you have read and understand the disclaimer.</p>
+        <p style={{"fontWeight" : "bold"}}>Your answers to the following question will not be saved or shared with other parties. This tool is for educational purposes only.</p>
+        <p style={{"fontWeight" : "bold"}}>Click below to acknowledge that you have read and understand the disclaimer.</p>
         <div class="DisclaimerButton">
           <button class="button3" onClick={()=>{this.setState({disclaimer : !this.state.disclaimer});}}> I understand </button>
         </div>
@@ -1140,8 +1141,9 @@ class App extends Component {
           </div>
           <BlueBox blueBox={"massBlueBox immigrationUl"} html={
             <div>
-              <h2>Crime of Trafficking in Persons for Forced Services</h2>
-              <h2 style={{fontWeight : "normal"}}> Under Massachusetts law, M.G.L. ch. 265, § 51, the crime of labor trafficking is known as Trafficking in Persons for Forced Services. This crime involves whoever knowingly:</h2>
+              <h2 style={{textAlign : "center"}}>Crime of Trafficking in Persons for Forced Services</h2>
+              <h2 style={{textAlign : "center"}}>M.G.L. ch. 265, § 51</h2>
+              <h2 style={{fontWeight : "normal"}}> Under Massachusetts law, the crime of labor trafficking is known as Trafficking in Persons for Forced Services. This crime involves whoever knowingly:</h2>
               <br class="hidden-md hidden-lg" />
               <ul>
                 <li>
@@ -1152,7 +1154,8 @@ class App extends Component {
                 </li>
               </ul>
               <hr />
-              <h2>Definition of Forced Services M.G.L. ch. 265, § 49</h2>
+              <h2 style={{textAlign : "center"}}>Definition of Forced Services</h2>
+              <h2 style={{textAlign : "center"}}>M.G.L. ch. 265, § 49</h2>
               <h2 style={{fontWeight : "normal"}}>If one or more of the six prongs listed below are met, the conduct may be categorized as Trafficking in Persons for Forced Services.</h2>
               <br />
               <h2 style={{fontWeight : "normal"}}>“Forced Services” is defined as services performed or provided by a person that are obtained or maintained by another person who:</h2>
@@ -1180,7 +1183,7 @@ class App extends Component {
               <br />
               <h2 style={{fontWeight : "normal"}}>“Services” are any act performed by a person under the supervision of or for the benefit of another including, but not limited to, commercial sexual activity and sexually explicit performances.</h2>
               <hr />
-              <h2>Overlap with Other Crimes</h2>
+              <h2 style={{textAlign : "center"}}>Overlap with Other Crimes</h2>
               <h2 style={{fontWeight : "normal"}}>Labor trafficking may overlap with other crimes, such as sex trafficking, sexual assault, wage theft, and other crimes. An investigator should be keep in mind that other violations of law may surface.</h2>
             </div>
           } />
@@ -1213,7 +1216,7 @@ class App extends Component {
               <br />
               <h2 style={{fontWeight : "normal"}}>To report to federal law enforcement, please contact the National Human Trafficking Resource Center Hotline at <span style={{textDecoration : "underline", fontWeight : "bold"}}>1-888-373-7888</span>, which will send the information to federal law enforcement within a given jurisdiction.</h2>
               <br />
-              <h2 style={{fontWeight : "normal"}}>Victims also may have additional rights to criminal restitution, civil remedies, and government benefits under federal law. Please refer victims to an attorney as soon as possible to explor their rights.</h2>
+              <h2 style={{fontWeight : "normal"}}>Victims also may have additional rights to criminal restitution, civil remedies, and government benefits under federal law. Please refer victims to an attorney as soon as possible to explore their rights.</h2>
             </div>
           } />
           <br /> <br />
@@ -1797,7 +1800,7 @@ class App extends Component {
 
   renderImgTick() {
     return (
-      <img src={YesImg} class="modalImg" alt="Result"/>
+      <img src={Warning} class="modalImg" alt="Result"/>
     );
   }
 
