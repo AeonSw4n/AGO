@@ -1230,12 +1230,12 @@ class App extends Component {
       <div>
         <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg">
           <p class="pageTitle">Resources</p>
-          <p class="Head" style={{paddingBottom: "15px"}}>Resources</p>
+          <p class="Head" style={{paddingBottom: "15px"}}>Refer</p>
         </div>
         <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm">
           <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
             <p class="pageTitle">Resources</p>
-            <p class="Head">Resources</p>
+            <p class="Head">Refer</p>
           </div>
         </div>
         <div style={{backgroundColor : "#fff", paddingTop: "20px"}}>
@@ -1361,7 +1361,7 @@ class App extends Component {
           <div class="desktopResources">
             <div style={{"position" : "relative", "height" : "100%", "width" : "100%", "backgroundColor" : "transparent", "left" : "0", "right": "0"}}></div>
             <div style={{"width": "150px", "backgroundColor" : "#14558f", "textAlign" : "left", "color" : "#fff", "padding" : "10px 20px", "marginLeft" : "auto"}}>
-              <p class={this.state.page==8?("desktopResourcesActive"):("")} onClick={()=>{window.location.href = '/report'}}>Resources</p>
+              <p class={this.state.page==8?("desktopResourcesActive"):("")} onClick={()=>{window.location.href = '/report'}}>Refer</p>
               <p class={this.state.page==6?("desktopResourcesActive"):("")} onClick={()=>{window.location.href = '/resources?id=0'}}>Victim Services</p>
             </div>
           </div>
@@ -1383,7 +1383,7 @@ class App extends Component {
         <ul class="hidden-md hidden-lg resources-ul">
           <a href="/report">
             <li>
-              <p style={this.state.page == 8?{textDecoration : "underline"}:{}}>Resources</p>
+              <p style={this.state.page == 8?{textDecoration : "underline"}:{}}>Refer</p>
             </li>
           </a>
           <a href="/resources?id=0">
@@ -1849,12 +1849,12 @@ class App extends Component {
                     }
                   })()}
                   <div style={{paddingTop: "20px"}} class="header">
-                    <p>Read Resources &amp; Find Victim Services</p>
+                    <p>Refer &amp; Find Victim Services</p>
                   </div>
                   <Result quizResult={this.state.result} />
                   <div class="actions">
                     <div>
-                      <a href="/report"><button className="button1" style={{float : "unset", marginRight: "10px"}}>Resources</button></a>
+                      <a href="/report"><button className="button1" style={{float : "unset", marginRight: "10px"}}>Refer</button></a>
                       <a href="/resources?id=0"><button className="button3" style={{float : "unset"}}>Victim Services</button></a>
                     </div>
                   </div>
@@ -1915,7 +1915,7 @@ class App extends Component {
               <a href="/report"><div style={{position: "absolute", left : "0", top : "0", width: "100%", height: "100%"}}></div></a>
               <h1>Resources</h1>
               <div class="home_yellow"></div>
-              <p style={{"fontWeight" : "bold", textDecoration : "underline"}}>Resources</p>
+              <p style={{"fontWeight" : "bold", textDecoration : "underline"}}>Refer</p>
               <p style={{"fontWeight" : "bold", textDecoration : "underline", position : "relative"}}>
                 <a href="/resources?id=0"><div style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div></a>
                 Victim Services
@@ -1939,7 +1939,7 @@ class App extends Component {
             <a href="/report"><div style={{position: "absolute", left : "0", top : "0", width: "100%", height: "100%"}}></div></a>
             <h1>Resources</h1>
             <p>
-              <span style={{textDecoration : "underline"}}>Resources</span>&nbsp;and&nbsp;
+              <span style={{textDecoration : "underline"}}>Refer</span>&nbsp;and&nbsp;
               <span style={{textDecoration : "underline", position : "relative"}}>
                 <a href="/resources?id=0"><div style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div></a>
                 Victim Services
