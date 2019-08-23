@@ -46,7 +46,6 @@ class App extends Component {
      qcategory: 1,
      qcategory_old: 1,
      question: [],
-     answerOptions: [],
      Answer: new Array(14).fill(''),
      assessedCategories: [0],
      oneRegYes: -1,
@@ -70,18 +69,19 @@ class App extends Component {
     this.evaluateNow = this.evaluateNow.bind(this);
     this._onAssessClick = this._onAssessClick.bind(this);
     this._onPrepareClick = this._onPrepareClick.bind(this);
+    this._onHomeClick = this._onHomeClick.bind(this);
+    this._onResourcesClick = this._onResourcesClick.bind(this);
+    this._onMassClick = this._onMassClick.bind(this);
+    this._onReportClick = this._onReportClick.bind(this);
+    this._onAboutClick = this._onAboutClick.bind(this);
     this.sHarmQuizFunc = this.sHarmQuizFunc.bind(this);
     this.restraintQuizFunc = this.restraintQuizFunc.bind(this);
     this.abuseQuizFunc = this.abuseQuizFunc.bind(this);
     this.identitydocQuizFunc = this.identitydocQuizFunc.bind(this);
     this.extortionQuizFunc = this.extortionQuizFunc.bind(this);
     this.fharmQuizFunc = this.fharmQuizFunc.bind(this);
-    this._onHomeClick = this._onHomeClick.bind(this);
-    this._onResourcesClick = this._onResourcesClick.bind(this);
-    this._onMassClick = this._onMassClick.bind(this);
-    this._onReportClick = this._onReportClick.bind(this);
-    this._onAboutClick = this._onAboutClick.bind(this);
     this.downloadPdf = this.downloadPdf.bind(this);
+    this.nextAssessmentCategory = this.nextAssessmentCategory.bind(this);
     this.handleResourcesClick = this.handleResourcesClick.bind(this);
     this.renderQuestions = this.renderQuestions.bind(this);
     this.renderMassStatute = this.renderMassStatute.bind(this);
@@ -209,6 +209,30 @@ class App extends Component {
     }
   }
 
+  nextAssessmentCategory(){
+    this.getResults();
+    switch(this.state.qcategory){
+      case 1:
+        this.restraintQuizFunc();
+        break;
+      case 2:
+        this.abuseQuizFunc();
+        break;
+      case 3:
+        this.identitydocQuizFunc();
+        break;
+      case 4:
+        this.extortionQuizFunc();
+        break;
+      case 5:
+        this.fharmQuizFunc();
+        break;
+      case 6:
+        this.evaluateNow();
+        break;
+    }
+  }
+
   handleAnswerSelected(event) {
     let ul = event.currentTarget.parentElement.parentElement;
     let active = ul.getElementsByClassName('QuizActive');
@@ -251,67 +275,55 @@ class App extends Component {
   }
 
   sHarmQuizFunc() {
-    const shuffledAnswerOptions = SeriousHarmquizQuestions.map((question) => this.shuffleArray(question.answers));
     this.setState({
       page: 4,
       questionId: 1,
       question: SeriousHarmquizQuestions,
-      answerOptions: shuffledAnswerOptions[0],
       qcategory: 1
     });
   }
 
   restraintQuizFunc() {
-    const shuffledAnswerOptions = RestraintquizQuestions.map((question) => this.shuffleArray(question.answers));
     this.setState({
       page: 4,
       questionId: 1,
       question: RestraintquizQuestions,
-      answerOptions: shuffledAnswerOptions[0],
       qcategory: 2
     });
   }
 
   abuseQuizFunc() {
-    const shuffledAnswerOptions = AbuseofLawquizQuestions.map((question) => this.shuffleArray(question.answers));
     this.setState({
       page: 4,
       questionId: 1,
       question: AbuseofLawquizQuestions,
-      answerOptions: shuffledAnswerOptions[0],
       qcategory: 3
     });
   }
 
   identitydocQuizFunc() {
-    const shuffledAnswerOptions = IdentityDocumentsquizQuestions.map((question) => this.shuffleArray(question.answers));
     this.setState({
       page: 4,
       questionId: 1,
       question: IdentityDocumentsquizQuestions,
-      answerOptions: shuffledAnswerOptions[0],
       qcategory: 4
     });
   }
 
   extortionQuizFunc() {
-    const shuffledAnswerOptions = ExtortionquizQuestions.map((question) => this.shuffleArray(question.answers));
     this.setState({
       page: 4,
       questionId: 1,
       question: ExtortionquizQuestions,
-      answerOptions: shuffledAnswerOptions[0],
       qcategory: 5
     });
   }
 
   fharmQuizFunc() {
-    const shuffledAnswerOptions = FinancialHarmquizQuestions.map((question) => this.shuffleArray(question.answers));
     this.setState({
       page: 4,
       questionId: 1,
       question: FinancialHarmquizQuestions,
-      answerOptions: shuffledAnswerOptions[0],
       qcategory: 6
     });
   }
@@ -1429,9 +1441,16 @@ class App extends Component {
             }).bind(this)()
           }
         </div>
-        <div class="AssessmentButtons" style={{backgroundColor : "#fff", padding: "10px 20px", textAlign : "right"}}>
-          <button class="button1" style={{float : "unset", marginRight : "10px"}} onClick={this.evaluateNow}>Evaluate</button>
-          <a href="/assess"><button class="button3" style={{float : "unset"}}>Categories</button></a>
+        <div class="row AssessmentButtons" style={{backgroundColor : "#fff", padding: "20px 20px", textAlign : "right", paddingTop: "0px"}}>
+          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style={{textAlign: "center", padding: "0"}}>
+            <button class="button1 assessButton" style={{float : "unset"}} onClick={this._onAssessClick}>Back</button>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style={{textAlign: "center", padding: "0"}}>
+            <button class="button3 assessButton" style={{float : "unset"}} onClick={this.evaluateNow}>Evaluate</button>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style={{textAlign: "center", padding: "0"}}>
+            <button class="button1 assessButton" style={{float : "unset"}} onClick={this.nextAssessmentCategory}>Continue</button>
+          </div>
         </div>
       </div>
     );
@@ -1849,7 +1868,7 @@ class App extends Component {
                     }
                   })()}
                   <div style={{paddingTop: "20px"}} class="header">
-                    <p>Refer &amp; Find Victim Services</p>
+                    <p>Refer to Law Enforcement or Find Victim Services</p>
                   </div>
                   <Result quizResult={this.state.result} />
                   <div class="actions">
@@ -1939,10 +1958,10 @@ class App extends Component {
             <a href="/report"><div style={{position: "absolute", left : "0", top : "0", width: "100%", height: "100%"}}></div></a>
             <h1>Resources</h1>
             <p>
-              <span style={{textDecoration : "underline"}}>Refer</span>&nbsp;and&nbsp;
+              <span style={{textDecoration : "underline"}}>Refer to Law Enforcement</span>&nbsp;or&nbsp;
               <span style={{textDecoration : "underline", position : "relative"}}>
                 <a href="/resources?id=0"><div style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div></a>
-                Victim Services
+                Find Victim Services
               </span>
             </p>
           </button>

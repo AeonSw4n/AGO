@@ -11,8 +11,8 @@ function ReturnText(answer) {
 		/* No traits in all categories */
 		case 'unclear-all':
 			return (
-				<p class="alertText" style={{'text-align':'center'}}>Unclear if this is labor trafficking, but other crimes may be implicated.  If this is an emergency, call <span style={{fontWeight: "bold"}}>911</span>. If this is a non-emergency, consider calling the Fair Labor Division Hotline at <span style={{fontWeight: "bold"}}>617-727-3465</span> or filing a wage complaint at
-					<span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="https://www.mass.gov/ago/fld ">www.mass.gov/ago/fld</a></span>, or send an email to:
+				<p class="alertText" style={{'text-align':'center'}}>Unclear if this is labor trafficking, but other crimes may be implicated.  If this is an emergency, call <span style={{fontWeight: "bold"}}>911</span>. If this is a non-emergency, consider calling the Fair Labor Division Hotline at <span style={{fontWeight: "bold"}}>617-727-3465</span> or filing a wage complaint at&nbsp;
+					<span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="https://www.mass.gov/ago/fld ">www.mass.gov/ago/fld</a></span>, or send an email to:&nbsp;
 					<span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="mailto:labortrafficking@mass.gov">labortrafficking@mass.gov.</a></span>
 				</p>
 			);
@@ -33,7 +33,7 @@ function ReturnText(answer) {
 			);
 		case 'fharm':
 			return (
-				<p class="alertText" style={{'text-align':'center'}}>Potential signs of labor trafficking but need more information; consider evaluating more categories or filing a wage complaint with the AGO FLD at:
+				<p class="alertText" style={{'text-align':'center'}}>Potential signs of labor trafficking but need more information; consider evaluating more categories or filing a wage complaint with the AGO FLD at:&nbsp;
 					<span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a href="https://www.mass.gov/ago/fld">www.mass.gov/ago/fld.</a></span>
 				</p>
 			)
