@@ -1459,12 +1459,14 @@ class App extends Component {
   renderHarmQuiz() {
     return (
       <div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
+        {/*style={{borderBottom : "1px solid #EAEAEA"}}*/}
+        <div class="App hidden-md hidden-lg" >
           <p class="pageTitle">Assess</p>
           <p class="Head">Question: Serious Harm</p>
           <p class="regularText" style={{"fontWeight" : "bold"}}>Causes or threatens to cause serious harm to any person</p>
         </div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
+        {/*style={{borderBottom : "1px solid #EAEAEA"}}*/}
+        <div class="App hidden-xs hidden-sm" >
           <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
             <p class="pageTitle">Assess</p>
             <p class="Head">Question: Serious Harm</p>
@@ -1523,12 +1525,14 @@ class App extends Component {
   renderRestraintQuiz() {
     return (
       <div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
+        {/*style={{borderBottom : "1px solid #EAEAEA"}}*/}
+        <div class="App hidden-md hidden-lg" >
           <p class="pageTitle">Assess</p>
           <p class="Head">Question: Physical Restraint</p>
           <p class="regularText" style={{"fontWeight" : "bold"}}>Physically restrains or threatens to physically restrain another person	</p>
         </div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
+        {/*style={{borderBottom : "1px solid #EAEAEA"}}*/}
+        <div class="App hidden-xs hidden-sm" >
           <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
             <p class="pageTitle">Assess</p>
             <p class="Head">Question: Physical Restraint</p>
@@ -1575,12 +1579,14 @@ class App extends Component {
   renderAbuseQuiz() {
     return (
       <div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
+        {/*style={{borderBottom : "1px solid #EAEAEA"}}*/}
+        <div class="App hidden-md hidden-lg" >
           <p class="pageTitle">Assess</p>
           <p class="Head">Question: Abuse of the Law</p>
           <p class="regularText" style={{"fontWeight" : "bold"}}>Abuses or threatens to abuse the law or legal process	</p>
         </div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
+        {/*style={{borderBottom : "1px solid #EAEAEA"}}*/}
+        <div class="App hidden-xs hidden-sm" >
           <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
             <p class="pageTitle">Assess</p>
             <p class="Head">Question: Abuse of the Law</p>
@@ -1639,12 +1645,14 @@ class App extends Component {
   renderIdentityQuiz() {
     return (
       <div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
+        {/*style={{borderBottom : "1px solid #EAEAEA"}}*/}
+        <div class="App hidden-md hidden-lg" >
           <p class="pageTitle">Assess</p>
           <p class="Head">Question: Identity Documents</p>
           <p class="regularText" style={{"fontWeight" : "bold"}}>Knowingly destroys, conceals, removes, confiscates or possesses any actual or purported passport or other immigration document, or any other actual or purported government identification document, of another person.</p>
         </div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
+        {/*style={{borderBottom : "1px solid #EAEAEA"}}*/}
+        <div class="App hidden-xs hidden-sm" >
           <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
             <p class="pageTitle">Assess</p>
             <p class="Head">Question: Identity Documents</p>
@@ -1695,12 +1703,14 @@ class App extends Component {
   renderExtortionQuiz() {
     return (
       <div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
+        {/*style={{borderBottom : "1px solid #EAEAEA"}}*/}
+        <div class="App hidden-md hidden-lg" >
           <p class="pageTitle">Assess</p>
           <p class="Head">Question: Extortion</p>
           <p class="regularText" style={{"fontWeight" : "bold"}}>Engages in extortion under Massachusetts law	</p>
         </div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
+        {/*style={{borderBottom : "1px solid #EAEAEA"}}*/}
+        <div class="App hidden-xs hidden-sm" >
           <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
             <p class="pageTitle">Assess</p>
             <p class="Head">Question: Extortion</p>
@@ -1751,12 +1761,14 @@ class App extends Component {
   renderfHarmQuiz() {
     return (
       <div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-md hidden-lg" >
+        {/*style={{borderBottom : "1px solid #EAEAEA"}}*/}
+        <div class="App hidden-md hidden-lg" >
           <p class="pageTitle">Assess</p>
           <p class="Head">Question: Financial Harm</p>
           <p class="regularText" style={{"fontWeight" : "bold"}}>Causes or threatens to cause financial harm to any person</p>
         </div>
-        <div style={{borderBottom : "1px solid #EAEAEA"}} class="App hidden-xs hidden-sm" >
+        {/*style={{borderBottom : "1px solid #EAEAEA"}}*/}
+        <div class="App hidden-xs hidden-sm" >
           <div class="homeContainer" style={{"paddingBottom" : "30px"}}>
             <p class="pageTitle">Assess</p>
             <p class="Head">Question: Financial Harm</p>
@@ -1871,11 +1883,12 @@ class App extends Component {
                     <p>Refer to Law Enforcement or Find Victim Services</p>
                   </div>
                   <Result quizResult={this.state.result} />
-                  <div class="actions">
-                    <div>
+                  <div class="actions" style={{textAlign: "center"}}>
+                    <button onClick={this._onAssessClick} className="button1" style={{float : "unset"}}>Re-evaluate</button>
+                    {/*<div>
                       <a href="/report"><button className="button1" style={{float : "unset", marginRight: "10px"}}>Refer</button></a>
                       <a href="/resources?id=0"><button className="button3" style={{float : "unset"}}>Victim Services</button></a>
-                    </div>
+                    </div>*/}
                   </div>
                   <br/>
                 </div>
@@ -1957,7 +1970,14 @@ class App extends Component {
           <button class="button4">
             <a href="/report"><div style={{position: "absolute", left : "0", top : "0", width: "100%", height: "100%"}}></div></a>
             <h1>Resources</h1>
-            <p>
+            <p class="hidden-sm hidden-md hidden-lg">
+              <span style={{textDecoration : "underline"}}>Refer to Law Enforcement</span>&nbsp;or&nbsp;<br/>
+              <span style={{textDecoration : "underline", position : "relative"}}>
+                <a href="/resources?id=0"><div style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div></a>
+                Find Victim Services
+              </span>
+            </p>
+            <p class="hidden-xs hidden-md hidden-lg">
               <span style={{textDecoration : "underline"}}>Refer to Law Enforcement</span>&nbsp;or&nbsp;
               <span style={{textDecoration : "underline", position : "relative"}}>
                 <a href="/resources?id=0"><div style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div></a>
