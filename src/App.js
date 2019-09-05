@@ -34,7 +34,7 @@ import NormalText from './structures/normalText';
 import QuestionBox from './structures/questionBox';
 import AssessmentBox from './structures/assessmentBox';
 import Expandable from './structures/expandable';
-import AssessmentPDF from './LaborTraffickingAssessment.pdf';
+import AssessmentPDF from './LaborTraffickingAssessmentDoc.pdf';
 
 class App extends Component {
 
@@ -211,6 +211,7 @@ class App extends Component {
 
   nextAssessmentCategory(){
     this.getResults();
+    this.setState({Answer: new Array(14).fill('')});
     switch(this.state.qcategory){
       case 1:
         this.restraintQuizFunc();
