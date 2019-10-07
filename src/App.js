@@ -88,6 +88,8 @@ class App extends Component {
     this.renderReport = this.renderReport.bind(this);
     this.renderFederalIntro = this.renderFederalIntro.bind(this);
     this.renderAbout = this.renderAbout.bind(this);
+    this.renderResourcesHome = this.renderResourcesHome.bind(this);
+    this._onResourcesHomeClick = this._onResourcesHomeClick.bind(this);
 
   }
 
@@ -400,6 +402,13 @@ class App extends Component {
     })
   }
 
+  _onResourcesHomeClick(){
+    this.setState({
+      page: 10,
+      mobileMenu: false,
+    })
+  }
+
 
   handleMenuClick() {
     this.setState({
@@ -484,6 +493,8 @@ class App extends Component {
                 <h2 style={{fontWeight:"normal"}}>In-person interpretation is preferable.</h2>
                 <h2 style={{fontWeight:"normal"}}>Before the interview, screen your interpreter to make sure he or she is not involved in the case and does not have connections to the suspect. Often, ethnic communities can be small, and it is essential that the interpreter has no relationship with the suspect and understands the importance of confidentiality.</h2>
                 <h2 style={{fontWeight:"normal"}}>Understand that there may be stigma and subtle cultural considerations that can affect the victim’s disclosures to interpreters. For example, a victim may not feel comfortable disclosing a sexual assault in front of someone from his or her same ethnicity, fearing stigma or blame.</h2>
+                <h1 style={{fontWeight:"bold", marginBottom: "5px"}}>Consult with your office about what interpretation resources may be available to you.</h1>
+                <h2 style={{fontWeight:"normal"}}>You may consider contracting with a court certified interpreter from the <span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a target="_blank" href="https://www.mass.gov/orgs/office-of-court-interpreter-services">Office of Court Interpreter Services (OCIS)</a></span> or contacting the <span style={{fontWeight:"normal", textDecoration: "underline", color : "#11416D"}}><a target="_blank" href="https://www.languageline.com/paid/personal-interpreter-services-gaw?url=https://www.languageline.com/paid/personal-interpreter-services-gaw&ads_adid=48994643020&ads_cmpid=972166319&ads_creative=236070997915&ads_matchtype=p&ads_network=g&ads_targetid=kwd-297628671103&ttv=2&utm_campaign=Personal%20Interpreter%20-%20Brand&utm_medium=ppc&utm_source=adwords&utm_term=language%20line&gclid=Cj0KCQjwiILsBRCGARIsAHKQWLMaVH3_LhGgKUOVMlJhLw0tK0vXS5_NcqQVp4xA9xi333IKrg4bnCEaAvEHEALw_wcB">Language Line</a></span> for phone interpretation if no in-person interpreter is available.</h2>
               </div>
             )} />
           )} />
@@ -633,7 +644,9 @@ class App extends Component {
 
   renderResources() {
     let blueBoxContainer = "prepareBlueBoxContainer blueBoxLeft";
+    let blueBoxContainerOrganizations = "prepareBlueBoxContainer";
     let blueBox = "prepareBlueBox";
+    let blueBoxOrganizations = "immigrationUl prepareBlueBox";
     let qClass = "immigrationQ";
 
     function menuClass(id){
@@ -801,6 +814,168 @@ class App extends Component {
                     </div>
                   )} />
                   <br />
+                  <QuestionBox qClass={qClass} title={<h1>Legal Service Organizations</h1>} html={(
+                    <div>
+                      <BlueBox blueBoxContainer={blueBoxContainerOrganizations} blueBox={blueBox} html={(
+                        <div>
+                          <h1 style={{fontWeight:"bold"}}>Ascentria Care Alliance</h1>
+                          <h2 style={{fontWeight:"normal"}}>Worcester, MA</h2>
+                          <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(774) 243-3041</span></h2>
+                          <h2 style={{fontWeight:"normal"}}>Emergency Cell: <span style={{textDecoration : "underline"}}>(774) 437-3237</span></h2>
+                          <h2 style={{fontWeight:"bold"}}>Geographic Limitations:</h2>
+                          <h2 style={{fontWeight:"normal"}}>Can accept cases involving Central Massachusetts residents under 187.5% of the poverty guidelines.</h2>
+                        </div>
+                      )} />
+                      <BlueBox blueBoxContainer={blueBoxContainerOrganizations} blueBox={blueBox} html={(
+                        <div>
+                          <h1 style={{fontWeight:"bold"}}>Boston University School of Law Immigrants’ Rights and Human Trafficking Program</h1>
+                          <h2 style={{fontWeight:"normal"}}>Boston, MA</h2>
+                          <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 353-2807</span></h2>
+                          <h2 style={{fontWeight:"normal"}}>Email: <span style={{textDecoration : "underline"}}>Jadahl@bu.edu</span></h2>
+                          <h2 style={{fontWeight:"bold"}}>Geographic Limitations:</h2>
+                          <h2 style={{fontWeight:"normal"}}>Can accept cases involving Massachusetts residents under 187.5% of the poverty guidelines.</h2>
+                        </div>
+                      )} />
+                    </div>
+                  )} />
+                  <QuestionBox qClass={qClass} title={<h1>General Immigration Legal Services</h1>} html={(
+                    <div>
+                      <BlueBox blueBoxContainer={blueBoxContainerOrganizations} blueBox={blueBoxOrganizations} html={(
+                        <div>
+                          <h1 style={{fontWeight:"bold"}}>Catholic Charities Refugee and Immigration Services</h1>
+                          <h2 style={{fontWeight:"normal"}}>Boston, MA</h2>
+                          <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 464-8100</span></h2>
+                          <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(617) 464-8150</span></h2>
+                          <ul>
+                            <li>
+                              <h2 style={{fontWeight:"normal"}}>Legal Clinic for advice, referral and forms assistance.</h2>
+                            </li>
+                            <li>
+                              <h2 style={{fontWeight:"normal"}}>Family reunification visas.</h2>
+                            </li>
+                            <li>
+                              <h2 style={{fontWeight:"normal"}}>Immigrant victims of domestic violence and U Visas.</h2>
+                            </li>
+                            <li>
+                              <h2 style={{fontWeight:"normal"}}>Special Immigrant Juveniles.</h2>
+                            </li>
+                            <li>
+                              <h2 style={{fontWeight:"normal"}}>Immigrant victims of human trafficking.</h2>
+                            </li>
+                            <li>
+                              <h2 style={{fontWeight:"normal"}}>Nominal fees charged for representation.</h2>
+                            </li>
+                            <li>
+                              <h2 style={{fontWeight:"normal"}}>Representation dependent upon income.</h2>
+                            </li>
+                          </ul>
+                        </div>
+                      )} />
+                      <BlueBox blueBoxContainer={blueBoxContainerOrganizations} blueBox={blueBoxOrganizations} html={(
+                        <div>
+                          <h1 style={{fontWeight:"bold"}}>Centralwest Justice Center</h1>
+                          <h2 style={{fontWeight:"normal"}}>Worcester, MA</h2>
+                          <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(508) 752-3718</span></h2>
+                          <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(508) 752-5918</span></h2>
+                          <br />
+                          <h2 style={{fontWeight:"normal"}}>Springfield, MA</h2>
+                          <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(413) 781-7814</span></h2>
+                          <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(413) 746-3221</span></h2>
+                          <ul>
+                            <li>
+                              <h2 style={{fontWeight:"normal"}}>Free representation to noncitizens seeking humanitarian immigration relief, including asylum, relief under the Violence Against Women Act, Special Immigrant Juvenile Status, U visas for crime victims, and T visas for trafficking victims.</h2>
+                            </li>
+                            <li>
+                              <h2 style={{fontWeight:"normal"}}>Services available only to low-income residents of Central and Western Massachusetts (Berkshire, Franklin, Hampden, Hampshire, and Worcester Counties).</h2>
+                            </li>
+                          </ul>
+                        </div>
+                      )} />
+                      <BlueBox blueBoxContainer={blueBoxContainerOrganizations} blueBox={blueBoxOrganizations} html={(
+                        <div>
+                          <h1 style={{fontWeight:"bold"}}>De Novo</h1>
+                          <h2 style={{fontWeight:"normal"}}>Cambridge, MA</h2>
+                          <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 661-1010</span></h2>
+                          <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(617) 661-1011</span></h2>
+                          <ul>
+                            <li>
+                              <h2 style={{fontWeight:"normal"}}>Represents noncitizens in asylum proceedings and victims of domestic violence seeking lawful permanent residence.</h2>
+                            </li>
+                          </ul>
+                        </div>
+                      )} />
+                      <BlueBox blueBoxContainer={blueBoxContainerOrganizations} blueBox={blueBoxOrganizations} html={(
+                        <div>
+                          <h1 style={{fontWeight:"bold"}}>Greater Boston Legal Services</h1>
+                          <h2 style={{fontWeight:"normal"}}>Boston, MA</h2>
+                          <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 371-1234</span></h2>
+                          <ul>
+                            <li>
+                              <h2 style={{fontWeight:"normal"}}>Represents noncitizens in Asylum proceedings.</h2>
+                            </li>
+                            <li>
+                              <h2 style={{fontWeight:"normal"}}>Representation dependent upon noncitizens meeting income guidelines.</h2>
+                            </li>
+                            <li>
+                              <h2 style={{fontWeight:"normal"}}>Walk in services 9:30 am - 3 pm (Mon. - Thurs).</h2>
+                            </li>
+                          </ul>
+                        </div>
+                      )} />
+                      <BlueBox blueBoxContainer={blueBoxContainerOrganizations} blueBox={blueBoxOrganizations} html={(
+                        <div>
+                          <h1 style={{fontWeight:"bold"}}>Kids in Need of Defense (KIND)</h1>
+                          <h2 style={{fontWeight:"normal"}}>Boston, MA</h2>
+                          <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 207-4138</span></h2>
+                          <ul>
+                            <li>
+                              <h2 style={{fontWeight:"normal"}}>Serves victims under age 18 only</h2>
+                            </li>
+                          </ul>
+                        </div>
+                      )} />
+                      <BlueBox blueBoxContainer={blueBoxContainerOrganizations} blueBox={blueBoxOrganizations} html={(
+                        <div>
+                          <h1 style={{fontWeight:"bold"}}>Political Asylum/Immigration Representation Project (PAIR)</h1>
+                          <h2 style={{fontWeight:"normal"}}>Boston, MA</h2>
+                          <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 742-9296</span></h2>
+                          <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(617) 742-9385</span></h2>
+                          <ul>
+                            <li>
+                              <h2 style={{fontWeight:"normal"}}>Represents asylum applicants.</h2>
+                            </li>
+                            <li>
+                              <h2 style={{fontWeight:"normal"}}>Represents detained persons on a limited basis.</h2>
+                            </li>
+                            <li>
+                              <h2 style={{fontWeight:"normal"}}>Conducts Know Your Rights presentation for persons detained in the Suffolk County House of Corrections, the Bristol County Jail & House of Corrections, and Plymouth County Correctional Facility.</h2>
+                            </li>
+                            <li>
+                              <h2 style={{fontWeight:"normal"}}>Conducts phone intake for detainees and families of detainees from 1-3 pm, M-Th. Clients must meet low-income guidelines for representation.</h2>
+                            </li>
+                          </ul>
+                        </div>
+                      )} />
+                      <BlueBox blueBoxContainer={blueBoxContainerOrganizations} blueBox={blueBoxOrganizations} html={(
+                        <div>
+                          <h1 style={{fontWeight:"bold"}}>University of Massachusetts School of Law Dartmouth Immigration Law Clinic</h1>
+                          <h2 style={{fontWeight:"normal"}}>Dartmouth, MA</h2>
+                          <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(508) 985-1174</span></h2>
+                          <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(508) 985-1136</span></h2>
+                          <ul>
+                            <li>
+                              <h2 style={{fontWeight:"normal"}}>Eligibility is based on income. Interpreters provided upon request. Inquiries are accepted by telephone or mail.</h2>
+                            </li>
+                            <li>
+                              <h2 style={{fontWeight:"normal"}}>Limited representation is available during May to August.</h2>
+                            </li>
+                          </ul>
+                        </div>
+                      )} />
+                    </div>
+                  )} />
+
+                  <br />
                   <div class="massTitle hidden-xs hidden-sm">
                     <p>Immigration Protection for Immigrant Victims of Human Trafficking</p>
                   </div>
@@ -910,169 +1085,17 @@ class App extends Component {
                     )} />
                   )} />
                   <br />
-                  <NormalText html={(
+                  {/*<NormalText html={(
                     <div>
                       <h2 style={{fontWeight:"bold"}}>These organizations provide specialized legal services to trafficking survivors:</h2>
                     </div>
-                  )} />
-                  <BlueBox html={(
-                    <div>
-                      <h2 style={{fontWeight:"normal"}}>Worcester, MA</h2>
-                      <h1 style={{fontWeight:"bold"}}>Ascentria Care Alliance</h1>
-                      <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(774) 243-3041</span></h2>
-                      <h2 style={{fontWeight:"normal"}}>Emergency Cell: <span style={{textDecoration : "underline"}}>(774) 437-3237</span></h2>
-                      <h2 style={{fontWeight:"bold"}}>Geographic Limitations:</h2>
-                      <h2 style={{fontWeight:"normal"}}>Can accept cases involving Central Massachusetts residents under 187.5% of the poverty guidelines.</h2>
-                    </div>
-                  )} />
-                  <BlueBox html={(
-                    <div>
-                      <h2 style={{fontWeight:"normal"}}>Boston, MA</h2>
-                      <h1 style={{fontWeight:"bold"}}>Boston University School of Law Immigrants’ Rights and Human Trafficking Program</h1>
-                      <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 353-2807</span></h2>
-                      <h2 style={{fontWeight:"normal"}}>Email: <span style={{textDecoration : "underline"}}>Jadahl@bu.edu</span></h2>
-                      <h2 style={{fontWeight:"bold"}}>Geographic Limitations:</h2>
-                      <h2 style={{fontWeight:"normal"}}>Can accept cases involving Massachusetts residents under 187.5% of the poverty guidelines.</h2>
-                    </div>
-                  )} />
-                  <br />
-                  <NormalText html={(
+                  )} /> */}
+
+                  {/* <NormalText html={(
                     <div>
                       <h2 style={{fontWeight:"bold"}}>The following organizations provide general immigration legal services to income-eligible Massachusetts residents:</h2>
                     </div>
-                  )} />
-                  <BlueBox blueBox={"immigrationUl"} html={(
-                    <div>
-                      <h2 style={{fontWeight:"normal"}}>Boston, MA</h2>
-                      <h1 style={{fontWeight:"bold"}}>Catholic Charities Refugee and Immigration Services</h1>
-                      <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 464-8100</span></h2>
-                      <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(617) 464-8150</span></h2>
-                      <ul>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}>Legal Clinic for advice, referral and forms assistance.</h2>
-                        </li>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}>Family reunification visas.</h2>
-                        </li>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}>Immigrant victims of domestic violence and U Visas.</h2>
-                        </li>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}>Special Immigrant Juveniles.</h2>
-                        </li>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}>Immigrant victims of human trafficking.</h2>
-                        </li>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}>Nominal fees charged for representation.</h2>
-                        </li>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}>Representation dependent upon income.</h2>
-                        </li>
-                      </ul>
-                    </div>
-                  )} />
-                  <BlueBox blueBox={"immigrationUl"} html={(
-                    <div>
-                      <h2 style={{fontWeight:"normal"}}>Worcester, MA</h2>
-                      <h1 style={{fontWeight:"bold"}}>Centralwest Justice Center</h1>
-                      <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(508) 752-3718</span></h2>
-                      <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(508) 752-5918</span></h2>
-                      <br />
-                      <h2 style={{fontWeight:"normal"}}>Springfield, MA</h2>
-                      <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(413) 781-7814</span></h2>
-                      <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(413) 746-3221</span></h2>
-                      <ul>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}>Free representation to noncitizens seeking humanitarian immigration relief, including asylum, relief under the Violence Against Women Act, Special Immigrant Juvenile Status, U visas for crime victims, and T visas for trafficking victims.</h2>
-                        </li>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}>Services available only to low-income residents of Central and Western Massachusetts (Berkshire, Franklin, Hampden, Hampshire, and Worcester Counties).</h2>
-                        </li>
-                      </ul>
-                    </div>
-                  )} />
-                  <BlueBox blueBox={"immigrationUl"} html={(
-                    <div>
-                      <h2 style={{fontWeight:"normal"}}>Boston, MA</h2>
-                      <h1 style={{fontWeight:"bold"}}>Political Asylum/Immigration Representation Project (PAIR)</h1>
-                      <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 742-9296</span></h2>
-                      <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(617) 742-9385</span></h2>
-                      <ul>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}>Represents asylum applicants.</h2>
-                        </li>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}>Represents detained persons on a limited basis.</h2>
-                        </li>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}>Conducts Know Your Rights presentation for persons detained in the Suffolk County House of Corrections, the Bristol County Jail & House of Corrections, and Plymouth County Correctional Facility.</h2>
-                        </li>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}>Conducts phone intake for detainees and families of detainees from 1-3 pm, M-Th. Clients must meet low-income guidelines for representation.</h2>
-                        </li>
-                      </ul>
-                    </div>
-                  )} />
-                  <BlueBox blueBox={"immigrationUl"} html={(
-                    <div>
-                      <h2 style={{fontWeight:"normal"}}>Cambridge, MA</h2>
-                      <h1 style={{fontWeight:"bold"}}>De Novo</h1>
-                      <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 661-1010</span></h2>
-                      <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(617) 661-1011</span></h2>
-                      <ul>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}>Represents noncitizens in asylum proceedings and victims of domestic violence seeking lawful permanent residence.</h2>
-                        </li>
-                      </ul>
-                    </div>
-                  )} />
-                  <BlueBox blueBox={"immigrationUl"} html={(
-                    <div>
-                      <h2 style={{fontWeight:"normal"}}>Boston, MA</h2>
-                      <h1 style={{fontWeight:"bold"}}>Kids in Need of Defense (KIND)</h1>
-                      <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 207-4138</span></h2>
-                      <ul>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}>Serves victims under age 18 only</h2>
-                        </li>
-                      </ul>
-                    </div>
-                  )} />
-                  <BlueBox blueBox={"immigrationUl"} html={(
-                    <div>
-                      <h2 style={{fontWeight:"normal"}}>Boston, MA</h2>
-                      <h1 style={{fontWeight:"bold"}}>Greater Boston Legal Services</h1>
-                      <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(617) 371-1234</span></h2>
-                      <ul>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}>Represents noncitizens in Asylum proceedings.</h2>
-                        </li>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}>Representation dependent upon noncitizens meeting income guidelines.</h2>
-                        </li>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}>Walk in services 9:30 am - 3 pm (Mon. - Thurs).</h2>
-                        </li>
-                      </ul>
-                    </div>
-                  )} />
-                  <BlueBox blueBox={"immigrationUl"} html={(
-                    <div>
-                      <h2 style={{fontWeight:"normal"}}>Dartmouth, MA</h2>
-                      <h1 style={{fontWeight:"bold"}}>University of Massachusetts School of Law Dartmouth Immigration Law Clinic</h1>
-                      <h2 style={{fontWeight:"normal"}}>Tel.: <span style={{textDecoration : "underline"}}>(508) 985-1174</span></h2>
-                      <h2 style={{fontWeight:"normal"}}>Fax: <span style={{textDecoration : "underline"}}>(508) 985-1136</span></h2>
-                      <ul>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}>Eligibility is based on income. Interpreters provided upon request. Inquiries are accepted by telephone or mail.</h2>
-                        </li>
-                        <li>
-                          <h2 style={{fontWeight:"normal"}}>Limited representation is available during May to August.</h2>
-                        </li>
-                      </ul>
-                    </div>
-                  )} />
+                  )} /> */}
                   <br /><br />
                 </div>
               );
@@ -1945,10 +1968,14 @@ class App extends Component {
           <br class="HomeBR" />
           <button class="button4">
             <div class="b4_container">
-              <a href="/report"><div style={{position: "absolute", left : "0", top : "0", width: "100%", height: "100%"}}></div></a>
+              <a href="/resourcesHome"><div style={{position: "absolute", left : "0", top : "0", width: "100%", height: "100%"}}></div></a>
               <h1>Resources</h1>
               <div class="home_yellow"></div>
-              <p style={{"fontWeight" : "bold", textDecoration : "underline"}}>Refer</p>
+              <p style={{"fontWeight" : "bold", textDecoration : "underline", position: "relative"}}>
+                <a href="/report"><div style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div></a>
+                Refer
+              </p>
+
               <p style={{"fontWeight" : "bold", textDecoration : "underline", position : "relative"}}>
                 <a href="/resources?id=0"><div style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div></a>
                 Victim Services
@@ -1969,17 +1996,23 @@ class App extends Component {
           <a href="/prepare"><button class="button4"><h1>Prepare</h1><p>Tips for interviewing victims</p></button></a>
           <a href="/assess"><button class="button4"><h1>Assess</h1><p>Is it trafficking?</p></button></a>
           <button class="button4">
-            <a href="/report"><div style={{position: "absolute", left : "0", top : "0", width: "100%", height: "100%"}}></div></a>
+            <a href="/resourcesHome"><div style={{position: "absolute", left : "0", top : "0", width: "100%", height: "100%"}}></div></a>
             <h1>Resources</h1>
             <p class="hidden-sm hidden-md hidden-lg">
-              <span style={{textDecoration : "underline"}}>Refer to Law Enforcement</span>&nbsp;or&nbsp;<br/>
+              <span style={{textDecoration : "underline", position : "relative"}}>
+                <a href="/report"><div style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div></a>
+                Refer to Law Enforcement
+              </span>&nbsp;or&nbsp;<br/>
               <span style={{textDecoration : "underline", position : "relative"}}>
                 <a href="/resources?id=0"><div style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div></a>
                 Find Victim Services
               </span>
             </p>
             <p class="hidden-xs hidden-md hidden-lg">
-              <span style={{textDecoration : "underline"}}>Refer to Law Enforcement</span>&nbsp;or&nbsp;
+              <span style={{textDecoration : "underline", position : "relative"}}>
+                <a href="/report"><div style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div></a>
+                Refer to Law Enforcement
+              </span>&nbsp;or&nbsp;
               <span style={{textDecoration : "underline", position : "relative"}}>
                 <a href="/resources?id=0"><div style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div></a>
                 Find Victim Services
@@ -1987,6 +2020,54 @@ class App extends Component {
             </p>
           </button>
           <a href="/statute"><button class="button4"><h1>Massachusetts Law</h1><p>View the Massachusetts labor trafficking statute</p></button></a>
+        </div>
+      </div>
+    );
+  }
+
+  renderResourcesHome() {
+    return (
+      <div>
+        <div class="App hidden-md hidden-lg" >
+          <p class="pageTitle">Resources</p>
+          {/*<p class="Head">Is it trafficking?</p>*/}
+          <p class="HomeHead1">Choose resource</p>
+        </div>
+
+        <div class="App hidden-xs hidden-sm">
+          <div class="homeContainer">
+            <p class="pageTitle">Resources</p>
+            <p class="Head">Choose resource</p>
+          </div>
+        </div>
+
+        <div class="App">
+          <div class="buttonContainer hidden-sm hidden-xs">
+            <a href="/report">
+              <button class="button4">
+                <div class="b4_container">
+                  <h1>Refer</h1>
+                  <div class="home_yellow"></div>
+                  <p style={{"fontWeight" : "bold"}}>Refer to Law Enforcement</p>
+                  <p>Click here to make a referral to law enforcement.</p>
+                </div>
+              </button>
+            </a>
+            <a href="/resources?id=0">
+              <button class="button4">
+                <div class="b4_container">
+                  <h1>Victim Services</h1>
+                  <div class="home_yellow"></div>
+                  <p style={{"fontWeight" : "bold"}}>Find Victim Services</p>
+                  <p>Click here to make a referral to victim services.</p>
+                </div>
+              </button>
+            </a>
+          </div>
+          <div class="buttonContainer hidden-md hidden-lg">
+            <a href="/report"><button class="button4"><h1>Refer</h1><p>Refer to Law Enforcement</p></button></a>
+            <a href="/resources?id=0"><button class="button4"><h1>Victim Services</h1><p>Find Victim Services</p></button></a>
+          </div>
         </div>
       </div>
     );
@@ -2067,6 +2148,7 @@ class App extends Component {
             <Route exact path='/report' render={props => <RouteHandler init={this._onReportClick} render={this.renderReport.bind(this)} /> } />
             <Route exact path='/about' render={props => <RouteHandler init={this._onAboutClick} render={this.renderAbout.bind(this)} /> } />
             <Route exact path='/statute' render={props => <RouteHandler init={this._onMassClick} render={this.renderMassStatute.bind(this)} /> } />
+            <Route exact path='/resourcesHome' render={props => <RouteHandler init={this._onResourcesHomeClick} render={this.renderResourcesHome.bind(this)} /> } />
           </Switch>
         </div>
         {this.renderMobileMenu()}
