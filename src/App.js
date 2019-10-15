@@ -1416,7 +1416,7 @@ class App extends Component {
         <div class="hidden-md hidden-lg lis new-lis"><a href="/prepare" class={this.state.page == 2? ("active") : ("")}>Prepare</a></div>
         <div class="hidden-md hidden-lg lis new-lis"><a href="/assess" class={this.state.page == 3 || this.state.page == 5? ("active") : ("")}>Assess</a></div>
         <div class="lis new-lis"><a href="/resourcesHome" class={this.state.page == 6 || this.state.page == 8? ("active") : ("")}>Resources</a></div>
-        <ul class="hidden-md hidden-lg resources-ul">
+        {/*<ul class="hidden-md hidden-lg resources-ul">
           <a href="/report">
             <li>
               <p style={this.state.page == 8?{textDecoration : "underline"}:{}}>Refer</p>
@@ -1427,7 +1427,7 @@ class App extends Component {
               <p style={this.state.page == 6?{textDecoration : "underline"}:{}}>Victim Services</p>
             </li>
           </a>
-        </ul>
+        </ul>*/}
         <div class="hidden-md hidden-lg lis new-lis"><a href="/statute" class={this.state.page == 7? ("active") : ("")}>MA Law</a></div>
         <div class="hidden-md hidden-lg lis new-lis"><a href="/about" class={this.state.page == 9? ("active") : ("")}>About Us</a></div>
       </div>
@@ -1951,7 +1951,7 @@ class App extends Component {
                 <h1>Prepare</h1>
                 <div class="home_yellow"></div>
                 <p style={{"fontWeight" : "bold"}}>Find tips for interviewing victims</p>
-                <p>What to think about before you interview the victim.</p>
+                {/*<p>What to think about before you interview the victim.</p>*/}
               </div>
             </button>
           </a>
@@ -1961,7 +1961,7 @@ class App extends Component {
                 <h1>Assess</h1>
                 <div class="home_yellow"></div>
                 <p style={{"fontWeight" : "bold"}}>Determine if your case is labor trafficking</p>
-                <p>These questions are designed for investigators to help determine if circumstances rise to the level of labor trafficking under Massachusetts law.</p>
+                {/*<p>These questions are designed for investigators to help determine if circumstances rise to the level of labor trafficking under Massachusetts law.</p>*/}
               </div>
             </button>
           </a>
@@ -1971,7 +1971,8 @@ class App extends Component {
               <a href="/resourcesHome"><div style={{position: "absolute", left : "0", top : "0", width: "100%", height: "100%"}}></div></a>
               <h1>Resources</h1>
               <div class="home_yellow"></div>
-              <p style={{"fontWeight" : "bold", textDecoration : "underline", position: "relative"}}>
+              <p style={{"fontWeight" : "bold"}}>Learn how to refer to law enforcement or find victim services.</p>
+              {/*<p style={{"fontWeight" : "bold", textDecoration : "underline", position: "relative"}}>
                 <a href="/report"><div style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div></a>
                 Refer
               </p>
@@ -1979,7 +1980,7 @@ class App extends Component {
               <p style={{"fontWeight" : "bold", textDecoration : "underline", position : "relative"}}>
                 <a href="/resources?id=0"><div style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div></a>
                 Victim Services
-              </p>
+              </p>*/}
             </div>
           </button>
           <a href="/statute">
@@ -1995,10 +1996,11 @@ class App extends Component {
         <div class="buttonContainer hidden-md hidden-lg">
           <a href="/prepare"><button class="button4"><h1>Prepare</h1><p>Find tips for interviewing victims</p></button></a>
           <a href="/assess"><button class="button4"><h1>Assess</h1><p>Determine if your case is labor trafficking</p></button></a>
-          <button class="button4">
+          <a href="/resourcesHome"><button class="button4"><h1>Resources</h1><p>Learn how to refer to law enforcement or find victim services</p></button></a>
+          {/*<button class="button4">
             <a href="/resourcesHome"><div style={{position: "absolute", left : "0", top : "0", width: "100%", height: "100%"}}></div></a>
             <h1>Resources</h1>
-            <p class="hidden-sm hidden-md hidden-lg">
+            <p class="hidden-md hidden-lg">
               <span style={{textDecoration : "underline", position : "relative"}}>
                 <a href="/report"><div style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div></a>
                 Learn how to refer to law enforcement
@@ -2018,7 +2020,8 @@ class App extends Component {
                 find Victim Services
               </span>
             </p>
-          </button>
+            <p style={{"fontWeight" : "bold"}}>View the Massachusetts labor trafficking statute</p>
+          </button>*/}
           <a href="/statute"><button class="button4"><h1>Massachusetts Law</h1><p>View the Massachusetts labor trafficking statute</p></button></a>
         </div>
       </div>
@@ -2030,8 +2033,8 @@ class App extends Component {
       <div>
         <div class="App hidden-md hidden-lg" >
           <p class="pageTitle">Resources</p>
-          {/*<p class="Head">Determine if your case is labor trafficking</p>*/}
-          <p class="HomeHead1">Choose resource</p>
+          {/*<p class="Head">Learn how to refer to law enforcement or find victim services</p>*/}
+          <p class="HomeHead1">Choose resource.</p>
         </div>
 
         <div class="App hidden-xs hidden-sm">
