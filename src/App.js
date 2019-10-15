@@ -1393,7 +1393,7 @@ class App extends Component {
       <div class="row menu">
         <div class="col-md-2 col-lg-2 lis new-lis"><a href="/prepare" class={this.state.page == 2? ("active") : ("")} >Prepare</a></div>
         <div class="col-md-2 col-lg-2 lis new-lis"><a href="/assess" class={this.state.page == 3 || this.state.page == 5? ("active") : ("")}>Assess</a></div>
-        <div class="col-md-2 col-lg-2 lis new-lis">
+        {/*<div class="col-md-2 col-lg-2 lis new-lis">
           <div class="desktopResources">
             <div style={{"position" : "relative", "height" : "100%", "width" : "100%", "backgroundColor" : "transparent", "left" : "0", "right": "0"}}></div>
             <div style={{"width": "150px", "backgroundColor" : "#14558f", "textAlign" : "left", "color" : "#fff", "padding" : "10px 20px", "marginLeft" : "auto"}}>
@@ -1402,7 +1402,8 @@ class App extends Component {
             </div>
           </div>
           <a href="/report" style={{"border" : "0"}} class={this.state.page == 6 || this.state.page == 8? ("active") : ("")}>Resources</a>
-        </div>
+        </div> */}
+        <div class="col-md-2 col-lg-2 lis new-lis"><a href="/resourcesHome" class={this.state.page == 6 || this.state.page == 8 || this.state.page == 10? ("active") : ("")}>Resources</a></div>
         <div class="col-md-2 col-lg-2 lis new-lis"><a href="/statute" class={this.state.page == 7? ("active") : ("")}>Massachusetts Law</a></div>
         <div class="col-md-2 col-lg-2 lis new-lis"><a href="/about" class={this.state.page == 9? ("active") : ("")}>About Us</a></div>
       </div>
