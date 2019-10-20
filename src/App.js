@@ -1972,7 +1972,7 @@ class App extends Component {
               <a href="/resourcesHome"><div style={{position: "absolute", left : "0", top : "0", width: "100%", height: "100%"}}></div></a>
               <h1>Resources</h1>
               <div class="home_yellow"></div>
-              <p style={{"fontWeight" : "bold"}}>Learn how to refer to law enforcement or find victim services.</p>
+              <p style={{"fontWeight" : "bold"}}>Learn how to refer to law enforcement or find victim services</p>
               {/*<p style={{"fontWeight" : "bold", textDecoration : "underline", position: "relative"}}>
                 <a href="/report"><div style={{position : "absolute", width: "100%", height: "100%", zIndex: "100", left : "0", top : "0"}}></div></a>
                 Refer
@@ -2035,7 +2035,7 @@ class App extends Component {
         <div class="App hidden-md hidden-lg" >
           <p class="pageTitle">Resources</p>
           {/*<p class="Head">Learn how to refer to law enforcement or find victim services</p>*/}
-          <p class="HomeHead1">Choose resource.</p>
+          <p class="Head">Choose resource</p>
         </div>
 
         <div class="App hidden-xs hidden-sm">
